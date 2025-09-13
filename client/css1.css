@@ -27,10 +27,8 @@ body {
     flex-direction: column;
     width: 100%;
     height: auto;
-    margin: 0 10px;
+    margin: 0 auto;
     max-width: 1920px;
-    padding: 0 10px;
-
 }
 
 .nav__top {
@@ -180,7 +178,7 @@ body {
 
 .siteinfo__container {
     height: auto;
-    width: 100%;
+    width: auto;
     max-width: 1920px;
     margin: 0 auto;
     background-color: black;
@@ -204,7 +202,7 @@ body {
 .siteinfo__title {
     padding-top: 70px;
     /* flex-shrink: 0; */
-    min-width: max-content;
+    /* min-width: max-content; */
 
 }
 
@@ -242,7 +240,7 @@ body {
 
     /* chữ đậm */
     /* line-height: 1; */
-    min-width: max-content;
+    /* min-width: max-content; */
     color: gray;
 
     /* khoảng cách dòng */
@@ -297,13 +295,10 @@ body {
     list-style: none;
 }
 
-.option li:nth-child(3) {
-    min-width: max-content;
-}
-
+/* cc */
 .popular__container {
     display: grid;
-    margin: 20px 20px;
+    margin: 0 auto;
     padding: 20px 0;
     /* top,bottom ; left,right */
     border-top: 1px solid black;
@@ -508,8 +503,8 @@ body {
     padding-right: 20px;
     border-top: 1px solid black;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 auto;
+    max-width: 1920px;
 }
 
 .AI__container h3 {
@@ -596,15 +591,16 @@ body {
 }
 
 .topic__container {
+    margin: 0 auto;
+    max-width: 1920px;
     display: grid;
     height: auto;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(1, 1fr);
     padding-top: 20px;
     border-top: 1px solid black;
-    margin-left: 20px;
     font-family: 'Times New Roman', Times, serif;
-    margin-right: 20px;
+
 }
 
 .topic {
@@ -668,6 +664,8 @@ body {
     gap: 0;
     margin-bottom: 20px;
     font-family: 'Times New Roman', Times, serif;
+    margin: 0 auto;
+    max-width: 1920px;
 }
 
 .maintopic__container h1 {
