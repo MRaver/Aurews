@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #fdfdf8;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .comment-section {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .comment-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .social-icons a {
+            color: #333;
+            margin-left: 15px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #d8d8d8;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .comment-bubble {
+            background-color: #808080;
+            /* Màu xám */
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            position: relative;
+            width: 100%;
+        }
+
+        .comment-content .author {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        .comment-content p {
+            margin: 0;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .comment-timestamp {
+            font-size: 12px;
+            color: #d3d3d3;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .comment-form {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .comment-button {
+            background-color: #e3caa3;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="comment-section">
+        <div class="comment-header">
+            <h2>COMMENTS</h2>
+            <div class="social-icons">
+                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fas fa-link"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="comment-list">
+            <div class="comment">
+                <div class="avatar"></div>
+                <div class="comment-bubble">
+                    <div class="comment-content">
+                        <span class="author">John Doe</span>
+                        <p>Amazing good job iem</p>
+                    </div>
+                    <div class="comment-timestamp">12:00, 11-09-2025</div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="avatar"></div>
+                <div class="comment-bubble">
+                    <div class="comment-content">
+                        <span class="author">Jây 97</span>
+                        <p>Thiên lý ơi</p>
+                    </div>
+                    <div class="comment-timestamp">12:00, 11-09-2025</div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="avatar"></div>
+                <div class="comment-bubble">
+                    <div class="comment-content">
+                        <span class="author">Dé Soltuné Montepré</span>
+                        <p>Cet endroit vous a</p>
+                    </div>
+                    <div class="comment-timestamp">12:00, 11-09-2025</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment-form">
+            <button class="comment-button">Leave your comment here</button>
+        </div>
+    </div>
+</body>
+
+</html>
