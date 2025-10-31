@@ -55,6 +55,34 @@
                 </ul>
             </div>
         </nav>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+
+        <!-- Mobile Menu Sidebar -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <a href="#" class="nav__logo">Aurews</a>
+                <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Latest</a></li>
+                <li><a href="#">Business News</a></li>
+                <li><a href="#">Money & Markets</a></li>
+                <li><a href="#">Tech & Innovation</a></li>
+                <li><a href="#">A.I.</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="mobile-menu-footer-item">Languages</div>
+                <div class="mobile-menu-footer-item">Search</div>
+                <div class="mobile-menu-footer-item">Newsletter</div>
+            </div>
+        </div>
     </header>
     <main>
         <div class="container1">
@@ -112,35 +140,7 @@
                 intuitive and engaging reading experience that keeps you informed about the world around you.
             </p>
         </div>
-        </div>
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
 
-        <!-- Mobile Menu Sidebar -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-header">
-                <a href="#" class="nav__logo">Aurews</a>
-                <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Latest</a></li>
-                <li><a href="#">Business News</a></li>
-                <li><a href="#">Money & Markets</a></li>
-                <li><a href="#">Tech & Innovation</a></li>
-                <li><a href="#">A.I.</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Politics</a></li>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Podcast</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-footer">
-                <div class="mobile-menu-footer-item">Languages</div>
-                <div class="mobile-menu-footer-item">Search</div>
-                <div class="mobile-menu-footer-item">Newsletter</div>
-            </div>
-        </div>
     </main>
     <footer>
         <div class="footer__container">
@@ -191,46 +191,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        function toggleMenu() {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const overlay = document.querySelector('.mobile-menu-overlay');
-            const body = document.body;
-
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-
-            // Prevent body scroll when menu is open
-            if (mobileMenu.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = '';
-            }
-        }
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                // Remove active class from all links
-                document.querySelectorAll('.mobile-nav-links a').forEach(l => l.classList.remove('active'));
-                // Add active class to clicked link
-                this.classList.add('active');
-                // Close menu
-                toggleMenu();
-            });
-        });
-
-        // Close menu on ESC key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                const mobileMenu = document.querySelector('.mobile-menu');
-                if (mobileMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
-            }
-        });
-    </script>
+    <script src="/client/assets/js/header.js"></script>
 </body>
 
 </html>
