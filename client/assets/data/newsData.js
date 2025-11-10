@@ -46,7 +46,7 @@ export const newsData = {
             image: "img/news2.jpg"
         },
         {
-            id: 8,
+            id: 33,
             title: "India's women's cricket team makes ODI history",
             description: "Record-breaking chase against Australia marks milestone in women's sports achievements",
             image: "img/news3.jpg"

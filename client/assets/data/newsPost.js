@@ -3,6 +3,8 @@ export const newsPort = [
         id: 1,
         description: "Channing Tatum says he turned down a role in 'Beauty and the Beast' and now views it as his 'biggest mistake'",
         type: 'BUSINESS NEWS',
+        type1: 'Business News',
+        type2: 'Latest',
         author: 'Jason Tatum',
         img: "img/hehe.jpg",
         content: `<p>
@@ -43,6 +45,8 @@ export const newsPort = [
         id: 2,
         description: "The best airline rewards programs, according to point.me",
         type: 'LIFESTYLE',
+        type1: 'Lifestyle',
+        type2: 'Latest',
         author: 'Jennifer Walsh',
         img: "img/popular2.jpg",
         content: `<p>
@@ -71,6 +75,8 @@ export const newsPort = [
         id: 3,
         description: "Who sets mortgage rates and how do they work?",
         type: 'MONEY & MARKETS',
+        type1: 'Money and Markets',
+        type2: 'Latest',
         author: 'David Chen',
         img: "img/money1.jpg",
         content: `<p>
@@ -99,6 +105,8 @@ export const newsPort = [
         id: 4,
         description: "The FAA is reportedly considering changing commercial plane regulations",
         type: 'BUSINESS NEWS',
+        type1: 'Business News',
+        type2: 'Latest',
         author: 'Michael Torres',
         img: "img/business1.jpg",
         content: `<p>
@@ -127,6 +135,8 @@ export const newsPort = [
         id: 5,
         description: "Amazon's shares surge as AI boom drives cloud computing growth",
         type: 'TECHNOLOGY',
+        type1: 'Tech and Innovation',
+        type2: 'Latest',
         author: 'Aroon Deep',
         img: "img/tech-01.jpg",
         content: `<p>
@@ -155,6 +165,7 @@ export const newsPort = [
         id: 6,
         description: "The 5 states with the highest vaccination rates in America",
         type: 'HEALTH',
+        type1: 'Lifestyle',
         author: 'Dr. Sarah Chen',
         img: "img/news1.jpg",
         content: `<p>
@@ -183,6 +194,7 @@ export const newsPort = [
         id: 7,
         description: "In a groundbreaking discovery, scientists have found a way to transform panda skin cells into stem cells",
         type: 'SCIENCE',
+        type1: 'Lifestyle',
         author: 'Dr. Sarah Chen',
         img: "img/news2.jpg",
         content: `<p>
@@ -211,6 +223,7 @@ export const newsPort = [
         id: 8,
         description: "8 places to hike this fall to see foliage",
         type: 'LIFESTYLE',
+        type1: 'Lifestyle',
         author: 'Thomas Anderson',
         img: "img/lifestyle-big.jpg",
         content: `<p>
@@ -242,6 +255,7 @@ export const newsPort = [
         id: 9,
         description: "The 5 cheapest auto repairs to get done before winter",
         type: 'LIFESTYLE',
+        type1: 'Lifestyle',
         author: 'Robert Martinez',
         img: "img/lifestyle1.jpg",
         content: `<p>
@@ -270,6 +284,7 @@ export const newsPort = [
         id: 10,
         description: "Top 10 budget-friendly home renovation ideas for 2024",
         type: 'LIFESTYLE',
+        type1: 'Lifestyle',
         author: 'Amanda Cooper',
         img: "img/lifestyle2.jpg",
         content: `<p>
@@ -301,6 +316,7 @@ export const newsPort = [
         id: 11,
         description: "Wall Street eyes Fed rate cut as job market shows unexpected resilience",
         type: 'MONEY & MARKETS',
+        type1: 'Money and Markets',
         author: 'David Chen',
         img: "img/money1.jpg",
         content: `<p>
@@ -329,6 +345,7 @@ export const newsPort = [
         id: 12,
         description: "Cryptocurrency markets rebound after regulatory clarity from SEC",
         type: 'MONEY & MARKETS',
+        type1: 'Money and Markets',
         author: 'Alex Thompson',
         img: "img/money2.jpg",
         content: `<p>
@@ -360,6 +377,7 @@ export const newsPort = [
         id: 13,
         description: "Housing market cools as mortgage rates hit 18-month high",
         type: 'MONEY & MARKETS',
+        type1: 'Money and Markets',
         author: 'Maria Gonzalez',
         img: "img/money3.jpg",
         content: `<p>
@@ -391,6 +409,7 @@ export const newsPort = [
         id: 14,
         description: "Apple announces major AI integration across all devices",
         type: 'TECHNOLOGY',
+        type1: 'Tech and Innovation',
         author: 'Alex Kim',
         img: "img/tech1.jpg",
         content: `<p>
@@ -422,6 +441,7 @@ export const newsPort = [
         id: 15,
         description: "Quantum computing breakthrough promises to revolutionize encryption",
         type: 'TECHNOLOGY',
+        type1: 'Tech and Innovation',
         author: 'Dr. Rachel Foster',
         img: "img/tech2.jpg",
         content: `<p>
@@ -453,6 +473,7 @@ export const newsPort = [
         id: 16,
         description: "Tesla unveils new autonomous driving features in latest software update",
         type: 'TECHNOLOGY',
+        type1: 'Tech and Innovation',
         author: 'James Wilson',
         img: "img/tech3.jpg",
         content: `<p>
@@ -484,6 +505,7 @@ export const newsPort = [
         id: 17,
         description: "Major retail chains announce massive expansion plans for holiday season",
         type: 'BUSINESS NEWS',
+        type1: 'Business News',
         author: 'Sarah Johnson',
         img: "img/business1.jpg",
         content: `<p>
@@ -512,6 +534,7 @@ export const newsPort = [
         id: 18,
         description: "Supply chain disruptions ease as global shipping rates normalize",
         type: 'BUSINESS NEWS',
+        type1: 'Business News',
         author: 'Robert Chang',
         img: "img/business2.jpg",
         content: `<p>
@@ -540,6 +563,7 @@ export const newsPort = [
         id: 19,
         description: "Small businesses report strong growth despite economic headwinds",
         type: 'BUSINESS NEWS',
+        type1: 'Business News',
         author: 'Linda Martinez',
         img: "img/business3.jpg",
         content: `<p>
@@ -571,6 +595,7 @@ export const newsPort = [
         id: 20,
         description: "Senate passes bipartisan infrastructure bill with overwhelming support",
         type: 'POLITICS',
+        type1: 'Politics',
         author: 'Daniel Foster',
         img: "img/politics1.jpg",
         content: `<p>
@@ -602,6 +627,7 @@ export const newsPort = [
         id: 21,
         description: "Voter turnout reaches record high in special elections nationwide",
         type: 'POLITICS',
+        type1: 'Politics',
         author: 'Michael Stevens',
         img: "img/politics2.jpg",
         content: `<p>
@@ -633,6 +659,7 @@ export const newsPort = [
         id: 22,
         description: "Supreme Court announces key decisions on environmental regulations",
         type: 'POLITICS',
+        type1: 'Politics',
         author: 'Amanda Richards',
         img: "img/politics3.jpg",
         content: `<p>
@@ -667,6 +694,8 @@ export const newsPort = [
         id: 23,
         description: "The iPhone is reportedly going skinny. But Apple's bigger AI story still looks unfinished",
         type: 'TECHNOLOGY',
+        type2: 'A.I.',
+        type1: 'Tech and Innovation',
         author: 'Alex Kim',
         img: "img/iphone.png",
         content: `<p>
@@ -698,6 +727,8 @@ export const newsPort = [
         id: 24,
         description: "The AI bubble fears are getting worse. Wall Street doesn't want to talk about it",
         type: 'TECHNOLOGY',
+        type2: 'A.I.',
+        type1: 'Tech and Innovation',
         author: 'Jennifer Wu',
         img: "img/ai1.jpg",
         content: `<p>
@@ -729,6 +760,8 @@ export const newsPort = [
         id: 25,
         description: "OpenAI tries getting ahead of that 'AI is taking our jobs' thing",
         type: 'TECHNOLOGY',
+        type2: 'A.I.',
+        type1: 'Tech and Innovation',
         author: 'Mark Stevens',
         img: "img/ai2.jpg",
         content: `<p>
@@ -760,6 +793,8 @@ export const newsPort = [
         id: 26,
         description: "Fed finds AI isn't rapidly replacing jobs yet, even as more firms adopt it",
         type: 'TECHNOLOGY',
+        type2: 'A.I.',
+        type1: 'Tech and Innovation',
         author: 'Dr. Robert Chang',
         img: "img/ai3.jpg",
         content: `<p>
@@ -791,6 +826,8 @@ export const newsPort = [
         id: 27,
         description: "Analysts say this AI company is a 'sinking ship' as revenues decline and a new CEO takes over",
         type: 'TECHNOLOGY',
+        type2: 'A.I.',
+        type1: 'Tech and Innovation',
         author: 'Patricia Wong',
         img: "img/ai4.jpg",
         content: `<p>
@@ -822,6 +859,7 @@ export const newsPort = [
         id: 28,
         description: "The best keyboard shortcuts you wish you were already using daily",
         type: 'TECHNOLOGY',
+        type1: 'Tech and Innovation',
         author: 'Tom Davidson',
         img: "img/popular1.jpg",
         content: `<p>
@@ -853,6 +891,7 @@ export const newsPort = [
         id: 29,
         description: "5 investment strategies that outperformed the market this year",
         type: 'MONEY & MARKETS',
+        type1: 'Money and Markets',
         author: 'Rebecca Foster',
         img: "img/popular2.jpg",
         content: `<p>
@@ -887,6 +926,7 @@ export const newsPort = [
         id: 30,
         description: "Wall Street expected a big jobs revision. The reality is even more surprising",
         type: 'BUSINESS NEWS',
+        type1: 'Business News',
         author: 'Maria Gonzalez',
         img: "img/business-main.jpg",
         content: `<p>
@@ -921,6 +961,7 @@ export const newsPort = [
         id: 31,
         description: "The best meal prep tips that will save you hours every week",
         type: 'LIFESTYLE',
+        type1: 'Lifestyle',
         author: 'Amanda Cooper',
         img: "img/lifestyle-pop.jpg",
         content: `<p>
@@ -952,6 +993,7 @@ export const newsPort = [
         id: 32,
         description: "How new voting laws are reshaping the electoral landscape",
         type: 'POLITICS',
+        type1: 'Politics',
         author: 'Daniel Foster',
         img: "img/politics-pop.jpg",
         content: `<p>
@@ -984,5 +1026,33 @@ export const newsPort = [
                 <br>
                 The debate continues to intensify as the next presidential election approaches, with voting access likely to remain a central political issue.
             </p>`
+    },
+    {
+        id: 33,
+        description: "India's women's cricket team makes ODI history",
+        type: 'SPORTS',
+        type1: 'Tech and Innovation',
+        author: 'Ananya Patel',
+        img: "img/news3.jpg",
+        content: `<p>
+        India’s women’s cricket team has etched its name in history with a record-breaking ODI victory against Australia, marking a defining moment for women’s sports worldwide.
+        <br><br>
+        In a thrilling chase at Mumbai’s Wankhede Stadium, the Indian side successfully pursued a target of 310 runs — the highest ever in a women’s ODI match — led by captain Harmanpreet Kaur’s unbeaten 142. The atmosphere in the stadium was electric as fans witnessed a performance that will be remembered for generations.
+        <br><br>
+        "This victory isn’t just about cricket; it’s about showing what women in sports can achieve when given the opportunity and support," said former Indian player Mithali Raj. "The team has inspired millions of young girls to dream big."
+        <br><br>
+        Australia, known for its dominance in women’s cricket, posted a strong total after a century by Alyssa Healy. However, India’s disciplined batting lineup turned the game around with partnerships built on patience, power, and precision.
+        <br><br>
+        The record chase also reflects the growing popularity and competitiveness of women’s cricket. Television ratings soared, and social media erupted in celebration across India, with hashtags like #WomenInBlue and #HistoricChase trending worldwide.
+        <br><br>
+        Beyond the scoreboard, this win signifies a broader shift in recognition for women athletes in India. The Board of Control for Cricket in India (BCCI) recently announced equal match fees for men and women players — a decision that further underscores this new era of equality in sports.
+        <br><br>
+        Experts note that India’s investment in youth cricket academies and improved infrastructure has begun to yield results. Several players on the current team are products of these programs, highlighting the importance of long-term development.
+        <br><br>
+        “We’re witnessing the rise of a confident, fearless generation of cricketers,” said sports analyst Ravi Menon. “They’re not just playing to compete — they’re playing to redefine the game.”
+        <br><br>
+        As celebrations continue nationwide, fans and commentators alike agree: this victory is more than a record — it’s a statement of empowerment and progress for women’s sports in India and beyond.
+    </p>`
     }
+
 ];

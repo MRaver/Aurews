@@ -254,3 +254,4 @@ function setupClickHandlers() {
 
 // Chạy khi DOM đã load
 document.addEventListener('DOMContentLoaded', initNews);
+
