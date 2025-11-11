@@ -13,7 +13,7 @@ img {
     /* FONTS */
     --FF: 'Montserrat', sans-serif;
     --FF-HEADING: 'Playfair Display', serif;
-    --FS-LOGO: clamp(2rem, 5vh, 3rem);
+    --FS-LOGO: 3vw;
     --FS-HEADING: clamp(1.5rem, 3vh, 2.5rem);
     /* COLORS */
     --FONT-COLOR: black;
@@ -194,7 +194,7 @@ body {
     flex-shrink: 0;
 }
 
-.nav__hamburgermenuu {
+.nav__hamburgermenu__icon {
     height: 50px;
     width: 50px;
     display: flex;
@@ -202,7 +202,7 @@ body {
 }
 
 .nav__hamburgermenu span {
-    height: 5px;
+    height: 8px;
     width: 100%;
     background-color: black;
     border-radius: 25px;
@@ -1354,7 +1354,7 @@ a:hover i {
     border-bottom: 2px solid black;
 }
 
-.mobile-menu-header .nav__logoo {
+.mobile-menu-header .mobile-menu-header__logo {
     font-size: 2rem;
     text-decoration: none;
     color: black;
