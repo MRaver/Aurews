@@ -150,21 +150,14 @@ body {
     clip-path: ellipse(85% 100% at 50% 100%);
     border: 2px solid black;
     border-bottom: none;
-    
     /* Keep flex properties */
     display: flex;
     justify-content: center;
     align-items: center;
-    
     user-select: none;
-    /* The transition now applies to the U-shape */
-    transition: transform 300ms ease;
+    /* transform này để khi xuống k bị khựng */
+    transition: transform 400ms ease;
     
-    /* REMOVE the following from here, they go on the wrapper: */
-    /* width: 16.5vw; */
-    /* aspect-ratio: 5/2; */
-    /* cursor: pointer; */
-    /* overflow: hidden; */
 }
 
 /* --- 3. The Hover Effect --- */
