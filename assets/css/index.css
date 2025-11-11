@@ -66,24 +66,11 @@ body {
     text-decoration: none;
 }
 
+.nav__logo,
 .nav__hamburgermenu,
-.nav__languages,
-.nav__search,
-.nav__newsletter {
-    height: 100px;
-    aspect-ratio: 5/2;
-    border-radius: 70px 70px 0 0;
-    border: 3px solid black;
-    border-bottom: none;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    position: relative;
-    transition: transform 120ms ease, color 200ms ease;
-    user-select: none;
-}
-
-.nav__logo {
+.nav__about,
+.nav__newsletter,
+.nav__search {
     position: relative;
     height: 100px;
     aspect-ratio: 5/2;
@@ -107,7 +94,7 @@ body {
     flex-shrink: 0;
 }
 
-.nav__languages a,
+.nav__about a,
 .nav__logo a {
     text-decoration: none;
     color: black;
@@ -118,7 +105,7 @@ body {
 
 .nav__logo:hover,
 .nav__hamburgermenu:hover,
-.nav__languages:hover,
+.nav__about:hover,
 .nav__newsletter:hover,
 .nav__search:hover {
     transform: translateY(-5px);
@@ -130,12 +117,6 @@ body {
 .nav__hamburgermenu:hover span {
     background-color: brown;
 }
-
-
-
-
-
-
 
 .nav__categories {
     display: flex;
@@ -1116,7 +1097,7 @@ a:hover i {
 -------------------------------- */
 @media (max-width: 1400px) {
 
-    .nav__languages,
+    .nav__about,
     .nav__newsletter,
     .nav__search {
         display: none;
