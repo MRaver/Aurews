@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Aurews</title>
-    <link rel="stylesheet" href="/client/assets/css/about.css">
-    <link rel="stylesheet" href="/client/assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
@@ -15,43 +15,49 @@
     <header>
         <nav class="nav__container">
             <div class="nav__top">
-                <div class="nav__top-left">
-                    <div class="nav__search">
-                        <p>Search</p>
-                    </div>
-                    <div class="nav__newsletter">
-                        <p>News letter</p>
-                    </div>
+
+                <div class="nav__search">
+                    <p>Search</p>
                 </div>
-                <div class="nav__top-center">
-                    <a href="#" class="nav__logo">
+                <div class="nav__newsletter">
+                    <p>News letter</p>
+                </div>
+
+
+                <div class="nav__logo">
+                    <a href="about.html">
                         <p>Aurews</p>
                     </a>
                 </div>
-                <div class="nav__top-right">
-                    <a href="#" class="nav__languages">
+
+
+                <div class="nav__languages">
+                    <a href="Index.html">
                         <p>Languages</p>
                     </a>
-                    <a href="#" class="nav__hamburgermenu menu-toggle" onclick="toggleMenu(); return false;"
-                        aria-label="Toggle menu">
-                        <p>Hamburger menu</p>
-                    </a>
-
                 </div>
+                <div class="nav__hamburgermenu">
+                    <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;"
+                        aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
             </div>
             <div class="nav__bottom">
                 <ul class="nav__categories">
-                    <li><a href="#" class="nav__home">Home</a></li>
-                    <li><a href="#">Latest</a></li>
-                    <li><a href="#">Business News</a></li>
-                    <li><a href="#">Money & Markets</a></li>
-                    <li><a href="#">Tech & Innovation</a></li>
-                    <li><a href="#">A.I.</a></li>
-                    <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">politics</a></li>
-                    <li><a href="#">email</a></li>
-                    <li><a href="#">podcast</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="./Category.html?type=Latest">Latest</a></li>
+                    <li><a href="./Category.html?type=Business News">Business News</a></li>
+                    <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
+                    <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
+                    <li><a href="./Category.html?type=A.I.">A.I.</a></li>
+                    <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
+                    <li><a href="./Category.html?type=Politics">politics</a></li>
+                    <li><a href="./Category.html?type=Email">email</a></li>
+                    <li><a href="./Category.html?type=Podcast">podcast</a></li>
                 </ul>
             </div>
         </nav>
@@ -61,11 +67,11 @@
         <!-- Mobile Menu Sidebar -->
         <div class="mobile-menu">
             <div class="mobile-menu-header">
-                <a href="#" class="nav__logo">Aurews</a>
+                <a href="about.html" class="nav__logoo">Aurews</a>
                 <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
             </div>
             <ul class="mobile-nav-links">
-                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Latest</a></li>
                 <li><a href="#">Business News</a></li>
                 <li><a href="#">Money & Markets</a></li>
@@ -191,7 +197,7 @@
             </div>
         </div>
     </footer>
-    <script src="/client/assets/js/header.js"></script>
+    <script src="../assets/js/header.js"></script>
 </body>
 
 </html>

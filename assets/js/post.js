@@ -7,7 +7,23 @@ function getPostIdFromURL() {
     return id ? parseInt(id) : 1; // Default to post 1 if no ID provided
 }
 
-function renderNewsPortContent() {
+export function renderNewsPortTitle() {
+    const container = document.querySelector('.js-title-container');
+    const postId = getPostIdFromURL();
+
+    // Tìm article theo ID
+    const article = newsPort.find(item => item.id === postId) || newsPort[0]; // Default to first if not found
+
+    container.innerHTML = `
+     <p>${article.type} • 2 min read</p>
+            <h1>${article.description}</h1>
+            <p>12 hr ago</p>
+            <p>&nbsp;&nbsp;|&nbsp; PUBLISHED Sep 10, 2025, 12:00 PM ET</p>
+            <p class="author-info">By <span class="logo"></span><span class="author-name"><u>${article.author}</u></span>
+            </p>`
+}
+
+export function renderNewsPortContent() {
     const container = document.querySelector('.js-new-content-container');
     const postId = getPostIdFromURL();
 
@@ -80,21 +96,6 @@ function renderNewsPortContent() {
     `
 }
 
-function renderNewsPortTitle() {
-    const container = document.querySelector('.js-title-container');
-    const postId = getPostIdFromURL();
-
-    // Tìm article theo ID
-    const article = newsPort.find(item => item.id === postId) || newsPort[0]; // Default to first if not found
-
-    container.innerHTML = `
-     <p>${article.type} • 2 min read</p>
-            <h1>${article.description}</h1>
-            <p>12 hr ago</p>
-            <p>&nbsp;&nbsp;|&nbsp; PUBLISHED Sep 10, 2025, 12:00 PM ET</p>
-            <p class="author-info">By <span class="logo"></span><span class="author-name"><u>${article.author}</u></span>
-            </p>`
-}
 
 // Chạy khi DOM đã load
 document.addEventListener('DOMContentLoaded', () => {

@@ -140,7 +140,7 @@ function setupClickHandlers() {
   const featuredBox = document.querySelector('.boxupperleft');
   if (featuredBox && newsData.featured.id) {
     featuredBox.addEventListener('click', () => {
-      window.location.href = `/client/pages/Post.html?id=${newsData.featured.id}`;
+      window.location.href = `./Post.html?id=${newsData.featured.id}`;
     });
   }
 
@@ -150,7 +150,7 @@ function setupClickHandlers() {
     const newsItem1 = newsData.latest[index];
     if (newsItem1 && newsItem1.id) {
       item.addEventListener('click', () => {
-        window.location.href = `/client/pages/Post.html?id=${newsItem1.id}`;
+        window.location.href = `./Post.html?id=${newsItem1.id}`;
       });
     }
   });
@@ -161,7 +161,7 @@ function setupClickHandlers() {
     const newsItem = newsData.threeNews[index];
     if (newsItem && newsItem.id) {
       item.addEventListener('click', () => {
-        window.location.href = `/client/pages/Post.html?id=${newsItem.id}`;
+        window.location.href = `./Post.html?id=${newsItem.id}`;
       });
     }
   });
@@ -170,7 +170,7 @@ function setupClickHandlers() {
   const lifestyleBig = document.querySelector('.bignews');
   if (lifestyleBig && newsData.lifestyle.big.id) {
     lifestyleBig.addEventListener('click', () => {
-      window.location.href = `/client/pages/Post.html?id=${newsData.lifestyle.big.id}`;
+      window.location.href = `./Post.html?id=${newsData.lifestyle.big.id}`;
     });
   }
 
@@ -180,7 +180,7 @@ function setupClickHandlers() {
     const newsItem = newsData.lifestyle.small[index];
     if (newsItem && newsItem.id) {
       item.addEventListener('click', () => {
-        window.location.href = `/client/pages/Post.html?id=${newsItem.id}`;
+        window.location.href = `./Post.html?id=${newsItem.id}`;
       });
     }
   });
@@ -194,7 +194,7 @@ function setupClickHandlers() {
       const newsItem = topic.news[newsIndex];
       if (newsItem && newsItem.id) {
         item.addEventListener('click', () => {
-          window.location.href = `/client/pages/Post.html?id=${newsItem.id}`;
+          window.location.href = `./Post.html?id=${newsItem.id}`;
         });
       }
     });
@@ -204,7 +204,7 @@ function setupClickHandlers() {
   const aiMain = document.querySelector('.AI_maintopic');
   if (aiMain && newsData.ai.main.id) {
     aiMain.addEventListener('click', () => {
-      window.location.href = `/client/pages/Post.html?id=${newsData.ai.main.id}`;
+      window.location.href = `/pages/Post.html?id=${newsData.ai.main.id}`;
     });
   }
 
@@ -214,7 +214,7 @@ function setupClickHandlers() {
     const newsItem = newsData.ai.sideNews[index];
     if (newsItem && newsItem.id) {
       item.addEventListener('click', () => {
-        window.location.href = `/client/pages/Post.html?id=${newsItem.id}`;
+        window.location.href = `./Post.html?id=${newsItem.id}`;
       });
     }
   });
@@ -225,7 +225,7 @@ function setupClickHandlers() {
     const newsItem = newsData.popular.grid1[index];
     if (newsItem && newsItem.id) {
       item.addEventListener('click', () => {
-        window.location.href = `/client/pages/Post.html?id=${newsItem.id}`;
+        window.location.href = `./Post.html?id=${newsItem.id}`;
       });
     }
   });
@@ -234,7 +234,7 @@ function setupClickHandlers() {
   const businessMain = document.querySelector('.bussiness__news');
   if (businessMain && newsData.popular.businessMain.id) {
     businessMain.addEventListener('click', () => {
-      window.location.href = `/client/pages/Post.html?id=${newsData.popular.businessMain.id}`;
+      window.location.href = `./Post.html?id=${newsData.popular.businessMain.id}`;
     });
   }
 
@@ -245,7 +245,7 @@ function setupClickHandlers() {
       const newsItem = newsData.popular.grid3[index];
       if (newsItem && newsItem.id) {
         item.addEventListener('click', () => {
-          window.location.href = `/client/pages/Post.html?id=${newsItem.id}`;
+          window.location.href = `./Post.html?id=${newsItem.id}`;
         });
       }
     }
@@ -254,3 +254,4 @@ function setupClickHandlers() {
 
 // Chạy khi DOM đã load
 document.addEventListener('DOMContentLoaded', initNews);
+
