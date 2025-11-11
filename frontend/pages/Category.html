@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurews</title>
+    <link rel="stylesheet" href="../assets/css/category.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav__container">
+            <div class="nav__top">
+
+                <div class="nav__search">
+                    <p>Search</p>
+                </div>
+                <div class="nav__newsletter">
+                    <p>News letter</p>
+                </div>
+
+
+                <div class="nav__logo">
+                    <a href="about.html">
+                        <p>Aurews</p>
+                    </a>
+                </div>
+
+
+                <div class="nav__languages">
+                    <a href="Index.html">
+                        <p>Languages</p>
+                    </a>
+                </div>
+                <div class="nav__hamburgermenu">
+                    <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;"
+                        aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="nav__bottom">
+                <ul class="nav__categories">
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="./Category.html?type=Latest">Latest</a></li>
+                    <li><a href="./Category.html?type=Business News">Business News</a></li>
+                    <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
+                    <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
+                    <li><a href="./Category.html?type=A.I.">A.I.</a></li>
+                    <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
+                    <li><a href="./Category.html?type=Politics">politics</a></li>
+                    <li><a href="./Category.html?type=Email">email</a></li>
+                    <li><a href="./Category.html?type=Podcast">podcast</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+
+        <!-- Mobile Menu Sidebar -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <a href="about.html" class="nav__logoo">Aurews</a>
+                <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Latest</a></li>
+                <li><a href="#">Business News</a></li>
+                <li><a href="#">Money & Markets</a></li>
+                <li><a href="#">Tech & Innovation</a></li>
+                <li><a href="#">A.I.</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="mobile-menu-footer-item">Languages</div>
+                <div class="mobile-menu-footer-item">Search</div>
+                <div class="mobile-menu-footer-item">Newsletter</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="background__title js-background-title">
+            <div class="title__container js-title-container">
+            </div>
+            <div class="news__container js-news-container">
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__newsletter">
+                <h2 class="newsletter__title">Get updates delivered directly to your inbox.</h2>
+                <!-- đổi div thành form -->
+                <form class="newsletter__formbox">
+                    <input type="text" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="siteinfo__description">By subcribing you agree to our <a href="/">Privacy Policy</a> and
+                    provide
+                    consent
+                    to receive updates from our company
+                </p>
+            </div>
+            <div class="siteinfo__right">
+                <div class="icon__container">
+                    <!-- <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-brands fa-youtube"></i> -->
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="contact">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <a href="tel:012312308721398">012312308721398</a>
+                </div>
+                <div class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:aurews@gmail.com">aurews@gmail.com</p>
+                </div>
+                <div class="end">
+                    <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
+                </div>
+                <div class="options__container">
+                    <ul class="option">
+                        <li>Terms</li>
+                        <li>Privacy</li>
+                        <li>Cookie Policy</li>
+                        <li>Support</li>
+                        <li>Sitemap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/category.js" type="module"></script>
+    <script src="../assets/js/header.js"></script>
+</body>
+
+</html>
