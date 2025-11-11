@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/MRaver/aurews/issues"
   },
-  "homepage": "https://github.com/MRaver/aurews#readme"
+  "homepage": "https://github.com/MRaver/aurews#readme",
+  "dependencies": {
+    "ioredis": "^5.8.2",
+    "mongoose": "^8.19.3"
+  }
 }

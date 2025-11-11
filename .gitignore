@@ -1,0 +1,50 @@
+# File: .gitignore
+
+### Tệp tin và thư mục hệ điều hành ###
+.DS_Store
+Thumbs.db
+
+### Cấu hình của IDE và trình soạn thảo ###
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+### Thư mục chứa các gói phụ thuộc ###
+node_modules/
+
+### Tệp tin log ###
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+### Tệp tin bí mật và cấu hình môi trường ###
+# Không bao giờ commit các tệp .env!
+# Chúng chứa các thông tin nhạy cảm như API keys, mật khẩu database.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
+
+### Thư mục build và file tạm ###
+dist/
+build/
+.tmp/
+coverage/
+
+### Tệp tin của các trình quản lý gói ###
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ghi chú:
+# Hầu hết các dự án Hiện Đại sẽ muốn commit file lock (package-lock.json, yarn.lock).
+# Nó đảm bảo rằng mọi thành viên trong nhóm đều cài đặt CÙNG MỘT phiên bản dependencies.
+# Nếu bạn muốn commit file lock, hãy XÓA 3 dòng trên.
+# Nếu bạn không chắc, hãy GIỮ LẠI file lock (xóa 3 dòng trên).
