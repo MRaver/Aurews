@@ -242,24 +242,11 @@ body {
     text-decoration: none;
 }
 
+.nav__logo,
 .nav__hamburgermenu,
-.nav__languages,
+.nav__about,
 .nav__search,
-.nav__newsletter {
-    height: 100px;
-    aspect-ratio: 5/2;
-    border-radius: 70px 70px 0 0;
-    border: 3px solid black;
-    border-bottom: none;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    position: relative;
-    transition: transform 120ms ease, color 200ms ease;
-    user-select: none;
-}
-
-.nav__logo {
+.nav__newsletter{
     position: relative;
     height: 100px;
     aspect-ratio: 5/2;
@@ -796,7 +783,7 @@ a:hover i {
     border-bottom: 2px solid black;
 }
 
-.mobile-menu-header .nav__logoo {
+.mobile-menu-header .mobile-menu__nav-logo {
     font-size: 2rem;
     text-decoration: none;
     color: black;
