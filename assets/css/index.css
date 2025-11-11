@@ -15,6 +15,7 @@ body {
             #f2d9b4 0%,
             #f2d9b4 30%,
             white 80%);
+    background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: black;
     overflow-x: hidden;
