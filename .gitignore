@@ -43,6 +43,7 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
+.node_modules
 # Ghi chú:
 # Hầu hết các dự án Hiện Đại sẽ muốn commit file lock (package-lock.json, yarn.lock).
 # Nó đảm bảo rằng mọi thành viên trong nhóm đều cài đặt CÙNG MỘT phiên bản dependencies.
