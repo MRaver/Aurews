@@ -18,7 +18,9 @@ img {
     /* COLORS */
     --FONT-COLOR: black;
     --NAV-HOVER-COLOR: darkred;
-    --LINK-HOVER:brown;
+    --LINK-HOVER-COLOR:brown;
+    --LINK-ACTIVE-COLOR: red;
+    --NAV-ACTIVE-COLOR: #f3d19e;
 }
 
 /* || GENERAL */
@@ -78,6 +80,8 @@ body {
 
 }
 
+
+
 :is(.nav__logo, .nav__about) a, :is(.nav__newsletter, .nav__search) p {
     font-family: var(--FF-HEADING);
     /* font-style: italic; */
@@ -99,8 +103,15 @@ body {
     transition: color 0.3s ease;
 }
 
+:is(.nav__logo, .nav__hamburgermenu, .nav__about, .nav__newsletter, .nav__search):active {
+    background-color: var(--NAV-ACTIVE-COLOR);
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+
 .nav__logo:hover a{
-   color: var(--LINK-HOVER);
+   color: var(--LINK-HOVER-COLOR);
     transition: color 0.2s ease;
 }
 
@@ -109,8 +120,71 @@ body {
     transition: color 0.2s ease;
 }
 
+/* Wrapped cho animation nhảy lên của nav__top */
+.nav-item-wrapper {
+    position: relative; /* Important for positioning */
+    width: 16.5vw;
+    aspect-ratio: 5/2;
+    overflow: hidden; /* This is the key! Hides the extra part */
+    cursor: pointer;
+    padding-top: 20px; /* Optional: adds some space above */
+}
 
 .nav__logo,
+.nav__hamburgermenu,
+.nav__about,
+.nav__newsletter,
+.nav__search {
+    /* Make the element 5px taller than its wrapper */
+    height: calc(100% + 8px); 
+    
+    /* Keep all your original styling for the shape */
+    position: relative;
+    width: 100%; /* Take full width of wrapper */
+    background:
+        radial-gradient(ellipse 85% 100% at 50% 100%,
+            transparent 0%,
+            transparent calc(100% - 2px), /* Adjusted for border */
+            black calc(100% - 2px),
+            black 100%);
+    clip-path: ellipse(85% 100% at 50% 100%);
+    border: 2px solid black;
+    border-bottom: none;
+    
+    /* Keep flex properties */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    user-select: none;
+    /* The transition now applies to the U-shape */
+    transition: transform 300ms ease;
+    
+    /* REMOVE the following from here, they go on the wrapper: */
+    /* width: 16.5vw; */
+    /* aspect-ratio: 5/2; */
+    /* cursor: pointer; */
+    /* overflow: hidden; */
+}
+
+/* --- 3. The Hover Effect --- */
+/* We trigger the hover on the wrapper, but move the inner element */
+.nav-item-wrapper:hover .nav__search,
+.nav-item-wrapper:hover .nav__newsletter,
+.nav-item-wrapper:hover .nav__logo,
+.nav-item-wrapper:hover .nav__about,
+.nav-item-wrapper:hover .nav__hamburgermenu {
+    transform: translateY(-8px);
+    transition: transform 500ms ease;
+}
+
+/* You might need to adjust your text color change as well */
+.nav-item-wrapper:hover a {
+    color: var(--LINK-HOVER-COLOR); /* Example */
+}
+
+/* Nửa dưới hình elip */
+/* .nav__logo,
 .nav__hamburgermenu,
 .nav__about,
 .nav__newsletter,
@@ -126,7 +200,6 @@ body {
             transparent calc(100% - 0.1px),
             black calc(100% - 0.1px),
             black 100%);
-    /* Cắt phần trên để chỉ giữ nửa dưới */
     clip-path: ellipse(85% 100% at 50% 100%);
     border: 2px solid black;
     border-bottom: none;
@@ -138,7 +211,7 @@ body {
     transition: transform 120ms ease, color 200ms ease;
     overflow: hidden;
     flex-shrink: 0;
-}
+} */
 
 
 .nav__hamburgermenu:hover span {
