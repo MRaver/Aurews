@@ -21,6 +21,7 @@ img {
     --LINK-HOVER-COLOR:brown;
     --LINK-ACTIVE-COLOR: red;
     --NAV-ACTIVE-COLOR: #f3d19e;
+    
 }
 
 /* || GENERAL */
@@ -135,7 +136,7 @@ body {
 .nav__about,
 .nav__newsletter,
 .nav__search {
-    /* Make the element 5px taller than its wrapper */
+    /* Make the element 8px taller than its wrapper */
     height: calc(100% + 8px); 
     
     /* Keep all your original styling for the shape */
@@ -172,7 +173,7 @@ body {
 }
 
 /* You might need to adjust your text color change as well */
-.nav-item-wrapper:hover a {
+.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
     color: var(--LINK-HOVER-COLOR); /* Example */
 }
 
