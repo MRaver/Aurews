@@ -255,11 +255,11 @@ postSchema.index({ title: "text", text: "text", summary: "text" }); // [cite: 13
 // === VIRTUAL FIELDS ===
 postSchema.virtual("engagement").get(function () {
   return this.views + this.likes * 2 + this.shares * 3 + this.comments * 4;
-}); // [cite: 14]
+}); 
 
 postSchema.virtual("imageCount").get(function () {
   return this.images ? this.images.length : 0;
-}); // [cite: 15]
+}); 
 
 // === METHODS ===
 // (Instance method)
@@ -273,7 +273,7 @@ postSchema.methods.toJSON = function () {
   obj.engagement = this.engagement;
   obj.imageCount = this.imageCount;
   return obj;
-}; // [cite: 16-17]
+}; 
 
 // === STATIC METHODS ===
 
@@ -299,7 +299,7 @@ postSchema.statics.findBySource = function (source, limit = 20) {
     .sort({ publishTime: -1 })
     .limit(limit)
     .select(LIGHTWEIGHT_PROJECTION); // <-- TỐI ƯU HÓA
-}; // [cite: 19]
+}; 
 
 postSchema.statics.searchPosts = function (keyword, limit = 50) {
   return this.find(
@@ -309,7 +309,7 @@ postSchema.statics.searchPosts = function (keyword, limit = 50) {
     .sort({ score: { $meta: "textScore" } })
     .limit(limit)
     .select(LIGHTWEIGHT_PROJECTION); // <-- TỐI ƯU HÓA
-}; // [cite: 20]
+}; 
 
 // TỐI ƯU HÓA: Thêm phương thức tĩnh để tăng view hiệu quả
 // Phương thức này không cần tải toàn bộ document vào bộ nhớ
