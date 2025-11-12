@@ -1,7 +1,3 @@
-﻿// Import newsData
-import { newsData } from "../data/newsData.js";
-
-// Hàm mở/đóng menu trên di động
 function toggleMenu() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const overlay = document.querySelector('.mobile-menu-overlay');
@@ -9,177 +5,149 @@ function toggleMenu() {
     overlay.classList.toggle('active');
 }
 
-// Hàm chuyển đổi dữ liệu từ newsData sang định dạng chuẩn
-function convertNewsDataToArticles() {
-    const articles = [];
-    let idCounter = 1;
-
-    // Helper function để tạo article object
-    function createArticle(item, category, type = 'article') {
-        return {
-            id: item.id || idCounter++,
-            title: item.title,
-            excerpt: item.description || item.time || '',
-            category: category,
-            date: new Date(), // Có thể điều chỉnh nếu có thông tin ngày tháng
-            readTime: '5 min',
-            image: item.image || 'https://via.placeholder.com/400x250/4a90e2/ffffff?text=News',
-            type: type,
-            url: `article.html?id=${item.id}` // URL thực tế của bài viết
-        };
+const sampleNews = [
+    {
+        id: 1,
+        title: "Tech Giants Announce Major AI Breakthrough",
+        excerpt: "Leading technology companies reveal new artificial intelligence capabilities that could transform industries.",
+        category: "Tech and Innovation",
+        date: new Date("2025-11-10"),
+        readTime: "5 min",
+        image: "https://via.placeholder.com/400x250/4a90e2/ffffff?text=Tech+News",
+        type: "article" // Added type
+    },
+    {
+        id: 2,
+        title: "Global Markets React to Economic Policy Changes",
+        excerpt: "Stock markets worldwide show volatility following new monetary policy announcements from central banks.",
+        category: "Money and Markets",
+        date: new Date("2025-11-11"),
+        readTime: "4 min",
+        image: "https://via.placeholder.com/400x250/50c878/ffffff?text=Markets",
+        type: "article"
+    },
+    {
+        id: 3,
+        title: "How to Cook Mediterranean Diet",
+        excerpt: "A step-by-step video guide to preparing a healthy Mediterranean meal.",
+        category: "Lifestyle",
+        date: new Date("2025-11-09"),
+        readTime: "10 min",
+        image: "https://via.placeholder.com/400x250/ff6b6b/ffffff?text=Video",
+        type: "video" // Added type
+    },
+    {
+        id: 4,
+        title: "Political Leaders Meet for Climate Summit",
+        excerpt: "World leaders gather to discuss urgent climate action and renewable energy initiatives.",
+        category: "Politics",
+        date: new Date("2025-11-08"),
+        readTime: "7 min",
+        image: "https://via.placeholder.com/400x250/95e1d3/ffffff?text=Politics",
+        type: "article"
+    },
+    {
+        id: 5,
+        title: "Startup Raises Record Funding for AI Healthcare Solutions",
+        excerpt: "Innovative company secures massive investment to develop AI-powered diagnostic tools.",
+        category: "Business News",
+        date: new Date("2025-11-11"),
+        readTime: "5 min",
+        image: "https://via.placeholder.com/400x250/f38181/ffffff?text=Business",
+        type: "article"
+    },
+    {
+        id: 6,
+        title: "Machine Learning Transforms Customer Service Industry",
+        excerpt: "Companies adopt advanced AI systems to enhance customer experience and reduce response times.",
+        category: "A.I.",
+        date: new Date("2025-11-10"),
+        readTime: "6 min",
+        image: "https://via.placeholder.com/400x250/aa96da/ffffff?text=AI+News",
+        type: "article"
+    },
+    {
+        id: 7,
+        title: "Listen: The Future of Work",
+        excerpt: "A podcast episode exploring remote work trends and digital nomadism.",
+        category: "Lifestyle",
+        date: new Date("2025-11-07"),
+        readTime: "45 min",
+        image: "https://via.placeholder.com/400x250/6a89cc/ffffff?text=Podcast",
+        type: "podcast" // Added type
+    },
+    {
+        id: 8,
+        title: "Beautiful Sunset Photography",
+        excerpt: "A stunning collection of photographs from the latest photography contest.",
+        category: "Lifestyle",
+        date: new Date("2025-11-06"),
+        readTime: "2 min",
+        image: "https://via.placeholder.com/400x250/ff9f43/ffffff?text=Image+Gallery",
+        type: "image" // Added type
     }
+];
 
-    // Featured
-    if (newsData.featured) {
-        articles.push(createArticle(newsData.featured, 'Featured'));
-    }
+let allNews = [...sampleNews];
+let filteredNews = [...sampleNews];
+let recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []; // Load from localStorage
+let topSuggestions = []; // Will be generated from sampleNews
 
-    // Latest News
-    if (newsData.latest) {
-        newsData.latest.forEach(item => {
-            articles.push(createArticle(item, 'Latest News'));
-        });
-    }
-
-    // Three News
-    if (newsData.threeNews) {
-        newsData.threeNews.forEach(item => {
-            articles.push(createArticle(item, 'Latest News'));
-        });
-    }
-
-    // Lifestyle
-    if (newsData.lifestyle) {
-        if (newsData.lifestyle.big) {
-            articles.push(createArticle(newsData.lifestyle.big, 'Lifestyle'));
-        }
-        if (newsData.lifestyle.small) {
-            newsData.lifestyle.small.forEach(item => {
-                articles.push(createArticle(item, 'Lifestyle'));
-            });
-        }
-    }
-
-    // Topics
-    if (newsData.topics) {
-        // Money & Markets
-        if (newsData.topics.moneyMarkets?.news) {
-            newsData.topics.moneyMarkets.news.forEach(item => {
-                articles.push(createArticle(item, 'Money & Markets'));
-            });
-        }
-
-        // Tech & Innovation
-        if (newsData.topics.techInnovation?.news) {
-            newsData.topics.techInnovation.news.forEach(item => {
-                articles.push(createArticle(item, 'Tech & Innovation'));
-            });
-        }
-
-        // Business News
-        if (newsData.topics.businessNews?.news) {
-            newsData.topics.businessNews.news.forEach(item => {
-                articles.push(createArticle(item, 'Business News'));
-            });
-        }
-
-        // Politics
-        if (newsData.topics.politics?.news) {
-            newsData.topics.politics.news.forEach(item => {
-                articles.push(createArticle(item, 'Politics'));
-            });
-        }
-    }
-
-    // AI
-    if (newsData.ai) {
-        if (newsData.ai.main) {
-            articles.push(createArticle(newsData.ai.main, 'A.I.'));
-        }
-        if (newsData.ai.sideNews) {
-            newsData.ai.sideNews.forEach(item => {
-                articles.push(createArticle(item, 'A.I.'));
-            });
-        }
-    }
-
-    // Most Popular
-    if (newsData.popular) {
-        if (newsData.popular.grid1) {
-            newsData.popular.grid1.forEach(item => {
-                articles.push(createArticle(item, item.category || 'Popular'));
-            });
-        }
-        if (newsData.popular.businessMain) {
-            articles.push(createArticle(newsData.popular.businessMain, newsData.popular.businessMain.category || 'Business News'));
-        }
-        if (newsData.popular.grid3) {
-            newsData.popular.grid3.forEach(item => {
-                articles.push(createArticle(item, item.category || 'Popular'));
-            });
-        }
-    }
-
-    return articles;
-}
-
-// Khởi tạo dữ liệu từ newsData
-let allNews = convertNewsDataToArticles();
-let filteredNews = [...allNews];
-let recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-let topSuggestions = [];
-
-// Tạo top suggestions từ các từ khóa phổ biến trong tiêu đề và mô tả
+// Generate top suggestions from sample news
 function generateTopSuggestions() {
     const keywordMap = new Map();
-    const combinedTexts = allNews.map(article =>
+    const combinedTexts = sampleNews.map(article =>
         (article.title + ' ' + article.excerpt + ' ' + article.category).toLowerCase()
     );
 
     combinedTexts.forEach(text => {
+        // Simple tokenization: split by non-word characters
         const words = text.split(/\W+/);
         words.forEach(word => {
-            if (word.length > 2) {
+            if (word.length > 2) { // Only consider words longer than 2 chars
                 keywordMap.set(word, (keywordMap.get(word) || 0) + 1);
             }
         });
     });
 
+    // Sort by frequency and get top 10
     topSuggestions = Array.from(keywordMap.entries())
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10)
         .map(entry => entry[0]);
 }
 
-// Lưu tìm kiếm gần đây và cập nhật gợi ý
 function saveRecentSearch(searchTerm) {
     if (!searchTerm || searchTerm.trim() === '') return;
 
+    // Remove if already exists
     recentSearches = recentSearches.filter(term => term.toLowerCase() !== searchTerm.toLowerCase());
     recentSearches.unshift(searchTerm.trim());
 
+    // Keep only the last 5 searches
     if (recentSearches.length > 5) {
         recentSearches = recentSearches.slice(0, 5);
     }
 
+    // Save to localStorage
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
 }
 
-// Xóa một tìm kiếm gần đây
+// Remove a specific recent search
 function removeRecentSearch(term) {
     recentSearches = recentSearches.filter(t => t.toLowerCase() !== term.toLowerCase());
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-    displaySuggestions();
+    displaySuggestions(); // Update the dropdown
 }
 
-// Xóa tất cả tìm kiếm gần đây
+// Clear all recent searches
 function clearRecentSearches() {
     recentSearches = [];
     localStorage.removeItem('recentSearches');
-    displaySuggestions();
+    displaySuggestions(); // Update the dropdown
 }
 
-// Đếm số lượng Filter đang hoạt động
+// Count active filters
 function countActiveFilters() {
     let count = 0;
     const contentTypeFilter = document.getElementById('contentTypeFilter');
@@ -194,7 +162,7 @@ function countActiveFilters() {
     return count;
 }
 
-// Cập nhật số lượng Filter đang hoạt động trên badge
+// Update the filter count badge
 function updateFilterCountBadge() {
     const count = countActiveFilters();
     const badge = document.getElementById('activeFiltersCount');
@@ -208,25 +176,28 @@ function updateFilterCountBadge() {
     }
 }
 
-// Hàm lọc tin tức dựa trên các tiêu chí
+// Filter news based on search term, category, date, content type, and search in
 function filterNews(searchTerm = '', category = '', dateRange = '', contentType = '', searchIn = 'all') {
     let results = [...allNews];
 
     if (searchTerm) {
         const lowerSearchTerm = searchTerm.toLowerCase();
         if (searchIn === 'keyword') {
+            // Simulate keyword search in title and excerpt
             results = results.filter(article =>
                 article.title.toLowerCase().includes(lowerSearchTerm) ||
                 article.excerpt.toLowerCase().includes(lowerSearchTerm)
             );
         } else if (searchIn === 'headline-body') {
+            // Simulate search in title and excerpt (body proxy)
             results = results.filter(article =>
                 article.title.toLowerCase().includes(lowerSearchTerm) ||
                 article.excerpt.toLowerCase().includes(lowerSearchTerm)
             );
         } else if (searchIn === 'author') {
-            // Giữ nguyên cho tương lai nếu có thông tin tác giả
-        } else {
+            // Simulate author search (no author field in sample, so just return all for demo)
+            // results = results.filter(article => article.author.toLowerCase().includes(lowerSearchTerm));
+        } else { // 'all' or default
             results = results.filter(article =>
                 article.title.toLowerCase().includes(lowerSearchTerm) ||
                 article.excerpt.toLowerCase().includes(lowerSearchTerm) ||
@@ -269,9 +240,10 @@ function filterNews(searchTerm = '', category = '', dateRange = '', contentType 
     return results;
 }
 
-// Hàm sắp xếp tin tức dựa trên tiêu chí
+// Sort news based on selected option
 function sortNews(news, sortBy) {
     const sortedNews = [...news];
+    const now = new Date();
 
     switch (sortBy) {
         case 'newest':
@@ -280,28 +252,30 @@ function sortNews(news, sortBy) {
         case 'oldest':
             sortedNews.sort((a, b) => new Date(a.date) - new Date(b.date));
             break;
-        case 'popular':
+        case 'popular': // Assuming popularity could be based on a future metric, using date as a proxy
             sortedNews.sort((a, b) => {
+                // Simple proxy: newer and more recent items are "more popular"
                 const aScore = (new Date(a.date).getTime() / 1000) + (a.title.length * 0.1);
                 const bScore = (new Date(b.date).getTime() / 1000) + (b.title.length * 0.1);
                 return bScore - aScore;
             });
             break;
-        case 'relevance':
+        case 'relevance': // Default, could be improved with search term context
         default:
+            // Keep original order or apply relevance logic if available
             break;
     }
     return sortedNews;
 }
 
-// Hàm hiển thị kết quả tìm kiếm
+// Escape HTML to prevent XSS
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
 
-// Hàm hiển thị kết quả tìm kiếm
+// Render articles to the grid
 function renderArticles(articles) {
     const grid = document.getElementById('articlesGrid');
     const noResults = document.getElementById('noResults');
@@ -309,7 +283,7 @@ function renderArticles(articles) {
 
     if (!grid) return;
 
-    grid.innerHTML = '';
+    grid.innerHTML = ''; // Clear existing articles
 
     if (articles.length === 0) {
         if (noResults) noResults.style.display = 'block';
@@ -325,16 +299,15 @@ function renderArticles(articles) {
     articles.forEach(article => {
         const card = document.createElement('div');
         card.className = 'article-card';
-
-        // Click handler để mở liên kết bài viết
         card.onclick = function () {
-            // Sử dụng URL từ article hoặc tạo URL dựa trên ID
-            const articleUrl = article.url || `article.html?id=${article.id}`;
-            window.location.href = articleUrl;
+            // Replace '#' with actual article URL
+            window.location.href = `#article-${article.id}`;
         };
 
+        // Create elements safely to prevent XSS
         const imageDiv = document.createElement('div');
         imageDiv.className = 'article-image';
+        // Escape URL to prevent XSS in style attribute
         const escapedImageUrl = escapeHtml(article.image);
         imageDiv.style.backgroundImage = `url('${escapedImageUrl}')`;
 
@@ -385,7 +358,7 @@ function renderArticles(articles) {
     });
 }
 
-// Hàm hiển thị gợi ý tìm kiếm
+// Display search suggestions (Recent + Popular)
 function displaySuggestions() {
     const suggestionsContainer = document.getElementById('searchSuggestions');
     const recentList = document.getElementById('recentSuggestionsList');
@@ -393,9 +366,11 @@ function displaySuggestions() {
 
     if (!suggestionsContainer || !recentList || !popularList) return;
 
+    // Clear lists
     recentList.innerHTML = '';
     popularList.innerHTML = '';
 
+    // Always show the container if there's any suggestion
     if (topSuggestions.length > 0 || recentSearches.length > 0) {
         suggestionsContainer.classList.add('show');
     } else {
@@ -403,10 +378,12 @@ function displaySuggestions() {
         return;
     }
 
+    // Populate Recent Searches
     recentSearches.forEach(term => {
         const item = document.createElement('div');
         item.className = 'suggestion-item';
 
+        const termEscaped = escapeHtml(term);
         const icon = document.createElement('i');
         icon.className = 'fas fa-search';
 
@@ -434,6 +411,7 @@ function displaySuggestions() {
         recentList.appendChild(item);
     });
 
+    // Add Clear All Button to Recent Searches list (only if there are items)
     if (recentSearches.length > 0) {
         const clearAllButton = document.createElement('button');
         clearAllButton.className = 'clear-all-btn';
@@ -442,6 +420,7 @@ function displaySuggestions() {
         recentList.appendChild(clearAllButton);
     }
 
+    // Populate Popular Suggestions
     topSuggestions.forEach(suggestion => {
         const item = document.createElement('div');
         item.className = 'suggestion-item';
@@ -466,7 +445,7 @@ function displaySuggestions() {
     });
 }
 
-// Hàm ẩn gợi ý tìm kiếm
+// Hide search suggestions
 function hideSuggestions() {
     const suggestionsContainer = document.getElementById('searchSuggestions');
     if (suggestionsContainer) {
@@ -474,8 +453,7 @@ function hideSuggestions() {
     }
 }
 
-
-// Hàm hiển thị hoặc ẩn nút xóa input
+// Show/Hide the clear input button based on input value
 function toggleClearButton() {
     const input = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearInputButton');
@@ -488,8 +466,7 @@ function toggleClearButton() {
     }
 }
 
-
-// Hàm xóa nội dung input tìm kiếm
+// Clear the main search input
 function clearSearchInput() {
     const input = document.getElementById('searchInput');
     if (!input) return;
@@ -499,6 +476,7 @@ function clearSearchInput() {
     toggleClearButton();
     hideSuggestions();
 
+    // Clear results when input is cleared
     const articlesGrid = document.getElementById('articlesGrid');
     if (articlesGrid) {
         articlesGrid.innerHTML = '';
@@ -509,8 +487,7 @@ function clearSearchInput() {
     }
 }
 
-
-// Hàm thực hiện tìm kiếm
+// Perform search based on input and filters
 function performSearch() {
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
@@ -534,26 +511,29 @@ function performSearch() {
     const searchIn = searchInFilter.value;
     const sortBy = sortDropdown.value;
 
+    // Show loading state
     loadingState.style.display = 'block';
     articlesGrid.style.display = 'none';
     noResults.style.display = 'none';
 
+    // Simulate API delay with requestAnimationFrame for smoother UX
     setTimeout(() => {
         filteredNews = filterNews(searchTerm, category, dateRange, contentType, searchIn);
         const sortedNews = sortNews(filteredNews, sortBy);
         renderArticles(sortedNews);
 
+        // Hide loading state
         loadingState.style.display = 'none';
 
+        // Save search term if it's not empty
         if (searchTerm.trim() !== '') {
             saveRecentSearch(searchTerm);
             displaySuggestions();
         }
-    }, 300);
+    }, 300); // Reduced delay for better UX
 }
 
-
-// Hàm debounce để tối ưu hóa việc gọi hàm performSearch
+// Debounce function for search input
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -566,14 +546,15 @@ function debounce(func, wait) {
     };
 }
 
-
-// Khởi tạo các sự kiện
+// Initialize event listeners when DOM is ready
 function initializeEventListeners() {
+    // Search button
     const searchButton = document.getElementById('searchButton');
     if (searchButton) {
         searchButton.addEventListener('click', performSearch);
     }
 
+    // Search input
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', toggleClearButton);
@@ -590,11 +571,13 @@ function initializeEventListeners() {
         });
     }
 
+    // Clear input button
     const clearInputButton = document.getElementById('clearInputButton');
     if (clearInputButton) {
         clearInputButton.addEventListener('click', clearSearchInput);
     }
 
+    // Filter dropdowns
     const contentTypeFilter = document.getElementById('contentTypeFilter');
     const categoryFilter = document.getElementById('categoryFilter');
     const dateFilter = document.getElementById('dateFilter');
@@ -625,6 +608,7 @@ function initializeEventListeners() {
         });
     }
 
+    // Clear all filters button
     const clearAllFiltersBtn = document.getElementById('clearAllFiltersBtn');
     if (clearAllFiltersBtn) {
         clearAllFiltersBtn.addEventListener('click', function () {
@@ -647,6 +631,7 @@ function initializeEventListeners() {
         });
     }
 
+    // Toggle filters dropdown
     const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
     const filtersDropdown = document.getElementById('filtersDropdown');
 
@@ -657,15 +642,18 @@ function initializeEventListeners() {
         });
     }
 
+    // Hide suggestions when clicking outside
     const suggestionsContainer = document.getElementById('searchSuggestions');
     const searchInputWrapper = document.querySelector('.search-input-wrapper');
     document.addEventListener('click', function (event) {
+        // Hide suggestions
         if (searchInput && suggestionsContainer && searchInputWrapper &&
             !searchInputWrapper.contains(event.target) &&
             !suggestionsContainer.contains(event.target)) {
             hideSuggestions();
         }
 
+        // Hide filters dropdown
         if (toggleFiltersBtn && filtersDropdown &&
             !toggleFiltersBtn.contains(event.target) &&
             !filtersDropdown.contains(event.target)) {
@@ -674,7 +662,7 @@ function initializeEventListeners() {
     });
 }
 
-// Khởi chạy khi trang loading
+// Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
         generateTopSuggestions();
@@ -684,6 +672,7 @@ if (document.readyState === 'loading') {
         updateFilterCountBadge();
     });
 } else {
+    // DOM is already ready
     generateTopSuggestions();
     initializeEventListeners();
     displaySuggestions();
