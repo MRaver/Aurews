@@ -5,6 +5,7 @@ function toggleMenu() {
     overlay.classList.toggle('active');
 }
 
+// các data mẫu cho tin tức
 const sampleNews = [
     {
         id: 1,
@@ -88,12 +89,13 @@ const sampleNews = [
     }
 ];
 
+// Khai báo biến toàn cục
 let allNews = [...sampleNews];
 let filteredNews = [...sampleNews];
 let recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []; // Load from localStorage
 let topSuggestions = []; // Will be generated from sampleNews
 
-// Generate top suggestions from sample news
+// Tạo danh sách gợi ý phổ biến từ dữ liệu mẫu
 function generateTopSuggestions() {
     const keywordMap = new Map();
     const combinedTexts = sampleNews.map(article =>
@@ -101,53 +103,55 @@ function generateTopSuggestions() {
     );
 
     combinedTexts.forEach(text => {
-        // Simple tokenization: split by non-word characters
+        // chia theo các ký tự không phải là từ
         const words = text.split(/\W+/);
         words.forEach(word => {
-            if (word.length > 2) { // Only consider words longer than 2 chars
+            if (word.length > 2) { // Chỉ đếm các từ dài hơn 2 ký tự
                 keywordMap.set(word, (keywordMap.get(word) || 0) + 1);
             }
         });
     });
 
-    // Sort by frequency and get top 10
+    // Lấy 10 từ khóa phổ biến nhất
     topSuggestions = Array.from(keywordMap.entries())
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10)
         .map(entry => entry[0]);
 }
 
+
+// Lưu tìm kiếm gần đây
 function saveRecentSearch(searchTerm) {
     if (!searchTerm || searchTerm.trim() === '') return;
 
-    // Remove if already exists
+    // Xóa trùng lặp (không phân biệt hoa thường)
     recentSearches = recentSearches.filter(term => term.toLowerCase() !== searchTerm.toLowerCase());
     recentSearches.unshift(searchTerm.trim());
 
-    // Keep only the last 5 searches
+    // Giữ tối đa 5 mục
     if (recentSearches.length > 5) {
         recentSearches = recentSearches.slice(0, 5);
     }
 
-    // Save to localStorage
+    // Lưu vào localStorage
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
 }
 
-// Remove a specific recent search
+// Xóa một tìm kiếm gần đây
 function removeRecentSearch(term) {
     recentSearches = recentSearches.filter(t => t.toLowerCase() !== term.toLowerCase());
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-    displaySuggestions(); // Update the dropdown
+    displaySuggestions(); // Update dropdown
 }
 
-// Clear all recent searches
+// Xóa tất cả tìm kiếm gần đây
 function clearRecentSearches() {
     recentSearches = [];
     localStorage.removeItem('recentSearches');
     displaySuggestions(); // Update the dropdown
 }
 
-// Count active filters
+// Đếm số bộ lọc đang hoạt động
 function countActiveFilters() {
     let count = 0;
     const contentTypeFilter = document.getElementById('contentTypeFilter');
@@ -162,7 +166,7 @@ function countActiveFilters() {
     return count;
 }
 
-// Update the filter count badge
+// Cập nhật biến đếm bộ lọc
 function updateFilterCountBadge() {
     const count = countActiveFilters();
     const badge = document.getElementById('activeFiltersCount');
@@ -176,26 +180,26 @@ function updateFilterCountBadge() {
     }
 }
 
-// Filter news based on search term, category, date, content type, and search in
+// Lọc tin tức dựa trên các tiêu chí
 function filterNews(searchTerm = '', category = '', dateRange = '', contentType = '', searchIn = 'all') {
     let results = [...allNews];
 
     if (searchTerm) {
         const lowerSearchTerm = searchTerm.toLowerCase();
         if (searchIn === 'keyword') {
-            // Simulate keyword search in title and excerpt
+            // Lọc dựa trên từ khóa trong title, excerpt, category
             results = results.filter(article =>
                 article.title.toLowerCase().includes(lowerSearchTerm) ||
                 article.excerpt.toLowerCase().includes(lowerSearchTerm)
             );
         } else if (searchIn === 'headline-body') {
-            // Simulate search in title and excerpt (body proxy)
+            // Lọc dựa trên tiêu đề và đoạn trích
             results = results.filter(article =>
                 article.title.toLowerCase().includes(lowerSearchTerm) ||
                 article.excerpt.toLowerCase().includes(lowerSearchTerm)
             );
         } else if (searchIn === 'author') {
-            // Simulate author search (no author field in sample, so just return all for demo)
+            // Giả sử có trường author trong dữ liệu bài viết
             // results = results.filter(article => article.author.toLowerCase().includes(lowerSearchTerm));
         } else { // 'all' or default
             results = results.filter(article =>
@@ -206,10 +210,12 @@ function filterNews(searchTerm = '', category = '', dateRange = '', contentType 
         }
     }
 
+    // Lọc theo danh mục
     if (category) {
         results = results.filter(article => article.category === category);
     }
 
+    // Lọc theo phạm vi ngày
     if (dateRange) {
         const now = new Date();
         results = results.filter(article => {
@@ -233,6 +239,7 @@ function filterNews(searchTerm = '', category = '', dateRange = '', contentType 
         });
     }
 
+    // Lọc theo loại nội dung
     if (contentType) {
         results = results.filter(article => article.type === contentType);
     }
@@ -240,42 +247,45 @@ function filterNews(searchTerm = '', category = '', dateRange = '', contentType 
     return results;
 }
 
-// Sort news based on selected option
+// Sắp xếp tin tức dựa trên tiêu chí
 function sortNews(news, sortBy) {
     const sortedNews = [...news];
     const now = new Date();
 
     switch (sortBy) {
+        // Newest
         case 'newest':
             sortedNews.sort((a, b) => new Date(b.date) - new Date(a.date));
             break;
+
+        // Oldest
         case 'oldest':
             sortedNews.sort((a, b) => new Date(a.date) - new Date(b.date));
             break;
-        case 'popular': // Assuming popularity could be based on a future metric, using date as a proxy
+        case 'popular': // Giả sử mức độ phổ biến có thể dựa trên số liệu trong tương lai, sử dụng ngày làm đại diện
             sortedNews.sort((a, b) => {
-                // Simple proxy: newer and more recent items are "more popular"
+                // Giả sử bài viết mới hơn có độ phổ biến cao hơn
                 const aScore = (new Date(a.date).getTime() / 1000) + (a.title.length * 0.1);
                 const bScore = (new Date(b.date).getTime() / 1000) + (b.title.length * 0.1);
                 return bScore - aScore;
             });
             break;
-        case 'relevance': // Default, could be improved with search term context
+        case 'relevance': // Default, giữ nguyên thứ tự hoặc áp dụng logic liên quan nếu có
         default:
-            // Keep original order or apply relevance logic if available
+            // Không thay đổi thứ tự
             break;
     }
     return sortedNews;
 }
 
-// Escape HTML to prevent XSS
+// Thoát khỏi HTML để ngăn chặn XSS
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
 
-// Render articles to the grid
+// Hiển thị danh sách bài viết
 function renderArticles(articles) {
     const grid = document.getElementById('articlesGrid');
     const noResults = document.getElementById('noResults');
@@ -283,8 +293,9 @@ function renderArticles(articles) {
 
     if (!grid) return;
 
-    grid.innerHTML = ''; // Clear existing articles
+    grid.innerHTML = ''; // Xóa nội dung hiện tại
 
+    // Nếu không có kết quả
     if (articles.length === 0) {
         if (noResults) noResults.style.display = 'block';
         if (resultsCount) resultsCount.innerHTML = '<strong>0</strong> results';
@@ -292,22 +303,24 @@ function renderArticles(articles) {
         return;
     }
 
+    // Hiển thị kết quả
     if (noResults) noResults.style.display = 'none';
     grid.style.display = 'grid';
     if (resultsCount) resultsCount.innerHTML = `<strong>${articles.length}</strong> results`;
 
+    // Tạo thẻ bài viết
     articles.forEach(article => {
         const card = document.createElement('div');
         card.className = 'article-card';
         card.onclick = function () {
-            // Replace '#' with actual article URL
+            // Chuyển hướng đến bài viết chi tiết (giả sử có trang chi tiết)
             window.location.href = `#article-${article.id}`;
         };
 
-        // Create elements safely to prevent XSS
+        // Tạo nội dung thẻ
         const imageDiv = document.createElement('div');
         imageDiv.className = 'article-image';
-        // Escape URL to prevent XSS in style attribute
+        // Thoát URL để ngăn chặn XSS trong thuộc tính kiểu
         const escapedImageUrl = escapeHtml(article.image);
         imageDiv.style.backgroundImage = `url('${escapedImageUrl}')`;
 
@@ -358,7 +371,7 @@ function renderArticles(articles) {
     });
 }
 
-// Display search suggestions (Recent + Popular)
+// Hiển thị gợi ý tìm kiếm
 function displaySuggestions() {
     const suggestionsContainer = document.getElementById('searchSuggestions');
     const recentList = document.getElementById('recentSuggestionsList');
@@ -366,11 +379,11 @@ function displaySuggestions() {
 
     if (!suggestionsContainer || !recentList || !popularList) return;
 
-    // Clear lists
+    // Xóa nội dung hiện tại
     recentList.innerHTML = '';
     popularList.innerHTML = '';
 
-    // Always show the container if there's any suggestion
+    // Hiển thị hoặc ẩn khung gợi ý
     if (topSuggestions.length > 0 || recentSearches.length > 0) {
         suggestionsContainer.classList.add('show');
     } else {
@@ -378,7 +391,7 @@ function displaySuggestions() {
         return;
     }
 
-    // Populate Recent Searches
+    // Hiển thị Tìm kiếm gần đây
     recentSearches.forEach(term => {
         const item = document.createElement('div');
         item.className = 'suggestion-item';
@@ -411,7 +424,7 @@ function displaySuggestions() {
         recentList.appendChild(item);
     });
 
-    // Add Clear All Button to Recent Searches list (only if there are items)
+    // Thêm nút "Xóa tất cả" nếu có tìm kiếm gần đây
     if (recentSearches.length > 0) {
         const clearAllButton = document.createElement('button');
         clearAllButton.className = 'clear-all-btn';
@@ -420,7 +433,7 @@ function displaySuggestions() {
         recentList.appendChild(clearAllButton);
     }
 
-    // Populate Popular Suggestions
+    // Hiển thị Gợi ý phổ biến
     topSuggestions.forEach(suggestion => {
         const item = document.createElement('div');
         item.className = 'suggestion-item';
@@ -445,7 +458,7 @@ function displaySuggestions() {
     });
 }
 
-// Hide search suggestions
+// Ẩn khung gợi ý tìm kiếm
 function hideSuggestions() {
     const suggestionsContainer = document.getElementById('searchSuggestions');
     if (suggestionsContainer) {
@@ -453,7 +466,7 @@ function hideSuggestions() {
     }
 }
 
-// Show/Hide the clear input button based on input value
+// Bật/tắt nút xóa trong ô tìm kiếm
 function toggleClearButton() {
     const input = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearInputButton');
@@ -466,7 +479,7 @@ function toggleClearButton() {
     }
 }
 
-// Clear the main search input
+// Xóa nội dung ô tìm kiếm
 function clearSearchInput() {
     const input = document.getElementById('searchInput');
     if (!input) return;
@@ -476,7 +489,7 @@ function clearSearchInput() {
     toggleClearButton();
     hideSuggestions();
 
-    // Clear results when input is cleared
+    // Xóa kết quả hiển thị
     const articlesGrid = document.getElementById('articlesGrid');
     if (articlesGrid) {
         articlesGrid.innerHTML = '';
@@ -487,7 +500,7 @@ function clearSearchInput() {
     }
 }
 
-// Perform search based on input and filters
+// Thực hiện tìm kiếm
 function performSearch() {
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
@@ -511,29 +524,29 @@ function performSearch() {
     const searchIn = searchInFilter.value;
     const sortBy = sortDropdown.value;
 
-    // Show loading state
+    // Hiển thị trạng thái loading
     loadingState.style.display = 'block';
     articlesGrid.style.display = 'none';
     noResults.style.display = 'none';
 
-    // Simulate API delay with requestAnimationFrame for smoother UX
+    // Tính toán kết quả sau một khoảng thời gian ngắn để mô phỏng trạng thái loading
     setTimeout(() => {
         filteredNews = filterNews(searchTerm, category, dateRange, contentType, searchIn);
         const sortedNews = sortNews(filteredNews, sortBy);
         renderArticles(sortedNews);
 
-        // Hide loading state
+        // Ẩn trạng thái loading
         loadingState.style.display = 'none';
 
-        // Save search term if it's not empty
+        // Lưu tìm kiếm gần đây
         if (searchTerm.trim() !== '') {
             saveRecentSearch(searchTerm);
             displaySuggestions();
         }
-    }, 300); // Reduced delay for better UX
+    }, 300);
 }
 
-// Debounce function for search input
+// Tối ưu hóa hàm debounce
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -546,7 +559,7 @@ function debounce(func, wait) {
     };
 }
 
-// Initialize event listeners when DOM is ready
+// Khởi tạo các sự kiện
 function initializeEventListeners() {
     // Search button
     const searchButton = document.getElementById('searchButton');
@@ -642,7 +655,7 @@ function initializeEventListeners() {
         });
     }
 
-    // Hide suggestions when clicking outside
+    // Ẩn khung gợi ý và dropdown khi nhấp ra ngoài
     const suggestionsContainer = document.getElementById('searchSuggestions');
     const searchInputWrapper = document.querySelector('.search-input-wrapper');
     document.addEventListener('click', function (event) {
@@ -653,7 +666,7 @@ function initializeEventListeners() {
             hideSuggestions();
         }
 
-        // Hide filters dropdown
+        // Ẩn dropdown bộ lọc
         if (toggleFiltersBtn && filtersDropdown &&
             !toggleFiltersBtn.contains(event.target) &&
             !filtersDropdown.contains(event.target)) {
@@ -662,7 +675,7 @@ function initializeEventListeners() {
     });
 }
 
-// Initialize when DOM is ready
+// Khởi chạy khi DOM sẵn sàng
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
         generateTopSuggestions();
@@ -672,7 +685,7 @@ if (document.readyState === 'loading') {
         updateFilterCountBadge();
     });
 } else {
-    // DOM is already ready
+    // DOM đã sẵn sàng
     generateTopSuggestions();
     initializeEventListeners();
     displaySuggestions();
