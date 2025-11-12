@@ -76,22 +76,12 @@ export const login = async (req, res) => {
 };
 export const logout = async (req, res) => {
   try {
-    const accessToken = req.cookies.accessToken;
     const refreshToken = req.cookies.refreshToken;
-    if (!accessToken || !refreshToken) {
+    if (!refreshToken) {
       res.status(401).json({ success: false, message: "Unauthorized" });
     }
-    const decodedRefresh = jwt.verify(
-      refreshToken,
-      process.env.JWT_REFRESH_SECRET
-    );
-    const decodedAccess = jwt.verify(
-      accessToken,
-      process.env.JWT_ACCESS_SECRET
-    );
-    if (decodedAccess.userId !== decodedRefresh.userId)
-      return res.status(403).json({ success: false, message: "Action denied" });
-    await redis.del(`refresh_token:${decodedRefresh.userId}`);
+    const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+    await redis.del(`refresh_token:${decoded.userId}`);
     res.clearCookie("accessToken");
     res.clearCookie("refreshToken");
     res.status(200).json({ success: true, message: "Logged out successfully" });
@@ -104,6 +94,29 @@ export const logout = async (req, res) => {
 };
 export const refreshToken = async (req, res) => {
   try {
+    const refreshToken = req.cookies.refreshToken;
+    if (!refreshToken) {
+      return res.status(401).json({ message: "No refresh token provided" });
+    }
+    const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+    const storedToken = await redis.get(`refresh_token:${decoded.userId}`);
+    if (storedToken !== refreshToken) {
+      return res.status(401).json({ message: "Invalid refresh token" });
+    }
+    const accessToken = jwt.sign(
+      { userId: decoded.userId },
+      process.env.JWT_ACCESS_SECRET,
+      { expiresIn: "15m" }
+    );
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 15 * 60 * 1000,
+    });
+    res
+      .status(200)
+      .json({ success: true, message: "Token refreshed successfully" });
   } catch (error) {
     console.log("Error in refreshToken controller: ", error.message);
     res

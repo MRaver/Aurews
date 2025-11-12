@@ -5,20 +5,22 @@ import User from "../models/user.model.js";
  */
 export const protectRoute = async (req, res, next) => {
   try {
-    const accessToken = req.cookies.accessToken;
+    const token = req.cookies.accessToken;
+
     if (!token) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Unauthenticated" });
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized - No access token provided",
+      });
     }
     try {
-      const decoded = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET);
-      const user = await User.findbyId(decoded.userId).select("-password");
+      const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+      const user = await User.findById(decoded.userId);
       if (!user)
         return res
           .status(401)
           .json({ success: false, message: "User not found" });
-      if (req.user.isBanned) {
+      if (user.isBanned) {
         return res.status(403).json({ success: false, message: "Banned user" });
       }
       req.user = user;

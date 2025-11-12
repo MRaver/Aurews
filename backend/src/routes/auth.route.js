@@ -1,5 +1,10 @@
 import express from "express";
-import { login, logout, refreshToken, register } from "../controllers/auth.controller.js";
+import {
+  login,
+  logout,
+  refreshToken,
+  register,
+} from "../controllers/auth.controller.js";
 import { protectRoute } from "../middlewares/auth.middlewares.js";
 const router = express.Router();
 /**
@@ -19,7 +24,7 @@ router.post("/login", login);
  * @desc    Dang xuat
  * @access  Private
  */
-router.post("/logout", protectRoute, logout);
+router.post("/logout",protectRoute, logout);
 /**
  * @route   POST /api/auth/refresh-token
  * @desc    Refresh Token
