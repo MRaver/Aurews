@@ -1,20 +1,21 @@
-// import express from "express";
-// import { protectRoute } from "../middlewares/auth.middlewares.js";
+import express from "express";
+import { protectRoute } from "../middlewares/auth.middlewares.js";
+import { getProfile, updateProfile } from "../controllers/me.controller.js";
 
-// /*Quản lý thông tin cá nhân */
-// const router = express.Router();
-// router.use(protectRoute);
-// // === Profile & Preferences ===
-// /**
-//  * @route   GET /api/me
-//  * @desc    Lấy thông tin profile của user đang đăng nhập
-//  */
-// router.get("/", getProfile);
-// /**
-//  * @route   PUT /api/me
-//  * @desc    Cập nhật profile (fullName, bio, avatar)
-//  */
-// router.put("/", updateProfile);
+/*Quản lý thông tin cá nhân */
+const router = express.Router();
+router.use(protectRoute);
+// === Profile & Preferences ===
+/**
+ * @route   GET /api/me
+ * @desc    Lấy thông tin profile của user đang đăng nhập
+ */
+router.get("/", getProfile);
+/**
+ * @route   PUT /api/me
+ * @desc    Cập nhật profile (fullName, bio, avatar)
+ */
+router.put("/", updateProfile);
 // /**
 //  * @route   GET /api/me/preferences
 //  * @desc    Lấy cài đặt (preferences)
@@ -52,4 +53,4 @@
 //  * @desc    Bỏ theo dõi một tác giả
 //  */
 // router.delete("/follow/:authorId", unfollowAuthor);
-// export default router;
+export default router;
