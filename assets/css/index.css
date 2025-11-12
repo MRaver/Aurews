@@ -42,7 +42,7 @@ body {
     background-image: var(--BG-IMAGE);
     background-attachment: fixed;
     font-family: var(--FF);
-    color: black;
+    color: var(--FONT-COLOR);
     overflow-x: hidden;
 }
 

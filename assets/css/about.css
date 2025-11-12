@@ -41,7 +41,7 @@ body {
     background-image: var(--BG-IMAGE);
     background-attachment: fixed;
     font-family: var(--FF);
-    color: black;
+    color: var(--FONT-COLOR);
     overflow-x: hidden;
 }
 
@@ -404,22 +404,21 @@ body {
 
 /* || MAIN */
 
-/* FAQ */
+/* FAQ */ 
 .FAQ-section {
     max-width: 1440px;
     width: 100%;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
-    gap: 0;
-    height: auto;
+    gap: 0; /* YÊU CẦU: Khoảng cách giữa 2 box là 0 */
     padding-left: 20px;
-
+    flex-wrap: wrap; /* CHO PHÉP: contact-box rớt xuống dưới khi màn hình hẹp */
+    align-items: stretch; /* Giúp các box có chiều cao bằng nhau nếu chúng cùng một hàng */
 }
 
 .social-box {
     display: flex;
-    aspect-ratio: 291/156;
-    max-width: 291px;
+    max-width: min(70vw,291px);
     width: 100%;
     flex-direction: column;
     justify-content: center;
@@ -427,64 +426,100 @@ body {
     text-align: center;
     padding: 40px;
     background-color: aquamarine;
-
+    box-sizing: border-box;
+    flex-shrink: 0; /* Ngăn box này bị co lại */
 }
 
 .social-icons {
     display: flex;
     flex-direction: row;
     gap: 20px;
-
 }
 
-.social-box {
-    font-size: 2vw;
+.social-box .social-title {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 15px;
 }
 
 .social-icons a {
     display: flex;
-    /* giống div, nhưng vẫn giữ tính inline */
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-
-    /* nền xám */
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    /* bo góc nhẹ, nếu muốn tròn hẳn thì dùng 50% */
     text-decoration: none;
-    color: #000;
+    color: var(--FONT-COLOR);
     transition: all 0.3s ease;
 }
 
-.contact-box {
-    margin-top: 54px;
-    position: relative;
-    max-width: 733px;
-    width: 100%;
-    aspect-ratio: 733/142;
-    background-color: aqua;
+.social-icons a:hover {
+    background-color: var(--LINK-HOVER-COLOR);
+    color: white;
 }
+.contact-box { /* Đây là box "Get in touch" */
+    max-width: max(70vw, 733px);
+    width: 100%;
+    flex-grow: 1;
+    /* Margin-top để tạo hiệu ứng cột cao cột thấp như ảnh */
+    margin-top: 54px; 
+ 
+    height: auto;
+    min-height: 142px;
 
+    background-color: aqua;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;   /* Xếp chữ theo chiều dọc */
+    justify-content: center;   /* Căn giữa khối chữ theo chiều dọc */
+    align-items: flex-start;   /* Căn toàn bộ chữ sang lề TRÁI */
+    padding: 30px 40px;      /* Tinh chỉnh padding cho phù hợp */
+}
 .contact-box h3 {
-    position: absolute;
-    left: 0;
-    font-size: 2.8vw;
-    width: 250px;
+    font-size: clamp(1.2rem, 2.8vw, 2rem);
     text-align: left;
-
+    width: 40%; /* Giữ lại width để phân chia bố cục */
+    margin: 0;
 }
 
 .contact-box p {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 2.8vw;
-    width: 500px;
+    font-size: clamp(1.2rem, 2.8vw, 2rem);
     text-align: right;
-
+    width: 100%; /* Giữ lại width để phân chia bố cục */
+    margin: 0;
 }
+
+@media (max-width: 1024px) {
+    .FAQ-section {
+        /* Khi xuống dòng, nên có một khoảng cách dọc để dễ nhìn */
+        gap:  0; 
+        padding: 0;
+    }
+
+    .contact-box {
+        /* GỠ BỎ KHOẢNG TRỐNG THỪA KHI BOX BỊ WRAP XUỐNG */
+        margin-top: 0; 
+    }
+}
+/* CẢI TIẾN THÊM: Khi màn hình quá nhỏ, bố cục 2 cột chữ sẽ rất xấu */
+@media (max-width: 600px) {
+    .contact-box {
+        flex-direction: column; /* Chuyển thành bố cục cột */
+        align-items: flex-start; /* Căn lề trái */
+        text-align: left;
+        gap: 15px; /* Tạo khoảng cách giữa h3 và p */
+    }
+
+    .contact-box h3,
+    .contact-box p {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        text-align: left; /* Căn lề trái cho đồng bộ */
+    }
+}
+
+
 
 /* ABOUT */
 .container1 {
