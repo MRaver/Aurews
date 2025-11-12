@@ -12,43 +12,48 @@
 </head>
 
 <body>
-    <header>
+   <header>
         <nav class="nav__container">
             <div class="nav__top">
-
-                <div class="nav__search">
-                    <p>Search</p>
+                <div class="nav-item-wrapper">
+                    <div class="nav__search">
+                        <p>Search</p>
+                    </div>
                 </div>
-
-                <div class="nav__newsletter">
-                    <p>News letter</p>
+                <div class="nav-item-wrapper">
+                    <div class="nav__newsletter">
+                        <p>News letter</p>
+                    </div>
                 </div>
-
-                <div class="nav__logo">
-                    <a href="index.html">
-                        <p>Aurews</p>
-                    </a>
+                <div class="nav-item-wrapper">
+                    <div class="nav__logo">
+                        <a href="index.html">
+                            AUREWS
+                        </a>
+                    </div>
+                </div>  
+                <div class="nav-item-wrapper">
+                    <div class="nav__about">
+                        <a href="about.html">
+                            <p>About</p>
+                        </a>
+                    </div>
                 </div>
-
-                <div class="nav__about">
-                    <a href="about.html">
-                        <p>About</p>
-                    </a>
-                </div>
-
-                <div class="nav__hamburgermenu">
-                    <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;"
-                        aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <div class="nav-item-wrapper">
+                    <div class="nav__hamburgermenu">
+                        <div class="nav__hamburgermenu__icon menu-toggle" onclick="toggleMenu(); return false;"
+                            aria-label="Toggle menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
 
             </div>
             <div class="nav__bottom">
                 <ul class="nav__categories">
-                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Index.html" class="active">Home</a></li>
                     <li><a href="./Category.html?type=Latest">Latest</a></li>
                     <li><a href="./Category.html?type=Business News">Business News</a></li>
                     <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
@@ -67,11 +72,11 @@
         <!-- Mobile Menu Sidebar -->
         <div class="mobile-menu">
             <div class="mobile-menu-header">
-                <a href="about.html" class="mobile-menu__nav-logo">Aurews</a>
+                <p class="mobile-menu-header__logo">Aurews</p>
                 <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
             </div>
             <ul class="mobile-nav-links">
-                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">Latest</a></li>
                 <li><a href="#">Business News</a></li>
                 <li><a href="#">Money & Markets</a></li>
