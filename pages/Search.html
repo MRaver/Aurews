@@ -42,7 +42,7 @@
                 <div class="nav-item-wrapper">
                     <div class="nav__hamburgermenu">
                         <div class="nav__hamburgermenu__icon menu-toggle" onclick="toggleMenu(); return false;"
-                             aria-label="Toggle menu">
+                            aria-label="Toggle menu">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -106,7 +106,8 @@
             <div class="search-box">
                 <div class="search-input-wrapper">
                     <div class="search-input-container">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search for articles, news, and more..." autocomplete="off">
+                        <input type="text" class="search-input" id="searchInput"
+                            placeholder="Search for articles, news, and more..." autocomplete="off">
                         <button class="clear-input-btn" id="clearInputButton" type="button">&times;</button>
                     </div>
                     <!-- Search Button -->
@@ -231,8 +232,15 @@
 
             <!-- Loading State -->
             <div class="loading" id="loadingState" style="display: none;">
-                <i class="fas fa-spinner"></i>
-                <p style="margin-top: 20px; color: #666;">Loading results...</p>
+                <div class="hourglassContainer">
+                    <div class="hourglassCurves"></div>
+                    <div class="hourglassCapTop"></div>
+                    <div class="hourglassGlassTop"></div>
+                    <div class="hourglassSand"></div>
+                    <div class="hourglassSandStream"></div>
+                    <div class="hourglassCapBottom"></div>
+                    <div class="hourglassGlass"></div>                    
+                </div>
             </div>
 
             <!-- No Results -->
@@ -297,7 +305,7 @@
             </div>
         </div>
     </footer>
-    <script src="../assets/js/search.js"></script>
+    <script src="../assets/js/search-change.js"></script>
 </body>
 
 </html>
