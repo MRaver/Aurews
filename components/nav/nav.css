@@ -1,0 +1,229 @@
+/* --------------------------------
+3. COMPONENT: NAVIGATION (HEADER)
+--------------------------------
+*/
+
+.nav__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 16px; /* Đã gộp 2 rule */
+}
+
+.nav__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav__bottom {
+  border-top: 1px solid black;
+  margin-left: 5px;
+}
+
+:is(.nav__logo, .nav__about) a,
+:is(.nav__newsletter, .nav__search) p {
+  font-family: var(--FF-HEADING);
+  color: var(--FONT-COLOR);
+  text-decoration: none;
+  font-size: var(--FS-HEADING);
+}
+
+.nav__logo a {
+  display: block;
+  font-size: var(--FS-LOGO);
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* GHI CHÚ: Rule :hover này bị ghi đè bởi rule .nav-item-wrapper:hover bên dưới */
+/* Bạn có thể cân nhắc xóa nó đi nếu không cần thiết */
+:is(
+    .nav__logo,
+    .nav__hamburgermenu,
+    .nav__about,
+    .nav__newsletter,
+    .nav__search
+  ):hover {
+  transform: translateY(-5px);
+  transition: color 0.3s ease;
+}
+
+:is(
+    .nav__logo,
+    .nav__hamburgermenu,
+    .nav__about,
+    .nav__newsletter,
+    .nav__search
+  ):active {
+  background-color: var(--NAV-ACTIVE-COLOR);
+  transform: translateY(5px);
+  box-shadow: none;
+}
+
+.nav__logo:hover a {
+  color: var(--LINK-HOVER-COLOR);
+  transition: color 0.2s ease;
+}
+
+:is(.nav__about, .nav__newsletter, .nav__search):hover p {
+  color: var(
+    --LINK-HOVER
+  ); /* GHI CHÚ: Có thể là lỗi, nên là --LINK-HOVER-COLOR ? */
+  transition: color 0.2s ease;
+}
+
+/* Wrapped cho animation nhảy lên của nav__top */
+.nav-item-wrapper {
+  position: relative;
+  width: 16.5vw;
+  aspect-ratio: 5/2;
+  overflow: hidden;
+  cursor: pointer;
+  padding-top: 20px;
+}
+
+.nav__logo,
+.nav__hamburgermenu,
+.nav__about,
+.nav__newsletter,
+.nav__search {
+  height: calc(100% + 8px);
+  position: relative;
+  width: 100%;
+  background: radial-gradient(
+    ellipse 85% 100% at 50% 100%,
+    transparent 0%,
+    transparent calc(100% - 2px),
+    black calc(100% - 2px),
+    black 100%
+  );
+  clip-path: ellipse(85% 100% at 50% 100%);
+  border: 2px solid black;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: transform 400ms ease;
+}
+
+/* Hover Effect (Đây là rule hover chính) */
+.nav-item-wrapper:hover .nav__search,
+.nav-item-wrapper:hover .nav__newsletter,
+.nav-item-wrapper:hover .nav__logo,
+.nav-item-wrapper:hover .nav__about,
+.nav-item-wrapper:hover .nav__hamburgermenu {
+  transform: translateY(-8px);
+  transition: transform 500ms ease;
+}
+
+.nav-item-wrapper:hover a,
+.nav-item-wrapper:hover p {
+  color: var(--LINK-HOVER-COLOR);
+}
+
+.nav__hamburgermenu:hover span {
+  background-color: brown;
+}
+
+/* Nav Categories (Bottom) */
+.nav__categories {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+.nav__categories li {
+  list-style: none;
+}
+
+.nav__categories a {
+  display: inline-block;
+  padding: 5px 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: small;
+  margin-top: 5px;
+  /* GỘP CÁC rule NTH-CHILD VÀO ĐÂY */
+  flex-shrink: 0;
+  min-width: max-content;
+}
+
+.nav__categories a.active {
+  background-color: rgb(232, 5, 39);
+  color: white;
+}
+.nav__categories a:hover {
+  background-color: var(--NAV-HOVER-COLOR);
+  color: white;
+}
+
+/* Hamburger Icon */
+.nav__hamburgermenu {
+  text-decoration: none;
+  color: black;
+  flex-shrink: 0;
+}
+
+.nav__hamburgermenu__icon {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  position: relative;
+}
+
+.nav__hamburgermenu span {
+  height: 8px;
+  width: 100%;
+  background-color: black;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+.nav__hamburgermenu span:nth-child(1) {
+  top: 25%;
+}
+
+.nav__hamburgermenu span:nth-child(3) {
+  top: 75%;
+}
+
+/* === RESPONSIVE CHO NAV === */
+/* (Đã di chuyển từ cuối file lên đây) */
+
+/* @media (max-width: 1400px) {
+    .nav__about,
+    .nav__newsletter,
+    .nav__search {
+        display: none;
+        transition: all 0.3s ease;
+    }
+} */
+
+@media (max-width: 768px) {
+  .nav__search {
+    display: none;
+  }
+}

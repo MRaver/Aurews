@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+/* ===============================================
+MỤC LỤC
+===============================================
+1. RESET & BIẾN TOÀN CỤC (VARIABLES)
+2. PHONG CÁCH CHUNG (GENERAL STYLES)
+3. COMPONENT: NAVIGATION (HEADER)
+    3.1. Layout chung
+    3.2. Các mục Nav Top (Logo, Search...)
+    3.3. Animation "Bouncy" Nav Top
+    3.4. Nav Categories (Bottom)
+    3.5. Hamburger Menu Icon
+    3.6. Responsive cho Nav
+4. COMPONENT: MOBILE MENU (OVERLAY & SIDEBAR)
+5. COMPONENT: FAQ SECTION
+6. COMPONENT: ABOUT PAGE
+7. COMPONENT: DESCRIPTION SECTION
+8. COMPONENT: FOOTER
+9. CSS TỒN ĐỌNG (CẦN XEM LẠI)
+===============================================
+*/
+
+/* --------------------------------
+1. RESET & BIẾN TOÀN CỤC (VARIABLES)
+--------------------------------
+*/
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  display: block;
+}
+
+/* || VARIABLES */
+:root {
+  /* FONTS */
+  --FF: "Montserrat", sans-serif;
+  --FF-HEADING: "Playfair Display", serif;
+  --FS-LOGO: 3vw;
+  --FS-HEADING: clamp(1.5rem, 3vh, 2.5rem);
+  /* COLORS */
+  --FONT-COLOR: black;
+  --NAV-HOVER-COLOR: darkred;
+  --LINK-HOVER-COLOR: brown;
+  --LINK-ACTIVE-COLOR: red;
+  --NAV-ACTIVE-COLOR: #f3d19e;
+  --BG-COLOR: #f2d9b4;
+  --BG-FADED-COLOR: white;
+  --BG-IMAGE: linear-gradient(to bottom, #f2d9b4 0%, #f2d9b4 30%, white 80%);
+}
+
+/* --------------------------------
+2. PHONG CÁCH CHUNG (GENERAL STYLES)
+--------------------------------
+*/
+
+html {
+  font-size: 16px;
+}
+
+body {
+  height: auto;
+  margin: 0;
+  background-color: var(--BG-COLOR);
+  background-image: var(--BG-IMAGE);
+  background-attachment: fixed;
+  font-family: var(--FF);
+  color: var(--FONT-COLOR);
+  overflow-x: hidden;
+}
