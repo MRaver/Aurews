@@ -1,12 +1,12 @@
 function openPopup(tab) {
     document.getElementById('popupOverlay').classList.add('active');
-    document.body.classList.add('blur');
+    document.getElementById('mainContent').classList.add('blur');
     switchTab(tab);
 }
 
 function closePopup() {
     document.getElementById('popupOverlay').classList.remove('active');
-    document.body.classList.remove('blur');
+    document.getElementById('mainContent').classList.remove('blur');
 }
 
 function closePopupOnOverlay(event) {
