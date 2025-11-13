@@ -16,7 +16,7 @@ const typeMapping = {
 };
 
 const types = [
-    'Latest', 'Business News', 'Money and Markets', 'Tech and Innovation', 
+    'Latest', 'Business News', 'Money and Markets', 'Tech and Innovation',
     'A.I.', 'Lifestyle', 'Politics', 'Email', 'Podcast'
 ];
 
@@ -51,9 +51,9 @@ function toggleMobileNav() {
     mobileNavLinks.forEach(link => link.classList.remove('active'));
 
     // Set active cho Home nếu đang ở Index.html
-    if (currentPath.includes('Index.html') || currentPath.endsWith('/') || 
+    if (currentPath.includes('Index.html') || currentPath.endsWith('/') ||
         currentPath.includes('index.html') || (!currentPath.includes('Category.html') && !currentPath.includes('Post.html') && !currentPath.includes('Contact.html'))) {
-        const homeLink = Array.from(mobileNavLinks).find(link => 
+        const homeLink = Array.from(mobileNavLinks).find(link =>
             link.textContent.trim() === 'Home' || link.getAttribute('href')?.includes('Index.html')
         );
         if (homeLink) {
@@ -67,7 +67,7 @@ function toggleMobileNav() {
         mobileNavLinks.forEach(link => {
             const linkText = link.textContent.trim();
             const mappedType = typeMapping[linkText];
-            
+
             if (mappedType === param) {
                 link.classList.add('active');
             }
@@ -76,7 +76,7 @@ function toggleMobileNav() {
 
     // Set active cho Contact nếu đang ở Contact.html
     if (currentPath.includes('Contact.html')) {
-        const contactLink = Array.from(mobileNavLinks).find(link => 
+        const contactLink = Array.from(mobileNavLinks).find(link =>
             link.textContent.trim() === 'Contact'
         );
         if (contactLink) {
@@ -94,7 +94,7 @@ function initMobileMenuLinks() {
     // Kiểm tra xem có đang ở trong thư mục pages không để xác định base path
     const currentPath = window.location.pathname;
     let basePath = '.';
-    
+
     // Nếu không ở trong pages (ví dụ ở root), cần vào pages
     if (!currentPath.includes('/pages/') && !currentPath.includes('/pages')) {
         // Có thể đang ở root, thử dùng absolute path hoặc relative
@@ -105,7 +105,7 @@ function initMobileMenuLinks() {
     mobileNavLinks.forEach((link) => {
         const linkText = link.textContent.trim();
         const currentHref = link.getAttribute('href');
-        
+
         // Chỉ set URL nếu href là "#" hoặc rỗng hoặc không hợp lệ
         if (!currentHref || currentHref === '#' || currentHref.trim() === '') {
             if (linkText === 'Home') {
@@ -127,7 +127,7 @@ function initMobileMenuLinks() {
 function initMobileMenu() {
     // Khởi tạo URLs cho mobile menu
     initMobileMenuLinks();
-    
+
     // Set active class ban đầu
     toggleMobileNav();
 
@@ -135,7 +135,7 @@ function initMobileMenu() {
     document.querySelectorAll('.mobile-nav-links a').forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            
+
             // Chỉ prevent default nếu href là "#" hoặc rỗng
             if (!href || href === '#' || href.startsWith('#')) {
                 e.preventDefault();
@@ -144,13 +144,13 @@ function initMobileMenu() {
 
             // Prevent default để tự điều hướng
             e.preventDefault();
-            
+
             // Đóng menu trước khi điều hướng (UX tốt hơn)
             const mobileMenu = document.querySelector('.mobile-menu');
             if (mobileMenu && mobileMenu.classList.contains('active')) {
                 toggleMenu();
             }
-            
+
             // Điều hướng đến trang mới
             window.location.href = href;
         });
