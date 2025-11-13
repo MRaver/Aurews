@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <title>Add Post - Aurews</title>
@@ -639,235 +640,185 @@
 </head>
 
 <body>
-    <header>
-        <nav class="nav__container">
-            <div class="nav__top">
-                <div class="nav__search">
-                    <p>Search</p>
-                </div>
-                <div class="nav__newsletter">
-                    <p>News letter</p>
-                </div>
-
-                <div class="nav__logo">
-                    <a href="Index.html">
-                        <p>Aurews</p>
-                    </a>
-                </div>
-
-                <div class="nav__languages">
-                    <a href="Index.html">
-                        <p>Languages</p>
-                    </a>
-                </div>
-                <div class="nav__hamburgermenu">
-                    <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+    <div id="mainContent">
+        <header>
+            <nav class="nav__container">
+                <div class="nav__top">
+                    <div class="nav__search">
+                        <p>Search</p>
                     </div>
-                </div>
-            </div>
-            <div class="nav__bottom">
-                <ul class="nav__categories">
-                    <li><a href="Index.html">Home</a></li>
-                    <li><a href="./Category.html?type=Latest">Latest</a></li>
-                    <li><a href="./Category.html?type=Business News">Business News</a></li>
-                    <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
-                    <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
-                    <li><a href="./Category.html?type=A.I.">A.I.</a></li>
-                    <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
-                    <li><a href="./Category.html?type=Politics">Politics</a></li>
-                    <li><a href="./Category.html?type=Email">Email</a></li>
-                    <li><a href="./Category.html?type=Podcast">Podcast</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
-        <div class="mobile-menu">
-            <div class="mobile-menu-header">
-                <a href="Index.html" class="nav__logoo">Aurews</a>
-                <button class="close-menu" onclick="toggleMenu()">×</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="Index.html">Home</a></li>
-                <li><a href="#">Latest</a></li>
-                <li><a href="#">Business News</a></li>
-                <li><a href="#">Money & Markets</a></li>
-                <li><a href="#">Tech & Innovation</a></li>
-                <li><a href="#">A.I.</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Politics</a></li>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Podcast</a></li>
-            </ul>
-            <div class="mobile-menu-footer">
-                <div class="mobile-menu-footer-item">Languages</div>
-                <div class="mobile-menu-footer-item">Search</div>
-                <div class="mobile-menu-footer-item">Newsletter</div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="addpost__container">
-            <div class="addpost__header">
-                <h1>Create New Post</h1>
-                <p>Share your story with the world</p>
-            </div>
-
-            <form id="addPostForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="postTitle">Post Title *</label>
-                        <input type="text" id="postTitle" name="postTitle" placeholder="Enter an engaging title"
-                            required>
+                    <div class="nav__newsletter">
+                        <p>News letter</p>
                     </div>
 
-                    <div class="form-group">
-                        <label for="postCategory">Category *</label>
-                        <select id="postCategory" name="postCategory" required>
-                            <option value="">Select a category</option>
-                            <option value="Business News">Business News</option>
-                            <option value="Money and Markets">Money & Markets</option>
-                            <option value="Tech and Innovation">Tech & Innovation</option>
-                            <option value="A.I.">A.I.</option>
-                            <option value="Lifestyle">Lifestyle</option>
-                            <option value="Politics">Politics</option>
-                            <option value="Latest">Latest</option>
-                        </select>
+                    <div class="nav__logo">
+                        <a href="Index.html">
+                            <p>Aurews</p>
+                        </a>
+                    </div>
+
+                    <div class="nav__languages">
+                        <a href="Index.html">
+                            <p>Languages</p>
+                        </a>
+                    </div>
+                    <div class="nav__hamburgermenu">
+                        <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="postAuthor">Author Name *</label>
-                    <input type="text" id="postAuthor" name="postAuthor" placeholder="Your name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="postImage">Featured Image</label>
-                    <input type="file" id="postImage" name="postImage" accept="image/*">
-                    <small>Upload a cover image for your post (JPG, PNG, max 5MB)</small>
-                    <div class="image-preview" id="imagePreview">
-                        <p>Image preview will appear here</p>
-                        <img id="previewImg" alt="Preview">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="postContent">Post Content *</label>
-                    <textarea id="postContent" name="postContent"
-                        placeholder="Write your post content here... Share your thoughts, insights, and stories."
-                        required></textarea>
-                    <small>Minimum 100 characters</small>
-                </div>
-
-                <div class="submit-section">
-                    <button type="button" class="btn btn-secondary"
-                        onclick="window.location.href='Index.html'">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Publish Post</button>
-                </div>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer__container">
-            <div class="footer__newsletter">
-                <h2 class="newsletter__title">Get updates delivered directly to your inbox.</h2>
-                <form class="newsletter__formbox">
-                    <input type="text" placeholder="Enter your email">
-                    <button type="submit">Subscribe</button>
-                </form>
-                <p class="siteinfo__description">By subscribing you agree to our <a href="/">Privacy Policy</a> and
-                    provide consent to receive updates from our company</p>
-            </div>
-            <div class="siteinfo__right">
-                <div class="icon__container">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-                <div class="contact">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    <a href="tel:012312308721398">012312308721398</a>
-                </div>
-                <div class="email">
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:aurews@gmail.com">aurews@gmail.com</a>
-                </div>
-                <div class="end">
-                    <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
-                </div>
-                <div class="options__container">
-                    <ul class="option">
-                        <li>Terms</li>
-                        <li>Privacy</li>
-                        <li>Cookie Policy</li>
-                        <li>Support</li>
-                        <li>Sitemap</li>
+                <div class="nav__bottom">
+                    <ul class="nav__categories">
+                        <li><a href="Index.html">Home</a></li>
+                        <li><a href="./Category.html?type=Latest">Latest</a></li>
+                        <li><a href="./Category.html?type=Business News">Business News</a></li>
+                        <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
+                        <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
+                        <li><a href="./Category.html?type=A.I.">A.I.</a></li>
+                        <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
+                        <li><a href="./Category.html?type=Politics">Politics</a></li>
+                        <li><a href="./Category.html?type=Email">Email</a></li>
+                        <li><a href="./Category.html?type=Podcast">Podcast</a></li>
                     </ul>
                 </div>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <a href="Index.html" class="nav__logoo">Aurews</a>
+                    <button class="close-menu" onclick="toggleMenu()">×</button>
+                </div>
+                <ul class="mobile-nav-links">
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="#">Latest</a></li>
+                    <li><a href="#">Business News</a></li>
+                    <li><a href="#">Money & Markets</a></li>
+                    <li><a href="#">Tech & Innovation</a></li>
+                    <li><a href="#">A.I.</a></li>
+                    <li><a href="#">Lifestyle</a></li>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Podcast</a></li>
+                </ul>
+                <div class="mobile-menu-footer">
+                    <div class="mobile-menu-footer-item">Languages</div>
+                    <div class="mobile-menu-footer-item">Search</div>
+                    <div class="mobile-menu-footer-item">Newsletter</div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </header>
 
-    <script>
-        // Toggle Mobile Menu
-        function toggleMenu() {
-            const overlay = document.querySelector('.mobile-menu-overlay');
-            const menu = document.querySelector('.mobile-menu');
-            overlay.classList.toggle('active');
-            menu.classList.toggle('active');
-        }
+        <main>
+            <div class="addpost__container">
+                <div class="addpost__header">
+                    <h1>Create New Post</h1>
+                    <p>Share your story with the world</p>
+                </div>
 
-        // Image Preview
-        document.getElementById('postImage').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    const preview = document.getElementById('imagePreview');
-                    const img = document.getElementById('previewImg');
-                    img.src = event.target.result;
-                    preview.classList.add('has-image');
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+                <form id="addPostForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postTitle">Post Title *</label>
+                            <input type="text" id="postTitle" name="postTitle" placeholder="Enter an engaging title"
+                                required>
+                        </div>
 
-        // Form Submit Handler
-        document.getElementById('addPostForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+                        <div class="form-group">
+                            <label for="postCategory">Category *</label>
+                            <select id="postCategory" name="postCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="Business News">Business News</option>
+                                <option value="Money and Markets">Money & Markets</option>
+                                <option value="Tech and Innovation">Tech & Innovation</option>
+                                <option value="A.I.">A.I.</option>
+                                <option value="Lifestyle">Lifestyle</option>
+                                <option value="Politics">Politics</option>
+                                <option value="Latest">Latest</option>
+                            </select>
+                        </div>
+                    </div>
 
-            const formData = {
-                title: document.getElementById('postTitle').value.trim(),
-                category: document.getElementById('postCategory').value,
-                author: document.getElementById('postAuthor').value.trim(),
-                content: document.getElementById('postContent').value.trim(),
-                image: document.getElementById('postImage').files[0],
-                createdAt: new Date().toISOString()
-            };
+                    <div class="form-group">
+                        <label for="postAuthor">Author Name *</label>
+                        <input type="text" id="postAuthor" name="postAuthor" placeholder="Your name" required>
+                    </div>
 
-            // Validation
-            if (formData.content.length < 100) {
-                alert('Post content must be at least 100 characters long!');
-                return;
-            }
+                    <div class="form-group">
+                        <label for="postImage">Featured Image</label>
+                        <input type="file" id="postImage" name="postImage" accept="image/*">
+                        <small>Upload a cover image for your post (JPG, PNG, max 5MB)</small>
+                        <div class="image-preview" id="imagePreview">
+                            <p>Image preview will appear here</p>
+                            <img id="previewImg" alt="Preview">
+                        </div>
+                    </div>
 
-            // In thực tế, bạn sẽ gửi data này lên backend
-            console.log('Post Data:', formData);
+                    <div class="form-group">
+                        <label for="postContent">Post Content *</label>
+                        <textarea id="postContent" name="postContent"
+                            placeholder="Write your post content here... Share your thoughts, insights, and stories."
+                            required></textarea>
+                        <small>Minimum 100 characters</small>
+                    </div>
 
-            // Giả lập lưu vào memory (thay thế localStorage)
-            alert('Post created successfully! 🎉\n\nTitle: ' + formData.title + '\nCategory: ' + formData.category);
+                    <div class="submit-section">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="window.location.href='Index.html'">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Publish Post</button>
+                    </div>
+                </form>
+            </div>
+        </main>
 
-            // Redirect về trang chủ
-            // window.location.href = 'Index.html';
-        });
-    </script>
+        <footer>
+            <div class="footer__container">
+                <div class="footer__newsletter">
+                    <h2 class="newsletter__title">Get updates delivered directly to your inbox.</h2>
+                    <form class="newsletter__formbox">
+                        <input type="text" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p class="siteinfo__description">By subscribing you agree to our <a href="/">Privacy Policy</a> and
+                        provide consent to receive updates from our company</p>
+                </div>
+                <div class="siteinfo__right">
+                    <div class="icon__container">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="contact">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <a href="tel:012312308721398">012312308721398</a>
+                    </div>
+                    <div class="email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:aurews@gmail.com">aurews@gmail.com</a>
+                    </div>
+                    <div class="end">
+                        <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
+                    </div>
+                    <div class="options__container">
+                        <ul class="option">
+                            <li>Terms</li>
+                            <li>Privacy</li>
+                            <li>Cookie Policy</li>
+                            <li>Support</li>
+                            <li>Sitemap</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../assets/js/header.js"></script>
+        <script src="../assets/js/addPost.js"></script>
 </body>
 
 </html>
