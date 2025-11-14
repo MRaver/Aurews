@@ -1,12 +1,12 @@
 function openPopup(tab) {
     document.getElementById('popupOverlay').classList.add('active');
-    document.body.classList.add('blur');
+    document.getElementById('mainContent').classList.add('blur');
     switchTab(tab);
 }
 
 function closePopup() {
     document.getElementById('popupOverlay').classList.remove('active');
-    document.body.classList.remove('blur');
+    document.getElementById('mainContent').classList.remove('blur');
 }
 
 function closePopupOnOverlay(event) {
@@ -38,6 +38,19 @@ document.addEventListener('keydown', function (event) {
 });
 
 //  luu thong tin sign-up
+let allSignUp;
+try {
+    const stored = localStorage.getItem('userInfo');
+    allSignUp = stored ? JSON.parse(stored) : [];
+
+    // Đảm bảo là array
+    if (!Array.isArray(allSignUp)) {
+        allSignUp = [];
+    }
+} catch (error) {
+    console.error('Error parsing localStorage:', error);
+    allSignUp = [];
+}
 function saveSignUp() {
     const signUpForm = document.getElementById('signUpForm');
     signUpForm.addEventListener('submit', (e) => {
@@ -58,36 +71,53 @@ function saveSignUp() {
                 email,
                 password,
             }
-            // xóa đi nếu thấy không cần thiết( 3 dòng code ở dưới)
             console.log(thongTin);
-            localStorage.setItem('userInfo', JSON.stringify(thongTin));
+            const isExisted = allSignUp.some(user =>
+                user.fullName === thongTin.fullName &&
+                user.email === thongTin.email &&
+                user.password === thongTin.password
+            )
+            if (isExisted) {
+                alert('Account existed!');
+                return;  // Dừng hàm nếu đã tồn tại
+            }
+            allSignUp.push(thongTin);
+            localStorage.setItem('userInfo', JSON.stringify(allSignUp));
             alert('Sign up succeed')
             console.log(localStorage);
+            signUpForm.reset();
 
         }
     })
 }
 //localStorage: nhớ comment bên dưới vì dùng localStorage
 //duyet thong tin dang nhap
+function generateToken() {
+    return Math.random().toString(36).substring(2) + Date.now().toString(36);
+}
 function Login() {
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', async (e) => {
 
         e.preventDefault();
-        //const storedUser = JSON.parse(localStorage.getItem('userInfo')) || [];
-        const username = document.querySelector('.email-login').value.trim();
+        const storedUser = JSON.parse(localStorage.getItem('userInfo')) || [];
+        const emailSignIn = document.querySelector('.email-login').value.trim();
         const passSignIn = document.querySelector('.password-login').value.trim();
         const thongTinDangNhap = {
             emailSignIn,
             passSignIn,
-            accessToken: 123
+            accessToken: generateToken(),
         };
-
-        if (emailSignIn === storedUser.email && passSignIn == storedUser.password) {
+        const isExisted = storedUser.some(user =>
+            user.email === emailSignIn &&
+            user.password === passSignIn
+        )
+        if (isExisted) {
             alert('Login Suceed!');
             localStorage.setItem('userLogin', JSON.stringify(thongTinDangNhap));
             window.location.reload();
         }
+        else alert('Login Fail!');
     });
 
 }
@@ -98,10 +128,10 @@ function userLoginHTML() {
     if (!tokenn.accessToken)
         role = 'reader';
     else if (tokenn.accessToken === 123) {
-        role = 'author';
+        role = 'admin';
     }
     else {
-        role = 'admin';
+        role = 'author';
     }
     if (role === 'author') {
         const container = document.querySelector('.mobile-menu-footer');
@@ -122,6 +152,7 @@ function userLoginHTML() {
             window.location.href = './adminDashboard.html';
         });
     }
+    //Log-out
     const logoutBtn = document.getElementById('logout-button');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
@@ -139,7 +170,6 @@ function clickAddPostButton() {
 }
 saveSignUp();
 Login();
-getUser();
 userLoginHTML();
 clickAddPostButton();
 

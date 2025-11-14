@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="../components/nav/nav.css" />
     <link rel="stylesheet" href="../components/footer/footer.css" />
     <link rel="stylesheet" href="../components/mobileMenu/mobileMenu.css" />
+    <link
+      rel="stylesheet"
+      href="../components/authenOverlay/authenOverlay.css"
+    />
 
     <link rel="stylesheet" href="../assets/css/category.css" />
     <link
@@ -23,19 +27,24 @@
   </head>
 
   <body>
-    <header>
-      <div id="nav-placeholder"></div>
-      <!-- Mobile Menu Overlay -->
-      <div id="mobile-menu-placeholder"></div>
-    </header>
-    <main>
-      <div class="background__title js-background-title">
-        <div class="title__container js-title-container"></div>
-        <div class="news__container js-news-container"></div>
-      </div>
-    </main>
-    <div id="footer-placeholder"></div>
+    <div id="authenOverlay-placeholder"></div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-placeholder"></div>
+    
+    <div id="mainContent">
+      <header>
+        <div id="nav-placeholder"></div>
+      </header>
+      <main>
+        <div class="background__title js-background-title">
+          <div class="title__container js-title-container"></div>
+          <div class="news__container js-news-container"></div>
+        </div>
+      </main>
+      <div id="footer-placeholder"></div>
+    </div>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/login.js"></script>
     <script src="../assets/js/category.js" type="module"></script>
     <script src="../assets/js/header.js"></script>
   </body>

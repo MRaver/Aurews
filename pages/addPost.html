@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="../components/nav/nav.css" />
     <link rel="stylesheet" href="../components/footer/footer.css" />
     <link rel="stylesheet" href="../components/mobileMenu/mobileMenu.css" />
+    <link
+      rel="stylesheet"
+      href="../components/authenOverlay/authenOverlay.css"
+    />
 
     <link rel="stylesheet" href="../assets/css/addPost.css" />
 
@@ -23,147 +27,153 @@
   </head>
 
   <body>
-    <header>
-      <div id="nav-placeholder"></div>
+    <div id="authenOverlay-placeholder"></div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-placeholder"></div>
+    <div id="mainConent">
+      <header>
+        <div id="nav-placeholder"></div>
+      </header>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu-placeholder"></div>
-    </header>
+      <main>
+        <div class="addpost__container">
+          <div class="addpost__header">
+            <h1>Create New Post</h1>
+            <p>Share your story with the world</p>
+          </div>
 
-    <main>
-      <div class="addpost__container">
-        <div class="addpost__header">
-          <h1>Create New Post</h1>
-          <p>Share your story with the world</p>
-        </div>
+          <form id="addPostForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="postTitle">Post Title *</label>
+                <input
+                  type="text"
+                  id="postTitle"
+                  name="postTitle"
+                  placeholder="Enter an engaging title"
+                  required
+                />
+              </div>
 
-        <form id="addPostForm">
-          <div class="form-row">
+              <div class="form-group">
+                <label for="postCategory">Category *</label>
+                <select id="postCategory" name="postCategory" required>
+                  <option value="">Select a category</option>
+                  <option value="Business News">Business News</option>
+                  <option value="Money and Markets">Money & Markets</option>
+                  <option value="Tech and Innovation">Tech & Innovation</option>
+                  <option value="A.I.">A.I.</option>
+                  <option value="Lifestyle">Lifestyle</option>
+                  <option value="Politics">Politics</option>
+                  <option value="Latest">Latest</option>
+                </select>
+              </div>
+            </div>
+
             <div class="form-group">
-              <label for="postTitle">Post Title *</label>
+              <label for="postAuthor">Author Name *</label>
               <input
                 type="text"
-                id="postTitle"
-                name="postTitle"
-                placeholder="Enter an engaging title"
+                id="postAuthor"
+                name="postAuthor"
+                placeholder="Your name"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="postCategory">Category *</label>
-              <select id="postCategory" name="postCategory" required>
-                <option value="">Select a category</option>
-                <option value="Business News">Business News</option>
-                <option value="Money and Markets">Money & Markets</option>
-                <option value="Tech and Innovation">Tech & Innovation</option>
-                <option value="A.I.">A.I.</option>
-                <option value="Lifestyle">Lifestyle</option>
-                <option value="Politics">Politics</option>
-                <option value="Latest">Latest</option>
-              </select>
+              <label for="postImage">Featured Image</label>
+              <input
+                type="file"
+                id="postImage"
+                name="postImage"
+                accept="image/*"
+              />
+              <small
+                >Upload a cover image for your post (JPG, PNG, max 5MB)</small
+              >
+              <div class="image-preview" id="imagePreview">
+                <p>Image preview will appear here</p>
+                <img id="previewImg" alt="Preview" />
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="postAuthor">Author Name *</label>
-            <input
-              type="text"
-              id="postAuthor"
-              name="postAuthor"
-              placeholder="Your name"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="postImage">Featured Image</label>
-            <input
-              type="file"
-              id="postImage"
-              name="postImage"
-              accept="image/*"
-            />
-            <small
-              >Upload a cover image for your post (JPG, PNG, max 5MB)</small
-            >
-            <div class="image-preview" id="imagePreview">
-              <p>Image preview will appear here</p>
-              <img id="previewImg" alt="Preview" />
+            <div class="form-group">
+              <label for="postContent">Post Content *</label>
+              <textarea
+                id="postContent"
+                name="postContent"
+                placeholder="Write your post content here... Share your thoughts, insights, and stories."
+                required
+              ></textarea>
+              <small>Minimum 100 characters</small>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="postContent">Post Content *</label>
-            <textarea
-              id="postContent"
-              name="postContent"
-              placeholder="Write your post content here... Share your thoughts, insights, and stories."
-              required
-            ></textarea>
-            <small>Minimum 100 characters</small>
-          </div>
-
-          <div class="submit-section">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              onclick="window.location.href='Index.html'"
-            >
-              Cancel
-            </button>
-            <button type="submit" class="btn btn-primary">Publish Post</button>
-          </div>
-        </form>
-      </div>
-    </main>
-
-    <footer>
-      <div class="footer__container">
-        <div class="footer__newsletter">
-          <h2 class="newsletter__title">
-            Get updates delivered directly to your inbox.
-          </h2>
-          <form class="newsletter__formbox">
-            <input type="text" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
+            <div class="submit-section">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="window.location.href='index.html'"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Publish Post
+              </button>
+            </div>
           </form>
-          <p class="siteinfo__description">
-            By subscribing you agree to our <a href="/">Privacy Policy</a> and
-            provide consent to receive updates from our company
-          </p>
         </div>
-        <div class="siteinfo__right">
-          <div class="icon__container">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </main>
+
+      <footer>
+        <div class="footer__container">
+          <div class="footer__newsletter">
+            <h2 class="newsletter__title">
+              Get updates delivered directly to your inbox.
+            </h2>
+            <form class="newsletter__formbox">
+              <input type="text" placeholder="Enter your email" />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p class="siteinfo__description">
+              By subscribing you agree to our <a href="/">Privacy Policy</a> and
+              provide consent to receive updates from our company
+            </p>
           </div>
-          <div class="contact">
-            <i class="fa-solid fa-phone-volume"></i>
-            <a href="tel:012312308721398">012312308721398</a>
-          </div>
-          <div class="email">
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:aurews@gmail.com">aurews@gmail.com</a>
-          </div>
-          <div class="end">
-            <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
-          </div>
-          <div class="options__container">
-            <ul class="option">
-              <li>Terms</li>
-              <li>Privacy</li>
-              <li>Cookie Policy</li>
-              <li>Support</li>
-              <li>Sitemap</li>
-            </ul>
+          <div class="siteinfo__right">
+            <div class="icon__container">
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="contact">
+              <i class="fa-solid fa-phone-volume"></i>
+              <a href="tel:012312308721398">012312308721398</a>
+            </div>
+            <div class="email">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:aurews@gmail.com">aurews@gmail.com</a>
+            </div>
+            <div class="end">
+              <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
+            </div>
+            <div class="options__container">
+              <ul class="option">
+                <li>Terms</li>
+                <li>Privacy</li>
+                <li>Cookie Policy</li>
+                <li>Support</li>
+                <li>Sitemap</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
+
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/login.js"></script>
     <script>
       // Toggle Mobile Menu
       function toggleMenu() {
@@ -223,7 +233,7 @@
           );
 
           // Redirect về trang chủ
-          // window.location.href = 'Index.html';
+          // window.location.href = 'index.html';
         });
     </script>
   </body>

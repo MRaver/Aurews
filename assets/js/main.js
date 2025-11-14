@@ -1,6 +1,9 @@
 // Đợi cho tất cả nội dung HTML tải xong
 document.addEventListener("DOMContentLoaded", function () {
   // Tìm "chỗ" đã tạo
+  const authenOverlayPlaceholder = document.getElementById(
+    "authenOverlay-placeholder"
+  );
   const navPlaceholder = document.getElementById("nav-placeholder");
   const footerPlaceholder = document.getElementById("footer-placeholder");
   const mobileMenuPlaceholder = document.getElementById(
@@ -55,7 +58,23 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => {
         console.error("Lỗi khi tải mobile menu:", error);
-        mobileMenuPlaceholder.innerHTML = "<p>Lỗi tải footer</p>"; // Hiển thị lỗi nếu có
+        mobileMenuPlaceholder.innerHTML = "<p>Lỗi tải mobile menu</p>"; // Hiển thị lỗi nếu có
+      });
+  }
+  if (authenOverlayPlaceholder) {
+    fetch("../../components/authenOverlay/authenOverlay.html")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Không thể tải authen overlay");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        authenOverlayPlaceholder.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error("Lỗi khi tải authen overlay:", error);
+        authenOverlayPlaceholder.innerHTML = "<p>Lỗi tải authen overlay</p>"; // Hiển thị lỗi nếu có
       });
   }
 });

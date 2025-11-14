@@ -26,8 +26,8 @@
   margin-left: 5px;
 }
 
-:is(.nav__logo, .nav__about) a,
-:is(.nav__newsletter, .nav__search) p {
+:is(.nav__logo, .nav__about, .nav__search) a,
+:is(.nav__newsletter) p {
   font-family: var(--FF-HEADING);
   color: var(--FONT-COLOR);
   text-decoration: none;

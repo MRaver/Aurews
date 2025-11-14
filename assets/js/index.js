@@ -3,26 +3,35 @@ import { newsData } from "../data/newsData.js";
 // 1. Render Featured News
 function renderFeatured() {
   const { title, description, image } = newsData.featured;
-  document.querySelector('.boxupperleft__img img').src = `/client/assets/${image}`;
-  document.querySelector('.boxupperleft__description h1').textContent = title;
-  document.querySelector('.boxupperleft__description p').textContent = description;
+  document.querySelector(
+    ".boxupperleft__img img"
+  ).src = `/client/assets/${image}`;
+  document.querySelector(".boxupperleft__description h1").textContent = title;
+  document.querySelector(".boxupperleft__description p").textContent =
+    description;
 }
 
 // 2. Render Latest News
 function renderLatest() {
-  const container = document.querySelector('.latestnews');
-  container.innerHTML = newsData.latest.map(item => `
+  const container = document.querySelector(".latestnews");
+  container.innerHTML = newsData.latest
+    .map(
+      (item) => `
   <div class = 'latest-new'>
     <h2>${item.title}</h2>
     <p>${item.time}</p>
   </div>
-    `).join('');
+    `
+    )
+    .join("");
 }
 
 // 3. Render Three News
 function renderThreeNews() {
-  const container = document.querySelector('.threenews');
-  container.innerHTML = newsData.threeNews.map(item => `
+  const container = document.querySelector(".threenews");
+  container.innerHTML = newsData.threeNews
+    .map(
+      (item) => `
     <div class="threenews__oii">
       <div class="threenews__img">
         <img src="/client/assets/${item.image}" alt="">
@@ -32,7 +41,9 @@ function renderThreeNews() {
         <p>${item.description}</p>
       </div>
     </div>
-  `).join('');
+  `
+    )
+    .join("");
 }
 
 // 4. Render Lifestyle
@@ -40,27 +51,34 @@ function renderLifestyle() {
   const { big, small } = newsData.lifestyle;
 
   // Big news
-  document.querySelector('.bignews__img img').src = `/client/assets/${big.image}`;
-  document.querySelector('.bignews__description p').textContent = big.title;
+  document.querySelector(
+    ".bignews__img img"
+  ).src = `/client/assets/${big.image}`;
+  document.querySelector(".bignews__description p").textContent = big.title;
 
   // Small news
-  const containers = document.querySelectorAll('.smallnews > div');
+  const containers = document.querySelectorAll(".smallnews > div");
   small.forEach((item, i) => {
-    containers[i].querySelector('.smallnews__img img').src = `/client/assets/${item.image}`;
-    containers[i].querySelector('.smallnews__description p').textContent = item.title;
+    containers[i].querySelector(
+      ".smallnews__img img"
+    ).src = `/client/assets/${item.image}`;
+    containers[i].querySelector(".smallnews__description p").textContent =
+      item.title;
   });
 }
 
 // 5. Render Topics (Money, Tech, Business, Politics)
 function renderTopics() {
-  const topicContainers = document.querySelectorAll('.topic');
+  const topicContainers = document.querySelectorAll(".topic");
   const topics = Object.values(newsData.topics);
 
   topics.forEach((topic, index) => {
     const container = topicContainers[index];
-    container.querySelector('h2').textContent = topic.title;
+    container.querySelector("h2").textContent = topic.title;
 
-    const newsHTML = topic.news.map(item => `
+    const newsHTML = topic.news
+      .map(
+        (item) => `
       <div class="news">
         <div class="news__img">
           <img src="/client/assets/${item.image}" alt="">
@@ -69,9 +87,11 @@ function renderTopics() {
           <p>${item.title}</p>
         </div>
       </div>
-    `).join('');
+    `
+      )
+      .join("");
 
-    const blockHTML = container.querySelector('.block').outerHTML;
+    const blockHTML = container.querySelector(".block").outerHTML;
     container.innerHTML = `<h2>${topic.title}</h2>${newsHTML}${blockHTML}`;
   });
 }
@@ -81,16 +101,24 @@ function renderAI() {
   const { main, sideNews } = newsData.ai;
 
   // Main AI news
-  document.querySelector('.AI_maintopic .AI__img img').src = `/client/assets/${main.image}`;
-  document.querySelector('.AI_maintopic .AI__description h3').textContent = main.title;
-  document.querySelector('.AI_maintopic .AI__description p').textContent = main.description;
+  document.querySelector(
+    ".AI_maintopic .AI__img img"
+  ).src = `/client/assets/${main.image}`;
+  document.querySelector(".AI_maintopic .AI__description h3").textContent =
+    main.title;
+  document.querySelector(".AI_maintopic .AI__description p").textContent =
+    main.description;
 
   // Side news
-  const newsContainers = document.querySelectorAll('.AI__right > div:not(.block)');
+  const newsContainers = document.querySelectorAll(
+    ".AI__right > div:not(.block)"
+  );
   sideNews.forEach((item, i) => {
     if (newsContainers[i]) {
-      newsContainers[i].querySelector('.img__container img').src = `/client/assets/${item.image}`;
-      newsContainers[i].querySelector('.AI__title p').textContent = item.title;
+      newsContainers[i].querySelector(
+        ".img__container img"
+      ).src = `/client/assets/${item.image}`;
+      newsContainers[i].querySelector(".AI__title p").textContent = item.title;
     }
   });
 }
@@ -100,25 +128,36 @@ function renderPopular() {
   const { grid1, businessMain, grid3 } = newsData.popular;
 
   // Grid 1 - Most Popular
-  const grid1Contents = document.querySelectorAll('.grid__box1 > div:not(.grid1__title)');
+  const grid1Contents = document.querySelectorAll(
+    ".grid__box1 > div:not(.grid1__title)"
+  );
   grid1.forEach((item, i) => {
-    grid1Contents[i].querySelector('img').src = `/client/assets/${item.image}`;
-    grid1Contents[i].querySelector('h2').textContent = item.category;
-    grid1Contents[i].querySelector('p').textContent = item.title;
+    grid1Contents[i].querySelector("img").src = `/client/assets/${item.image}`;
+    grid1Contents[i].querySelector("h2").textContent = item.category;
+    grid1Contents[i].querySelector("p").textContent = item.title;
   });
 
   // Grid 2 - Business Main
-  document.querySelector('.business__news-img img').src = `/client/assets/${businessMain.image}`;
-  document.querySelector('.business__title').textContent = businessMain.category;
-  document.querySelector('.p2').textContent = businessMain.title;
-  document.querySelector('.business__news-description p').textContent = businessMain.description;
+  document.querySelector(
+    ".business__news-img img"
+  ).src = `/client/assets/${businessMain.image}`;
+  document.querySelector(".business__title").textContent =
+    businessMain.category;
+  document.querySelector(".p2").textContent = businessMain.title;
+  document.querySelector(".business__news-description p").textContent =
+    businessMain.description;
 
   // Grid 3
-  const grid3Containers = [document.querySelector('.lifestyle'), document.querySelector('.politics')];
+  const grid3Containers = [
+    document.querySelector(".lifestyle"),
+    document.querySelector(".politics"),
+  ];
   grid3.forEach((item, i) => {
-    grid3Containers[i].querySelector('img').src = `/client/assets/${item.image}`;
-    grid3Containers[i].querySelector('h2').textContent = item.category;
-    grid3Containers[i].querySelector('p').textContent = item.title;
+    grid3Containers[i].querySelector(
+      "img"
+    ).src = `/client/assets/${item.image}`;
+    grid3Containers[i].querySelector("h2").textContent = item.category;
+    grid3Containers[i].querySelector("p").textContent = item.title;
   });
 }
 
@@ -137,115 +176,120 @@ function initNews() {
 // Setup click handlers cho các bài báo
 function setupClickHandlers() {
   // Featured news
-  const featuredBox = document.querySelector('.boxupperleft');
+  const featuredBox = document.querySelector(".boxupperleft");
   if (featuredBox && newsData.featured.id) {
-    featuredBox.addEventListener('click', () => {
-      window.location.href = `./Post.html?id=${newsData.featured.id}`;
+    featuredBox.addEventListener("click", () => {
+      window.location.href = `./post.html?id=${newsData.featured.id}`;
     });
   }
 
   // Latest news
-  const latestNewsItems = document.querySelectorAll('.latest-new');
+  const latestNewsItems = document.querySelectorAll(".latest-new");
   latestNewsItems.forEach((item, index) => {
     const newsItem1 = newsData.latest[index];
     if (newsItem1 && newsItem1.id) {
-      item.addEventListener('click', () => {
-        window.location.href = `./Post.html?id=${newsItem1.id}`;
+      item.addEventListener("click", () => {
+        window.location.href = `./post.html?id=${newsItem1.id}`;
       });
     }
   });
   console.log(latestNewsItems);
   // Three news
-  const threeNewsItems = document.querySelectorAll('.threenews__oii');
+  const threeNewsItems = document.querySelectorAll(".threenews__oii");
   threeNewsItems.forEach((item, index) => {
     const newsItem = newsData.threeNews[index];
     if (newsItem && newsItem.id) {
-      item.addEventListener('click', () => {
-        window.location.href = `./Post.html?id=${newsItem.id}`;
+      item.addEventListener("click", () => {
+        window.location.href = `./post.html?id=${newsItem.id}`;
       });
     }
   });
 
   // Lifestyle big
-  const lifestyleBig = document.querySelector('.bignews');
+  const lifestyleBig = document.querySelector(".bignews");
   if (lifestyleBig && newsData.lifestyle.big.id) {
-    lifestyleBig.addEventListener('click', () => {
-      window.location.href = `./Post.html?id=${newsData.lifestyle.big.id}`;
+    lifestyleBig.addEventListener("click", () => {
+      window.location.href = `./post.html?id=${newsData.lifestyle.big.id}`;
     });
   }
 
   // Lifestyle small
-  const lifestyleSmall = document.querySelectorAll('.smallnews > div');
+  const lifestyleSmall = document.querySelectorAll(".smallnews > div");
   lifestyleSmall.forEach((item, index) => {
     const newsItem = newsData.lifestyle.small[index];
     if (newsItem && newsItem.id) {
-      item.addEventListener('click', () => {
-        window.location.href = `./Post.html?id=${newsItem.id}`;
+      item.addEventListener("click", () => {
+        window.location.href = `./post.html?id=${newsItem.id}`;
       });
     }
   });
 
   // Topics news
-  const topicContainers = document.querySelectorAll('.topic');
+  const topicContainers = document.querySelectorAll(".topic");
   const topics = Object.values(newsData.topics);
   topics.forEach((topic, topicIndex) => {
-    const newsItems = topicContainers[topicIndex].querySelectorAll('.news');
+    const newsItems = topicContainers[topicIndex].querySelectorAll(".news");
     newsItems.forEach((item, newsIndex) => {
       const newsItem = topic.news[newsIndex];
       if (newsItem && newsItem.id) {
-        item.addEventListener('click', () => {
-          window.location.href = `./Post.html?id=${newsItem.id}`;
+        item.addEventListener("click", () => {
+          window.location.href = `./post.html?id=${newsItem.id}`;
         });
       }
     });
   });
 
   // AI main
-  const aiMain = document.querySelector('.AI_maintopic');
+  const aiMain = document.querySelector(".AI_maintopic");
   if (aiMain && newsData.ai.main.id) {
-    aiMain.addEventListener('click', () => {
-      window.location.href = `/pages/Post.html?id=${newsData.ai.main.id}`;
+    aiMain.addEventListener("click", () => {
+      window.location.href = `/pages/post.html?id=${newsData.ai.main.id}`;
     });
   }
 
   // AI side news
-  const aiNews = document.querySelectorAll('.AI__right > div:not(.block)');
+  const aiNews = document.querySelectorAll(".AI__right > div:not(.block)");
   aiNews.forEach((item, index) => {
     const newsItem = newsData.ai.sideNews[index];
     if (newsItem && newsItem.id) {
-      item.addEventListener('click', () => {
-        window.location.href = `./Post.html?id=${newsItem.id}`;
+      item.addEventListener("click", () => {
+        window.location.href = `./post.html?id=${newsItem.id}`;
       });
     }
   });
 
   // Popular grid1
-  const popularGrid1 = document.querySelectorAll('.grid__box1 > div:not(.grid1__title)');
+  const popularGrid1 = document.querySelectorAll(
+    ".grid__box1 > div:not(.grid1__title)"
+  );
   popularGrid1.forEach((item, index) => {
     const newsItem = newsData.popular.grid1[index];
     if (newsItem && newsItem.id) {
-      item.addEventListener('click', () => {
-        window.location.href = `./Post.html?id=${newsItem.id}`;
+      item.addEventListener("click", () => {
+        window.location.href = `./post.html?id=${newsItem.id}`;
       });
     }
   });
 
   // Popular businessMain
-  const businessMain = document.querySelector('.bussiness__news');
+  const businessMain = document.querySelector(".bussiness__news");
   if (businessMain && newsData.popular.businessMain.id) {
-    businessMain.addEventListener('click', () => {
-      window.location.href = `./Post.html?id=${newsData.popular.businessMain.id}`;
+    businessMain.addEventListener("click", () => {
+      window.location.href = `./post.html?id=${newsData.popular.businessMain.id}`;
     });
   }
 
   // Popular grid3
-  const popularGrid3 = [document.querySelector('.lifestyle'), document.querySelector('.politics')];
+  const popularGrid3 = [
+    document.querySelector(".lifestyle"),
+    document.querySelector(".politics"),
+  ];
   popularGrid3.forEach((item, index) => {
     if (item) {
       const newsItem = newsData.popular.grid3[index];
       if (newsItem && newsItem.id) {
-        item.addEventListener('click', () => {
-          window.location.href = `./Post.html?id=${newsItem.id}`;
+        item.addEventListener("click", () => {
+          window.location.href = `./post.html?id=${newsItem.id}`;
         });
       }
     }
@@ -253,5 +297,4 @@ function setupClickHandlers() {
 }
 
 // Chạy khi DOM đã load
-document.addEventListener('DOMContentLoaded', initNews);
-
+document.addEventListener("DOMContentLoaded", initNews);
