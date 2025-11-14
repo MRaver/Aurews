@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - AUREWS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/search.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navigation -->
+        <nav class="nav__container">
+            <div class="nav__top">
+                <div class="nav-item-wrapper">
+                    <div class="nav__search">
+                        <p>Search</p>
+                    </div>
+                </div>
+                <div class="nav-item-wrapper">
+                    <div class="nav__newsletter">
+                        <p>News letter</p>
+                    </div>
+                </div>
+                <div class="nav-item-wrapper">
+                    <div class="nav__logo">
+                        <a href="index.html">
+                            AUREWS
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item-wrapper">
+                    <div class="nav__about">
+                        <a href="about.html">
+                            <p>About</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item-wrapper">
+                    <div class="nav__hamburgermenu">
+                        <div class="nav__hamburgermenu__icon menu-toggle" onclick="toggleMenu(); return false;"
+                            aria-label="Toggle menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="nav__bottom">
+                <ul class="nav__categories">
+                    <li><a href="Index.html" class="active">Home</a></li>
+                    <li><a href="./Category.html?type=Latest">Latest</a></li>
+                    <li><a href="./Category.html?type=Business News">Business News</a></li>
+                    <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
+                    <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
+                    <li><a href="./Category.html?type=A.I.">A.I.</a></li>
+                    <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
+                    <li><a href="./Category.html?type=Politics">politics</a></li>
+                    <li><a href="./Category.html?type=Email">email</a></li>
+                    <li><a href="./Category.html?type=Podcast">podcast</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+
+        <!-- Mobile Menu Sidebar -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <p class="mobile-menu-header__logo">Aurews</p>
+                <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Latest</a></li>
+                <li><a href="#">Business News</a></li>
+                <li><a href="#">Money & Markets</a></li>
+                <li><a href="#">Tech & Innovation</a></li>
+                <li><a href="#">A.I.</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Podcast</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="mobile-menu-footer-item">Languages</div>
+                <div class="mobile-menu-footer-item">Search</div>
+                <div class="mobile-menu-footer-item">Newsletter</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-header">
+                <h1>Search for</h1>
+            </div>
+            <!-- Search Box -->
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <div class="search-input-container">
+                        <input type="text" class="search-input" id="searchInput"
+                            placeholder="Search for articles, news, and more..." autocomplete="off">
+                        <button class="clear-input-btn" id="clearInputButton" type="button">&times;</button>
+                    </div>
+                    <!-- Search Button -->
+                    <button class="search-btn" id="searchButton" type="button">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <!-- Search Suggestions -->
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <div class="suggestions-layout">
+                            <div class="suggestion-section">
+                                <!-- Recent Searches -->
+                                <div class="suggestion-section-header">
+                                    <div class="suggestion-section-header-text">
+                                        <i class="fas fa-history"></i>Recent Searches
+                                    </div>
+                                </div>
+                                <div class="suggestion-list" id="recentSuggestionsList"></div>
+                            </div>
+                            <div class="suggestion-section">
+                                <!-- Popular Searches -->
+                                <div class="suggestion-section-header">
+                                    <div class="suggestion-section-header-text">
+                                        <i class="fas fa-fire"></i>Popular Searches
+                                    </div>
+                                </div>
+                                <div class="suggestion-list" id="popularSuggestionsList"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Filters -->
+            <div class="filters-container">
+                <button class="filters-btn" id="toggleFiltersBtn">
+                    <i class="fas fa-filter"></i>Advanced Search
+                    <span class="filters-count" id="activeFiltersCount"></span>
+                </button>
+                <!-- Filters Dropdown -->
+                <div class="filters-dropdown" id="filtersDropdown">
+                    <div class="filter-group">
+                        <!-- Content Type Filter -->
+                        <label class="filter-label">Content Type:</label>
+                        <select class="filter-select" id="contentTypeFilter">
+                            <option value="">All</option>
+                            <option value="article">Article</option>
+                            <option value="video">Video</option>
+                            <option value="podcast">Podcast</option>
+                            <option value="image">Image</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <!-- Category Filter -->
+                        <label class="filter-label">Category:</label>
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="Latest">Latest</option>
+                            <option value="Business News">Business News</option>
+                            <option value="Money and Markets">Money & Markets</option>
+                            <option value="Tech and Innovation">Tech & Innovation</option>
+                            <option value="A.I.">A.I.</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="Politics">Politics</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <!-- Date Filter -->
+                        <label class="filter-label">Date Range:</label>
+                        <select class="filter-select" id="dateFilter">
+                            <option value="">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <!-- Search In Filter -->
+                        <label class="filter-label">Filter By:</label>
+                        <select class="filter-select" id="searchInFilter">
+                            <option value="all">All</option>
+                            <option value="keyword">Keyword Only</option>
+                            <option value="headline-body">Headline & Body</option>
+                            <option value="author">Author Only</option>
+                        </select>
+                    </div>
+
+                    <!-- Clear All Filters Button -->
+                    <button class="clear-all-filters-btn" id="clearAllFiltersBtn">
+                        <i class="fas fa-redo"></i> Clear All Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <div class="results-header">
+                <!-- Results Info -->
+                <div class="results-info">
+                    <span id="resultsCount"><strong>0</strong> results</span>
+                </div>
+                <!-- Sort Dropdown -->
+                <div class="sort-wrapper">
+                    <!-- Sort by -->
+                    <label for="sortDropdown" class="sort-label">Sort by:</label>
+                    <select class="sort-dropdown" id="sortDropdown">
+                        <option value="relevance">Relevance</option>
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Articles will be dynamically inserted here -->
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading" id="loadingState" style="display: none;">
+                <i class="fas fa-spinner"></i>
+                <p style="margin-top: 20px; color: #666;">Loading results...</p>
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <!-- <i class="fas fa-search"></i>
+                <h2>No Results Found</h2>
+                <p>Try adjusting your search or filters to find what you're looking for.</p> -->
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__container">
+            <div class="footer__newsletter">
+                <h2 class="newsletter__title">Get updates delivered directly to your inbox.</h2>
+                <!-- đổi div thành form -->
+                <form class="newsletter__formbox">
+                    <input type="text" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="siteinfo__description">
+                    By subcribing you agree to our <a href="/">Privacy Policy</a> and
+                    provide
+                    consent
+                    to receive updates from our company
+                </p>
+            </div>
+            <div class="siteinfo__right">
+                <div class="icon__container">
+                    <!-- <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-brands fa-youtube"></i> -->
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="contact">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <a href="tel:012312308721398">012312308721398</a>
+                </div>
+                <div class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:aurews@gmail.com">aurews@gmail.com</a>
+                </div>
+                <div class="end">
+                    <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
+                </div>
+                <div class="options__container">
+                    <ul class="option">
+                        <li>Terms</li>
+                        <li>Privacy</li>
+                        <li>Cookie Policy</li>
+                        <li>Support</li>
+                        <li>Sitemap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="../assets/js/search.js"></script>
+</body>
+
+</html>
