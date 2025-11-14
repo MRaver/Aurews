@@ -124,33 +124,41 @@ function Login() {
 
 function userLoginHTML() {
     const tokenn = JSON.parse(localStorage.getItem('userLogin'));
-    let role;
-    if (!tokenn.accessToken)
-        role = 'reader';
-    else if (tokenn.accessToken === 123) {
-        role = 'admin';
-    }
-    else {
-        role = 'author';
+    let role = 'reader';
+    // If no token stored, treat as reader
+    if (tokenn && tokenn.accessToken) {
+        // Note: accessToken may be a string; comparing to number 123 may never be true
+        if (tokenn.accessToken === 123) {
+            role = 'admin';
+        } else {
+            role = 'author';
+        }
     }
     if (role === 'author') {
         const container = document.querySelector('.mobile-menu-footer');
         const loginContainer = document.getElementById('login-button');
-        loginContainer.outerHTML = `<div id="logout-button" class="mobile-menu-footer-item">Log out</div>`;
-        container.innerHTML += `
-        <div id="addpost-button" class="mobile-menu-footer-item">Add post</div>
-        `;
+        if (loginContainer) {
+            loginContainer.outerHTML = `<div id="logout-button" class="mobile-menu-footer-item">Log out</div>`;
+        }
+        if (container) {
+            container.insertAdjacentHTML('beforeend', `\n        <div id="addpost-button" class="mobile-menu-footer-item">Add post</div>\n        `);
+        }
     }
     else if (role === 'admin') {
         const container = document.querySelector('.mobile-menu-footer');
         const loginContainer = document.getElementById('login-button');
-        loginContainer.outerHTML = `<div id="logout-button" class="mobile-menu-footer-item">Log out</div>`;
-        container.innerHTML += `
-            <div id="dashboard-button" class="mobile-menu-footer-item">Dashboard</div>
-        `;
-        document.getElementById('dashboard-button').addEventListener('click', () => {
-            window.location.href = './adminDashboard.html';
-        });
+        if (loginContainer) {
+            loginContainer.outerHTML = `<div id="logout-button" class="mobile-menu-footer-item">Log out</div>`;
+        }
+        if (container) {
+            container.insertAdjacentHTML('beforeend', `\n            <div id="dashboard-button" class="mobile-menu-footer-item">Dashboard</div>\n        `);
+            const dashboardBtn = document.getElementById('dashboard-button');
+            if (dashboardBtn) {
+                dashboardBtn.addEventListener('click', () => {
+                    window.location.href = './adminDashboard.html';
+                });
+            }
+        }
     }
     //Log-out
     const logoutBtn = document.getElementById('logout-button');
@@ -159,14 +167,17 @@ function userLoginHTML() {
             localStorage.removeItem('userLogin');
             alert('You have been logged out!');
             window.location.reload();
-        })
-    };
+        });
+    }
 }
 
 function clickAddPostButton() {
-    document.getElementById('addpost-button').addEventListener('click', () => {
-        window.location.href = `./addPost.html`;
-    })
+    const addBtn = document.getElementById('addpost-button');
+    if (addBtn) {
+        addBtn.addEventListener('click', () => {
+            window.location.href = `./addPost.html`;
+        });
+    }
 }
 saveSignUp();
 Login();
