@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* || RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    display: block;
+}
+
+/* || VARIABLES */
+:root {
+    /* FONTS */
+    --FF: 'Montserrat', sans-serif;
+    --FF-HEADING: 'Playfair Display', serif;
+    --FS-LOGO: 3vw;
+    --FS-HEADING: clamp(1.5rem, 3vh, 2.5rem);
+    /* COLORS */
+    --FONT-COLOR: black;
+    --NAV-HOVER-COLOR: darkred;
+    --LINK-HOVER-COLOR:brown;
+    --LINK-ACTIVE-COLOR: red;
+    --NAV-ACTIVE-COLOR: #f3d19e;
+    --BG-COLOR: #f2d9b4;
+    --BG-FADED-COLOR: white;
+    --BG-IMAGE: linear-gradient(to bottom,
+            #f2d9b4 0%,
+            #f2d9b4 30%,
+            white 80%);
+    
+}
+html {
+    font-size: 16px;
+}
+
+body {
+    height: auto;
+    margin: 0;
+    background-color: var(--BG-COLOR);
+    background-image: var(--BG-IMAGE);
+    background-attachment: fixed;
+    font-family: var(--FF);
+    color: var(--FONT-COLOR);
+    overflow-x: hidden;
+}
+
+/* || HEADER */
+/* NAV */
+
+.nav__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.nav__container {
+    padding: 0 16px;
+}
+
+
+.nav__top {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* gap: 20px; */
+    /* margin-left: 20px; */
+    margin-top: 2vh;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.nav__bottom {
+    border-top: 1px solid black;
+    margin-left: 5px;
+
+}
+
+
+
+:is(.nav__logo, .nav__about) a, :is(.nav__newsletter, .nav__search) p {
+    font-family: var(--FF-HEADING);
+    /* font-style: italic; */
+    color: var(--FONT-COLOR);
+    text-decoration: none;
+    font-size: var(--FS-HEADING);
+}
+
+.nav__logo a {
+    display: block;
+    font-size: var(--FS-LOGO);
+    font-weight: bolder;
+    text-align: center;
+    text-decoration: none;
+}
+
+:is(.nav__logo, .nav__hamburgermenu, .nav__about, .nav__newsletter, .nav__search):hover {
+    transform: translateY(-5px);
+    transition: color 0.3s ease;
+}
+
+:is(.nav__logo, .nav__hamburgermenu, .nav__about, .nav__newsletter, .nav__search):active {
+    background-color: var(--NAV-ACTIVE-COLOR);
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+
+.nav__logo:hover a{
+   color: var(--LINK-HOVER-COLOR);
+    transition: color 0.2s ease;
+}
+
+:is(.nav__about, .nav__newsletter, .nav__search):hover p {
+    color: var(--LINK-HOVER);
+    transition: color 0.2s ease;
+}
+
+/* Wrapped cho animation nhảy lên của nav__top */
+.nav-item-wrapper {
+    position: relative; /* Important for positioning */
+    width: 16.5vw;
+    aspect-ratio: 5/2;
+    overflow: hidden; /* This is the key! Hides the extra part */
+    cursor: pointer;
+    padding-top: 20px; /* Optional: adds some space above */
+}
+
+.nav__logo,
+.nav__hamburgermenu,
+.nav__about,
+.nav__newsletter,
+.nav__search {
+    /* Make the element 8px taller than its wrapper */
+    height: calc(100% + 8px); 
+    
+    /* Keep all your original styling for the shape */
+    position: relative;
+    width: 100%; /* Take full width of wrapper */
+    background:
+        radial-gradient(ellipse 85% 100% at 50% 100%,
+            transparent 0%,
+            transparent calc(100% - 2px), /* Adjusted for border */
+            black calc(100% - 2px),
+            black 100%);
+    clip-path: ellipse(85% 100% at 50% 100%);
+    border: 2px solid black;
+    border-bottom: none;
+    /* Keep flex properties */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    /* transform này để khi xuống k bị khựng */
+    transition: transform 400ms ease;
+    
+}
+
+/* --- 3. The Hover Effect --- */
+/* We trigger the hover on the wrapper, but move the inner element */
+.nav-item-wrapper:hover .nav__search,
+.nav-item-wrapper:hover .nav__newsletter,
+.nav-item-wrapper:hover .nav__logo,
+.nav-item-wrapper:hover .nav__about,
+.nav-item-wrapper:hover .nav__hamburgermenu {
+    transform: translateY(-8px);
+    transition: transform 500ms ease;
+}
+
+/* You might need to adjust your text color change as well */
+.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
+    color: var(--LINK-HOVER-COLOR); /* Example */
+}
+
+.nav__hamburgermenu:hover span {
+    background-color: brown;
+}
+
+.nav__categories {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;
+    /* ẨN HOÀN TOÀN SCROLLBAR */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+/* Ẩn scrollbar cho Chrome/Safari/Opera */
+.nav-list::-webkit-scrollbar {
+    display: none;
+}
+
+.nav__categories a {
+    display: inline-block;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: small;
+    margin-top: 5px;
+}
+
+.nav__categories li {
+    list-style: none;
+}
+
+.nav__categories a.active{
+    background-color: rgb(232, 5, 39);
+    color: white;
+}
+.nav__categories a:hover{
+    background-color: var(--NAV-HOVER-COLOR);
+    color: white;
+}
+
+.nav__hamburgermenu {
+    text-decoration: none;
+    color: black;
+    flex-shrink: 0;
+}
+
+.nav__hamburgermenu__icon {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    position: relative;
+}
+
+.nav__hamburgermenu span {
+    height: 8px;
+    width: 100%;
+    background-color: black;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+}
+
+.nav__hamburgermenu span:nth-child(1) {
+    top: 25%;
+}
+
+.nav__hamburgermenu span:nth-child(3) {
+    top: 75%;
+}
+
+.nav__categories li:nth-child(4) a {
+    flex-shrink: 0;
+    min-width: max-content;
+}
+
+.nav__categories li:nth-child(3) a {
+    flex-shrink: 0;
+    min-width: max-content;
+}
+
+.nav__categories li:nth-child(5) a {
+    flex-shrink: 0;
+    min-width: max-content;
+}
+
+/* MOBILE MENU OVERLAY & SIDEBAR */
+
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    background: #efe0be;
+    z-index: 999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    background: #e0d1a8;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.mobile-menu-header .mobile-menu-header__logo {
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+
+
+.close-menu {
+    background: transparent;
+    border: 2px solid black;
+    color: black;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.close-menu:hover {
+    background: black;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.mobile-nav-links li a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-links li a:hover {
+    background: #e0d1a8;
+    padding-left: 35px;
+}
+
+.mobile-nav-links li a.active {
+    background: var(--LINK-ACTIVE-COLOR);
+    color: white;
+}
+
+.mobile-menu-footer {
+    padding: 20px;
+    border-top: 2px solid black;
+    background: #e0d1a8;
+}
+
+.mobile-menu-footer-item {
+    border: 2px solid black;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mobile-menu-footer-item:hover {
+    background: black;
+    color: white;
+    transform: translateY(-2px);
+}
