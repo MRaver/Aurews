@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 /* || RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 img {
     display: block;
 }
@@ -19,7 +21,7 @@ img {
     /* COLORS */
     --FONT-COLOR: black;
     --NAV-HOVER-COLOR: darkred;
-    --LINK-HOVER-COLOR:brown;
+    --LINK-HOVER-COLOR: brown;
     --LINK-ACTIVE-COLOR: red;
     --NAV-ACTIVE-COLOR: #f3d19e;
     --BG-COLOR: #f2d9b4;
@@ -82,7 +84,8 @@ body {
 
 
 
-:is(.nav__logo, .nav__about) a, :is(.nav__newsletter, .nav__search) p {
+:is(.nav__logo, .nav__about) a,
+:is(.nav__newsletter, .nav__search) p {
     font-family: var(--FF-HEADING);
     /* font-style: italic; */
     color: var(--FONT-COLOR);
@@ -110,8 +113,8 @@ body {
 }
 
 
-.nav__logo:hover a{
-   color: var(--LINK-HOVER-COLOR);
+.nav__logo:hover a {
+    color: var(--LINK-HOVER-COLOR);
     transition: color 0.2s ease;
 }
 
@@ -122,12 +125,15 @@ body {
 
 /* Wrapped cho animation nhảy lên của nav__top */
 .nav-item-wrapper {
-    position: relative; /* Important for positioning */
+    position: relative;
+    /* Important for positioning */
     width: 16.5vw;
     aspect-ratio: 5/2;
-    overflow: hidden; /* This is the key! Hides the extra part */
+    overflow: hidden;
+    /* This is the key! Hides the extra part */
     cursor: pointer;
-    padding-top: 20px; /* Optional: adds some space above */
+    padding-top: 20px;
+    /* Optional: adds some space above */
 }
 
 .nav__logo,
@@ -136,15 +142,17 @@ body {
 .nav__newsletter,
 .nav__search {
     /* Make the element 8px taller than its wrapper */
-    height: calc(100% + 8px); 
-    
+    height: calc(100% + 8px);
+
     /* Keep all your original styling for the shape */
     position: relative;
-    width: 100%; /* Take full width of wrapper */
+    width: 100%;
+    /* Take full width of wrapper */
     background:
         radial-gradient(ellipse 85% 100% at 50% 100%,
             transparent 0%,
-            transparent calc(100% - 2px), /* Adjusted for border */
+            transparent calc(100% - 2px),
+            /* Adjusted for border */
             black calc(100% - 2px),
             black 100%);
     clip-path: ellipse(85% 100% at 50% 100%);
@@ -157,7 +165,7 @@ body {
     user-select: none;
     /* transform này để khi xuống k bị khựng */
     transition: transform 400ms ease;
-    
+
 }
 
 /* --- 3. The Hover Effect --- */
@@ -172,8 +180,10 @@ body {
 }
 
 /* You might need to adjust your text color change as well */
-.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
-    color: var(--LINK-HOVER-COLOR); /* Example */
+.nav-item-wrapper:hover a,
+.nav-item-wrapper:hover p {
+    color: var(--LINK-HOVER-COLOR);
+    /* Example */
 }
 
 /* Nửa dưới hình elip */
@@ -245,11 +255,12 @@ body {
     list-style: none;
 }
 
-.nav__categories a.active{
+.nav__categories a.active {
     background-color: rgb(232, 5, 39);
     color: white;
 }
-.nav__categories a:hover{
+
+.nav__categories a:hover {
     background-color: var(--NAV-HOVER-COLOR);
     color: white;
 }
@@ -462,7 +473,7 @@ body {
 }
 
 .left {
-    flex-basis: 50%;
+    flex-basis: 70%;
     border-right: 2px solid rgba(0, 0, 0, 0.1);
     padding-right: 20px;
     margin-left: 20px;
@@ -570,6 +581,7 @@ body {
     margin-left: 20px;
     gap: 10px;
     margin-right: 20px;
+    flex-basis: 30%;
 }
 
 .boxupperright {
@@ -1496,5 +1508,3 @@ a:hover i {
         white-space: normal;
     }
 }
-
-
