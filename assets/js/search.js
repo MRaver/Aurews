@@ -23,10 +23,21 @@ function convertNewsDataToArticles() {
             category: category,
             date: new Date(), // Có thể điều chỉnh nếu có thông tin ngày tháng
             readTime: '5 min',
-            image: item.image || 'https://via.placeholder.com/400x250/4a90e2/ffffff?text=News',
+            image: resolveImagePath(item.image),
             type: type,
             url: `Post.html?id=${item.id}` // URL thực tế của bài viết
         };
+    }
+
+    // Resolve image path: keep absolute URLs, convert "img/..." to relative path from pages (../assets/img/...)
+    function resolveImagePath(path) {
+        const placeholder = 'https://via.placeholder.com/400x250/4a90e2/ffffff?text=News';
+        if (!path) return placeholder;
+        // absolute or protocol-relative urls
+        if (/^(https?:)?\/\//.test(path)) return path;
+        // local images referenced like "img/xxx.png" (as in newsData.js) -> pages expect ../assets/img/xxx.png
+        if (path.startsWith('img/')) return `../assets/${path}`;
+        return path;
     }
 
     // Featured

@@ -177,3 +177,15 @@ document.addEventListener('keydown', function (e) {
 
 // Make toggleMenu available globally
 window.toggleMenu = toggleMenu;
+document.querySelector('.js-search').addEventListener('click', () => {
+    window.location.href = "./Search.html";
+})
+document.querySelector('.nav__search').addEventListener('click', () => {
+    window.location.href = "./Search.html";
+})
+document.querySelector('.js-about').addEventListener('click', () => {
+    window.location.href = "./about.html";
+})
+document.querySelector('.nav__about').addEventListener('click', () => {
+    window.location.href = "./about.html";
+})

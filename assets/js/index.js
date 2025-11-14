@@ -154,7 +154,6 @@ function setupClickHandlers() {
       });
     }
   });
-  console.log(latestNewsItems);
   // Three news
   const threeNewsItems = document.querySelectorAll('.threenews__oii');
   threeNewsItems.forEach((item, index) => {

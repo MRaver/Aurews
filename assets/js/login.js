@@ -166,7 +166,14 @@ function userLoginHTML() {
         logoutBtn.addEventListener('click', () => {
             localStorage.removeItem('userLogin');
             alert('You have been logged out!');
-            window.location.reload();
+            // If user is on addPost page, redirect to Index instead of reloading (which may keep them on restricted page)
+            const pathname = window.location.pathname || window.location.href;
+            if (pathname.includes('addPost.html')) {
+                // use relative link so it works from pages/ folder
+                window.location.href = 'Index.html';
+            } else {
+                window.location.reload();
+            }
         });
     }
 }

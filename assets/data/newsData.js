@@ -12,22 +12,26 @@ export const newsData = {
         {
             id: 2,
             title: "The best airline rewards programs, according to point.me",
-            time: "2 hours ago"
+            time: "2 hours ago",
+            image: "img/img2.png"
         },
         {
             id: 3,
             title: "Who sets mortgage rates and how do they work?",
-            time: "2 hours ago"
+            time: "2 hours ago",
+            image: "img/img3.png"
         },
         {
             id: 4,
             title: "The FAA is reportedly considering changing commercial plane regulations",
-            time: "2 hours ago"
+            time: "2 hours ago",
+            image: "img/img4.png"
         },
         {
             id: 5,
             title: "Amazon's shares surge as AI boom drives cloud computing growth",
-            time: "3 hours ago"
+            time: "3 hours ago",
+            image: "img/img5.png"
         }
     ],
 
