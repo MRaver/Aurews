@@ -6,7 +6,7 @@ export const newsPort = [
         type1: 'Business News',
         type2: 'Latest',
         author: 'Jason Tatum',
-        img: "img/hehe.jpg",
+        img: "../assets/img/img1.png",
         content: `<p>
                 When it comes to actors mourning a role they didn't play, Channing Tatum has a tale as old as time.
                 <br>
@@ -48,7 +48,7 @@ export const newsPort = [
         type1: 'Lifestyle',
         type2: 'Latest',
         author: 'Jennifer Walsh',
-        img: "img/popular2.jpg",
+        img: "../assets/img/img2.png",
         content: `<p>
                 For frequent travelers looking to maximize their loyalty points, choosing the right airline rewards program can make a significant difference. Point.me, a leading platform for tracking and optimizing travel rewards, has released its annual ranking of the best programs.
                 <br>
@@ -78,7 +78,7 @@ export const newsPort = [
         type1: 'Money and Markets',
         type2: 'Latest',
         author: 'David Chen',
-        img: "img/money1.jpg",
+        img: "../assets/img/img3.png",
         content: `<p>
                 Understanding mortgage rates can seem like navigating a complex maze, but knowing who sets them and how they work is crucial for anyone looking to buy a home or refinance their existing mortgage.
                 <br>
@@ -108,7 +108,7 @@ export const newsPort = [
         type1: 'Business News',
         type2: 'Latest',
         author: 'Michael Torres',
-        img: "img/business1.jpg",
+        img: "../assets/img/img4.png",
         content: `<p>
                 The Federal Aviation Administration is reportedly reviewing potential changes to commercial aircraft regulations that could significantly impact the airline industry and passenger experience.
                 <br>
@@ -138,7 +138,7 @@ export const newsPort = [
         type1: 'Tech and Innovation',
         type2: 'Latest',
         author: 'Aroon Deep',
-        img: "img/tech-01.jpg",
+        img: "../assets/img/img5.png",
         content: `<p>
                 Amazon's stock experienced a significant surge following its latest earnings report, largely driven by the exceptional performance of its cloud computing arm, Amazon Web Services (AWS).
                 <br>
@@ -167,7 +167,7 @@ export const newsPort = [
         type: 'HEALTH',
         type1: 'Lifestyle',
         author: 'Dr. Sarah Chen',
-        img: "img/news1.jpg",
+        img: "../assets/img/img6.png",
         content: `<p>
                 A comprehensive new study has ranked all 50 states by their vaccination coverage, examining everything from childhood immunizations to adult flu shots. The results reveal interesting patterns about public health priorities across different regions.
                 <br>
@@ -196,7 +196,7 @@ export const newsPort = [
         type: 'SCIENCE',
         type1: 'Lifestyle',
         author: 'Dr. Sarah Chen',
-        img: "img/news2.jpg",
+        img: "../assets/img/img7.png",
         content: `<p>
                 While giant pandas are no longer officially endangered, their status as a vulnerable species remains a concern for conservationists. A new study published in the journal Science Advances brings hope, detailing a method to convert panda skin cells into stem cells.
                 <br>
@@ -225,7 +225,7 @@ export const newsPort = [
         type: 'LIFESTYLE',
         type1: 'Lifestyle',
         author: 'Thomas Anderson',
-        img: "img/lifestyle-big.jpg",
+        img: "../assets/img/img33.png",
         content: `<p>
                 As autumn arrives and leaves begin their annual transformation, outdoor enthusiasts are planning trips to witness nature's most colorful spectacle. Travel experts have compiled a list of the eight best hiking destinations for fall foliage.
                 <br>
@@ -257,7 +257,7 @@ export const newsPort = [
         type: 'LIFESTYLE',
         type1: 'Lifestyle',
         author: 'Robert Martinez',
-        img: "img/lifestyle1.jpg",
+        img: "../assets/img/img9.png",
         content: `<p>
                 As winter approaches, preparing your vehicle for harsh weather conditions becomes crucial. Fortunately, some of the most important maintenance tasks are also among the most affordable.
                 <br>
@@ -286,7 +286,7 @@ export const newsPort = [
         type: 'LIFESTYLE',
         type1: 'Lifestyle',
         author: 'Amanda Cooper',
-        img: "img/lifestyle2.jpg",
+        img: "../assets/img/img10.png",
         content: `<p>
                 Transforming your home doesn't require a massive budget. Interior design experts have identified ten renovation projects that deliver maximum impact without breaking the bank.
                 <br>
@@ -318,7 +318,7 @@ export const newsPort = [
         type: 'MONEY & MARKETS',
         type1: 'Money and Markets',
         author: 'David Chen',
-        img: "img/money1.jpg",
+        img: "../assets/img/img11.png",
         content: `<p>
                 Financial markets are closely watching the Federal Reserve's next move as new employment data reveals surprising strength in the job market, complicating the central bank's decision-making process.
                 <br>
@@ -347,7 +347,7 @@ export const newsPort = [
         type: 'MONEY & MARKETS',
         type1: 'Money and Markets',
         author: 'Alex Thompson',
-        img: "img/money2.jpg",
+        img: "../assets/img/img12.png",
         content: `<p>
                 Digital asset markets experienced a significant rally following new guidance from the Securities and Exchange Commission that provides clearer rules for cryptocurrency operations in the United States.
                 <br>
@@ -379,7 +379,7 @@ export const newsPort = [
         type: 'MONEY & MARKETS',
         type1: 'Money and Markets',
         author: 'Maria Gonzalez',
-        img: "img/money3.jpg",
+        img: "../assets/img/img13.png",
         content: `<p>
                 The residential real estate market is showing clear signs of cooling as mortgage rates climb to their highest level in 18 months, dampening buyer enthusiasm and slowing home price appreciation.
                 <br>
@@ -411,7 +411,7 @@ export const newsPort = [
         type: 'TECHNOLOGY',
         type1: 'Tech and Innovation',
         author: 'Alex Kim',
-        img: "img/tech1.jpg",
+        img: "../assets/img/img14.png",
         content: `<p>
                 In a significant strategic shift, Apple unveiled comprehensive plans to integrate artificial intelligence features across its entire product ecosystem, marking the company's most aggressive push into AI to date.
                 <br>
@@ -443,7 +443,7 @@ export const newsPort = [
         type: 'TECHNOLOGY',
         type1: 'Tech and Innovation',
         author: 'Dr. Rachel Foster',
-        img: "img/tech2.jpg",
+        img: "../assets/img/img15.png",
         content: `<p>
                 Researchers at MIT and Google have achieved a major quantum computing breakthrough that could fundamentally transform cybersecurity and encryption technologies within the next decade.
                 <br>
@@ -475,7 +475,7 @@ export const newsPort = [
         type: 'TECHNOLOGY',
         type1: 'Tech and Innovation',
         author: 'James Wilson',
-        img: "img/tech3.jpg",
+        img: "../assets/img/img16.png",
         content: `<p>
                 Tesla has released a major software update that significantly expands its Full Self-Driving (FSD) capabilities, bringing the company closer to its goal of achieving fully autonomous vehicles.
                 <br>
@@ -507,7 +507,7 @@ export const newsPort = [
         type: 'BUSINESS NEWS',
         type1: 'Business News',
         author: 'Sarah Johnson',
-        img: "img/business1.jpg",
+        img: "../assets/img/img17.png",
         content: `<p>
                 Leading retail chains across the country are unveiling ambitious expansion and hiring plans in anticipation of what industry analysts predict could be the strongest holiday shopping season in five years.
                 <br>
@@ -536,7 +536,7 @@ export const newsPort = [
         type: 'BUSINESS NEWS',
         type1: 'Business News',
         author: 'Robert Chang',
-        img: "img/business2.jpg",
+        img: "../assets/img/img18.png",
         content: `<p>
                 After years of unprecedented challenges, global supply chains are finally showing signs of normalization, with shipping rates dropping to near pre-pandemic levels and delivery times improving significantly.
                 <br>
@@ -565,7 +565,7 @@ export const newsPort = [
         type: 'BUSINESS NEWS',
         type1: 'Business News',
         author: 'Linda Martinez',
-        img: "img/business3.jpg",
+        img: "../assets/img/img19.png",
         content: `<p>
                 Small businesses across America are demonstrating remarkable resilience, with new data showing strong revenue growth and hiring despite persistent concerns about interest rates and economic uncertainty.
                 <br>
@@ -597,7 +597,7 @@ export const newsPort = [
         type: 'POLITICS',
         type1: 'Politics',
         author: 'Daniel Foster',
-        img: "img/politics1.jpg",
+        img: "../assets/img/img20.png",
         content: `<p>
                 In a rare display of bipartisan cooperation, the Senate passed a comprehensive infrastructure bill by a vote of 79-21, authorizing $550 billion in new spending on roads, bridges, broadband, and clean energy projects.
                 <br>
@@ -629,7 +629,7 @@ export const newsPort = [
         type: 'POLITICS',
         type1: 'Politics',
         author: 'Michael Stevens',
-        img: "img/politics2.jpg",
+        img: "../assets/img/img21.png",
         content: `<p>
                 Special elections held across the country this month saw unprecedented voter participation, with turnout averaging 58% compared to the typical 35% for off-cycle elections, signaling heightened political engagement among Americans.
                 <br>
@@ -661,7 +661,7 @@ export const newsPort = [
         type: 'POLITICS',
         type1: 'Politics',
         author: 'Amanda Richards',
-        img: "img/politics3.jpg",
+        img: "../assets/img/img22.png",
         content: `<p>
                 The Supreme Court issued a series of landmark rulings on environmental regulations, reshaping federal authority over climate policy and pollution control in decisions that will impact industry and environmental protection for decades.
                 <br>
@@ -697,7 +697,7 @@ export const newsPort = [
         type2: 'A.I.',
         type1: 'Tech and Innovation',
         author: 'Alex Kim',
-        img: "img/iphone.png",
+        img: "../assets/img/img23.png",
         content: `<p>
                 Apple's "Awe Dropping" fall show is expected to replay the company's careful hand: Polish the hardware, bundle the ecosystem, delay the hard questions about artificial intelligence.
                 <br>
@@ -730,7 +730,7 @@ export const newsPort = [
         type2: 'A.I.',
         type1: 'Tech and Innovation',
         author: 'Jennifer Wu',
-        img: "img/ai1.jpg",
+        img: "../assets/img/img24.png",
         content: `<p>
                 As artificial intelligence stocks continue their meteoric rise, a growing chorus of analysts privately express concerns about valuation levels that have reached territory reminiscent of previous tech bubbles, even as public forecasts remain bullish.
                 <br>
@@ -763,7 +763,7 @@ export const newsPort = [
         type2: 'A.I.',
         type1: 'Tech and Innovation',
         author: 'Mark Stevens',
-        img: "img/ai2.jpg",
+        img: "../assets/img/img25.png",
         content: `<p>
                 OpenAI has launched an extensive public relations campaign aimed at shaping the narrative around AI's impact on employment, releasing studies and funding programs designed to show how artificial intelligence can augment rather than replace human workers.
                 <br>
@@ -796,7 +796,7 @@ export const newsPort = [
         type2: 'A.I.',
         type1: 'Tech and Innovation',
         author: 'Dr. Robert Chang',
-        img: "img/ai3.jpg",
+        img: "../assets/img/img26.png",
         content: `<p>
                 A comprehensive Federal Reserve study examining AI's impact on employment has found that widespread job displacement has not yet materialized, despite rapidly increasing AI adoption across industries, providing reassurance amid automation anxieties.
                 <br>
@@ -829,7 +829,7 @@ export const newsPort = [
         type2: 'A.I.',
         type1: 'Tech and Innovation',
         author: 'Patricia Wong',
-        img: "img/ai4.jpg",
+        img: "../assets/img/img27.png",
         content: `<p>
                 C3.ai, once a high-flying artificial intelligence company, faces mounting challenges as quarterly revenues declined 8% and the company announced its third CEO in two years, prompting harsh assessments from Wall Street analysts.
                 <br>
@@ -861,7 +861,7 @@ export const newsPort = [
         type: 'TECHNOLOGY',
         type1: 'Tech and Innovation',
         author: 'Tom Davidson',
-        img: "img/popular1.jpg",
+        img: "../assets/img/img28.png",
         content: `<p>
                 Productivity experts estimate that mastering keyboard shortcuts can save the average office worker over two hours per week, yet most people use only a fraction of the time-saving combinations available on their computers.
                 <br>
@@ -893,7 +893,7 @@ export const newsPort = [
         type: 'MONEY & MARKETS',
         type1: 'Money and Markets',
         author: 'Rebecca Foster',
-        img: "img/popular2.jpg",
+        img: "../assets/img/img29.png",
         content: `<p>
                 While the S&P 500 delivered solid returns this year, several investment strategies significantly outperformed the broad market, offering lessons for investors seeking to enhance their portfolio performance.
                 <br>
@@ -928,7 +928,7 @@ export const newsPort = [
         type: 'BUSINESS NEWS',
         type1: 'Business News',
         author: 'Maria Gonzalez',
-        img: "img/business-main.jpg",
+        img: "../assets/img/img30.png",
         content: `<p>
                 When the Bureau of Labor Statistics released its latest job numbers revision, economists were prepared for significant adjustments. What they weren't prepared for was the magnitude and direction of those changes.
                 <br>
@@ -963,7 +963,7 @@ export const newsPort = [
         type: 'LIFESTYLE',
         type1: 'Lifestyle',
         author: 'Amanda Cooper',
-        img: "img/lifestyle-pop.jpg",
+        img: "../assets/img/img31.png",
         content: `<p>
                 Meal prepping has become increasingly popular as busy professionals and families seek ways to eat healthier while saving time and money. Nutrition experts and experienced meal preppers share strategies that can reclaim hours from your weekly schedule.
                 <br>
@@ -995,7 +995,7 @@ export const newsPort = [
         type: 'POLITICS',
         type1: 'Politics',
         author: 'Daniel Foster',
-        img: "img/politics-pop.jpg",
+        img: "../assets/img/img32.png",
         content: `<p>
                 Over 40 states have enacted voting legislation in the past two years, creating a patchwork of rules that is fundamentally reshaping how Americans cast ballots and raising questions about electoral access and integrity.
                 <br>
@@ -1033,7 +1033,7 @@ export const newsPort = [
         type: 'SPORTS',
         type1: 'Tech and Innovation',
         author: 'Ananya Patel',
-        img: "img/news3.jpg",
+        img: "../assets/img/img8.png",
         content: `<p>
         India’s women’s cricket team has etched its name in history with a record-breaking ODI victory against Australia, marking a defining moment for women’s sports worldwide.
         <br><br>
