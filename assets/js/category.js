@@ -1,5 +1,5 @@
-// đổi màu khi chọn mục nav
 import { newsPort } from "../data/newsPost.js";
+import { fullNews } from "./addPost.js";
 export function getType() {
     const params = new URLSearchParams(window.location.search);
     const param = params.get('type');
@@ -13,27 +13,27 @@ export const types = [
 function toggleNav() {
     const param = getType();
     const navContainer = document.querySelectorAll('.nav__categories a');
-    const index = types.findIndex(type => {
-        return type === param;
-    })
-    navContainer[index + 1].classList.add('active');
+    const index = types.findIndex(type => type === param);
+    if (index > -1) { // Kiểm tra xem có tìm thấy mục nav không
+        navContainer[index + 1].classList.add('active');
+    }
 }
 toggleNav();
 
-//load nội dung bài báo
 function renderCategory() {
     const newsTitle = document.querySelector('.js-title-container');
     const newsContainer = document.querySelector('.js-news-container');
-    const data = newsPort;
+    const data = fullNews; // Sử dụng fullNews đã bao gồm bài mới
     const param = getType();
-    // Lọc tin phù hợp
-    const filtered = data.filter(news => news.type1 === param || news.type2 === param);
 
-    // Tạo HTML chuỗi duy nhất
+    // Lọc tin phù hợp (logic này vẫn đúng)
+    const filtered = data.filter(news => news.type === param || news.type1 === param || news.type2 === param);
+
+    // SỬA LỖI LOGIC TẠI ĐÂY: Thêm data-id vào thẻ div
     const html = filtered.map(newsShow => `
-    <div class="new__box">
+    <div class="new__box" data-id="${newsShow.id}">
         <div class="img">
-            <img src="${newsShow.img || ''}" alt="">
+            <img src="${newsShow.img || 'path/to/default/image.jpg'}" alt="">
         </div>
         <div class="grow">
             <h2>${newsShow.description}</h2>
@@ -43,40 +43,36 @@ function renderCategory() {
     </div>
 `).join('');
 
-    // Render một lần
     newsTitle.innerHTML = `<div class="title__container js-title-container">
                 <h1>${param}</h1>
                 <p>In-depth coverage and articles from Aurews about ${param}</p>
             </div>`
     newsContainer.innerHTML = html || '<p>No articles found.</p>';
-
 }
 
 function onClickHandler() {
-    const contentBoxes = document.querySelectorAll('.new__box');
-    const data = newsPort;
-    const param = getType();
+    // SỬA LỖI LOGIC TẠI ĐÂY: Đơn giản hóa hoàn toàn
+    const newsContainer = document.querySelector('.js-news-container');
 
-    // Lọc lại cùng logic với renderCategory để lấy danh sách hiện tại
-    const filtered = data.filter(news => news.type1 === param || news.type2 === param);
+    newsContainer.addEventListener('click', function (event) {
+        // Tìm phần tử .new__box gần nhất với phần tử được click
+        const clickedBox = event.target.closest('.new__box');
 
-    contentBoxes.forEach((box, index) => {
-        const newsItem = filtered[index];
-        if (newsItem && newsItem.id) {
-            box.addEventListener('click', () => {
-                window.location.href = `./Post.html?id=${newsItem.id}`;
-            });
+        if (clickedBox) {
+            const newsId = clickedBox.dataset.id; // Lấy id từ data-id
+            if (newsId) {
+                // Kiểm tra xem ID có phải là của bài viết local hay không
+                if (String(newsId).startsWith('local-')) {
+                    // Nếu là bài viết local, ta cần xử lý khác hoặc lưu ID vào session/local storage để trang Post.html đọc
+                    localStorage.setItem('selectedPostId', newsId);
+                    window.location.href = `./Post.html?type=local`;
+                } else {
+                    window.location.href = `./Post.html?id=${newsId}`;
+                }
+            }
         }
     });
 }
+
 renderCategory();
 onClickHandler();
-// navContainer.forEach(link => {
-//     link.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         document.querySelectorAll('.nav__categories a').forEach(l => l.classList.remove('active'));
-//         this.classList.add('active');
-//     });
-// });
-
-
