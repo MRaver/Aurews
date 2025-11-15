@@ -16,6 +16,7 @@ img {
     --FF-HEADING: 'Playfair Display', serif;
     --FS-LOGO: clamp(16px, 3vw, 3rem);
     --FS-HEADING: clamp(1.5rem, 1.5vw, 2.5rem);
+    --FS: 1rem;
     /* COLORS */
     --FONT-COLOR: black;
     --NAV-HOVER-COLOR: darkred;
@@ -31,7 +32,7 @@ img {
     
 }
 html {
-    font-size: 16px;
+    font-size: var(--FS);
 }
 
 body {
@@ -124,7 +125,7 @@ body {
 /* Wrapped cho animation nhảy lên của nav__top */
 .nav-item-wrapper {
     position: relative; /* Important for positioning */
-    width: 16.5vw; /* Set a max width for responsiveness */
+    width: max(16.5vw); /* Set a max width for responsiveness */
     aspect-ratio: 5/2;
     overflow: hidden; /* This is the key! Hides the extra part */
     cursor: pointer;
