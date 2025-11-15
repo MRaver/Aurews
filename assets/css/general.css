@@ -14,8 +14,9 @@ img {
     /* FONTS */
     --FF: 'Montserrat', sans-serif;
     --FF-HEADING: 'Playfair Display', serif;
-    --FS-LOGO: clamp(16px, 3vw, 3rem);
-    --FS-HEADING: clamp(1.5rem, 1.5vw, 2.5rem);
+    --FS-LOGO: clamp(16px, 2.7vw, 3rem);
+    --FS-HEADING: clamp(1.5rem, 1.5vw, 2rem);
+    --FS: 1rem;
     /* COLORS */
     --FONT-COLOR: black;
     --NAV-HOVER-COLOR: darkred;
@@ -30,8 +31,10 @@ img {
             white 80%);
     
 }
+/* || GENERAL */
+
 html {
-    font-size: 16px;
+    font-size: var(--FS);
 }
 
 body {
@@ -45,6 +48,15 @@ body {
     overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--FF-HEADING);
+}
+
+p {
+    font-family: var(--FF);
+}
+
+
 /* || HEADER */
 /* NAV */
 
@@ -54,40 +66,35 @@ body {
     width: 100%;
     height: auto;
     margin: 0 auto;
-        max-width: 1400px;
+    margin-top: 20px;
+    max-width: 1400px;
 }
 
-.nav__container {
-    padding: 0 16px;
-}
 
 
 .nav__top {
     display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    /* gap: 20px; */
-    /* margin-left: 20px; */
-    margin-top: 2vh;
+    justify-content: space-around;
     padding-left: 10px;
     padding-right: 10px;
+    
 }
 
 
 .nav__bottom {
     border-top: 1px solid black;
-    margin-left: 5px;
-
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 
 
 :is(.nav__about, .nav__search) a, .nav__newsletter p {
     font-family: var(--FF-HEADING);
-    /* font-style: italic; */
     color: var(--FONT-COLOR);
     text-decoration: none;
     font-size: var(--FS-HEADING);
+    font-weight: bolder;
 }
 
 .nav__logo a {
@@ -111,24 +118,21 @@ body {
 }
 
 
-.nav__logo:hover a{
-   color: var(--LINK-HOVER-COLOR);
+
+
+.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
+    color: var(--LINK-HOVER-COLOR); /* Example */
     transition: color 0.2s ease;
 }
-
-:is(.nav__about, .nav__newsletter, .nav__search):hover p {
-    color: var(--LINK-HOVER);
-    transition: color 0.2s ease;
-}
-
 /* Wrapped cho animation nhảy lên của nav__top */
 .nav-item-wrapper {
     position: relative; /* Important for positioning */
     width: 16.5vw; /* Set a max width for responsiveness */
+    max-width: 235px;
     aspect-ratio: 5/2;
     overflow: hidden; /* This is the key! Hides the extra part */
     cursor: pointer;
-    padding-top: 20px; /* Optional: adds some space above */
+    padding: 10px; /* Optional: adds some space above */
 }
 
 .nav__logo,
@@ -158,7 +162,8 @@ body {
     user-select: none;
     /* transform này để khi xuống k bị khựng */
     transition: transform 400ms ease;
-    
+    margin-top: 8px;/* Push down to hide the extra part */
+    margin-bottom: 5px; 
 }
 
 /* --- 3. The Hover Effect --- */
@@ -173,10 +178,29 @@ body {
 }
 
 
-.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
-    color: var(--LINK-HOVER-COLOR); /* Example */
+
+/* HAMBURGER MENU */
+.nav__hamburgermenu__icon {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  
+    width: 60px;  /* Giảm kích thước một chút cho cân đối */
+    height: 40px; /* Chiều cao tổng thể của 3 thanh */
+    
 }
 
+.nav__hamburgermenu span {
+    display: block; 
+    width: 100%;
+    height: 8px; 
+    background-color: black;
+    border-radius: 25px;
+    /* Animation cho cái ham */
+    transition: 0.3s ease;
+}
 .nav__hamburgermenu:hover span {
     background-color: brown;
 }
@@ -204,15 +228,18 @@ body {
     display: inline-block;
     padding: 5px 5px;
     text-decoration: none;
-    color: black;
+    color: var(--FONT-COLOR);
     font-weight: bold;
     text-transform: uppercase;
     font-size: small;
     margin-top: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
 }
 
 .nav__categories li {
     list-style: none;
+    flex-shrink: 0;
 }
 
 .nav__categories li a.active{
@@ -224,53 +251,6 @@ body {
     color: white;
 }
 
-.nav__hamburgermenu {
-    text-decoration: none;
-    color: black;
-    flex-shrink: 0;
-}
-
-.nav__hamburgermenu__icon {
-    height: 50px;
-    width: 50px;
-    display: flex;
-    position: relative;
-}
-
-.nav__hamburgermenu span {
-    height: 8px;
-    width: 100%;
-    background-color: black;
-    border-radius: 25px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.3s ease;
-}
-
-.nav__hamburgermenu span:nth-child(1) {
-    top: 25%;
-}
-
-.nav__hamburgermenu span:nth-child(3) {
-    top: 75%;
-}
-
-.nav__categories li:nth-child(4) a {
-    flex-shrink: 0;
-    min-width: max-content;
-}
-
-.nav__categories li:nth-child(3) a {
-    flex-shrink: 0;
-    min-width: max-content;
-}
-
-.nav__categories li:nth-child(5) a {
-    flex-shrink: 0;
-    min-width: max-content;
-}
 
 /* MOBILE MENU OVERLAY & SIDEBAR */
 
@@ -325,6 +305,7 @@ body {
     color: black;
     text-transform: uppercase;
     font-weight: bolder;
+    font-family: var(--FF-HEADING);
 }
 
 
@@ -615,26 +596,149 @@ a:hover i {
 
 /* || MEDIA QUERIES*/
 
-@media (max-width: 1400px) {
 
-    /* .nav__about,
-    .nav__newsletter,
-    .nav__search {
-        display: none;
-        transition: all 0.3s ease;
-    } */
+/* ------------------ Media Query: ≤1200px (Large tablets / small desktops) ------------------ */
+@media only screen and (max-width: 1200px) {
+    /* || VARIABLES */
+    :root{
+        --FS-LOGO: clamp(14px, 3vw, 2.5rem);
+        --FS-HEADING: clamp(1.3rem, 2.5vw, 1.8rem);
+    }
+    
+    .nav__top {
+        margin-top: 2vh;
+    } 
+    .nav-item-wrapper{
+        padding: 0;
+    }
+    
 }
 
-@media (max-width: 768px) {
-    .nav__top-left {
+/* ------------------ Media Query: ≤992px (Tablets) ------------------ */
+@media only screen and (max-width: 992px) {
+    :root{
+        --FS-LOGO: clamp(13px, 4vw, 2.2rem);
+        --FS-HEADING: clamp(1.2rem, 3vw, 1.6rem);
+    }
+   
+    .nav-item-wrapper:has(.nav__about),
+    .nav-item-wrapper:has(.nav__newsletter) {
         display: none;
     }
-
-    .nav__top-right {
-        display: none;
+    .nav-item-wrapper{
+        width: 30vw;
     }
-
-     .nav__search {
-        display: none;
-    }
+    
 }
+
+/* ------------------ Media Query: ≤768px (Small tablets / large phones) ------------------ */
+@media only screen and (max-width: 768px) {
+    :root{
+        --FS-LOGO: clamp(12px, 4vw, 2rem);
+        --FS-HEADING: clamp(1.2rem, 3vw, 1.5rem);
+    }
+   
+    .nav__top {
+        display: flex;
+        justify-content: space-around;
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+
+   
+}
+
+/* ------------------ Media Query: ≤600px (Phones) ------------------
+   Example: This section contains focused adjustments for small screens.
+   - NAV TOP: compact spacing and layout tweaks
+   - HIDE SEARCH: remove search from top bar for space
+   - LOGO: center and remove decorative borders for cleaner look
+   - HAMBURGER MENU: simplify visuals and sizing
+   - FOOTER: stack and center content for narrow widths
+----------------------------------------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+    /* || VARIABLES */
+    :root{
+        --FS-LOGO: clamp(10px, 10vw, 1.8rem);
+    }
+    /* NAV TOP */
+    .nav__top {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 20px;
+        position: relative;
+    }
+    /* HIDE SEARCH */
+    .nav-item-wrapper:has(.nav__search) {
+        display: none;
+    }
+    /* LOGO */
+    .nav-item-wrapper:has(.nav__logo) {
+        position: absolute;
+        margin: 0 auto; 
+        width: auto; 
+        padding: 0;
+        aspect-ratio: unset;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .nav__logo{
+        border: none;
+        background: none;
+        clip-path: none;
+        height: auto;
+    }
+    /* HAMBURGER MENU */
+    .nav__hamburgermenu {
+        background: none;
+        border: none;
+        clip-path: none;
+        height: auto;
+    }
+    .nav__hamburgermenu__icon {
+        width: 30px; 
+        height: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+   
+    .nav__hamburgermenu span {
+        display: block; 
+        width: 100%;
+        height: 4px; 
+        background-color: black;
+        border-radius: 25px;
+    }
+    .nav-item-wrapper:has(.nav__hamburgermenu) {
+        margin-left: auto;
+        z-index: 10;
+        width: auto; 
+        padding-top: 0; 
+        aspect-ratio: unset; /* Tắt tỷ lệ khung hình */
+        overflow: visible;
+    }
+    
+    /* FOOTER */
+     .footer__container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .siteinfo__right {
+        flex-basis: 100%;
+    }
+
+    .icon__container {
+        justify-content: center;
+    }
+
+    .option {
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}  
