@@ -118,16 +118,12 @@ p {
 }
 
 
-:is(.nav__logo,.nav__search, .nav__about):hover a{
-   color: var(--LINK-HOVER-COLOR);
+
+
+.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
+    color: var(--LINK-HOVER-COLOR); /* Example */
     transition: color 0.2s ease;
 }
-
-.nav__newsletter:hover p {
-    color: var(--LINK-HOVER-COLOR);
-    transition: color 0.2s ease;
-}
-
 /* Wrapped cho animation nhảy lên của nav__top */
 .nav-item-wrapper {
     position: relative; /* Important for positioning */
@@ -182,10 +178,29 @@ p {
 }
 
 
-.nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
-    color: var(--LINK-HOVER-COLOR); /* Example */
+
+/* HAMBURGER MENU */
+.nav__hamburgermenu__icon {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  
+    width: 60px;  /* Giảm kích thước một chút cho cân đối */
+    height: 40px; /* Chiều cao tổng thể của 3 thanh */
+    
 }
 
+.nav__hamburgermenu span {
+    display: block; 
+    width: 100%;
+    height: 8px; 
+    background-color: black;
+    border-radius: 25px;
+    /* Animation cho cái ham */
+    transition: 0.3s ease;
+}
 .nav__hamburgermenu:hover span {
     background-color: brown;
 }
@@ -235,28 +250,7 @@ p {
     background-color: var(--NAV-HOVER-COLOR);
     color: white;
 }
-/* HAMBURGER MENU */
-.nav__hamburgermenu__icon {
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-  
-    width: 60px;  /* Giảm kích thước một chút cho cân đối */
-    height: 40px; /* Chiều cao tổng thể của 3 thanh */
-    
-}
-
-.nav__hamburgermenu span {
-    display: block; 
-    width: 100%;
-    height: 8px; 
-    background-color: black;
-    border-radius: 25px;
-    /* Animation cho cái ham */
-    transition: 0.3s ease;
-}
 
 /* MOBILE MENU OVERLAY & SIDEBAR */
 
@@ -747,4 +741,4 @@ a:hover i {
         gap: 20px;
         flex-wrap: wrap;
     }
-} 
+}  
