@@ -79,6 +79,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .left1 .boxuppertitle {
@@ -156,6 +157,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .right {
@@ -328,10 +330,11 @@
     border-radius: 12px;
 }
 
-.mews__img img {
+.news__img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .news__description {
@@ -494,6 +497,7 @@
 .AI__title {
     margin-left: 10px;
 }
+
 /* POPULAR NEWS */
 
 .popular__container {
