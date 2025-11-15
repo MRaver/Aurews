@@ -4,7 +4,7 @@ export const newsData = {
         id: 1,
         title: "Channing Tatum says he turned down a role in 'Beauty and the Beast' and now views it as his 'biggest mistake'",
         description: "The actor reveals his regret over declining Guillermo del Toro's version of the Disney classic",
-        image: "img/hehe.jpg",
+        image: "img/img1.png",
     },
 
     // Tin mới nhất - Latest News
@@ -12,22 +12,26 @@ export const newsData = {
         {
             id: 2,
             title: "The best airline rewards programs, according to point.me",
-            time: "2 hours ago"
+            time: "2 hours ago",
+            image: "img/img2.png"
         },
         {
             id: 3,
             title: "Who sets mortgage rates and how do they work?",
-            time: "2 hours ago"
+            time: "2 hours ago",
+            image: "img/img3.png"
         },
         {
             id: 4,
             title: "The FAA is reportedly considering changing commercial plane regulations",
-            time: "2 hours ago"
+            time: "2 hours ago",
+            image: "img/img4.png"
         },
         {
             id: 5,
             title: "Amazon's shares surge as AI boom drives cloud computing growth",
-            time: "3 hours ago"
+            time: "3 hours ago",
+            image: "img/img5.png"
         }
     ],
 
@@ -37,19 +41,19 @@ export const newsData = {
             id: 6,
             title: "The 5 states with the highest vaccination rates in America",
             description: "A new study ranks every state by vaccination coverage, from childhood immunizations to adult flu shots",
-            image: "img/news1.jpg"
+            image: "img/img6.png"
         },
         {
             id: 7,
             title: "Scientists discover breakthrough in panda conservation",
             description: "Researchers successfully transform panda skin cells into stem cells, opening new possibilities for species preservation",
-            image: "img/news2.jpg"
+            image: "img/img7.png"
         },
         {
             id: 33,
             title: "India's women's cricket team makes ODI history",
             description: "Record-breaking chase against Australia marks milestone in women's sports achievements",
-            image: "img/news3.jpg"
+            image: "img/img8.png"
         }
     ],
 
@@ -58,18 +62,18 @@ export const newsData = {
         big: {
             id: 8,
             title: "8 places to hike this fall to see foliage",
-            image: "img/lifestyle-big.jpg"
+            image: "img/img33.png"
         },
         small: [
             {
                 id: 9,
                 title: "The 5 cheapest auto repairs to get done before winter",
-                image: "img/lifestyle1.jpg"
+                image: "img/img9.png"
             },
             {
                 id: 10,
                 title: "Top 10 budget-friendly home renovation ideas for 2024",
-                image: "img/lifestyle2.jpg"
+                image: "img/img10.png"
             }
         ]
     },
@@ -82,17 +86,17 @@ export const newsData = {
                 {
                     id: 11,
                     title: "Wall Street eyes Fed rate cut as job market shows unexpected resilience",
-                    image: "img/money1.jpg"
+                    image: "img/img11.png"
                 },
                 {
                     id: 12,
                     title: "Cryptocurrency markets rebound after regulatory clarity from SEC",
-                    image: "img/money2.jpg"
+                    image: "img/img12.png"
                 },
                 {
                     id: 13,
                     title: "Housing market cools as mortgage rates hit 18-month high",
-                    image: "img/money3.jpg"
+                    image: "img/img13.png"
                 }
             ]
         },
@@ -102,17 +106,17 @@ export const newsData = {
                 {
                     id: 14,
                     title: "Apple announces major AI integration across all devices",
-                    image: "img/tech1.jpg"
+                    image: "img/img14.png"
                 },
                 {
                     id: 15,
                     title: "Quantum computing breakthrough promises to revolutionize encryption",
-                    image: "img/tech2.jpg"
+                    image: "img/img15.png"
                 },
                 {
                     id: 16,
                     title: "Tesla unveils new autonomous driving features in latest software update",
-                    image: "img/tech3.jpg"
+                    image: "img/img16.png"
                 }
             ]
         },
@@ -122,17 +126,17 @@ export const newsData = {
                 {
                     id: 17,
                     title: "Major retail chains announce massive expansion plans for holiday season",
-                    image: "img/business1.jpg"
+                    image: "img/img17.png"
                 },
                 {
                     id: 18,
                     title: "Supply chain disruptions ease as global shipping rates normalize",
-                    image: "img/business2.jpg"
+                    image: "img/img18.png"
                 },
                 {
                     id: 19,
                     title: "Small businesses report strong growth despite economic headwinds",
-                    image: "img/business3.jpg"
+                    image: "img/img19.png"
                 }
             ]
         },
@@ -142,17 +146,17 @@ export const newsData = {
                 {
                     id: 20,
                     title: "Senate passes bipartisan infrastructure bill with overwhelming support",
-                    image: "img/politics1.jpg"
+                    image: "img/img20.png"
                 },
                 {
                     id: 21,
                     title: "Voter turnout reaches record high in special elections nationwide",
-                    image: "img/politics2.jpg"
+                    image: "img/img21.png"
                 },
                 {
                     id: 22,
                     title: "Supreme Court announces key decisions on environmental regulations",
-                    image: "img/politics3.jpg"
+                    image: "img/img22.png"
                 }
             ]
         }
@@ -164,28 +168,28 @@ export const newsData = {
             id: 23,
             title: "The iPhone is reportedly going skinny. But Apple's bigger AI story still looks unfinished",
             description: "Apple's 'Awe Dropping' fall show is expected to replay the company's careful hand: Polish the hardware, bundle the ecosystem, delay the hard questions",
-            image: "img/iphone.png"
+            image: "img/img23.png"
         },
         sideNews: [
             {
                 id: 24,
                 title: "The AI bubble fears are getting worse. Wall Street doesn't want to talk about it",
-                image: "img/ai1.jpg"
+                image: "img/img24.png"
             },
             {
                 id: 25,
                 title: "OpenAI tries getting ahead of that 'AI is taking our jobs' thing",
-                image: "img/ai2.jpg"
+                image: "img/img25.png"
             },
             {
                 id: 26,
                 title: "Fed finds AI isn't rapidly replacing jobs yet, even as more firms adopt it",
-                image: "img/ai3.jpg"
+                image: "img/img26.png"
             },
             {
                 id: 27,
                 title: "Analysts say this AI company is a 'sinking ship' as revenues decline and a new CEO takes over",
-                image: "img/ai4.jpg"
+                image: "img/img27.png"
             }
         ]
     },
@@ -197,13 +201,13 @@ export const newsData = {
                 id: 28,
                 category: "Tech & Innovation",
                 title: "The best keyboard shortcuts you wish you were already using daily",
-                image: "img/popular1.jpg"
+                image: "img/img28.png"
             },
             {
                 id: 29,
                 category: "Money & Markets",
                 title: "5 investment strategies that outperformed the market this year",
-                image: "img/popular2.jpg"
+                image: "img/img29.png"
             }
         ],
         businessMain: {
@@ -211,20 +215,20 @@ export const newsData = {
             category: "business news",
             title: "Wall Street expected a big jobs revision. The reality is even more surprising",
             description: "Wall Street eyes a Fed rate cut with the next job number revisions as workers clings to jobs amid cratering confidence",
-            image: "img/business-main.jpg"
+            image: "img/img30.png"
         },
         grid3: [
             {
                 id: 31,
                 category: "Life style",
                 title: "The best meal prep tips that will save you hours every week",
-                image: "img/lifestyle-pop.jpg"
+                image: "img/img31.png"
             },
             {
                 id: 32,
                 category: "politics",
                 title: "How new voting laws are reshaping the electoral landscape",
-                image: "img/politics-pop.jpg"
+                image: "img/img32.png"
             }
         ]
     }

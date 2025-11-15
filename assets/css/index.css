@@ -72,6 +72,13 @@
     width: 100%;
     aspect-ratio: 698/500;
     background-color: #D9D9D9;
+    border-radius: 12px;
+}
+
+.boxupperleft__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .left1 .boxuppertitle {
@@ -142,6 +149,13 @@
     max-height: 150px;
     background-color: #D9D9D9;
     flex-shrink: 0;
+    border-radius: 12px;
+}
+
+.threenews__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .right {
@@ -176,6 +190,7 @@
     width: 100%;
     aspect-ratio: 600/300;
     background-color: #D9D9D9;
+    border-radius: 12px;
 }
 
 .boxupperright p {
@@ -186,6 +201,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .smallnews {
@@ -195,12 +211,27 @@
     margin-bottom: 16px;
 }
 
+.smallnewsfirst {
+    flex: 1;
+}
+
+.smallnewssecond {
+    flex: 1;
+}
+
 .smallnews__img {
     width: 100%;
     aspect-ratio: 262/150;
     background-color: #D9D9D9;
     flex-shrink: 0;
     gap: 20px;
+    border-radius: 12px;
+}
+
+.smallnews__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .smallnewsfirst {
@@ -221,6 +252,7 @@
 .boxlowerright__img {
     width: 60%;
     aspect-ratio: 362/204;
+    border-radius: 12px;
 }
 
 .boxlowerright__img img {
@@ -240,6 +272,7 @@
 
 .boxlowerright__img {
     margin-bottom: 10px;
+    border-radius: 12px;
 }
 
 /* TOPICS */
@@ -292,6 +325,7 @@
     background-color: #D9D9D9;
     flex-shrink: 0;
     aspect-ratio: 139/110;
+    border-radius: 12px;
 }
 
 .mews__img img {
@@ -368,6 +402,7 @@
     transition: opacity 0.3s ease;
 }
 
+
 .AI__news:hover {
     opacity: 0.4;
 }
@@ -377,6 +412,7 @@
     aspect-ratio: 640/398;
     flex-shrink: 0;
     margin-bottom: 20px;
+    border-radius: 12px;
 }
 
 .AI__img img {
@@ -411,6 +447,13 @@
     aspect-ratio: 160/120;
     flex-shrink: 0;
     background-color: #D9D9D9;
+    border-radius: 12px;
+}
+
+.img__container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .AI__news--1 {
@@ -543,6 +586,7 @@
     width: 80%;
     max-width: 786px;
     aspect-ratio: 600/400;
+    border-radius: 12px;
 }
 
 /* Căn giữa phần mô tả giống với ảnh, tránh full-width 100% */
@@ -602,18 +646,21 @@
     max-width: 550px;
     aspect-ratio: 18/10;
     flex-shrink: 0;
+    border-radius: 12px;
 }
 
 .lifestyle__img img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    border-radius: 12px;
 }
 
 .politics__img img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    border-radius: 12px;
 }
 
 .politics__img {
@@ -621,6 +668,7 @@
     max-width: 550px;
     aspect-ratio: 18/10;
     flex-shrink: 0;
+    border-radius: 12px;
 }
 
 .grid1__content2-img {
@@ -628,6 +676,7 @@
     max-width: 550px;
     aspect-ratio: 18/10;
     flex-shrink: 0;
+    border-radius: 12px;
 }
 
 .grid1__content2-img img {
@@ -655,6 +704,7 @@
     max-width: 550px;
     aspect-ratio: 18/10;
     flex-shrink: 0;
+    border-radius: 12px;
 }
 
 .grid1__content1-img img {

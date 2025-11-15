@@ -14,7 +14,7 @@ const sampleNews = [
         category: "Tech and Innovation",
         date: new Date("2025-11-10"),
         readTime: "5 min",
-        image: "https://via.placeholder.com/400x250/4a90e2/ffffff?text=Tech+News",
+        image: "../assets/img/img1.png",
         type: "article" // Added type
     },
     {
@@ -24,7 +24,7 @@ const sampleNews = [
         category: "Money and Markets",
         date: new Date("2025-11-11"),
         readTime: "4 min",
-        image: "https://via.placeholder.com/400x250/50c878/ffffff?text=Markets",
+        image: "../assets/img/img2.png",
         type: "article"
     },
     {
@@ -34,7 +34,7 @@ const sampleNews = [
         category: "Lifestyle",
         date: new Date("2025-11-09"),
         readTime: "10 min",
-        image: "https://via.placeholder.com/400x250/ff6b6b/ffffff?text=Video",
+        image: "../assets/img/img3.png",
         type: "video" // Added type
     },
     {
@@ -44,7 +44,7 @@ const sampleNews = [
         category: "Politics",
         date: new Date("2025-11-08"),
         readTime: "7 min",
-        image: "https://via.placeholder.com/400x250/95e1d3/ffffff?text=Politics",
+        image: "../assets/img/img4.png",
         type: "article"
     },
     {
@@ -54,7 +54,7 @@ const sampleNews = [
         category: "Business News",
         date: new Date("2025-11-11"),
         readTime: "5 min",
-        image: "https://via.placeholder.com/400x250/f38181/ffffff?text=Business",
+        image: "../assets/img/img5.png",
         type: "article"
     },
     {
@@ -64,7 +64,7 @@ const sampleNews = [
         category: "A.I.",
         date: new Date("2025-11-10"),
         readTime: "6 min",
-        image: "https://via.placeholder.com/400x250/aa96da/ffffff?text=AI+News",
+        image: "../assets/img/img6.png",
         type: "article"
     },
     {
@@ -74,7 +74,7 @@ const sampleNews = [
         category: "Lifestyle",
         date: new Date("2025-11-07"),
         readTime: "45 min",
-        image: "https://via.placeholder.com/400x250/6a89cc/ffffff?text=Podcast",
+        image: "../assets/img/img7.png",
         type: "podcast" // Added type
     },
     {
@@ -84,7 +84,7 @@ const sampleNews = [
         category: "Lifestyle",
         date: new Date("2025-11-06"),
         readTime: "2 min",
-        image: "https://via.placeholder.com/400x250/ff9f43/ffffff?text=Image+Gallery",
+        image: "../assets/img/img8.png",
         type: "image" // Added type
     }
 ];

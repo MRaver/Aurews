@@ -1,5 +1,4 @@
-import { newsPort } from "../data/newsPost.js";
-
+import { fullNews } from "./addPost.js";
 // Lấy ID từ URL parameter
 function getPostIdFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -12,7 +11,7 @@ export function renderNewsPortTitle() {
     const postId = getPostIdFromURL();
 
     // Tìm article theo ID
-    const article = newsPort.find(item => item.id === postId) || newsPort[0]; // Default to first if not found
+    const article = fullNews.find(item => item.id === postId) || fullNews[0]; // Default to first if not found
 
     container.innerHTML = `
      <p>${article.type} • 2 min read</p>
@@ -28,11 +27,11 @@ export function renderNewsPortContent() {
     const postId = getPostIdFromURL();
 
     // Tìm article theo ID
-    const article = newsPort.find(item => item.id === postId) || newsPort[0]; // Default to first if not found
+    const article = fullNews.find(item => item.id === postId) || newsPort[0]; // Default to first if not found
 
     container.innerHTML = `<figure>
                 <div class="news__content-img">
-                    <img src="/client/assets/${article.img}" alt="" height="420px" width="670px">
+                    <img src="${article.img}" alt="" height="420px" width="670px">
                 </div>
                 <figcaption>
                     <p>caption</p>
