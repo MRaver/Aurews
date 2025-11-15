@@ -1,23 +1,4 @@
-/* || VARIABLES */
-:root {
-    /* FONTS */
-    --FF: 'Montserrat', sans-serif;
-    --FF-HEADING: 'Playfair Display', serif;
-    --FS-LOGO: 3vw;
-    --FS-HEADING: clamp(1.5rem, 3vh, 2.5rem);
-    /* COLORS */
-    --FONT-COLOR: black;
-    --NAV-HOVER-COLOR: darkred;
-    --LINK-HOVER-COLOR: brown;
-    --LINK-ACTIVE-COLOR: red;
-    --NAV-ACTIVE-COLOR: #f3d19e;
-    --BG-COLOR: #f2d9b4;
-    --BG-FADED-COLOR: white;
-    --BG-IMAGE: linear-gradient(to bottom,
-            #f2d9b4 0%,
-            #f2d9b4 30%,
-            white 80%);
-}
+
 
 /* || MAIN */
 /* MAIN TOPIC */
