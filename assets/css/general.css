@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 /* || RESET */
 * {
     margin: 0;
@@ -14,8 +14,8 @@ img {
     /* FONTS */
     --FF: 'Montserrat', sans-serif;
     --FF-HEADING: 'Playfair Display', serif;
-    --FS-LOGO: 3vw;
-    --FS-HEADING: clamp(1.5rem, 3vh, 2.5rem);
+    --FS-LOGO: 10px;
+    --FS-HEADING: clamp(10px, 3vw, 2.5rem);
     /* COLORS */
     --FONT-COLOR: black;
     --NAV-HOVER-COLOR: darkred;
@@ -54,6 +54,7 @@ body {
     width: 100%;
     height: auto;
     margin: 0 auto;
+        max-width: 1400px;
 }
 
 .nav__container {
@@ -81,7 +82,7 @@ body {
 
 
 
-:is(.nav__logo, .nav__about) a, :is(.nav__newsletter, .nav__search) p {
+:is(.nav__logo, .nav__about, .nav__search) a, .nav__newsletter p {
     font-family: var(--FF-HEADING);
     /* font-style: italic; */
     color: var(--FONT-COLOR);
@@ -90,11 +91,8 @@ body {
 }
 
 .nav__logo a {
-    display: block;
-    font-size: var(--FS-LOGO);
     font-weight: bolder;
     text-align: center;
-    text-decoration: none;
 }
 
 :is(.nav__logo, .nav__hamburgermenu, .nav__about, .nav__newsletter, .nav__search):hover {
@@ -170,7 +168,7 @@ body {
     transition: transform 500ms ease;
 }
 
-/* You might need to adjust your text color change as well */
+
 .nav-item-wrapper:hover a, .nav-item-wrapper:hover p {
     color: var(--LINK-HOVER-COLOR); /* Example */
 }
@@ -178,7 +176,7 @@ body {
 .nav__hamburgermenu:hover span {
     background-color: brown;
 }
-
+/* NAV BOTTOM */
 .nav__categories {
     display: flex;
     justify-content: space-between;
@@ -213,7 +211,7 @@ body {
     list-style: none;
 }
 
-.nav__categories a.active{
+.nav__categories li a.active{
     background-color: rgb(232, 5, 39);
     color: white;
 }

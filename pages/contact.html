@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="../assets/css/contact.css">
+    <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
@@ -14,75 +15,88 @@
     <header>
         <nav class="nav__container">
             <div class="nav__top">
-                <div class="nav__top-left">
+                <div class="nav-item-wrapper">
                     <div class="nav__search">
-                        <p>Search</p>
+                        <a href="search.html">
+                            Search
+                        </a>
                     </div>
+                </div>
+                <div class="nav-item-wrapper">
                     <div class="nav__newsletter">
                         <p>News letter</p>
                     </div>
                 </div>
-                <div class="nav__top-center">
-                    <a href="#" class="nav__logo">
-                        <p>Aurews</p>
-                    </a>
+                <div class="nav-item-wrapper">
+                    <div class="nav__logo">
+                        <a href="index.html">
+                            AUREWS
+                        </a>
+                    </div>
                 </div>
-                <div class="nav__top-right">
-                    <a href="#" class="nav__about">
-                        <p>About</p>
-                    </a>
-                    <a href="#" class="nav__hamburgermenu menu-toggle" onclick="toggleMenu(); return false;"
-                        aria-label="Toggle menu">
-                        <p>Hamburger menu</p>
-                    </a>
-
+                <div class="nav-item-wrapper">
+                    <div class="nav__about">
+                        <a href="about.html">
+                            <p>About</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item-wrapper">
+                    <div class="nav__hamburgermenu" onclick="toggleMenu(); return false;"
+                            aria-label="Toggle menu">
+                        <div class="nav__hamburgermenu__icon menu-toggle" >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="nav__bottom">
                 <ul class="nav__categories">
-                    <li><a href="#" class="nav__home">Home</a></li>
+                    <li><a href="Index.html" class="active">Home</a></li>
+                    <li><a href="./Category.html?type=Latest">Latest</a></li>
+                    <li><a href="./Category.html?type=Business News">Business News</a></li>
+                    <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
+                    <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
+                    <li><a href="./Category.html?type=A.I.">A.I.</a></li>
+                    <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
+                    <li><a href="./Category.html?type=Politics">politics</a></li>
+                    <li><a href="./Category.html?type=Email">email</a></li>
+                    <li><a href="./Category.html?type=Podcast">podcast</a></li>
+                </ul>
+            </div>
+        </nav>
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+
+            <!-- Mobile Menu Sidebar -->
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <p class="mobile-menu-header__logo">Aurews</p>
+                    <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
+                </div>
+                <ul class="mobile-nav-links">
+                    <li><a href="#" class="active">Home</a></li>
                     <li><a href="#">Latest</a></li>
                     <li><a href="#">Business News</a></li>
                     <li><a href="#">Money & Markets</a></li>
                     <li><a href="#">Tech & Innovation</a></li>
                     <li><a href="#">A.I.</a></li>
                     <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">politics</a></li>
-                    <li><a href="#">email</a></li>
-                    <li><a href="#">podcast</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
+                <div class="mobile-menu-footer">
+                    <div id="login-button" class="mobile-menu-footer-item" onclick="openPopup('login')">Login</div>
+                    <div class="mobile-menu-footer-item">Languages</div>
+                    <div class="mobile-menu-footer-item">Search</div>
+                    <div class="mobile-menu-footer-item">Newsletter</div>
+                    <div class="mobile-menu-footer-item">About</div>
+                </div>
             </div>
-        </nav>
-        </div>
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
-
-        <!-- Mobile Menu Sidebar -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-header">
-                <a href="#" class="nav__logo">Aurews</a>
-                <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Latest</a></li>
-                <li><a href="#">Business News</a></li>
-                <li><a href="#">Money & Markets</a></li>
-                <li><a href="#">Tech & Innovation</a></li>
-                <li><a href="#">A.I.</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Politics</a></li>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Podcast</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-footer">
-                <div class="mobile-menu-footer-item">Languages</div>
-                <div class="mobile-menu-footer-item">Search</div>
-                <div class="mobile-menu-footer-item">Newsletter</div>
-            </div>
-        </div>
     </header>
     <main>
         <div class="container">

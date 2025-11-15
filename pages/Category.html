@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurews</title>
+    <title>Category</title>
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/category.css">
     <link rel="stylesheet" href="../assets/css/login.css">
@@ -79,40 +79,46 @@
         <header>
             <nav class="nav__container">
                 <div class="nav__top">
-
-                    <div class="nav__search">
-                        <p>Search</p>
-                    </div>
-                    <div class="nav__newsletter">
-                        <p>News letter</p>
-                    </div>
-
-
-                    <div class="nav__logo">
-                        <a href="about.html">
-                            <p>Aurews</p>
-                        </a>
-                    </div>
-
-
-                    <div class="nav__about">
-                        <a href="about.html">
-                            <p>About</p>
-                        </a>
-                    </div>
-                    <div class="nav__hamburgermenu">
-                        <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;"
-                            aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    <div class="nav-item-wrapper">
+                        <div class="nav__search">
+                            <a href="search.html">
+                                Search
+                            </a>
                         </div>
                     </div>
-
+                    <div class="nav-item-wrapper">
+                        <div class="nav__newsletter">
+                            <p>News letter</p>
+                        </div>
+                    </div>
+                    <div class="nav-item-wrapper">
+                        <div class="nav__logo">
+                            <a href="index.html">
+                                AUREWS
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nav-item-wrapper">
+                        <div class="nav__about">
+                            <a href="about.html">
+                                <p>About</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nav-item-wrapper">
+                        <div class="nav__hamburgermenu" onclick="toggleMenu(); return false;"
+                                aria-label="Toggle menu">
+                            <div class="nav__hamburgermenu__icon menu-toggle" >
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="nav__bottom">
                     <ul class="nav__categories">
-                        <li><a href="Index.html">Home</a></li>
+                        <li><a href="Index.html" class="active">Home</a></li>
                         <li><a href="./Category.html?type=Latest">Latest</a></li>
                         <li><a href="./Category.html?type=Business News">Business News</a></li>
                         <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
@@ -131,11 +137,11 @@
             <!-- Mobile Menu Sidebar -->
             <div class="mobile-menu">
                 <div class="mobile-menu-header">
-                    <a href="about.html" class="nav__logoo">Aurews</a>
+                    <p class="mobile-menu-header__logo">Aurews</p>
                     <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
                 </div>
                 <ul class="mobile-nav-links">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">Home</a></li>
                     <li><a href="#">Latest</a></li>
                     <li><a href="#">Business News</a></li>
                     <li><a href="#">Money & Markets</a></li>
@@ -155,7 +161,6 @@
                     <div class="mobile-menu-footer-item">About</div>
                 </div>
             </div>
-
         </header>
         <main>
             <div class="background__title js-background-title">
@@ -164,7 +169,6 @@
                 <div class="news__container js-news-container">
                 </div>
             </div>
-
         </main>
         <footer>
             <div class="footer__container">
