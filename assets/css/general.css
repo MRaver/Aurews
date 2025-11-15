@@ -619,7 +619,7 @@ a:hover i {
         --FS-LOGO: clamp(13px, 4vw, 2.2rem);
         --FS-HEADING: clamp(1.2rem, 3vw, 1.6rem);
     }
-
+   
     .nav-item-wrapper:has(.nav__about),
     .nav-item-wrapper:has(.nav__newsletter) {
         display: none;
