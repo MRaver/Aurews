@@ -71,7 +71,9 @@ function createPopUpOverlay() {
     `;
 }
 
-const container = document.getElementById("pop-up-overlay__placeholder");
-if (container) {
-  container.innerHTML = createPopUpOverlay();
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("pop-up-overlay__placeholder");
+  if (container) {
+    container.innerHTML = createPopUpOverlay();
+  }
+});
