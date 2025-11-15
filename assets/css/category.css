@@ -1,47 +1,448 @@
-/* --------------------------------
-4. COMPONENT: CATEGORY PAGE (MAIN)
-(Đây là code CỦA RIÊNG TRANG NÀY)
---------------------------------
-*/
+main {
+  padding-left: clamp(15px, 6.944vw, 100px);
+  padding-right: clamp(15px, 6.944vw, 100px);
+}
+
+/* CATEGORY PAGE */
 .background__title {
   padding-top: 30px;
   margin-top: 20px;
-  justify-content: center;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: 20px;
-  height: auto;
 }
 
-.title__container {
-  margin: 0 auto;
-  max-width: 1440px;
-  justify-content: center;
+.category__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#category-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+#category-subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 400;
+  color: #666;
   text-align: center;
 }
 
-.news__container {
-  margin: 0 auto;
-  max-width: 1440px;
+.category__bottom-row {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
 
-.new__box {
+.category__count {
+  font-size: 14px;
+  color: #888;
+}
+
+/* --------------------------
+    MAIN CONTENT 2-COLUMN GRID
+    --------------------------- */
+.news__container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 50px auto 0;
+  display: flex;
+  gap: 40px;
+}
+
+/* LEFT COLUMN */
+#newsList__container {
+  flex: 1;
+  min-width: 0;
+  padding-right: 40px;
+  border-right: 1px solid #000000;
+}
+
+.articles__grid {
+  padding: 20px 0;
+}
+
+/* RIGHT COLUMN: TRENDING NOW */
+.sidebar__container {
+  flex: 0 0 350px;
+  max-width: 350px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  padding: 10px 0;
+}
+
+.sidebar__header {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c49b63;
+  color: #1a1a1a;
+}
+
+.trending__list {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: auto;
-  cursor: pointer;
-  user-select: none;
+  gap: 20px;
 }
 
-.img {
-  width: 400px;
-  height: 300px;
-  background-color: gray;
+/* Loading State */
+.loading__state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.loading__spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f0f0f0;
+  border-top: 4px solid #c49b63;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Section Loading (for Trending & Related) */
+.section-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #888;
+  min-height: 200px;
+}
+
+.section-loading--wide {
+  grid-column: 1 / -1;
+  min-height: 250px;
+}
+/* Section Error State */
+.section-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #999;
+  text-align: center;
+  min-height: 150px;
+}
+
+.section-error p {
+  font-size: 14px;
+}
+
+/* Empty State */
+.empty__state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.empty__state i {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.empty__state h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Load More Button */
+.load-more__container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.load-more__btn {
+  background-color: #c49b63;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more__btn:hover {
+  background-color: #b08a54;
+  transform: translateY(-2px);
+}
+
+.load-more__btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* You May Like Section */
+.you-may-like {
+  max-width: 1440px;
+  margin: 60px auto;
+  padding: 60px 0;
+  border-top: 1px solid #000000;
+}
+
+.you-may-like__header {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+}
+
+.you-may-like__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ========================================
+     RESPONSIVE BREAKPOINTS
+     ======================================== */
+
+/* Large Tablets and Small Desktops (1024px and below) */
+@media (max-width: 1024px) {
+  .news__container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  #newsList__container {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+  }
+
+  .sidebar__container {
+    position: static;
+    max-width: 100%;
+    flex: 1;
+    padding: 20px 0 0 0;
+  }
+
+  .you-may-like__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .category__bottom-row {
+    justify-content: center;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  main {
+    padding-left: clamp(10px, 4vw, 20px);
+    padding-right: clamp(10px, 4vw, 20px);
+  }
+
+  .background__title {
+    padding-top: 20px;
+    margin-top: 10px;
+  }
+
+  .category__header {
+    padding-bottom: 20px;
+  }
+
+  #category-title {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  #category-subtitle {
+    font-size: clamp(13px, 3vw, 16px);
+    padding: 0 15px;
+  }
+
+  .news__container {
+    margin: 30px auto 0;
+    gap: 30px;
+  }
+
+  .articles__grid {
+    padding: 15px 0;
+  }
+
+  .sidebar__header {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .trending__list {
+    gap: 15px;
+  }
+
+  .you-may-like {
+    margin: 40px auto;
+    padding: 40px 0;
+  }
+
+  .you-may-like__header {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .you-may-like__grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .load-more__container {
+    margin: 30px 0;
+  }
+
+  .load-more__btn {
+    padding: 12px 35px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  main {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .background__title {
+    padding-top: 15px;
+    margin-top: 5px;
+  }
+
+  .category__header {
+    padding-bottom: 15px;
+  }
+
+  #category-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  #category-subtitle {
+    font-size: 13px;
+  }
+
+  .category__count {
+    font-size: 12px;
+  }
+
+  .news__container {
+    margin: 20px auto 0;
+    gap: 25px;
+  }
+
+  #newsList__container {
+    padding-bottom: 30px;
+  }
+
+  .articles__grid {
+    padding: 10px 0;
+  }
+
+  .sidebar__container {
+    padding: 15px 0 0 0;
+  }
+
+  .sidebar__header {
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .trending__list {
+    gap: 12px;
+  }
+
+  .you-may-like {
+    margin: 30px auto;
+    padding: 30px 0;
+  }
+
+  .you-may-like__header {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .you-may-like__grid {
+    gap: 20px;
+  }
+
+  .load-more__container {
+    margin: 25px 0;
+  }
+
+  .load-more__btn {
+    padding: 10px 30px;
+    font-size: 12px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .loading__state {
+    padding: 40px 15px;
+  }
+
+  .empty__state {
+    padding: 40px 15px;
+  }
+
+  .empty__state i {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .empty__state h3 {
+    font-size: 18px;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  #category-title {
+    font-size: 20px;
+  }
+
+  #category-subtitle {
+    font-size: 12px;
+  }
+
+  .you-may-like__header {
+    font-size: 20px;
+  }
+
+  .sidebar__header {
+    font-size: 15px;
+  }
 }
