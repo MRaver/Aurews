@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuPlaceholder = document.getElementById(
     "mobile-menu-placeholder"
   );
+
   // Nếu tìm thấy "chỗ"
   if (navPlaceholder) {
     // Tải nội dung từ file nav.html

@@ -64,7 +64,7 @@ function toggleMobileNav() {
     currentPath.includes("index.html") ||
     (!currentPath.includes("category.html") &&
       !currentPath.includes("post.html") &&
-      !currentPath.includes("Contact.html"))
+      !currentPath.includes("contact.html"))
   ) {
     const homeLink = Array.from(mobileNavLinks).find(
       (link) =>
@@ -90,7 +90,7 @@ function toggleMobileNav() {
   }
 
   // Set active cho Contact nếu đang ở Contact.html
-  if (currentPath.includes("Contact.html")) {
+  if (currentPath.includes("contact.html")) {
     const contactLink = Array.from(mobileNavLinks).find(
       (link) => link.textContent.trim() === "Contact"
     );
