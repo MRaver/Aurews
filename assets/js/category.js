@@ -27,9 +27,17 @@ class CategoryPage {
       INIT LOGIC
   ------------------------ */
   async init() {
-    await this.fetchArticles();
-    this.renderTrending();
-    this.loadRelatedArticles();
+    // Show loading states
+    this.showTrendingLoading();
+    this.showRelatedLoading();
+
+    // Fetch all data
+    await Promise.all([
+      this.fetchArticles(),
+      this.renderTrending(),
+      this.loadRelatedArticles(),
+    ]);
+
     this.attachEvents();
   }
 
@@ -48,7 +56,7 @@ class CategoryPage {
     try {
       // Simulate API delay
       await new Promise((res) => setTimeout(res, 700));
-      this.updateHeader();
+
       // Filter theo category
       this.allArticles = this.getMockArticles().filter((a) =>
         this.category === "all"
@@ -56,6 +64,7 @@ class CategoryPage {
           : a.category.toLowerCase() === this.category.toLowerCase()
       );
 
+      this.updateHeader();
       this.renderArticles();
     } catch (err) {
       console.error(err);
@@ -116,29 +125,74 @@ class CategoryPage {
   }
 
   /* -----------------------
-      CARD TEMPLATE
-  ------------------------ */
-
-  /* -----------------------
-      TRENDING
-  ------------------------ */
-  renderTrending() {
+  TRENDING - WITH LOADING
+------------------------ */
+  showTrendingLoading() {
     const list = document.getElementById("trending-list");
-    const data = this.getMockTrendingArticles();
-
-    list.innerHTML = data.map((a, i) => createTrendingCard(a, i + 1)).join("");
+    list.innerHTML = `
+  <div class="section-loading">
+    <div class="loading__spinner"></div>
+    <p>Loading trending...</p>
+  </div>
+`;
   }
+
+  async renderTrending() {
+    try {
+      // Simulate API delay
+      await new Promise((res) => setTimeout(res, 800));
+
+      const list = document.getElementById("trending-list");
+      const data = this.getMockTrendingArticles();
+
+      list.innerHTML = data
+        .map((a, i) => createTrendingCard(a, i + 1))
+        .join("");
+    } catch (err) {
+      console.error("Error loading trending:", err);
+      const list = document.getElementById("trending-list");
+      list.innerHTML = `
+    <div class="section-error">
+      <p>Failed to load trending articles</p>
+    </div>
+  `;
+    }
+  }
+
   /* -----------------------
-      RELATED CARD
-  ------------------------ */
-  loadRelatedArticles() {
+  RELATED CARD - WITH LOADING
+------------------------ */
+  showRelatedLoading() {
     const relatedGrid = document.getElementById("you-may-like-grid");
-    // Get 3 fixed categories different from current category
-    const otherCategories = this.getOtherCategories();
-    const relatedArticles = this.getMockRelatedArticles(otherCategories);
-    relatedGrid.innerHTML = relatedArticles
-      .map((a) => createRelatedCard(a)) 
-      .join("");
+    relatedGrid.innerHTML = `
+  <div class="section-loading section-loading--wide">
+    <div class="loading__spinner"></div>
+    <p>Loading recommendations...</p>
+  </div>
+`;
+  }
+
+  async loadRelatedArticles() {
+    try {
+      // Simulate API delay
+      await new Promise((res) => setTimeout(res, 1000));
+
+      const relatedGrid = document.getElementById("you-may-like-grid");
+      const otherCategories = this.getOtherCategories();
+      const relatedArticles = this.getMockRelatedArticles(otherCategories);
+
+      relatedGrid.innerHTML = relatedArticles
+        .map((a) => createRelatedCard(a))
+        .join("");
+    } catch (err) {
+      console.error("Error loading related articles:", err);
+      const relatedGrid = document.getElementById("you-may-like-grid");
+      relatedGrid.innerHTML = `
+    <div class="section-error section-loading--wide">
+      <p>Failed to load recommendations</p>
+    </div>
+  `;
+    }
   }
 
   getOtherCategories() {
@@ -287,7 +341,8 @@ class CategoryPage {
     return [
       {
         id: 11,
-        title: " Trending 1 Trending 1",
+        title:
+          " Trending 1 Trending 1 Trending 1 Trending 1 Trending 1 Trending 1",
         image: "https://picsum.photos/500/300",
         views: 3000,
         url: "#",
