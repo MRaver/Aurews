@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/overlay.css">
     <link rel="stylesheet" href="../assets/css/general.css">
-    <link rel="stylesheet" href="..//assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -15,6 +16,10 @@
 </head>
 
 <body>
+    <div id="page-overlay">
+        <!-- THAY ĐỔI: Sử dụng text thay vì spinner -->
+        <div class="loading-text">AUREWS</div>
+    </div>
     <!-- ----------------------- -->
     <!-- sign-up, sign in -->
     <!-- ----------------------- -->
@@ -427,6 +432,7 @@
     <script src="../assets/js/header.js"></script>
     <script src="../assets/js/index.js" type="module"></script>
     <script src="../assets/js/login.js"></script>
+    <script src="../assets/js/overlay.js"></script>
 </body>
 
 </html>
