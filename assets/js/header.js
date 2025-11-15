@@ -1,191 +1,193 @@
-// Types mapping - map text từ HTML đến type parameter
+import { initNavbar } from "../components/Navbar.js";
+import { initAuthenOverlay } from "../components/AuthenOverlay.js";
+import { initMobileMenuLayout } from "../components/MobileMenu.js";
+
+/* -----------------------------------------------------
+   TYPE MAPPING
+----------------------------------------------------- */
+
 const typeMapping = {
-    'Home': null, // Home không có type
-    'Latest': 'Latest',
-    'Business News': 'Business News',
-    'Money & Markets': 'Money and Markets',
-    'Money and Markets': 'Money and Markets',
-    'Tech & Innovation': 'Tech and Innovation',
-    'Tech and Innovation': 'Tech and Innovation',
-    'A.I.': 'A.I.',
-    'Lifestyle': 'Lifestyle',
-    'Politics': 'Politics',
-    'Email': 'Email',
-    'Podcast': 'Podcast',
-    'Contact': null // Contact là trang riêng
+  Home: null,
+  Latest: "Latest",
+  "Business News": "Business News",
+  "Money & Markets": "Money and Markets",
+  "Money and Markets": "Money and Markets",
+  "Tech & Innovation": "Tech and Innovation",
+  "Tech and Innovation": "Tech and Innovation",
+  "A.I.": "A.I.",
+  Lifestyle: "Lifestyle",
+  Politics: "Politics",
+  Email: "Email",
+  Podcast: "Podcast",
+  Contact: null,
 };
 
-const types = [
-    'Latest', 'Business News', 'Money and Markets', 'Tech and Innovation',
-    'A.I.', 'Lifestyle', 'Politics', 'Email', 'Podcast'
-];
+/* -----------------------------------------------------
+   INSERT COMPONENTS
+----------------------------------------------------- */
+
+function insertNavbar() {
+  const el = document.getElementById("navbar-placeholder");
+  if (el) el.innerHTML = initNavbar();
+}
+
+function insertAuthenOverlay() {
+  const el = document.getElementById("authen-overlay-placeholder");
+  if (el) el.innerHTML = initAuthenOverlay();
+}
+
+/* -----------------------------------------------------
+   MOBILE MENU TOGGLE
+----------------------------------------------------- */
 
 function toggleMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    const body = document.body;
+  const menu = document.querySelector(".mobile-menu");
+  const overlay = document.querySelector(".mobile-menu-overlay");
+  const body = document.body;
 
-    if (!mobileMenu || !overlay) return;
+  if (!menu || !overlay) return;
 
-    mobileMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
+  const isOpen = menu.classList.toggle("active");
+  overlay.classList.toggle("active");
 
-    // Prevent body scroll when menu is open
-    if (mobileMenu.classList.contains('active')) {
-        body.style.overflow = 'hidden';
-    } else {
-        body.style.overflow = '';
-    }
+  body.style.overflow = isOpen ? "hidden" : "";
 }
 
-// Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
-function toggleMobileNav() {
-    const params = new URLSearchParams(window.location.search);
-    const param = params.get('type');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-    const currentPath = window.location.pathname;
-
-    if (mobileNavLinks.length === 0) return;
-
-    // Reset all active classes
-    mobileNavLinks.forEach(link => link.classList.remove('active'));
-
-    // Set active cho Home nếu đang ở Index.html
-    if (currentPath.includes('Index.html') || currentPath.endsWith('/') ||
-        currentPath.includes('index.html') || (!currentPath.includes('Category.html') && !currentPath.includes('Post.html') && !currentPath.includes('Contact.html'))) {
-        const homeLink = Array.from(mobileNavLinks).find(link =>
-            link.textContent.trim() === 'Home' || link.getAttribute('href')?.includes('Index.html')
-        );
-        if (homeLink) {
-            homeLink.classList.add('active');
-        }
-        return;
-    }
-
-    // Set active cho category dựa trên type parameter
-    if (param) {
-        mobileNavLinks.forEach(link => {
-            const linkText = link.textContent.trim();
-            const mappedType = typeMapping[linkText];
-
-            if (mappedType === param) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    // Set active cho Contact nếu đang ở Contact.html
-    if (currentPath.includes('Contact.html')) {
-        const contactLink = Array.from(mobileNavLinks).find(link =>
-            link.textContent.trim() === 'Contact'
-        );
-        if (contactLink) {
-            contactLink.classList.add('active');
-        }
-    }
-}
-
-// Khởi tạo URLs cho mobile menu links nếu chưa có
-function initMobileMenuLinks() {
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-    if (mobileNavLinks.length === 0) return;
-
-    // Tất cả các file HTML đều ở trong thư mục pages, nên dùng relative path
-    // Kiểm tra xem có đang ở trong thư mục pages không để xác định base path
-    const currentPath = window.location.pathname;
-    let basePath = '.';
-
-    // Nếu không ở trong pages (ví dụ ở root), cần vào pages
-    if (!currentPath.includes('/pages/') && !currentPath.includes('/pages')) {
-        // Có thể đang ở root, thử dùng absolute path hoặc relative
-        // Nhưng vì tất cả HTML files đều ở trong pages, nên giả định đang ở pages
-        basePath = '.';
-    }
-
-    mobileNavLinks.forEach((link) => {
-        const linkText = link.textContent.trim();
-        const currentHref = link.getAttribute('href');
-
-        // Chỉ set URL nếu href là "#" hoặc rỗng hoặc không hợp lệ
-        if (!currentHref || currentHref === '#' || currentHref.trim() === '') {
-            if (linkText === 'Home') {
-                link.href = './Index.html';
-            } else if (linkText === 'Contact') {
-                link.href = './Contact.html';
-            } else {
-                // Lấy type từ mapping
-                const type = typeMapping[linkText];
-                if (type) {
-                    link.href = `./Category.html?type=${encodeURIComponent(type)}`;
-                }
-            }
-        }
-    });
-}
-
-// Khởi tạo mobile menu
-function initMobileMenu() {
-    // Khởi tạo URLs cho mobile menu
-    initMobileMenuLinks();
-
-    // Set active class ban đầu
-    toggleMobileNav();
-
-    // Handle click on mobile menu links
-    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-
-            // Chỉ prevent default nếu href là "#" hoặc rỗng
-            if (!href || href === '#' || href.startsWith('#')) {
-                e.preventDefault();
-                return;
-            }
-
-            // Prevent default để tự điều hướng
-            e.preventDefault();
-
-            // Đóng menu trước khi điều hướng (UX tốt hơn)
-            const mobileMenu = document.querySelector('.mobile-menu');
-            if (mobileMenu && mobileMenu.classList.contains('active')) {
-                toggleMenu();
-            }
-
-            // Điều hướng đến trang mới
-            window.location.href = href;
-        });
-    });
-}
-
-// Khởi tạo khi DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileMenu);
-} else {
-    // DOM đã sẵn sàng
-    initMobileMenu();
-}
-
-// Close menu on ESC key
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        const mobileMenu = document.querySelector('.mobile-menu');
-        if (mobileMenu && mobileMenu.classList.contains('active')) {
-            toggleMenu();
-        }
-    }
-});
-
-// Make toggleMenu available globally
 window.toggleMenu = toggleMenu;
-document.querySelector('.js-search').addEventListener('click', () => {
-    window.location.href = "./Search.html";
-})
-document.querySelector('.nav__search').addEventListener('click', () => {
-    window.location.href = "./Search.html";
-})
-document.querySelector('.js-about').addEventListener('click', () => {
-    window.location.href = "./about.html";
-})
-document.querySelector('.nav__about').addEventListener('click', () => {
-    window.location.href = "./about.html";
-})
+
+/* -----------------------------------------------------
+   MOBILE NAVIGATION
+----------------------------------------------------- */
+
+function initMobileMenuLinks() {
+  const links = document.querySelectorAll(".mobile-nav-links a");
+  if (links.length === 0) return;
+
+  links.forEach((link) => {
+    const text = link.textContent.trim();
+    const href = link.getAttribute("href");
+
+    if (!href || href === "#" || href === "") {
+      if (text === "Home") link.href = "./Index.html";
+      else if (text === "Contact") link.href = "./Contact.html";
+      else {
+        const type = typeMapping[text];
+        if (type)
+          link.href = `./Category.html?type=${encodeURIComponent(type)}`;
+      }
+    }
+  });
+}
+
+function toggleMobileNav() {
+  const links = document.querySelectorAll(".mobile-nav-links a");
+  if (links.length === 0) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+
+  const path = window.location.pathname.toLowerCase();
+
+  links.forEach((link) => link.classList.remove("active"));
+
+  // Home
+  if (
+    path.endsWith("index.html") ||
+    path.endsWith("/") ||
+    (!path.includes("category") &&
+      !path.includes("post") &&
+      !path.includes("contact"))
+  ) {
+    const home = Array.from(links).find((a) => a.textContent.trim() === "Home");
+    if (home) home.classList.add("active");
+    return;
+  }
+
+  // Category
+  if (type) {
+    links.forEach((link) => {
+      const text = link.textContent.trim();
+      if (typeMapping[text] === type) link.classList.add("active");
+    });
+  }
+
+  // Contact
+  if (path.includes("contact")) {
+    const c = Array.from(links).find((a) => a.textContent.trim() === "Contact");
+    if (c) c.classList.add("active");
+  }
+}
+
+function initMobileMenu() {
+  function insertMobileMenu() {
+    const el = document.getElementById("mobile-menu-placeholder");
+    if (el) el.innerHTML = initMobileMenuLayout();
+  }
+  insertMobileMenu();
+  initMobileMenuLinks();
+  toggleMobileNav();
+
+  document.querySelectorAll(".mobile-nav-links a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (!href || href === "#" || href.startsWith("#")) {
+        e.preventDefault();
+        return;
+      }
+
+      e.preventDefault();
+
+      const menu = document.querySelector(".mobile-menu");
+      if (menu && menu.classList.contains("active")) toggleMenu();
+
+      window.location.href = href;
+    });
+  });
+}
+
+/* -----------------------------------------------------
+   SEARCH + ABOUT BUTTONS
+----------------------------------------------------- */
+
+function initExtraButtons() {
+  const addClick = (selector, target) => {
+    const btn = document.querySelector(selector);
+    if (btn)
+      btn.addEventListener("click", () => (window.location.href = target));
+  };
+
+  addClick(".js-search", "./Search.html");
+  addClick(".nav__search", "./Search.html");
+  addClick(".js-about", "./about.html");
+  addClick(".nav__about", "./about.html");
+}
+
+/* -----------------------------------------------------
+   ESC CLOSE MENU
+----------------------------------------------------- */
+
+function initEscClose() {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const menu = document.querySelector(".mobile-menu");
+      if (menu && menu.classList.contains("active")) toggleMenu();
+    }
+  });
+}
+
+/* -----------------------------------------------------
+   INIT ALL
+----------------------------------------------------- */
+
+function init() {
+  insertNavbar();
+  insertAuthenOverlay();
+
+  initMobileMenu();
+  initExtraButtons();
+  initEscClose();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else init();

@@ -1,223 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aurews</title>
-    <link rel="stylesheet" href="../assets/css/category.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="../assets/css/category.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
 
-<body>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
     <!-- ----------------------- -->
     <!-- sign-up, sign in -->
     <!-- ----------------------- -->
     <!-- Pop-up Overlay -->
-    <div class="popup-overlay" id="popupOverlay" onclick="closePopupOnOverlay(event)">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closePopup()">&times;</button>
+    <div
+      class="popup-overlay"
+      id="popupOverlay"
+      onclick="closePopupOnOverlay(event)"
+    >
+      <div class="popup-content" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="closePopup()">&times;</button>
 
-            <!-- Tabs -->
-            <div class="tabs">
-                <div class="tab active" id="loginTab" onclick="switchTab('login')">Login</div>
-                <div class="tab" id="registerTab" onclick="switchTab('register')">Sign up</div>
-            </div>
-
-            <!-- Form Đăng Nhập -->
-            <div class="tab-content active" id="loginContent">
-                <h2>Login</h2>
-                <form id="loginForm" onsubmit="">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="email-login" placeholder="Type your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="password-login" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Login</button>
-                </form>
-                <div class="form-footer">
-                    Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Sign up
-                        now!</a>
-                </div>
-            </div>
-
-            <!-- Form Đăng Ký -->
-            <div class="tab-content" id="registerContent">
-                <h2>Sign up</h2>
-                <form id="signUpForm" onsubmit="handleRegister(event)">
-                    <div class="form-group">
-                        <label>Full name</label>
-                        <input type="text" placeholder="Type your name here" required class="full-name-sign-up">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="Type your email here" required class="email-sign-up">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" placeholder="8-15 letters required" required class="password-sign-up">
-                    </div>
-                    <div class="form-group">
-                        <label>Confirm password</label>
-                        <input type="password" placeholder="" required class="confirm-sign-up">
-                    </div>
-                    <button type="submit" class="submit-btn">Sign up</button>
-                </form>
-                <div class="form-footer">
-                    Have an account? <a href="#" onclick="switchTab('login'); return false;">Login</a>
-                </div>
-            </div>
+        <!-- Tabs -->
+        <div class="tabs">
+          <div class="tab active" id="loginTab" onclick="switchTab('login')">
+            Login
+          </div>
+          <div class="tab" id="registerTab" onclick="switchTab('register')">
+            Sign up
+          </div>
         </div>
+
+        <!-- Form Đăng Nhập -->
+        <div class="tab-content active" id="loginContent">
+          <h2>Login</h2>
+          <form id="loginForm" onsubmit="">
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="text"
+                class="email-login"
+                placeholder="Type your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="password-login"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+          </form>
+          <div class="form-footer">
+            Don't have an account?
+            <a href="#" onclick="switchTab('register'); return false;"
+              >Sign up now!</a
+            >
+          </div>
+        </div>
+
+        <!-- Form Đăng Ký -->
+        <div class="tab-content" id="registerContent">
+          <h2>Sign up</h2>
+          <form id="signUpForm" onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label>Full name</label>
+              <input
+                type="text"
+                placeholder="Type your name here"
+                required
+                class="full-name-sign-up"
+              />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                placeholder="Type your email here"
+                required
+                class="email-sign-up"
+              />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="8-15 letters required"
+                required
+                class="password-sign-up"
+              />
+            </div>
+            <div class="form-group">
+              <label>Confirm password</label>
+              <input
+                type="password"
+                placeholder=""
+                required
+                class="confirm-sign-up"
+              />
+            </div>
+            <button type="submit" class="submit-btn">Sign up</button>
+          </form>
+          <div class="form-footer">
+            Have an account?
+            <a href="#" onclick="switchTab('login'); return false;">Login</a>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="mainContent">
-        <header>
-            <nav class="nav__container">
-                <div class="nav__top">
-
-                    <div class="nav__search">
-                        <p>Search</p>
-                    </div>
-                    <div class="nav__newsletter">
-                        <p>News letter</p>
-                    </div>
-
-
-                    <div class="nav__logo">
-                        <a href="about.html">
-                            <p>Aurews</p>
-                        </a>
-                    </div>
-
-
-                    <div class="nav__about">
-                        <a href="about.html">
-                            <p>About</p>
-                        </a>
-                    </div>
-                    <div class="nav__hamburgermenu">
-                        <div class="nav__hamburgermenuu menu-toggle" onclick="toggleMenu(); return false;"
-                            aria-label="Toggle menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="nav__bottom">
-                    <ul class="nav__categories">
-                        <li><a href="Index.html">Home</a></li>
-                        <li><a href="./Category.html?type=Latest">Latest</a></li>
-                        <li><a href="./Category.html?type=Business News">Business News</a></li>
-                        <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
-                        <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
-                        <li><a href="./Category.html?type=A.I.">A.I.</a></li>
-                        <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
-                        <li><a href="./Category.html?type=Politics">politics</a></li>
-                        <li><a href="./Category.html?type=Email">email</a></li>
-                        <li><a href="./Category.html?type=Podcast">podcast</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
-
-            <!-- Mobile Menu Sidebar -->
-            <div class="mobile-menu">
-                <div class="mobile-menu-header">
-                    <a href="about.html" class="nav__logoo">Aurews</a>
-                    <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
-                </div>
-                <ul class="mobile-nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Latest</a></li>
-                    <li><a href="#">Business News</a></li>
-                    <li><a href="#">Money & Markets</a></li>
-                    <li><a href="#">Tech & Innovation</a></li>
-                    <li><a href="#">A.I.</a></li>
-                    <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">Politics</a></li>
-                    <li><a href="#">Email</a></li>
-                    <li><a href="#">Podcast</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <div class="mobile-menu-footer">
-                    <div id="login-button" class="mobile-menu-footer-item" onclick="openPopup('login')">Login</div>
-                    <div class="mobile-menu-footer-item">Languages</div>
-                    <div class="mobile-menu-footer-item js-search">Search</div>
-                    <div class="mobile-menu-footer-item">Newsletter</div>
-                    <div class="mobile-menu-footer-item js-about">About</div>
-                </div>
+      <header>
+        <div id="navbar-placeholder"></div>
+        <div id="mobile-menu-placeholder"></div>
+      </header>
+      <main>
+        <div class="background__title">
+          <div class="category__header">
+            <h1 id="category-title">LOADING...</h1>
+            <h2 id="category-subtitle">Please wait...</h2>
+            <div class="category__bottom-row">
+              <p class="category__count" id="article-count"></p>
             </div>
+          </div>
 
-        </header>
-        <main>
-            <div class="background__title js-background-title">
-                <div class="title__container js-title-container">
-                </div>
-                <div class="news__container js-news-container">
-                </div>
-            </div>
+          <!-- Main Content Grid -->
+          <div class="news__container">
+            <!-- Articles List -->
+            <div id="newsList__container">
+              <!-- Loading State -->
+              <div class="loading__state" id="loading-state">
+                <div class="loading__spinner"></div>
+                <p>Loading articles...</p>
+              </div>
+              <!-- Articles Grid (populated by JS) -->
+              <div
+                class="articles__grid"
+                id="articles-grid"
+                style="display: none"
+              ></div>
 
-        </main>
-        <footer>
-            <div class="footer__container">
-                <div class="footer__newsletter">
-                    <h2 class="newsletter__title">Get updates delivered directly to your inbox.</h2>
-                    <!-- đổi div thành form -->
-                    <form class="newsletter__formbox">
-                        <input type="text" placeholder="Enter your email">
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <p class="siteinfo__description">By subcribing you agree to our <a href="/">Privacy Policy</a> and
-                        provide
-                        consent
-                        to receive updates from our company
-                    </p>
-                </div>
-                <div class="siteinfo__right">
-                    <div class="icon__container">
-                        <!-- <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
-                    <i class="fa-brands fa-youtube"></i> -->
-                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                    <div class="contact">
-                        <i class="fa-solid fa-phone-volume"></i>
-                        <a href="tel:012312308721398">012312308721398</a>
-                    </div>
-                    <div class="email">
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:aurews@gmail.com">aurews@gmail.com</p>
-                    </div>
-                    <div class="end">
-                        <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
-                    </div>
-                    <div class="options__container">
-                        <ul class="option">
-                            <li>Terms</li>
-                            <li>Privacy</li>
-                            <li>Cookie Policy</li>
-                            <li>Support</li>
-                            <li>Sitemap</li>
-                        </ul>
-                    </div>
-                </div>
+              <!-- Empty State -->
+              <div class="empty__state" id="empty-state" style="display: none">
+                <i class="fas fa-inbox"></i>
+                <h3>No Articles Found</h3>
+                <p>There are no articles in this category yet.</p>
+              </div>
+
+              <!-- Load More Button -->
+              <div
+                class="load-more__container"
+                id="load-more-container"
+                style="display: none"
+              >
+                <button class="load-more__btn" id="load-more-btn">
+                  LOAD MORE
+                </button>
+              </div>
             </div>
-        </footer>
+            <!-- Sidebar - Trending Now -->
+            <aside class="sidebar__container">
+              <h3 class="sidebar__header">TRENDING NOW</h3>
+
+              <div class="trending__list" id="trending-list">
+                <!-- Trending items will be populated by JS -->
+              </div>
+            </aside>
+          </div>
+
+          <section class="you-may-like">
+            <h2 class="you-may-like__header">YOU MAY LIKE</h2>
+            <div class="you-may-like__grid" id="you-may-like-grid"></div>
+          </section>
+        </div>
+      </main>
+      <div id="footer-placeholder"></div>
     </div>
     <script src="../assets/js/category.js" type="module"></script>
-    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/header.js" type="module"></script>
     <script src="../assets/js/login.js"></script>
-</body>
-
+  </body>
 </html>

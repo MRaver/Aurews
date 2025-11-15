@@ -1,427 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/general.css">
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/index.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <title>Aurews</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- ----------------------- -->
     <!-- sign-up, sign in -->
     <!-- ----------------------- -->
     <!-- Pop-up Overlay -->
-    <div class="popup-overlay" id="popupOverlay" onclick="closePopupOnOverlay(event)">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closePopup()">&times;</button>
-
-            <!-- Tabs -->
-            <div class="tabs">
-                <div class="tab active" id="loginTab" onclick="switchTab('login')">Login</div>
-                <div class="tab" id="registerTab" onclick="switchTab('register')">Sign up</div>
-            </div>
-
-            <!-- Form Đăng Nhập -->
-            <div class="tab-content active" id="loginContent">
-                <h2>Login</h2>
-                <form id="loginForm" onsubmit="">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="email-login" placeholder="Type your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="password-login" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Login</button>
-                </form>
-                <div class="form-footer">
-                    Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Sign up
-                        now!</a>
-                </div>
-            </div>
-
-            <!-- Form Đăng Ký -->
-            <div class="tab-content" id="registerContent">
-                <h2>Sign up</h2>
-                <form id="signUpForm" onsubmit="handleRegister(event)">
-                    <div class="form-group">
-                        <label>Full name</label>
-                        <input type="text" placeholder="Type your name here" required class="full-name-sign-up">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="Type your email here" required class="email-sign-up">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" placeholder="8-15 letters required" required class="password-sign-up">
-                    </div>
-                    <div class="form-group">
-                        <label>Confirm password</label>
-                        <input type="password" placeholder="" required class="confirm-sign-up">
-                    </div>
-                    <button type="submit" class="submit-btn">Sign up</button>
-                </form>
-                <div class="form-footer">
-                    Have an account? <a href="#" onclick="switchTab('login'); return false;">Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="authen-overlay-placeholder"></div>
     <div id="mainContent">
-        <header>
-            <nav class="nav__container">
-                <div class="nav__top">
-                    <div class="nav-item-wrapper">
-                        <div class="nav__search">
-                            <p>Search</p>
-                        </div>
-                    </div>
-                    <div class="nav-item-wrapper">
-                        <div class="nav__newsletter">
-                            <p>News letter</p>
-                        </div>
-                    </div>
-                    <div class="nav-item-wrapper">
-                        <div class="nav__logo">
-                            <a href="index.html">
-                                AUREWS
-                            </a>
-                        </div>
-                    </div>
-                    <div class="nav-item-wrapper">
-                        <div class="nav__about">
-                            <a href="about.html">
-                                <p>About</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="nav-item-wrapper">
-                        <div class="nav__hamburgermenu">
-                            <div class="nav__hamburgermenu__icon menu-toggle" onclick="toggleMenu(); return false;"
-                                aria-label="Toggle menu">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav__bottom">
-                    <ul class="nav__categories">
-                        <li><a href="Index.html" class="active">Home</a></li>
-                        <li><a href="./Category.html?type=Latest">Latest</a></li>
-                        <li><a href="./Category.html?type=Business News">Business News</a></li>
-                        <li><a href="./Category.html?type=Money and Markets">Money & Markets</a></li>
-                        <li><a href="./Category.html?type=Tech and Innovation">Tech & Innovation</a></li>
-                        <li><a href="./Category.html?type=A.I.">A.I.</a></li>
-                        <li><a href="./Category.html?type=Lifestyle">Lifestyle</a></li>
-                        <li><a href="./Category.html?type=Politics">politics</a></li>
-                        <li><a href="./Category.html?type=Email">email</a></li>
-                        <li><a href="./Category.html?type=Podcast">podcast</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+      <header>
+        <div id="navbar-placeholder"></div>
 
-            <!-- Mobile Menu Sidebar -->
-            <div class="mobile-menu">
-                <div class="mobile-menu-header">
-                    <p class="mobile-menu-header__logo">Aurews</p>
-                    <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">×</button>
-                </div>
-                <ul class="mobile-nav-links">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Latest</a></li>
-                    <li><a href="#">Business News</a></li>
-                    <li><a href="#">Money & Markets</a></li>
-                    <li><a href="#">Tech & Innovation</a></li>
-                    <li><a href="#">A.I.</a></li>
-                    <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">Politics</a></li>
-                    <li><a href="#">Email</a></li>
-                    <li><a href="#">Podcast</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <div class="mobile-menu-footer">
-                    <div id="login-button" class="mobile-menu-footer-item" onclick="openPopup('login')">Login</div>
-                    <div class="mobile-menu-footer-item">Languages</div>
-                    <div class="mobile-menu-footer-item js-search">Search</div>
-                    <div class="mobile-menu-footer-item">Newsletter</div>
-                    <div class="mobile-menu-footer-item js-about">About</div>
-                </div>
+        <div id="mobile-menu-placeholder"></div>
+      </header>
+      <main>
+        <div class="maintopic__container">
+          <div class="left">
+            <div class="boxupperleft">
+              <div class="boxupperleft__img">
+                <img src="" alt="" />
+              </div>
+              <div class="boxupperleft__description">
+                <h1></h1>
+                <p></p>
+              </div>
             </div>
-
-        </header>
-        <main>
-            <div class="maintopic__container">
-                <div class="left">
-                    <div class="boxupperleft">
-                        <div class="boxupperleft__img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="boxupperleft__description">
-                            <h1></h1>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="boxlowerleft">
-                        <div class="left1">
-                            <h2 class="boxuppertitle">LATEST</h2>
-                            <div class="latestnews">
-                            </div>
-                        </div>
-                        <div class="right1">
-                            <div class="threenews">
-                            </div>
-                            <div class="block">
-                                <p>Show all...</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="boxlowerleft">
+              <div class="left1">
+                <h2 class="boxuppertitle">LATEST</h2>
+                <div class="latestnews"></div>
+              </div>
+              <div class="right1">
+                <div class="threenews"></div>
+                <div class="block">
+                  <p>Show all...</p>
                 </div>
-                <div class="right">
-                    <h2>LIFE STYLE</h2>
-                    <div class="boxupperright">
-                        <div class="bignews">
-                            <div class="bignews__img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="bignews__description">
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="smallnews">
-                            <div class="smallnewsfirst">
-                                <div class="smallnews__img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="smallnews__description">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="smallnewssecond">
-                                <div class="smallnews__img">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="smallnews__description">
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block">
-                            <p>Show all...</p>
-                        </div>
-                    </div>
-                    <div class="boxlowerright">
-                        <h2>WEATHER</h2>
-                        <div class="boxlowerright__img">
-                            <img src="" alt="">
-                        </div>
-                        <h2>SPORTS</h2>
-                        <div class="boxlowerright__img">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div class="topic__container">
-                <div class="topic topic1">
-                    <h2></h2>
-                    <div class="block">
-                        <p>Show all...</p>
-                    </div>
+          </div>
+          <div class="right">
+            <h2>LIFE STYLE</h2>
+            <div class="boxupperright">
+              <div class="bignews">
+                <div class="bignews__img">
+                  <img src="" alt="" />
                 </div>
-                <div class="topic">
-                    <h2></h2>
-                    <div class="block">
-                        <p>Show all...</p>
-                    </div>
+                <div class="bignews__description">
+                  <p></p>
                 </div>
-                <div class="topic">
-                    <h2></h2>
-                    <div class="block">
-                        <p>Show all...</p>
-                    </div>
+              </div>
+              <div class="smallnews">
+                <div class="smallnewsfirst">
+                  <div class="smallnews__img">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="smallnews__description">
+                    <p></p>
+                  </div>
                 </div>
-                <div class="topic">
-                    <h2></h2>
-                    <div class="block">
-                        <p>Show all...</p>
-                    </div>
+                <div class="smallnewssecond">
+                  <div class="smallnews__img">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="smallnews__description">
+                    <p></p>
+                  </div>
                 </div>
+              </div>
+              <div class="block">
+                <p>Show all...</p>
+              </div>
             </div>
-            <div class="AI__container">
-                <div class="AI__left">
-                    <div class="AI__title">
-                        <h2>Generation A.I</h2>
-                    </div>
-                    <div class="AI_maintopic">
-                        <div class="AI__img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="AI__description">
-                            <h3>
-                            </h3>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="AI__right">
-                    <div class="AI__news--1">
-                        <div class="img__container">
-                            <img src="" alt="">
-                        </div>
-                        <div class="AI__title">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="AI__news">
-                        <div class="img__container">
-                            <img src="" alt="">
-                        </div>
-                        <div class="AI__title">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="AI__news">
-                        <div class="img__container">
-                            <img src="" alt="">
-                        </div>
-                        <div class="AI__title">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="AI__news--4">
-                        <div class="img__container">
-                            <img src="" alt="">
-                        </div>
-                        <div class="AI__title">
-                            <p>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="block">
-                        <p>Show all...</p>
-                    </div>
-                </div>
+            <div class="boxlowerright">
+              <h2>WEATHER</h2>
+              <div class="boxlowerright__img">
+                <img src="" alt="" />
+              </div>
+              <h2>SPORTS</h2>
+              <div class="boxlowerright__img">
+                <img src="" alt="" />
+              </div>
             </div>
-            <div class="popular__container">
-                <div class="grid__box1">
-                    <h2 class="grid1__title">Most Popular Stories</h2>
-                    <div class="grid1__content1">
-                        <div class="grid1__content1-img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="grid1__content1-description">
-                            <h2></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="grid1__content2">
-                        <div class="grid1__content2-img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="grid1__content2-description">
-                            <h2></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid__box2">
-                    <div class="bussiness__news">
-                        <div class="business__news-img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="business__news-description">
-                            <h2 class="business__title"></h2>
-                            <h2 class="p2"></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid__box3">
-                    <div class="lifestyle">
-                        <div class="lifestyle__img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="lifestyle__description">
-                            <h2></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="politics">
-                        <div class="politics__img">
-                            <img src="" alt="">
-                        </div>
-                        <div class="politics__description">
-                            <h2></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="topic__container">
+          <div class="topic topic1">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
             </div>
-        </main>
-        <footer>
-            <div class="footer__container">
-                <div class="footer__newsletter">
-                    <h2 class="newsletter__title">Get updates delivered directly to your inbox.</h2>
-                    <!-- đổi div thành form -->
-                    <form class="newsletter__formbox">
-                        <input type="text" placeholder="Enter your email">
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <p class="siteinfo__description">By subcribing you agree to our <a href="/">Privacy Policy</a> and
-                        provide
-                        consent
-                        to receive updates from our company
-                    </p>
-                </div>
-                <div class="siteinfo__right">
-                    <div class="icon__container">
-                        <!-- <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
-                    <i class="fa-brands fa-youtube"></i> -->
-                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                    <div class="contact">
-                        <i class="fa-solid fa-phone-volume"></i>
-                        <a href="tel:012312308721398">012312308721398</a>
-                    </div>
-                    <div class="email">
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:aurews@gmail.com">aurews@gmail.com</p>
-                    </div>
-                    <div class="end">
-                        <p>© 2025 Nhóm 13, Inc. All rights reserved.</p>
-                    </div>
-                    <div class="options__container">
-                        <ul class="option">
-                            <li>Terms</li>
-                            <li>Privacy</li>
-                            <li>Cookie Policy</li>
-                            <li>Support</li>
-                            <li>Sitemap</li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <div class="topic">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
             </div>
-        </footer>
+          </div>
+          <div class="topic">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+          <div class="topic">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+        </div>
+        <div class="AI__container">
+          <div class="AI__left">
+            <div class="AI__title">
+              <h2>Generation A.I</h2>
+            </div>
+            <div class="AI_maintopic">
+              <div class="AI__img">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__description">
+                <h3></h3>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="AI__right">
+            <div class="AI__news--1">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="AI__news">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="AI__news">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="AI__news--4">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+        </div>
+        <div class="popular__container">
+          <div class="grid__box1">
+            <h2 class="grid1__title">Most Popular Stories</h2>
+            <div class="grid1__content1">
+              <div class="grid1__content1-img">
+                <img src="" alt="" />
+              </div>
+              <div class="grid1__content1-description">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+            <div class="grid1__content2">
+              <div class="grid1__content2-img">
+                <img src="" alt="" />
+              </div>
+              <div class="grid1__content2-description">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="grid__box2">
+            <div class="bussiness__news">
+              <div class="business__news-img">
+                <img src="" alt="" />
+              </div>
+              <div class="business__news-description">
+                <h2 class="business__title"></h2>
+                <h2 class="p2"></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="grid__box3">
+            <div class="lifestyle">
+              <div class="lifestyle__img">
+                <img src="" alt="" />
+              </div>
+              <div class="lifestyle__description">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+            <div class="politics">
+              <div class="politics__img">
+                <img src="" alt="" />
+              </div>
+              <div class="politics__description">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div id="footer-placeholder"></div>
     </div>
-    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/header.js" type="module"></script>
+    <script src="../assets/js/footer.js" type="module"></script>
     <script src="../assets/js/index.js" type="module"></script>
     <script src="../assets/js/login.js"></script>
-</body>
-
+  </body>
 </html>
