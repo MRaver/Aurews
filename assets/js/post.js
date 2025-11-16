@@ -35,11 +35,9 @@ export function renderNewsPortContent() {
             <div class="news__content-img">
                 <img src="${article.img}" alt="" height="420px" width="670px">
             </div>
-            // modified begin
             <figcaption class="img-caption">
                ${article.imgCaption}
             </figcaption>
-            // modified end
         </figure>
             ${article.content}
             <div class="comment-section">
