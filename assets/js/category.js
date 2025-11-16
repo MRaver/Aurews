@@ -21,11 +21,16 @@ export const types = [
 export function toggleNav() {
   const param = getType();
   const navContainer = document.querySelectorAll(".nav__categories a");
-  const index = types.findIndex((type) => type === param);
-  if (index > -1) {
-    // Kiểm tra xem có tìm thấy mục nav không
-    navContainer[index + 1].classList.add("active");
-  }
+
+  navContainer.forEach(link => {
+    link.classList.remove("active"); // Xóa active từ tất cả
+    const href = link.getAttribute("href");
+
+    // Kiểm tra xem href có chứa type param không
+    if (href.includes(`type=${param}`)) {
+      link.classList.add("active");
+    }
+  });
 }
 
 function renderCategory() {
@@ -58,16 +63,22 @@ function renderCategory() {
     )
     .join("");
 
-  newsTitle.innerHTML = `<div class="title__container js-title-container">
+  if (newsTitle) {
+    newsTitle.innerHTML = `<div class="title__container js-title-container">
                 <h1>${param}</h1>
                 <p>In-depth coverage and articles from Aurews about ${param}</p>
             </div>`;
-  newsContainer.innerHTML = html || "<p>No articles found.</p>";
+  }
+
+  if (newsContainer) {
+    newsContainer.innerHTML = html || "<p>No articles found.</p>";
+  }
 }
 
 function onClickHandler() {
   // SỬA LỖI LOGIC TẠI ĐÂY: Đơn giản hóa hoàn toàn
   const newsContainer = document.querySelector(".js-news-container");
+  if (!newsContainer) return; // Nếu không có container, thoát an toàn
 
   newsContainer.addEventListener("click", function (event) {
     // Tìm phần tử .new__box gần nhất với phần tử được click
@@ -89,5 +100,8 @@ function onClickHandler() {
   });
 }
 
-// renderCategory();
-// onClickHandler();
+document.addEventListener("DOMContentLoaded", () => {
+  renderCategory();
+  onClickHandler();
+  toggleNav();
+});

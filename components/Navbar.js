@@ -316,16 +316,16 @@ const styles = `
 
 `;
 function injectStyle() {
-  if (document.getElementById("navbar-style")) return;
+    if (document.getElementById("navbar-style")) return;
 
-  const style = document.createElement("style");
-  style.id = "navbar-style";
-  style.textContent = styles;
-  document.head.appendChild(style);
+    const style = document.createElement("style");
+    style.id = "navbar-style";
+    style.textContent = styles;
+    document.head.appendChild(style);
 }
 function createNavbar() {
-  injectStyle();
-  return `
+    injectStyle();
+    return `
     <nav class="nav__container">
         <div class="nav__top">
             <div class="nav-item-wrapper">
@@ -366,7 +366,7 @@ function createNavbar() {
         </div>
         <div class="nav__bottom">
             <ul class="nav__categories">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="./category.html?type=Latest">Latest</a></li>
                 <li><a href="./category.html?type=Business News">Business News</a></li>
                 <li><a href="./category.html?type=Money and Markets">Money & Markets</a></li>
@@ -382,17 +382,30 @@ function createNavbar() {
     `;
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("navbar__placeholder");
-  console.log(container);
-  if (container) {
-    console.log("Loaded");
-    container.innerHTML = createNavbar();
-    toggleNav();
-    document.querySelector(".nav__search").addEventListener("click", () => {
-      window.location.href = "./Search.html";
-    });
-    document.querySelector(".nav__about").addEventListener("click", () => {
-      window.location.href = "./about.html";
-    });
-  }
+    const container = document.getElementById("navbar__placeholder");
+    console.log(container);
+    if (container) {
+        console.log("Loaded");
+        container.innerHTML = createNavbar();
+        toggleNav();
+
+        // Set active class based on current page
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll(".nav__categories a");
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === "index.html" && (currentPage === "index.html" || currentPage === "")) {
+                link.classList.add("active");
+            } else if (href === currentPage) {
+                link.classList.add("active");
+            }
+        });
+
+        document.querySelector(".nav__search").addEventListener("click", () => {
+            window.location.href = "./Search.html";
+        });
+        document.querySelector(".nav__about").addEventListener("click", () => {
+            window.location.href = "./about.html";
+        });
+    }
 });
