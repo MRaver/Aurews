@@ -2,129 +2,184 @@
 
 /* FAQ */
 .FAQ-section {
-  max-width: 1440px; /* Đặt chiều rộng tối đa của phần tử là 1440px. Dù màn hình lớn hơn, nó cũng không rộng hơn 1440px. */
-  width: 100%; /* Đặt chiều rộng bằng 100% của phần tử cha, nhưng sẽ bị giới hạn bởi max-width. */
-  margin: 20px auto; /* Tạo khoảng cách lề trên/dưới là 20px và căn giữa phần tử theo chiều ngang (auto). */
-  display: flex; /* Sử dụng Flexbox để sắp xếp các phần tử con bên trong (social-box, contact-box). */
-  gap: 0; /* Đặt khoảng cách giữa các phần tử con là 0. */
+  max-width: 1440px;
+  /* Đặt chiều rộng tối đa của phần tử là 1440px. Dù màn hình lớn hơn, nó cũng không rộng hơn 1440px. */
+  width: 100%;
+  /* Đặt chiều rộng bằng 100% của phần tử cha, nhưng sẽ bị giới hạn bởi max-width. */
+  margin: 20px auto;
+  /* Tạo khoảng cách lề trên/dưới là 20px và căn giữa phần tử theo chiều ngang (auto). */
+  display: flex;
+  /* Sử dụng Flexbox để sắp xếp các phần tử con bên trong (social-box, contact-box). */
+  gap: 0;
+  /* Đặt khoảng cách giữa các phần tử con là 0. */
   /* Thêm 20px đệm (khoảng trống) ở bên trái. */
-  flex-wrap: wrap; /* Cho phép các phần tử con (flex-item) rớt xuống hàng mới nếu không đủ chỗ. */
-  align-items: stretch; /* Kéo dãn chiều cao của các phần tử con trên cùng một hàng để chúng bằng nhau. */
+  flex-wrap: wrap;
+  /* Cho phép các phần tử con (flex-item) rớt xuống hàng mới nếu không đủ chỗ. */
+  align-items: stretch;
+  /* Kéo dãn chiều cao của các phần tử con trên cùng một hàng để chúng bằng nhau. */
 }
 
 .social-box {
-  display: flex; /* Sử dụng Flexbox cho nội dung bên trong .social-box (title, icons). */
-  max-width: min(
-    70vw,
-    291px
-  ); /* Chiều rộng tối đa sẽ là giá trị nhỏ hơn giữa 70% chiều rộng viewport (vw) và 291px. */
-  width: 100%; /* Chiếm 100% chiều rộng của không gian được cấp (bị giới hạn bởi max-width). */
-  flex-direction: column; /* Xếp các phần tử con bên trong (title, icons) theo chiều dọc (thành một cột). */
-  justify-content: center; /* Căn giữa nội dung theo trục chính (trục dọc, vì flex-direction là column). */
-  align-items: center; /* Căn giữa nội dung theo trục phụ (trục ngang). */
-  text-align: center; /* Căn giữa nội dung văn bản. */
-  padding: 40px; /* Tạo 40px đệm ở cả 4 cạnh (trên, phải, dưới, trái). */
-  background-color: aquamarine; /* Đặt màu nền là 'aquamarine'. */
-  box-sizing: border-box; /* Đảm bảo rằng padding và border được tính vào tổng chiều rộng/cao của box, không làm tăng kích thước. */
-  flex-shrink: 0; /* Ngăn không cho box này bị co nhỏ lại khi không gian bị thiếu. */
+  display: flex;
+  /* Sử dụng Flexbox cho nội dung bên trong .social-box (title, icons). */
+  max-width: min(70vw,
+      291px);
+  /* Chiều rộng tối đa sẽ là giá trị nhỏ hơn giữa 70% chiều rộng viewport (vw) và 291px. */
+  width: 100%;
+  /* Chiếm 100% chiều rộng của không gian được cấp (bị giới hạn bởi max-width). */
+  flex-direction: column;
+  /* Xếp các phần tử con bên trong (title, icons) theo chiều dọc (thành một cột). */
+  justify-content: center;
+  /* Căn giữa nội dung theo trục chính (trục dọc, vì flex-direction là column). */
+  align-items: center;
+  /* Căn giữa nội dung theo trục phụ (trục ngang). */
+  text-align: center;
+  /* Căn giữa nội dung văn bản. */
+  padding: 40px;
+  /* Tạo 40px đệm ở cả 4 cạnh (trên, phải, dưới, trái). */
+  background-color: aquamarine;
+  /* Đặt màu nền là 'aquamarine'. */
+  box-sizing: border-box;
+  /* Đảm bảo rằng padding và border được tính vào tổng chiều rộng/cao của box, không làm tăng kích thước. */
+  flex-shrink: 0;
+  /* Ngăn không cho box này bị co nhỏ lại khi không gian bị thiếu. */
 }
 
 .social-icons {
-  display: flex; /* Sử dụng Flexbox để sắp xếp các icon. */
-  flex-direction: row; /* Xếp các icon theo chiều ngang (hàng). */
-  gap: 20px; /* Tạo khoảng cách 20px giữa mỗi icon. */
+  display: flex;
+  /* Sử dụng Flexbox để sắp xếp các icon. */
+  flex-direction: row;
+  /* Xếp các icon theo chiều ngang (hàng). */
+  gap: 20px;
+  /* Tạo khoảng cách 20px giữa mỗi icon. */
 }
 
 .social-box .social-title {
   /* Cỡ chữ linh hoạt: nhỏ nhất 1rem, lớn nhất 1.5rem, và co dãn bằng 2% chiều rộng viewport ở giữa. */
   font-size: clamp(1rem, 2vw, 1.5rem);
-  margin-bottom: 15px; /* Tạo 15px lề ở dưới (khoảng cách với .social-icons). */
+  margin-bottom: 15px;
+  /* Tạo 15px lề ở dưới (khoảng cách với .social-icons). */
 }
 
 .social-icons a {
-  display: flex; /* Dùng Flexbox để căn giữa icon (nếu icon là <i> hoặc <svg>) bên trong thẻ <a>. */
-  align-items: center; /* Căn giữa icon theo chiều dọc. */
-  justify-content: center; /* Căn giữa icon theo chiều ngang. */
-  width: 36px; /* Chiều rộng cố định của box icon. */
-  height: 36px; /* Chiều cao cố định của box icon. */
-  border-radius: 6px; /* Bo góc 6px. */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Viền mỏng 1px, màu đen mờ (alpha 0.1). */
-  text-decoration: none; /* Bỏ gạch chân mặc định của thẻ <a> (link). */
-  color: var(
-    --FONT-COLOR
-  ); /* Đặt màu chữ (icon) từ một biến CSS tên là --FONT-COLOR. */
-  transition: all 0.3s ease; /* Tạo hiệu ứng chuyển động mượt 0.3s cho tất cả thuộc tính (khi hover). */
+  display: flex;
+  /* Dùng Flexbox để căn giữa icon (nếu icon là <i> hoặc <svg>) bên trong thẻ <a>. */
+  align-items: center;
+  /* Căn giữa icon theo chiều dọc. */
+  justify-content: center;
+  /* Căn giữa icon theo chiều ngang. */
+  width: 36px;
+  /* Chiều rộng cố định của box icon. */
+  height: 36px;
+  /* Chiều cao cố định của box icon. */
+  border-radius: 6px;
+  /* Bo góc 6px. */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* Viền mỏng 1px, màu đen mờ (alpha 0.1). */
+  text-decoration: none;
+  /* Bỏ gạch chân mặc định của thẻ <a> (link). */
+  color: var(--FONT-COLOR);
+  /* Đặt màu chữ (icon) từ một biến CSS tên là --FONT-COLOR. */
+  transition: all 0.3s ease;
+  /* Tạo hiệu ứng chuyển động mượt 0.3s cho tất cả thuộc tính (khi hover). */
 }
 
 .social-icons a:hover {
-  background-color: var(
-    --LINK-HOVER-COLOR
-  ); /* Đổi màu nền khi di chuột (lấy từ biến CSS). */
-  color: white; /* Đổi màu chữ (icon) thành trắng khi di chuột. */
+  background-color: var(--LINK-HOVER-COLOR);
+  /* Đổi màu nền khi di chuột (lấy từ biến CSS). */
+  color: white;
+  /* Đổi màu chữ (icon) thành trắng khi di chuột. */
 }
 
 .contact-box {
   /* Đây là box "Get in touch" */
   /* Chiều rộng tối đa sẽ là giá trị lớn hơn giữa 70% chiều rộng viewport và 733px. */
   max-width: max(70vw, 733px);
-  width: 100%; /* Chiếm 100% chiều rộng được cấp (bị giới hạn bởi max-width). */
-  flex-grow: 1; /* Cho phép box này tự động dãn ra để lấp đầy không gian còn trống trên hàng. */
-  margin-top: 54px; /* Tạo lề trên 54px (tạo hiệu ứng cột cao cột thấp). */
-  height: auto; /* Chiều cao tự động điều chỉnh theo nội dung. */
-  min-height: 142px; /* Chiều cao tối thiểu là 142px. */
-  background-color: aqua; /* Đặt màu nền là 'aqua'. */
-  box-sizing: border-box; /* Tính padding/border vào tổng kích thước. */
+  width: 100%;
+  /* Chiếm 100% chiều rộng được cấp (bị giới hạn bởi max-width). */
+  flex-grow: 1;
+  /* Cho phép box này tự động dãn ra để lấp đầy không gian còn trống trên hàng. */
+  margin-top: 54px;
+  /* Tạo lề trên 54px (tạo hiệu ứng cột cao cột thấp). */
+  height: auto;
+  /* Chiều cao tự động điều chỉnh theo nội dung. */
+  min-height: 142px;
+  /* Chiều cao tối thiểu là 142px. */
+  background-color: aqua;
+  /* Đặt màu nền là 'aqua'. */
+  box-sizing: border-box;
+  /* Tính padding/border vào tổng kích thước. */
 
-  display: flex; /* Dùng Flexbox cho nội dung bên trong (h3, p). */
-  flex-direction: column; /* Xếp h3 và p theo chiều dọc. */
-  justify-content: center; /* Căn giữa nội dung theo chiều dọc. */
-  align-items: flex-start; /* Căn toàn bộ nội dung (khối h3, p) sang bên trái. */
-  padding: 30px 40px; /* Đệm 30px ở trên/dưới, 40px ở trái/phải. */
+  display: flex;
+  /* Dùng Flexbox cho nội dung bên trong (h3, p). */
+  flex-direction: column;
+  /* Xếp h3 và p theo chiều dọc. */
+  justify-content: center;
+  /* Căn giữa nội dung theo chiều dọc. */
+  align-items: flex-start;
+  /* Căn toàn bộ nội dung (khối h3, p) sang bên trái. */
+  padding: 30px 40px;
+  /* Đệm 30px ở trên/dưới, 40px ở trái/phải. */
 }
 
 .contact-box h3 {
-  font-size: clamp(
-    1.2rem,
-    2.8vw,
-    2rem
-  ); /* Cỡ chữ linh hoạt (tương tự ở trên). */
-  text-align: left; /* Căn lề chữ bên trái. */
-  width: 40%; /* Đặt chiều rộng của h3 bằng 40% của .contact-box. */
-  margin: 0; /* Xóa lề mặc định của thẻ h3. */
+  font-size: clamp(1.2rem,
+      2.8vw,
+      2rem);
+  /* Cỡ chữ linh hoạt (tương tự ở trên). */
+  text-align: left;
+  /* Căn lề chữ bên trái. */
+  width: 40%;
+  /* Đặt chiều rộng của h3 bằng 40% của .contact-box. */
+  margin: 0;
+  /* Xóa lề mặc định của thẻ h3. */
 }
 
 .contact-box p {
-  font-size: clamp(1.2rem, 2.8vw, 2rem); /* Cỡ chữ linh hoạt. */
-  text-align: right; /* Căn lề chữ bên phải. */
-  width: 100%; /* Đặt chiều rộng của p bằng 100% của .contact-box. */
-  margin: 0; /* Xóa lề mặc định của thẻ p. */
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  /* Cỡ chữ linh hoạt. */
+  text-align: right;
+  /* Căn lề chữ bên phải. */
+  width: 100%;
+  /* Đặt chiều rộng của p bằng 100% của .contact-box. */
+  margin: 0;
+  /* Xóa lề mặc định của thẻ p. */
 }
 
 /* Áp dụng các style này khi chiều rộng màn hình từ 1024px trở xuống */
 @media (max-width: 1024px) {
   .FAQ-section {
-    gap: 0; /* Đảm bảo khoảng cách vẫn là 0 (khi các box rớt hàng). */
-    padding: 0; /* Xóa toàn bộ padding của .FAQ-section. */
+    gap: 0;
+    /* Đảm bảo khoảng cách vẫn là 0 (khi các box rớt hàng). */
+    padding: 0;
+    /* Xóa toàn bộ padding của .FAQ-section. */
   }
 
   .contact-box {
-    margin-top: 0; /* Gỡ bỏ lề trên 54px khi .contact-box rớt xuống hàng (wrap). */
+    margin-top: 0;
+    /* Gỡ bỏ lề trên 54px khi .contact-box rớt xuống hàng (wrap). */
   }
 }
 
 /* Áp dụng khi màn hình từ 600px trở xuống */
 @media (max-width: 600px) {
   .contact-box {
-    flex-direction: column; /* (Đã có, nhưng ghi rõ lại) Xếp h3, p theo cột. */
-    align-items: flex-start; /* Căn lề trái. */
-    text-align: left; /* Căn lề chữ trái. */
-    gap: 15px; /* Tạo khoảng cách 15px giữa h3 và p. */
+    flex-direction: column;
+    /* (Đã có, nhưng ghi rõ lại) Xếp h3, p theo cột. */
+    align-items: flex-start;
+    /* Căn lề trái. */
+    text-align: left;
+    /* Căn lề chữ trái. */
+    gap: 15px;
+    /* Tạo khoảng cách 15px giữa h3 và p. */
   }
 
   .contact-box h3,
   .contact-box p {
-    width: 100%; /* Cho cả h3 và p chiếm 100% chiều rộng. */
-    text-align: left; /* Căn lề trái toàn bộ (ghi đè text-align: right của p). */
+    width: 100%;
+    /* Cho cả h3 và p chiếm 100% chiều rộng. */
+    text-align: left;
+    /* Căn lề trái toàn bộ (ghi đè text-align: right của p). */
   }
 }
 
@@ -138,7 +193,8 @@
   opacity: 0;
   transform: translateX(-150px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  transition-delay: 0.2s; /* Contact box trượt sau social box */
+  transition-delay: 0.2s;
+  /* Contact box trượt sau social box */
 }
 
 /* Khi có class 'visible' (thêm bằng JavaScript khi scroll đến) */
@@ -150,69 +206,176 @@
 
 /* ABOUT */
 .container1 {
-  width: 100%; /* Rộng 100%. */
-  max-width: 1440px; /* Rộng tối đa 1440px. */
-  display: flex; /* Dùng Flexbox. */
-  flex-direction: column; /* Xếp các con (header, content-area) theo chiều dọc. */
-  height: auto; /* Chiều cao tự động. */
-  margin: 0 auto; /* Căn giữa theo chiều ngang. */
+  width: 100%;
+  /* Rộng 100%. */
+  max-width: 1440px;
+  /* Rộng tối đa 1440px. */
+  display: flex;
+  /* Dùng Flexbox. */
+  flex-direction: column;
+  /* Xếp các con (header, content-area) theo chiều dọc. */
+  height: auto;
+  /* Chiều cao tự động. */
+  margin: 0 auto;
+  /* Căn giữa theo chiều ngang. */
 
-  margin-top: 20px; /* Lề trên 20px. */
+  margin-top: 20px;
+  /* Lề trên 20px. */
 }
 
 .header {
-  position: relative; /* Đặt vị trí tương đối, làm mốc cho các phần tử con 'position: absolute'. */
-  width: 100%; /* Rộng 100%. */
-  aspect-ratio: 1418/200; /* Giữ tỷ lệ khung hình (rộng/cao) là 1418/200. */
+  position: relative;
+  /* Đặt vị trí tương đối, làm mốc cho các phần tử con 'position: absolute'. */
+  width: 100%;
+  /* Rộng 100%. */
+  aspect-ratio: 1418/200;
+  /* Giữ tỷ lệ khung hình (rộng/cao) là 1418/200. */
   display: flex;
   height: min(calc(100vw * (200 / 1418)), 400px);
+  margin-left: 30px;
 }
 
 .title {
-  position: absolute; /* Đặt vị trí tuyệt đối (so với .header). */
-  top: 0; /* Căn lên lề trên của .header. */
-  left: 0; /* Căn sang lề trái của .header. */
-  font-size: 6vw; /* Cỡ chữ bằng 4% chiều rộng viewport. */
-  aspect-ratio: 504/70; /* Giữ tỷ lệ khung hình cho box title. */
+  position: absolute;
+  /* Đặt vị trí tuyệt đối (so với .header). */
+  top: 0;
+  /* Căn lên lề trên của .header. */
+  left: 0;
+  /* Căn sang lề trái của .header. */
+  font-size: 6vw;
+  /* Cỡ chữ bằng 4% chiều rộng viewport. */
+  aspect-ratio: 504/70;
+  /* Giữ tỷ lệ khung hình cho box title. */
 }
 
 .subtitle {
-  max-width: 60%; /* Rộng tối đa 60% (của .header). */
-  width: 100%; /* Rộng 100% (nhưng không quá 60%). */
-  position: absolute; /* Vị trí tuyệt đối (so với .header). */
-  bottom: 0; /* Căn xuống lề dưới. */
-  right: 0; /* Căn sang lề phải. */
-  font-size: 2vw; /* Cỡ chữ bằng 2% chiều rộng viewport. */
-  font-weight: bolder; /* Chữ cực kỳ đậm. */
+  max-width: 60%;
+  /* Rộng tối đa 60% (của .header). */
+  width: 100%;
+  /* Rộng 100% (nhưng không quá 60%). */
+  position: absolute;
+  /* Vị trí tuyệt đối (so với .header). */
+  bottom: 0;
+  /* Căn xuống lề dưới. */
+  right: 0;
+  /* Căn sang lề phải. */
+  font-size: 2vw;
+  /* Cỡ chữ bằng 2% chiều rộng viewport. */
+  font-weight: bolder;
+  /* Chữ cực kỳ đậm. */
   word-wrap: break-word;
 }
 
 .content-area {
-  flex: 1; /* (flex-grow: 1) Co dãn để lấp đầy không gian còn lại (theo chiều dọc). */
-  display: grid; /* Sử dụng CSS Grid để chia layout. */
-  grid-template-columns: repeat(
-    4,
-    1fr
-  ); /* Tạo 4 cột, mỗi cột rộng 1 phần bằng nhau (1fr). */
-  gap: 1px; /* Khoảng cách 10px giữa các ô (cột và hàng) trong grid. */
-  padding: 0; /* Xóa đệm. */
-  padding-top: 20px; /* Thêm 20px đệm ở trên (khoảng cách với .header). */
-  margin-bottom: 20px; /* Lề dưới 20px. */
+  flex: 1;
+  /* (flex-grow: 1) Co dãn để lấp đầy không gian còn lại (theo chiều dọc). */
+  display: grid;
+  /* Sử dụng CSS Grid để chia layout. */
+  grid-template-columns: repeat(4,
+      1fr);
+  /* Tạo 4 cột, mỗi cột rộng 1 phần bằng nhau (1fr). */
+  gap: 1px;
+  /* Khoảng cách 10px giữa các ô (cột và hàng) trong grid. */
+  padding: 0;
+  /* Xóa đệm. */
+  padding-top: 20px;
+  /* Thêm 20px đệm ở trên (khoảng cách với .header). */
+  margin-bottom: 20px;
+  /* Lề dưới 20px. */
 }
 
 .column {
-  flex: 1; /* (Không có tác dụng trong Grid, có thể là code thừa từ Flexbox). */
-  background-color: #d3d0c8; /* Màu nền xám. */
-  min-height: 400px; /* Chiều cao tối thiểu 400px. */
-  transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền mượt 0.3s. */
+  flex: 1;
+  background-color: #d3d0c8;
+  min-height: 400px;
+  position: relative;
+  /* Quan trọng! */
+  overflow: hidden;
+  /* Ẩn phần background vượt ra ngoài */
+  transition: background-color 0.3s;
+}
+
+/* Tạo pseudo-element chứa background */
+.column:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Aurews/assets/img/img1.png');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: filter 1s ease, transform 0.6s ease;
+  z-index: 0;
+  /* Đảm bảo nằm dưới nội dung */
+}
+
+/* Tạo pseudo-element chứa background */
+.column:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Aurews/assets/img/img2.png');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: filter 1s ease, transform 0.6s ease;
+  z-index: 0;
+  /* Đảm bảo nằm dưới nội dung */
+}
+
+/* Tạo pseudo-element chứa background */
+.column:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Aurews/assets/img/img3.png');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: filter 1s ease, transform 0.6s ease;
+  z-index: 0;
+  /* Đảm bảo nằm dưới nội dung */
+}
+
+/* Tạo pseudo-element chứa background */
+.column:last-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Aurews/assets/img/img4.png');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: filter 1s ease, transform 0.6s ease;
+  z-index: 0;
+  /* Đảm bảo nằm dưới nội dung */
+}
+
+.column:hover::before {
+  filter: grayscale(0%);
+  transform: scale(1.2);
 }
 
 .column:last-child {
-  border-right: none; /* Xóa viền phải của cột cuối cùng (dù hiện tại không có viền nào được set). */
+  border-right: none;
+  /* Xóa viền phải của cột cuối cùng (dù hiện tại không có viền nào được set). */
 }
 
 .column:hover {
-  background-color: #c5c2ba; /* Đổi màu nền khi di chuột (thành màu xám đậm hơn). */
+  background-color: #c5c2ba;
+  /* Đổi màu nền khi di chuột (thành màu xám đậm hơn). */
 }
 
 /* --------------------------------
@@ -222,12 +385,18 @@
 -------------------------------- */
 
 .description-section {
-  width: 100%; /* Rộng 100%. */
-  margin: 0 auto; /* Căn giữa. */
-  max-width: 899px; /* Rộng tối đa 899px. */
-  padding-top: 100px; /* Đệm trên 100px. */
-  font-size: 2.5vw; /* Cỡ chữ 30px. */
-  padding-bottom: 100px; /* Đệm dưới 100px. */
+  width: 100%;
+  /* Rộng 100%. */
+  margin: 0 auto;
+  /* Căn giữa. */
+  max-width: 899px;
+  /* Rộng tối đa 899px. */
+  padding-top: 100px;
+  /* Đệm trên 100px. */
+  font-size: 2.5vw;
+  /* Cỡ chữ 30px. */
+  padding-bottom: 100px;
+  /* Đệm dưới 100px. */
 }
 
 /* --------------------------------
@@ -236,152 +405,229 @@
 /* --------------------------------
 -------------------------------- */
 footer {
-  width: 100%; /* Rộng 100%. */
-  background-color: black; /* Màu nền đen. */
-  color: white; /* Màu chữ trắng. */
-  padding: 50px 0 80px; /* Đệm: 50px trên, 0 trái/phải, 80px dưới. */
-  margin-top: auto; /* Tự động đẩy footer xuống cuối trang (nếu trang ngắn). */
+  width: 100%;
+  /* Rộng 100%. */
+  background-color: black;
+  /* Màu nền đen. */
+  color: white;
+  /* Màu chữ trắng. */
+  padding: 50px 0 80px;
+  /* Đệm: 50px trên, 0 trái/phải, 80px dưới. */
+  margin-top: auto;
+  /* Tự động đẩy footer xuống cuối trang (nếu trang ngắn). */
 }
 
 .footer__container {
-  max-width: 1440px; /* Rộng tối đa 1440px. */
-  margin: 0 auto; /* Căn giữa. */
-  display: flex; /* Dùng Flexbox. */
-  justify-content: space-between; /* Căn 2 phần tử con (newsletter, siteinfo) ra 2 đầu, khoảng cách ở giữa. */
-  gap: clamp(
-    50px,
-    25vw,
-    300px
-  ); /* Khoảng cách linh hoạt: nhỏ nhất 50px, lớn nhất 300px, co dãn theo 25% viewport. */
-  padding: 0 40px; /* Đệm 0 trên/dưới, 40px trái/phải. */
+  max-width: 1440px;
+  /* Rộng tối đa 1440px. */
+  margin: 0 auto;
+  /* Căn giữa. */
+  display: flex;
+  /* Dùng Flexbox. */
+  justify-content: space-between;
+  /* Căn 2 phần tử con (newsletter, siteinfo) ra 2 đầu, khoảng cách ở giữa. */
+  gap: clamp(50px,
+      25vw,
+      300px);
+  /* Khoảng cách linh hoạt: nhỏ nhất 50px, lớn nhất 300px, co dãn theo 25% viewport. */
+  padding: 0 40px;
+  /* Đệm 0 trên/dưới, 40px trái/phải. */
 }
 
 .footer__newsletter {
-  display: flex; /* Dùng Flexbox. */
-  flex-direction: column; /* Xếp các con (title, form, a) theo chiều dọc. */
-  gap: 20px; /* Khoảng cách 20px giữa các con. */
-  flex: 1; /* (flex-grow: 1) Co dãn để chiếm không gian. */
-  padding-left: 6px; /* Đệm trái 6px. */
-  justify-content: flex-start; /* Căn nội dung lên trên (theo trục dọc). */
+  display: flex;
+  /* Dùng Flexbox. */
+  flex-direction: column;
+  /* Xếp các con (title, form, a) theo chiều dọc. */
+  gap: 20px;
+  /* Khoảng cách 20px giữa các con. */
+  flex: 1;
+  /* (flex-grow: 1) Co dãn để chiếm không gian. */
+  padding-left: 6px;
+  /* Đệm trái 6px. */
+  justify-content: flex-start;
+  /* Căn nội dung lên trên (theo trục dọc). */
 }
 
 .footer__newsletter a {
-  color: gray; /* Màu chữ xám cho link. */
+  color: gray;
+  /* Màu chữ xám cho link. */
 }
 
 .newsletter__title {
-  font-size: 1.75rem; /* Cỡ chữ 1.75rem. */
-  line-height: 1.3; /* Chiều cao dòng bằng 1.3 lần cỡ chữ. */
-  padding-top: 70px; /* Đệm trên 70px. */
+  font-size: 1.75rem;
+  /* Cỡ chữ 1.75rem. */
+  line-height: 1.3;
+  /* Chiều cao dòng bằng 1.3 lần cỡ chữ. */
+  padding-top: 70px;
+  /* Đệm trên 70px. */
 }
 
 .newsletter__formbox {
-  display: flex; /* Dùng Flexbox để đặt input và button cạnh nhau. */
+  display: flex;
+  /* Dùng Flexbox để đặt input và button cạnh nhau. */
 }
 
 .newsletter__formbox input {
-  padding: 18px 20px; /* Đệm 18px (trên/dưới), 20px (trái/phải) bên trong input. */
-  border-radius: 16px 0 0 16px; /* Bo góc trên trái và dưới trái 16px. */
-  border: none; /* Xóa viền. */
-  outline: none; /* Xóa viền xanh (outline) khi click vào input. */
-  font-size: 1.3em; /* Cỡ chữ 1.3 lần chữ cơ bản. */
-  font-weight: bolder; /* Chữ cực đậm. */
-  flex: 1; /* (flex-grow: 1) Cho phép input co dãn lấp đầy không gian. */
+  padding: 18px 20px;
+  /* Đệm 18px (trên/dưới), 20px (trái/phải) bên trong input. */
+  border-radius: 16px 0 0 16px;
+  /* Bo góc trên trái và dưới trái 16px. */
+  border: none;
+  /* Xóa viền. */
+  outline: none;
+  /* Xóa viền xanh (outline) khi click vào input. */
+  font-size: 1.3em;
+  /* Cỡ chữ 1.3 lần chữ cơ bản. */
+  font-weight: bolder;
+  /* Chữ cực đậm. */
+  flex: 1;
+  /* (flex-grow: 1) Cho phép input co dãn lấp đầy không gian. */
 }
 
 .newsletter__formbox button {
-  border-radius: 0 16px 16px 0; /* Bo góc trên phải và dưới phải 16px. */
-  padding: 18px 20px; /* Đệm bên trong button. */
-  border-left: none; /* Xóa viền trái (để liền với input). */
-  font-size: 1.3em; /* Cỡ chữ. */
-  font-weight: bold; /* Chữ đậm. */
-  background-color: gray; /* Màu nền xám. */
-  color: whitesmoke; /* Màu chữ trắng mờ. */
-  border: none; /* Xóa viền. */
-  outline: none; /* Xóa viền focus. */
-  cursor: pointer; /* Đổi con trỏ thành hình bàn tay khi di chuột. */
-  white-space: nowrap; /* Ngăn chữ trong button bị xuống hàng. */
+  border-radius: 0 16px 16px 0;
+  /* Bo góc trên phải và dưới phải 16px. */
+  padding: 18px 20px;
+  /* Đệm bên trong button. */
+  border-left: none;
+  /* Xóa viền trái (để liền với input). */
+  font-size: 1.3em;
+  /* Cỡ chữ. */
+  font-weight: bold;
+  /* Chữ đậm. */
+  background-color: gray;
+  /* Màu nền xám. */
+  color: whitesmoke;
+  /* Màu chữ trắng mờ. */
+  border: none;
+  /* Xóa viền. */
+  outline: none;
+  /* Xóa viền focus. */
+  cursor: pointer;
+  /* Đổi con trỏ thành hình bàn tay khi di chuột. */
+  white-space: nowrap;
+  /* Ngăn chữ trong button bị xuống hàng. */
 }
 
 .newsletter__formbox button:hover {
-  transition: background-color 0.7s ease; /* Hiệu ứng chuyển màu mượt 0.7s. */
-  background-color: rgb(0, 102, 255); /* Đổi màu nền khi di chuột. */
+  transition: background-color 0.7s ease;
+  /* Hiệu ứng chuyển màu mượt 0.7s. */
+  background-color: rgb(0, 102, 255);
+  /* Đổi màu nền khi di chuột. */
 }
 
 /* (Selector này có vẻ sai, .siteinfo__formbox không tồn tại) */
 .siteinfo__formbox input::placeholder {
-  color: gray; /* Đặt màu xám cho chữ placeholder (chữ mờ) */
+  color: gray;
+  /* Đặt màu xám cho chữ placeholder (chữ mờ) */
 }
 
 .siteinfo__right {
-  display: flex; /* Dùng Flexbox. */
-  flex-direction: column; /* Xếp các con theo chiều dọc. */
-  flex-basis: 50%; /* Đặt kích thước cơ bản là 50% chiều rộng của .footer__container. */
-  gap: 30px; /* Khoảng cách 30px giữa các con. */
+  display: flex;
+  /* Dùng Flexbox. */
+  flex-direction: column;
+  /* Xếp các con theo chiều dọc. */
+  flex-basis: 50%;
+  /* Đặt kích thước cơ bản là 50% chiều rộng của .footer__container. */
+  gap: 30px;
+  /* Khoảng cách 30px giữa các con. */
 }
 
 .siteinfo__right a {
-  color: white; /* Màu chữ trắng cho link. */
-  text-decoration: none; /* Bỏ gạch chân link. */
+  color: white;
+  /* Màu chữ trắng cho link. */
+  text-decoration: none;
+  /* Bỏ gạch chân link. */
 }
 
 .icon__container {
-  display: flex; /* Dùng Flexbox. */
-  gap: 40px; /* Khoảng cách 40px giữa các icon. */
-  padding-top: 60px; /* Đệm trên 60px. */
-  justify-content: flex-start; /* Căn các icon sang trái. */
-  flex-direction: row; /* Xếp icon theo hàng ngang. */
-  flex-wrap: wrap; /* Cho phép icon rớt hàng. */
+  display: flex;
+  /* Dùng Flexbox. */
+  gap: 40px;
+  /* Khoảng cách 40px giữa các icon. */
+  padding-top: 60px;
+  /* Đệm trên 60px. */
+  justify-content: flex-start;
+  /* Căn các icon sang trái. */
+  flex-direction: row;
+  /* Xếp icon theo hàng ngang. */
+  flex-wrap: wrap;
+  /* Cho phép icon rớt hàng. */
 }
 
 /* Style cho thẻ <i> (icon) khi thẻ <a> cha được hover */
 a:hover i {
-  color: gray; /* Đổi màu icon thành xám. */
-  transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt 0.3s. */
+  color: gray;
+  /* Đổi màu icon thành xám. */
+  transition: color 0.3s ease;
+  /* Hiệu ứng chuyển màu mượt 0.3s. */
 }
 
 .fa-brands {
   /* (Font Awesome Brands) */
-  font-size: 45px; /* Cỡ chữ (kích thước icon) 45px. */
-  height: 45px; /* Chiều cao 45px. */
-  cursor: pointer; /* Con trỏ hình bàn tay. */
+  font-size: 45px;
+  /* Cỡ chữ (kích thước icon) 45px. */
+  height: 45px;
+  /* Chiều cao 45px. */
+  cursor: pointer;
+  /* Con trỏ hình bàn tay. */
 }
 
 .contact {
-  display: flex; /* Dùng Flexbox. */
-  justify-content: flex-start; /* Căn sang trái. */
-  gap: 10px; /* Khoảng cách 10px (giữa icon và chữ). */
-  font-weight: bolder; /* Chữ cực đậm. */
+  display: flex;
+  /* Dùng Flexbox. */
+  justify-content: flex-start;
+  /* Căn sang trái. */
+  gap: 10px;
+  /* Khoảng cách 10px (giữa icon và chữ). */
+  font-weight: bolder;
+  /* Chữ cực đậm. */
 }
 
 .email {
-  display: flex; /* Dùng Flexbox. */
-  justify-content: flex-start; /* Căn sang trái. */
-  gap: 10px; /* Khoảng cách 10px. */
-  font-weight: bolder; /* Chữ cực đậm. */
+  display: flex;
+  /* Dùng Flexbox. */
+  justify-content: flex-start;
+  /* Căn sang trái. */
+  gap: 10px;
+  /* Khoảng cách 10px. */
+  font-weight: bolder;
+  /* Chữ cực đậm. */
 }
 
 .end {
-  margin-bottom: 10px; /* Lề dưới 10px. */
+  margin-bottom: 10px;
+  /* Lề dưới 10px. */
 }
 
 .option {
-  display: flex; /* Dùng Flexbox. */
-  justify-content: flex-start; /* Căn trái. */
-  gap: 30px; /* Khoảng cách 30px giữa các option. */
-  font-weight: bolder; /* Chữ cực đậm. */
-  cursor: pointer; /* Con trỏ hình bàn tay. */
-  margin: 0 0 0 -130px; /* Lề: 0 trên/phải/dưới, -130px bên trái (kéo sang trái). */
-  padding-right: auto; /* (Thuộc tính không hợp lệ, auto không dùng cho padding). */
-  flex-direction: row; /* Xếp theo hàng ngang. */
+  display: flex;
+  /* Dùng Flexbox. */
+  justify-content: flex-start;
+  /* Căn trái. */
+  gap: 30px;
+  /* Khoảng cách 30px giữa các option. */
+  font-weight: bolder;
+  /* Chữ cực đậm. */
+  cursor: pointer;
+  /* Con trỏ hình bàn tay. */
+  margin: 0 0 0 -130px;
+  /* Lề: 0 trên/phải/dưới, -130px bên trái (kéo sang trái). */
+  padding-right: auto;
+  /* (Thuộc tính không hợp lệ, auto không dùng cho padding). */
+  flex-direction: row;
+  /* Xếp theo hàng ngang. */
 }
 
 .options__container li {
-  list-style: none; /* Bỏ dấu chấm đầu dòng của <li>. */
+  list-style: none;
+  /* Bỏ dấu chấm đầu dòng của <li>. */
 }
 
 .options__container {
-  margin-left: 50px; /* Lề trái 50px. */
+  margin-left: 50px;
+  /* Lề trái 50px. */
 }
 
 /* Áp dụng khi màn hình từ 1200px trở xuống */
@@ -391,25 +637,33 @@ a:hover i {
 
   .maintopic__container {
     display: flex;
-    flex-direction: column; /* Chuyển .maintopic__container thành cột. */
+    flex-direction: column;
+    /* Chuyển .maintopic__container thành cột. */
   }
 
   .footer__newsletter {
-    flex: 1; /* (Đã có) */
-    min-width: 300px; /* Chiều rộng tối thiểu 300px (giữ form không bị bóp). */
+    flex: 1;
+    /* (Đã có) */
+    min-width: 300px;
+    /* Chiều rộng tối thiểu 300px (giữ form không bị bóp). */
   }
 
   .option {
     display: flex;
-    flex-direction: column; /* Chuyển các .option (link) thành cột dọc. */
-    justify-content: flex-start; /* Căn lên trên. */
-    margin-left: -50px; /* Giảm lề âm (kéo bớt về bên phải). */
+    flex-direction: column;
+    /* Chuyển các .option (link) thành cột dọc. */
+    justify-content: flex-start;
+    /* Căn lên trên. */
+    margin-left: -50px;
+    /* Giảm lề âm (kéo bớt về bên phải). */
   }
 
   .popular__container {
     display: flex;
-    flex-direction: column; /* Chuyển .popular__container thành cột. */
-    gap: 30px; /* Khoảng cách 30px giữa các con. */
+    flex-direction: column;
+    /* Chuyển .popular__container thành cột. */
+    gap: 30px;
+    /* Khoảng cách 30px giữa các con. */
   }
 
   /* Các class này style cho các box tin tức... */
@@ -418,18 +672,24 @@ a:hover i {
   .lifestyle,
   .politics {
     display: flex;
-    flex-direction: row; /* Xếp ảnh và text theo hàng ngang. */
-    gap: 30px; /* Khoảng cách 30px giữa ảnh và text. */
-    text-align: left; /* Căn lề chữ bên trái. */
-    justify-content: flex-start; /* Căn sang trái. */
-    align-items: flex-start; /* Căn lên trên. */
+    flex-direction: row;
+    /* Xếp ảnh và text theo hàng ngang. */
+    gap: 30px;
+    /* Khoảng cách 30px giữa ảnh và text. */
+    text-align: left;
+    /* Căn lề chữ bên trái. */
+    justify-content: flex-start;
+    /* Căn sang trái. */
+    align-items: flex-start;
+    /* Căn lên trên. */
   }
 
   .grid1__content1-img,
   .grid1__content2-img,
   .lifestyle__img,
   .politics__img {
-    width: 50%; /* Cho ảnh chiếm 50% chiều rộng của box. */
+    width: 50%;
+    /* Cho ảnh chiếm 50% chiều rộng của box. */
   }
 
   /* (none không phải là giá trị hợp lệ cho padding/margin-right, có thể ý là 0) */
@@ -444,44 +704,56 @@ a:hover i {
   }
 
   .business__news-img {
-    padding-top: 10px; /* Đệm trên 10px cho ảnh. */
+    padding-top: 10px;
+    /* Đệm trên 10px cho ảnh. */
   }
 
   .business__news-description {
-    padding-bottom: 20px; /* Đệm dưới 20px cho mô tả. */
+    padding-bottom: 20px;
+    /* Đệm dưới 20px cho mô tả. */
   }
 
   .bussiness__news {
-    border-top: 2px solid rgba(0, 0, 0, 0.1); /* Viền trên mỏng. */
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Viền dưới mỏng. */
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    /* Viền trên mỏng. */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    /* Viền dưới mỏng. */
   }
 
   .business__news-description {
-    margin: 0 auto; /* Căn giữa mô tả. */
+    margin: 0 auto;
+    /* Căn giữa mô tả. */
   }
 
   .grid__box1,
   .grid__box2 {
-    border: none; /* Xóa viền. */
+    border: none;
+    /* Xóa viền. */
   }
 
   .lifestyle {
-    padding-top: 15px; /* Đệm trên 15px. */
+    padding-top: 15px;
+    /* Đệm trên 15px. */
   }
 
   .topic__container {
     display: flex;
-    flex-direction: column; /* Chuyển .topic__container thành cột. */
+    flex-direction: column;
+    /* Chuyển .topic__container thành cột. */
   }
 
   .news__img {
-    width: 20%; /* Ảnh chiếm 20% chiều rộng. */
+    width: 20%;
+    /* Ảnh chiếm 20% chiều rộng. */
   }
 
   .threenews__img {
-    width: 40%; /* Ảnh chiếm 40% chiều rộng. */
-    aspect-ratio: 100/50; /* Tỷ lệ khung hình 2:1. */
+    width: 40%;
+    /* Ảnh chiếm 40% chiều rộng. */
+    aspect-ratio: 100/50;
+    /* Tỷ lệ khung hình 2:1. */
   }
+
   .description-section {
     padding: 30px 20px;
   }
@@ -491,41 +763,54 @@ a:hover i {
 @media (max-width: 768px) {
   .boxlowerleft {
     display: flex;
-    flex-direction: column; /* Chuyển .boxlowerleft thành cột. */
+    flex-direction: column;
+    /* Chuyển .boxlowerleft thành cột. */
   }
 
   .footer__container {
-    flex-direction: column; /* Chuyển 2 cột của footer thành 1 cột (xếp chồng lên nhau). */
-    gap: 40px; /* Khoảng cách dọc 40px. */
+    flex-direction: column;
+    /* Chuyển 2 cột của footer thành 1 cột (xếp chồng lên nhau). */
+    gap: 40px;
+    /* Khoảng cách dọc 40px. */
   }
 
   .newsletter__formbox input {
-    width: 300px; /* Đặt chiều rộng cố định 300px. */
-    max-width: 100%; /* Đảm bảo không tràn màn hình. */
-    flex: none; /* Tắt co dãn (flex-grow: 0, flex-shrink: 0). */
+    width: 300px;
+    /* Đặt chiều rộng cố định 300px. */
+    max-width: 100%;
+    /* Đảm bảo không tràn màn hình. */
+    flex: none;
+    /* Tắt co dãn (flex-grow: 0, flex-shrink: 0). */
   }
 
   .AI__container {
     display: flex;
-    flex-direction: column; /* Chuyển .AI__container thành cột. */
+    flex-direction: column;
+    /* Chuyển .AI__container thành cột. */
   }
 
   .AI__left {
-    border: none; /* Xóa viền. */
+    border: none;
+    /* Xóa viền. */
   }
 
   .AI__news--1 {
-    border-top: 2px solid rgba(0, 0, 0, 0.1); /* Viền trên mỏng. */
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    /* Viền trên mỏng. */
   }
+
   /* Giữ 2 hàng x 2 cột cho content-area */
   .content-area {
     grid-template-columns: repeat(2, 1fr);
     gap: 1px;
   }
+
   .column {
-    min-height: 200px; /* Điều chỉnh chiều cao cho phù hợp */
+    min-height: 200px;
+    /* Điều chỉnh chiều cao cho phù hợp */
     aspect-ratio: 9 / 10;
   }
+
   .description-section {
     padding: 25px 15px;
   }
@@ -535,28 +820,42 @@ a:hover i {
 @media (max-width: 500px) {
   .newsletter__formbox {
     display: flex;
-    flex-direction: column; /* Chuyển form (input và button) thành cột dọc. */
-    align-items: stretch; /* Kéo dãn các con (input, button) cho bằng chiều rộng. */
-    gap: 10px; /* Khoảng cách 10px giữa input và button. */
+    flex-direction: column;
+    /* Chuyển form (input và button) thành cột dọc. */
+    align-items: stretch;
+    /* Kéo dãn các con (input, button) cho bằng chiều rộng. */
+    gap: 10px;
+    /* Khoảng cách 10px giữa input và button. */
   }
 
   .newsletter__formbox input {
-    width: 100%; /* Chiếm 100% chiều rộng. */
-    border-radius: 16px; /* Bo cả 4 góc 16px. */
-    padding: 14px 16px; /* Giảm đệm một chút. */
-    font-size: 1rem; /* Giảm cỡ chữ. */
+    width: 100%;
+    /* Chiếm 100% chiều rộng. */
+    border-radius: 16px;
+    /* Bo cả 4 góc 16px. */
+    padding: 14px 16px;
+    /* Giảm đệm một chút. */
+    font-size: 1rem;
+    /* Giảm cỡ chữ. */
   }
 
   .newsletter__formbox button {
-    width: 100%; /* Chiếm 100% chiều rộng. */
-    border-radius: 16px; /* Bo cả 4 góc. */
-    padding: 14px 16px; /* Giảm đệm. */
-    font-size: 1rem; /* Giảm cỡ chữ. */
-    white-space: normal; /* Cho phép chữ trong button xuống hàng (nếu cần). */
+    width: 100%;
+    /* Chiếm 100% chiều rộng. */
+    border-radius: 16px;
+    /* Bo cả 4 góc. */
+    padding: 14px 16px;
+    /* Giảm đệm. */
+    font-size: 1rem;
+    /* Giảm cỡ chữ. */
+    white-space: normal;
+    /* Cho phép chữ trong button xuống hàng (nếu cần). */
   }
+
   .content-area {
     grid-template-columns: 1fr;
   }
+
   .description-section {
     padding: 15px 10px;
   }
