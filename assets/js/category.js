@@ -1,5 +1,18 @@
 import { newsPort } from "../data/newsPost.js";
 import { fullNews } from "./addPost.js";
+import { createArticleCard } from "../../components/Category/articleCard.js";
+import { createTrendingCard } from "../../components/Category/trendingCard.js";
+import { createRelatedCard } from "../../components/Category/relatedCard.js";
+const subtitle = {
+  Latest: "Breaking stories, updated live.",
+  "Business News": "Corporate headlines and economic updates.",
+  "Money and Markets": "Financial flows and market movements.",
+  "Tech and Innovation": "Breakthroughs and emerging trends.",
+  "A.I.": "The future of Artificial Intelligence.",
+  Lifestyle: "Culture, wellness, and modern living.",
+  Politics: "The global and national political landscape.",
+};
+
 export function getType() {
   const params = new URLSearchParams(window.location.search);
   const param = params.get("type");
@@ -22,7 +35,7 @@ export function toggleNav() {
   const param = getType();
   const navContainer = document.querySelectorAll(".nav__categories a");
 
-  navContainer.forEach(link => {
+  navContainer.forEach((link) => {
     link.classList.remove("active"); // Xóa active từ tất cả
     const href = link.getAttribute("href");
 
@@ -46,27 +59,12 @@ function renderCategory() {
   );
 
   // SỬA LỖI LOGIC TẠI ĐÂY: Thêm data-id vào thẻ div
-  const html = filtered
-    .map(
-      (newsShow) => `
-    <div class="new__box" data-id="${newsShow.id}">
-        <div class="img">
-            <img src="${newsShow.img || "path/to/default/image.jpg"}" alt="">
-        </div>
-        <div class="grow">
-            <h2>${newsShow.description}</h2>
-            <p>By ${newsShow.author || "Clark Kent"}</p>
-            <p>Publish Monday 11:02 PM</p>
-        </div>
-    </div>
-`
-    )
-    .join("");
+  const html = filtered.map((newsShow) => createArticleCard(newsShow)).join("");
 
   if (newsTitle) {
     newsTitle.innerHTML = `<div class="title__container js-title-container">
                 <h1>${param}</h1>
-                <p>In-depth coverage and articles from Aurews about ${param}</p>
+                <p>${subtitle[param]}</p>
             </div>`;
   }
 
