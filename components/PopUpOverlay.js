@@ -56,9 +56,9 @@ function createPopUpOverlay() {
                         <label>Password</label>
                         <input type="password" placeholder="8-15 letters required" required class="password-sign-up">
                     </div>
-                    <div class="form-group">
+                    <div class="sign-up__form-group">
                         <label>Confirm password</label>
-                        <input type="password" placeholder="" required class="confirm-sign-up">
+                        <input type="password" placeholder="Re-enter your password" required class="confirm-sign-up">
                     </div>
                     <button type="submit" class="sign-up__submit-btn">Sign up</button>
                 </form>
