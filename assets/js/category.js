@@ -21,11 +21,16 @@ export const types = [
 export function toggleNav() {
   const param = getType();
   const navContainer = document.querySelectorAll(".nav__categories a");
-  const index = types.findIndex((type) => type === param);
-  if (index > -1) {
-    // Kiểm tra xem có tìm thấy mục nav không
-    navContainer[index + 1].classList.add("active");
-  }
+
+  navContainer.forEach(link => {
+    link.classList.remove("active"); // Xóa active từ tất cả
+    const href = link.getAttribute("href");
+
+    // Kiểm tra xem href có chứa type param không
+    if (href.includes(`type=${param}`)) {
+      link.classList.add("active");
+    }
+  });
 }
 
 function renderCategory() {
@@ -89,5 +94,8 @@ function onClickHandler() {
   });
 }
 
-// renderCategory();
-// onClickHandler();
+document.addEventListener("DOMContentLoaded", () => {
+  renderCategory();
+  onClickHandler();
+  toggleNav();
+});
