@@ -2,12 +2,14 @@
 function openPopup(tab) {
   document.getElementById("popupOverlay").classList.add("active");
   document.getElementById("mainContent").classList.add("blur");
+//   document.getElementById("mobile-menu__placeholder").classList.add("blur");
   switchTab(tab);
 }
 
 function closePopup() {
   document.getElementById("popupOverlay").classList.remove("active");
   document.getElementById("mainContent").classList.remove("blur");
+//   document.getElementById("mobile-menu__placeholder").classList.remove("blur");
 }
 
 function closePopupOnOverlay(event) {
@@ -200,10 +202,6 @@ function clickAddPostButton() {
     });
   }
 }
-
-
-
-
 
 //backend
 //         const res = await fetch('http://localhost:6666/api/auth/login',

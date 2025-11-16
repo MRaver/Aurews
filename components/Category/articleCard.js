@@ -15,8 +15,8 @@ const styles = `
 }
 
 .article-card__image img {
-    width: 100%;
-    height: 180px;
+    width: 240px;
+    height: 100%;
     object-fit: cover;
     background: #f1f1f1;
 }
@@ -98,7 +98,7 @@ export function createArticleCard(article) {
       <h2 class="article-card__title">${article.description}</h2>
       <h3 class="article-card__excerpt">${truncateSimple(
         article.content,
-        60
+        100
       )}</h3>
     </div>
 

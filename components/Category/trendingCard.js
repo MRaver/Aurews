@@ -74,17 +74,17 @@ function injectStyles() {
 export function createTrendingCard(article, rank) {
   injectStyles();
   return `
-  <a href="${article.url}" class="trending__item">
+  <a href="Post.html?id=${article.id}" class="trending__item">
   <div class="trending__left">
     <div class="trending__number">${rank}</div>
   </div>
 
   <div class="trending__image">
-    ${article.image ? `<img src="${article.image}"/>` : ""}
+    ${article.img ? `<img src="${article.img}"/>` : ""}
   </div>
 
   <div class="trending__content">
-    <h4 class="trending__title">${article.title}</h4>
+    <h4 class="trending__title">${article.description}</h4>
     <div class="trending__meta">${article.views} views today</div>
   </div>
 </a>

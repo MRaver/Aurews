@@ -81,14 +81,14 @@ function injectStyle() {
 
 export function createRelatedCard(article) {
   injectStyle();
-  const imageHtml = article.image
-    ? `<img src="${article.image}" alt="${article.title}" />`
+  const imageHtml = article.img
+    ? `<img src="${article.img}" alt="${article.description}" />`
     : "";
   return `
-    <a href="${article.url || "Not found"}" class="related-card">
+    <a href="Post.html?id=${article.id}" class="related-card" data-id="${article.id}">
         <div class="related-card__image">${imageHtml}</div>
-        <div class="related-card__category">${article.category}</div>
-        <h3 class="related-card__title">${article.title}</h3>
+        <div class="related-card__category">${article.type}</div>
+        <h3 class="related-card__title">${article.description}</h3>
         <div class="related-card__meta">
         <span><i class="far fa-clock"></i> ${article.time}</span>
         <span>by ${article.author}</span>

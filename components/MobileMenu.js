@@ -202,5 +202,19 @@ document.addEventListener("DOMContentLoaded", () => {
     userLoginHTML();
     clickAddPostButton();
     initMobileMenu();
+    const jsSearchEl = document.querySelector(".js-search");
+    if (jsSearchEl) {
+      jsSearchEl.addEventListener("click", () => {
+        window.location.href = "./Search.html";
+      });
+    }
+
+    const jsAboutEl = document.querySelector(".js-about");
+    if (jsAboutEl) {
+      jsAboutEl.addEventListener("click", () => {
+        window.location.href = "./about.html";
+      });
+    }
+
   }
 });
