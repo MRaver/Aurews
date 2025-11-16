@@ -1,4 +1,4 @@
-import {initMobileMenu} from "../assets/js/header.js"
+// import {initMobileMenu} from "../assets/js/header.js"
 const styles = `
 /* MOBILE MENU OVERLAY & SIDEBAR */
 .mobile-menu-overlay {
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = createMobileMenu();
     userLoginHTML();
     clickAddPostButton();
-    initMobileMenu();
+    // initMobileMenu();
     const jsSearchEl = document.querySelector(".js-search");
     if (jsSearchEl) {
       jsSearchEl.addEventListener("click", () => {
