@@ -1,3 +1,5 @@
+import { toggleNav } from "../assets/js/category.js";
+
 const styles = `
 /* NAV */
 
@@ -261,7 +263,16 @@ function createNavbar() {
 }
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("navbar__placeholder");
+  console.log(container);
   if (container) {
+    console.log("Loaded");
     container.innerHTML = createNavbar();
+    toggleNav();
+    document.querySelector(".nav__search").addEventListener("click", () => {
+      window.location.href = "./Search.html";
+    });
+    document.querySelector(".nav__about").addEventListener("click", () => {
+      window.location.href = "./about.html";
+    });
   }
 });

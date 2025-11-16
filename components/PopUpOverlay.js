@@ -43,7 +43,7 @@ function createPopUpOverlay() {
             <!-- Form Đăng Ký -->
             <div class="tab-content" id="registerContent">
                 <h2>Sign up</h2>
-                <form id="signUpForm" onsubmit="handleRegister(event)">
+                <form id="signUpForm" >
                     <div class="form-group">
                         <label>Full name</label>
                         <input type="text" placeholder="Type your name here" required class="full-name-sign-up">
@@ -75,5 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("pop-up-overlay__placeholder");
   if (container) {
     container.innerHTML = createPopUpOverlay();
+    saveSignUp();
+    Login();
   }
 });
