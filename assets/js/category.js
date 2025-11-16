@@ -63,16 +63,22 @@ function renderCategory() {
     )
     .join("");
 
-  newsTitle.innerHTML = `<div class="title__container js-title-container">
+  if (newsTitle) {
+    newsTitle.innerHTML = `<div class="title__container js-title-container">
                 <h1>${param}</h1>
                 <p>In-depth coverage and articles from Aurews about ${param}</p>
             </div>`;
-  newsContainer.innerHTML = html || "<p>No articles found.</p>";
+  }
+
+  if (newsContainer) {
+    newsContainer.innerHTML = html || "<p>No articles found.</p>";
+  }
 }
 
 function onClickHandler() {
   // SỬA LỖI LOGIC TẠI ĐÂY: Đơn giản hóa hoàn toàn
   const newsContainer = document.querySelector(".js-news-container");
+  if (!newsContainer) return; // Nếu không có container, thoát an toàn
 
   newsContainer.addEventListener("click", function (event) {
     // Tìm phần tử .new__box gần nhất với phần tử được click
