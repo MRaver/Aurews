@@ -192,10 +192,17 @@ document.addEventListener("keydown", function (e) {
 
 // Make toggleMenu available globally
 window.toggleMenu = toggleMenu;
-document.querySelector(".js-search").addEventListener("click", () => {
-  window.location.href = "./Search.html";
-});
+// Guard trước khi thêm event listener để tránh lỗi khi element không tồn tại
+const jsSearchEl = document.querySelector(".js-search");
+if (jsSearchEl) {
+  jsSearchEl.addEventListener("click", () => {
+    window.location.href = "./Search.html";
+  });
+}
 
-document.querySelector(".js-about").addEventListener("click", () => {
-  window.location.href = "./about.html";
-});
+const jsAboutEl = document.querySelector(".js-about");
+if (jsAboutEl) {
+  jsAboutEl.addEventListener("click", () => {
+    window.location.href = "./about.html";
+  });
+}

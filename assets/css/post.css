@@ -26,6 +26,12 @@
     font-style: italic;
 }
 
+/* Khoảng cách giữa các đoạn trong nội dung bài viết */
+.news__content-container p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
 .news__content-img {
     width: 100%;
     max-width: 752px;
