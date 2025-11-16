@@ -203,8 +203,7 @@ function clickAddPostButton() {
 
 
 
-userLoginHTML();
-clickAddPostButton();
+
 
 //backend
 //         const res = await fetch('http://localhost:6666/api/auth/login',
