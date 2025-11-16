@@ -101,7 +101,11 @@ class CategoryPage {
       // Filter theo category
       this.allArticles =
         this.category.toLocaleLowerCase() === "latest"
-          ? fullNews
+          ? fullNews.filter(
+              (a) =>
+                a.type2 &&
+                a.type2.toLowerCase() === this.category.toLocaleLowerCase()
+            )
           : fullNews.filter(
               (a) =>
                 a.type &&
