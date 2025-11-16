@@ -1,409 +1,407 @@
-
+/* ============================================
+    CONTAINER & LAYOUT
+    ============================================ */
 .container {
-    margin: 0 auto;
-    background-color: white;
-    margin-top: 20px;
-    max-width: 1440px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    overflow: hidden;
+     margin: 0 auto;
+     background-color: white;
+     margin-top: 20px;
+     max-width: 1440px;
+     width: 100%;
+     display: grid;
+     grid-template-columns: 1fr 1.5fr;
+     overflow: hidden;
 }
 
+/* ============================================
+    LEFT SECTION
+    ============================================ */
 .left-section {
-    padding: 50px 40px;
-    color: black;
+     padding: 50px 40px;
+     color: black;
 }
 
 .left-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    position: relative;
+     font-size: 2.5rem;
+     margin-bottom: 10px;
+     position: relative;
 }
 
 .left-section h1::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 15px;
-    background: black;
-    margin-top: 15px;
+     content: '';
+     display: block;
+     width: 100px;
+     height: 15px;
+     background: black;
+     margin-top: 15px;
 }
 
 .left-section p {
-    margin-bottom: 40px;
-    opacity: 0.9;
-    line-height: 1.6;
+     margin-bottom: 40px;
+     opacity: 0.9;
+     line-height: 1.6;
 }
 
+/* ============================================
+    CONTACT INFO
+    ============================================ */
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    padding: 0px;
-    border-radius: 10px;
-    transition: background 0.3s;
+     display: flex;
+     align-items: center;
+     gap: 30px;
+     padding: 0px;
+     border-radius: 10px;
+     transition: background 0.3s;
 }
 
 .contact-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+     background: rgba(255, 255, 255, 0.1);
 }
 
 .icon {
-    color: white;
-    width: 50px;
-    height: 50px;
-    background: black;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
+     color: white;
+     width: 50px;
+     height: 50px;
+     background: black;
+     border-radius: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 30px;
 }
 
 .contact-info .contact-item:nth-child(1) .icon {
-
-    padding-top: 31px;
-    padding-bottom: 20px;
-    font-size: 36px;
+     padding-top: 31px;
+     padding-bottom: 20px;
+     font-size: 36px;
 }
 
-.contact-info .contact-item:nth-child(3) .icon,
-.contact-info .contact-item:nth-child(2) .icon {
-
-    font-size: 37px;
+.contact-info .contact-item:nth-child(2) .icon,
+.contact-info .contact-item:nth-child(3) .icon {
+     font-size: 37px;
 }
 
+/* ============================================
+    RIGHT SECTION & FORM
+    ============================================ */
 .right-section {
-    padding: 50px 40px;
+     padding: 50px 40px;
 }
 
 .form-group {
-    margin-bottom: 25px;
-    position: relative;
-    width: 100%;
+     margin-bottom: 25px;
+     position: relative;
+     width: 100%;
+}
+
+.form-group::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 0;
+     height: 2px;
+     background: #000;
+     transition: width 0.3s ease;
+}
+
+.form-group:focus-within::after {
+     width: 100%;
 }
 
 .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 20px;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: 500;
-    font-size: 0.9rem;
+     display: block;
+     margin-bottom: 8px;
+     color: #333;
+     font-weight: 500;
+     font-size: 0.9rem;
 }
 
 label span {
-    color: #000;
+     color: #000;
 }
 
-/* Ẩn border mặc định, tạo line mờ ban đầu */
+/* ============================================
+    INPUT & TEXTAREA
+    ============================================ */
 input,
 select,
 textarea {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #aaa;
-    outline: none;
-    background: transparent;
-    padding: 6px 0;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: border-bottom-color 0.3s ease;
+     width: 100%;
+     border: none;
+     border-bottom: 1px solid #aaa;
+     outline: none;
+     background: transparent;
+     padding: 6px 0;
+     font-size: 1rem;
+     font-family: inherit;
+     transition: border-bottom-color 0.3s ease;
 }
 
-/* Tạo pseudo-line để animate */
-.form-group::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #000;
-    transition: width 0.3s ease;
-}
-
-/* Khi input được focus, mở rộng pseudo-line */
-.form-group:focus-within::after {
-    width: 100%;
-}
-
-/* Đổi màu border khi focus */
 input:focus,
 select:focus,
 textarea:focus {
-    border-bottom-color: transparent;
-}
-
-.phone-input {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    border-bottom: 1px solid #aaa;
-    padding-bottom: 6px;
-    transition: border-bottom-color 0.3s ease;
-}
-
-.country-code {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0;
-}
-
-.phone-input input {
-    flex: 1;
-    border: none;
-    border-bottom: none;
-    padding: 0;
-}
-
-.phone-wrapper .phone-input {
-    border-bottom: 1px solid #aaa;
-}
-
-.phone-wrapper:focus-within .phone-input {
-    border-bottom-color: transparent;
-}
-
-.flag {
-    font-size: 1.2rem;
-}
-
-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0 center;
-    background-size: 12px;
-    padding-right: 25px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
+     border-bottom-color: transparent;
 }
 
 textarea {
-    resize: vertical;
-    min-height: 100px;
+     resize: vertical;
+     min-height: 100px;
 }
 
+select {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+     background-repeat: no-repeat;
+     background-position: right 0 center;
+     background-size: 12px;
+     padding-right: 25px;
+     appearance: none;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     cursor: pointer;
+}
+
+/* ============================================
+    PHONE INPUT
+    ============================================ */
+.phone-wrapper {
+     position: relative;
+}
+
+.phone-input {
+     display: flex;
+     gap: 10px;
+     align-items: center;
+     border-bottom: 1px solid #aaa;
+     padding-bottom: 6px;
+     transition: border-bottom-color 0.3s ease;
+}
+
+.phone-input input {
+     flex: 1;
+     border: none;
+     border-bottom: none;
+     padding: 0;
+}
+
+.phone-wrapper:focus-within .phone-input {
+     border-bottom-color: transparent;
+}
+
+.country-code {
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     padding: 0;
+}
+
+.flag {
+     font-size: 1.2rem;
+}
+
+/* ============================================
+    SUBMIT BUTTON
+    ============================================ */
 .submit-btn {
-    background: linear-gradient(135deg, #c6a55c 0%, #d4af37 100%);
-    color: black;
-    border: none;
-    padding: 15px 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin: 30px auto 0;
+     background: #f2d9b4;
+     color: black;
+     border: none;
+     padding: 15px 50px;
+     font-size: 0.9rem;
+     font-weight: 600;
+     border-radius: 30px;
+     cursor: pointer;
+     transition: all 0.3s;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     display: block;
+     margin: 30px auto 0;
 }
 
 .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(198, 165, 92, 0.4);
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px rgba(198, 165, 92, 0.4);
+}
+
+/* ============================================
+    MEDIA QUERIES
+    ============================================ */
+@media (max-width: 1200px) {
+     .maintopic__container {
+          display: flex;
+          flex-direction: column;
+     }
+
+     .footer__newsletter {
+          flex: 1;
+          min-width: 300px;
+     }
+
+     .option {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          margin-left: -50px;
+     }
+
+     .popular__container {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+     }
+
+     .grid1__content1,
+     .grid1__content2,
+     .lifestyle,
+     .politics {
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+          text-align: left;
+          justify-content: flex-start;
+          align-items: flex-start;
+     }
+
+     .grid1__content1-img,
+     .grid1__content2-img,
+     .lifestyle__img,
+     .politics__img {
+          width: 50%;
+     }
+
+     .grid__box1 {
+          padding-right: none;
+          margin-right: none;
+     }
+
+     .popular__container {
+          margin-right: none;
+          padding-right: none;
+     }
+
+     .business__news-img {
+          padding-top: 10px;
+     }
+
+     .business__news-description {
+          padding-bottom: 20px;
+     }
+
+     .bussiness__news {
+          border-top: 2px solid rgba(0, 0, 0, 0.1);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+     }
+
+     .business__news-description {
+          margin: 0 auto;
+     }
+
+     .grid__box1,
+     .grid__box2 {
+          border: none;
+     }
+
+     .lifestyle {
+          padding-top: 15px;
+     }
+
+     .topic__container {
+          display: flex;
+          flex-direction: column;
+     }
+
+     .news__img {
+          width: 20%;
+     }
+
+     .threenews__img {
+          width: 40%;
+          aspect-ratio: 100/50;
+     }
 }
 
 @media (max-width: 968px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
+     .container {
+          grid-template-columns: 1fr;
+     }
 
-    .left-section {
-        padding: 40px 30px;
-    }
+     .left-section {
+          padding: 40px 30px;
+     }
 
-    .left-section h1 {
-        font-size: 2rem;
-    }
+     .left-section h1 {
+          font-size: 2rem;
+     }
+}
+
+@media (max-width: 768px) {
+     .boxlowerleft {
+          display: flex;
+          flex-direction: column;
+     }
+
+     .footer__container {
+          flex-direction: column;
+          gap: 40px;
+     }
+
+     .newsletter__formbox input {
+          width: 300px;
+          max-width: 100%;
+          flex: none;
+     }
+
+     .AI__container {
+          display: flex;
+          flex-direction: column;
+     }
+
+     .AI__left {
+          border: none;
+     }
+
+     .AI__news--1 {
+          border-top: 2px solid rgba(0, 0, 0, 0.1);
+     }
 }
 
 @media (max-width: 640px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-
-
-@media (max-width: 768px) {
-
-}
-
-@media (max-width: 1200px) {
-    .maintopic__container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .footer__newsletter {
-        flex: 1;
-        min-width: 300px;
-    }
-
-    .option {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        margin-left: -50px;
-    }
-
-    .popular__container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-
-
-
-    .grid1__content1,
-    .grid1__content2,
-    .lifestyle,
-    .politics {
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
-        text-align: left;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    .grid1__content1-img,
-    .grid1__content2-img,
-    .lifestyle__img,
-    .politics__img {
-        width: 50%;
-    }
-
-    .grid__box1 {
-        padding-right: none;
-        margin-right: none;
-    }
-
-    .popular__container {
-        margin-right: none;
-        padding-right: none;
-    }
-
-    .business__news-img {
-        padding-top: 10px;
-    }
-
-    .business__news-description {
-        padding-bottom: 20px;
-    }
-
-    .bussiness__news {
-        border-top: 2px solid rgba(0, 0, 0, 0.1);
-        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .business__news-description {
-        margin: 0 auto;
-    }
-
-    .grid__box1,
-    .grid__box2 {
-        border: none;
-    }
-
-    .lifestyle {
-        padding-top: 15px;
-    }
-
-    .topic__container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .news__img {
-        width: 20%;
-    }
-
-    .threenews__img {
-        width: 40%;
-        aspect-ratio: 100/50;
-    }
-
-
-}
-
-@media (max-width: 768px) {
-    .boxlowerleft {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .footer__container {
-        flex-direction: column;
-        /* Chuyển thành cột */
-        gap: 40px;
-    }
-
-    .newsletter__formbox input {
-        width: 300px;
-        /* hoặc giá trị cố định bạn muốn */
-        max-width: 100%;
-        /* đảm bảo không vượt quá màn hình */
-        flex: none;
-        /* tắt flex grow/shrink */
-    }
-
-    .AI__container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .AI__left {
-        border: none;
-    }
-
-    .AI__news--1 {
-        border-top: 2px solid rgba(0, 0, 0, 0.1);
-        ;
-    }
-
-
+     .form-row {
+          grid-template-columns: 1fr;
+     }
 }
 
 @media (max-width: 500px) {
-    .newsletter__formbox {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
+     .newsletter__formbox {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+     }
 
-    .newsletter__formbox input {
-        width: 100%;
-        border-radius: 16px;
-        padding: 14px 16px;
-        font-size: 1rem;
-    }
+     .newsletter__formbox input {
+          width: 100%;
+          border-radius: 16px;
+          padding: 14px 16px;
+          font-size: 1rem;
+     }
 
-    .newsletter__formbox button {
-        width: 100%;
-        border-radius: 16px;
-        padding: 14px 16px;
-        font-size: 1rem;
-        white-space: normal;
-    }
+     .newsletter__formbox button {
+          width: 100%;
+          border-radius: 16px;
+          padding: 14px 16px;
+          font-size: 1rem;
+          white-space: normal;
+     }
 }

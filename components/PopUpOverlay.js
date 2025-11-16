@@ -24,15 +24,15 @@ function createPopUpOverlay() {
             <div class="tab-content active" id="loginContent">
                 <h2>Login</h2>
                 <form id="loginForm" onsubmit="">
-                    <div class="form-group">
+                    <div class="login__form-group">
                         <label>Email</label>
                         <input type="text" class="email-login" placeholder="Type your email" required>
                     </div>
-                    <div class="form-group">
+                    <div class="login__form-group">
                         <label>Password</label>
                         <input type="password" class="password-login" placeholder="Password" required>
                     </div>
-                    <button type="submit" class="submit-btn">Login</button>
+                    <button type="submit" class="login__submit-btn">Login</button>
                 </form>
                 <div class="form-footer">
                     Don't have an account? <a href="#" onclick="switchTab('register'); return false;">Sign up
@@ -44,15 +44,15 @@ function createPopUpOverlay() {
             <div class="tab-content" id="registerContent">
                 <h2>Sign up</h2>
                 <form id="signUpForm" >
-                    <div class="form-group">
+                    <div class="sign-up__form-group">
                         <label>Full name</label>
                         <input type="text" placeholder="Type your name here" required class="full-name-sign-up">
                     </div>
-                    <div class="form-group">
+                    <div class="sign-up__form-group">
                         <label>Email</label>
                         <input type="email" placeholder="Type your email here" required class="email-sign-up">
                     </div>
-                    <div class="form-group">
+                    <div class="sign-up__form-group">
                         <label>Password</label>
                         <input type="password" placeholder="8-15 letters required" required class="password-sign-up">
                     </div>
@@ -60,7 +60,7 @@ function createPopUpOverlay() {
                         <label>Confirm password</label>
                         <input type="password" placeholder="" required class="confirm-sign-up">
                     </div>
-                    <button type="submit" class="submit-btn">Sign up</button>
+                    <button type="submit" class="sign-up__submit-btn">Sign up</button>
                 </form>
                 <div class="form-footer">
                     Have an account? <a href="#" onclick="switchTab('login'); return false;">Login</a>
