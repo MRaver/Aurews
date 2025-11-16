@@ -11,6 +11,7 @@ function initializeAddPostPage() {
     const imagePreviewContainer = document.getElementById('imagePreview');
     const previewImg = document.getElementById('previewImg');
     const previewText = document.querySelector('.image-preview p');
+    const imgCaptionInput = document.getElementById('img-caption');
 
     // === 1. XỬ LÝ PREVIEW ẢNH VÀ LƯU TẠM VÀO LOCALSTORAGE ===
     // Chỉ thêm event listener nếu phần tử tồn tại trên trang
@@ -64,6 +65,7 @@ function initializeAddPostPage() {
                 author: document.getElementById('postAuthor').value.trim(),
                 content: document.getElementById('postContent').value.trim(),
                 image: localStorage.getItem('tempPostImage'), // Lấy ảnh base64 đã lưu tạm
+                imgCaption: document.getElementById('img-caption').value.trim(),
                 createdAt: new Date().toISOString()
             };
 
@@ -80,6 +82,11 @@ function initializeAddPostPage() {
 
             if (!formData.image) {
                 alert('Vui lòng chọn một hình ảnh cho bài viết!');
+                return;
+            }
+
+            if (!formData.imgCaption) {
+                alert('Vui lòng nhập chú thích cho hình ảnh!');
                 return;
             }
 
@@ -152,7 +159,8 @@ function loadNews() {
         img: post.image,
 
         // Convert stored plain text content into safe HTML with paragraphs and <br>
-        content: textToHtml(post.content)
+        content: textToHtml(post.content),
+        imgCaption: textToHtml(post.imgCaption),
     }));
 
     // Kết hợp bài viết mới và bài viết gốc, đưa bài mới nhất lên đầu
