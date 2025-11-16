@@ -30,14 +30,17 @@ export function renderNewsPortContent() {
     // Tìm article theo ID
     const article = fullNews.find(item => item.id === postId) || newsPort[0]; // Default to first if not found
 
-    container.innerHTML = `<figure>
+    container.innerHTML = `
+        <figure>
             <div class="news__content-img">
                 <img src="${article.img}" alt="" height="420px" width="670px">
             </div>
-            <figcaption>
-                <p>caption</p>
+            // modified begin
+            <figcaption class="img-caption">
+               ${article.imgCaption}
             </figcaption>
-            </figure>
+            // modified end
+        </figure>
             ${article.content}
             <div class="comment-section">
                 <div class="comment-header">
