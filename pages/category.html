@@ -26,22 +26,73 @@
     <!-- ----------------------- -->
     <!-- Pop-up Overlay -->
     <div id="pop-up-overlay__placeholder"></div>
+    <div id="mobile-menu__placeholder"></div>
     <div id="mainContent">
       <header>
         <div id="navbar__placeholder"></div>
-        <div id="mobile-menu__placeholder"></div>
       </header>
       <main>
-        <div class="background__title js-background-title">
-          <div class="title__container js-title-container"></div>
-          <div class="news__container js-news-container"></div>
+        <div class="background__title">
+          <div class="title__container js-title-container">
+            <h1 id="category-title">LOADING...</h1>
+            <h2 id="category-subtitle">Please wait...</h2>
+          </div>
+          <!-- Main Content Grid -->
+          <div class="news__container js-news-container">
+            <!-- Articles List -->
+            <div id="newsList__container">
+              <!-- Loading State -->
+              <div class="loading__state" id="loading-state">
+                <div class="loading__spinner"></div>
+                <p>Loading articles...</p>
+              </div>
+              <!-- Articles Grid (populated by JS) -->
+              <div
+                class="articles__grid"
+                id="articles-grid"
+                style="display: none"
+              ></div>
+
+              <!-- Empty State -->
+              <div class="empty__state" id="empty-state" style="display: none">
+                <i class="fas fa-inbox"></i>
+                <h3>No Articles Found</h3>
+                <p>There are no articles in this category yet.</p>
+              </div>
+
+              <!-- Load More Button -->
+              <div
+                class="load-more__container"
+                id="load-more-container"
+                style="display: none"
+              >
+                <button class="load-more__btn" id="load-more-btn">
+                  LOAD MORE
+                </button>
+              </div>
+            </div>
+            <!-- Sidebar - Trending Now -->
+            <aside class="sidebar__container">
+              <h3 class="sidebar__header">TRENDING NOW</h3>
+
+              <div class="trending__list" id="trending-list">
+                <!-- Trending items will be populated by JS -->
+              </div>
+            </aside>
+          </div>
+          <section id="you-may-like">
+            <h2 class="you-may-like__header">YOU MAY LIKE</h2>
+            <div class="you-may-like__grid" id="you-may-like-grid"></div>
+          </section>
         </div>
+        <div id="footer__placeholder"></div>
       </main>
     </div>
     <script src="../assets/js/category.js" type="module"></script>
     <script type="module" src="../components/Navbar.js"></script>
     <script src="../components/PopUpOverlay.js"></script>
     <script type="module" src="../components/MobileMenu.js"></script>
+    <script type="module" src="../components/Footer.js"></script>
     <script type="module" src="../components/footer.js"></script>
     <script src="../assets/js/header.js"></script>
     <script src="../assets/js/login.js"></script>

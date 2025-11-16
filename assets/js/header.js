@@ -131,8 +131,8 @@ function initMobileMenuLinks() {
 }
 
 // Khởi tạo mobile menu
-function initMobileMenu() {
-  // Khởi tạo URLs cho mobile menu - gọi multiple times để ensure component đã render
+export function initMobileMenu() {
+  // Khởi tạo URLs cho mobile menu
   initMobileMenuLinks();
   setTimeout(() => initMobileMenuLinks(), 50);
   setTimeout(() => initMobileMenuLinks(), 200);
@@ -187,12 +187,12 @@ function initMobileMenu() {
 }
 
 // Khởi tạo khi DOM ready
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initMobileMenu);
-} else {
-  // DOM đã sẵn sàng
-  initMobileMenu();
-}
+// if (document.readyState === "loading") {
+//   document.addEventListener("DOMContentLoaded", initMobileMenu);
+// } else {
+//   // DOM đã sẵn sàng
+//   initMobileMenu();
+// }
 
 // Close menu on ESC key
 document.addEventListener("keydown", function (e) {
