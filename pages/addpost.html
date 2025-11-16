@@ -30,50 +30,7 @@
       <header>
         <div id="navbar__placeholder"></div>
         <!-- Mobile Menu Overlay -->
-        <div
-          class="mobile-menu-overlay"
-          onclick="toggleMenu(); return false;"
-        ></div>
-
-        <!-- Mobile Menu Sidebar -->
-        <div class="mobile-menu">
-          <div class="mobile-menu-header">
-            <p class="mobile-menu-header__logo">Aurews</p>
-            <button
-              class="close-menu"
-              onclick="toggleMenu()"
-              aria-label="Close menu"
-            >
-              ×
-            </button>
-          </div>
-          <ul class="mobile-nav-links">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">Business News</a></li>
-            <li><a href="#">Money & Markets</a></li>
-            <li><a href="#">Tech & Innovation</a></li>
-            <li><a href="#">A.I.</a></li>
-            <li><a href="#">Lifestyle</a></li>
-            <li><a href="#">Politics</a></li>
-            <li><a href="#">Email</a></li>
-            <li><a href="#">Podcast</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <div class="mobile-menu-footer">
-            <div
-              id="login-button"
-              class="mobile-menu-footer-item"
-              onclick="openPopup('login')"
-            >
-              Login
-            </div>
-            <div class="mobile-menu-footer-item">Languages</div>
-            <div class="mobile-menu-footer-item js-search">Search</div>
-            <div class="mobile-menu-footer-item">Newsletter</div>
-            <div class="mobile-menu-footer-item">About</div>
-          </div>
-        </div>
+        <div id="mobile-menu__placeholder"></div>
       </header>
 
       <main>
@@ -171,6 +128,7 @@
     <script type="module" src="../components/Navbar.js"></script>
     <script src="../components/PopUpOverlay.js"></script>
     <script type="module" src="../components/footer.js"></script>
+    <script type="module" src="../components/MobileMenu.js"></script>
     <script src="../assets/js/header.js"></script>
     <script src="../assets/js/addPost.js" type="module"></script>
     <script src="../assets/js/login.js"></script>
