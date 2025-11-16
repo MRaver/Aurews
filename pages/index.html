@@ -1,300 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/general.css" />
-    <link rel="stylesheet" href="../assets/css/index.css" />
-    <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-    <title>Aurews</title>
-  </head>
 
-  <body>
-    <div id="page-overlay">
-      <!-- THAY ĐỔI: Sử dụng text thay vì spinner -->
-      <div class="loading-text">AUREWS</div>
-    </div>
-    <!-- ----------------------- -->
-    <!-- sign-up, sign in -->
-    <!-- ----------------------- -->
-    <!-- Pop-up Overlay -->
-    <div id="pop-up-overlay__placeholder"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/general.css" />
+  <link rel="stylesheet" href="../assets/css/index.css" />
+  <link rel="stylesheet" href="../assets/css/banner.css">
+  <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <title>Aurews</title>
+</head>
 
-    <div id="mainContent">
-      <header>
-        <div id="navbar__placeholder"></div>
-        <!-- Mobile Menu Overlay -->
-        <div
-          class="mobile-menu-overlay"
-          onclick="toggleMenu(); return false;"
-        ></div>
+<body>
+  <div id="page-overlay">
+    <!-- THAY ĐỔI: Sử dụng text thay vì spinner -->
+    <div class="loading-text">AUREWS</div>
+  </div>
+  <!-- ----------------------- -->
+  <!-- sign-up, sign in -->
+  <!-- ----------------------- -->
+  <!-- Pop-up Overlay -->
+  <div id="pop-up-overlay__placeholder"></div>
 
-        <!-- Mobile Menu Sidebar -->
-        <div class="mobile-menu">
-          <div class="mobile-menu-header">
-            <p class="mobile-menu-header__logo">Aurews</p>
-            <button
-              class="close-menu"
-              onclick="toggleMenu()"
-              aria-label="Close menu"
-            >
-              ×
-            </button>
-          </div>
-          <ul class="mobile-nav-links">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">Business News</a></li>
-            <li><a href="#">Money & Markets</a></li>
-            <li><a href="#">Tech & Innovation</a></li>
-            <li><a href="#">A.I.</a></li>
-            <li><a href="#">Lifestyle</a></li>
-            <li><a href="#">Politics</a></li>
-            <li><a href="#">Email</a></li>
-            <li><a href="#">Podcast</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <div class="mobile-menu-footer">
-            <div
-              id="login-button"
-              class="mobile-menu-footer-item"
-              onclick="openPopup('login')"
-            >
-              Login
-            </div>
-            <div class="mobile-menu-footer-item">Languages</div>
-            <div class="mobile-menu-footer-item js-search">Search</div>
-            <div class="mobile-menu-footer-item">Newsletter</div>
-            <div class="mobile-menu-footer-item js-about">About</div>
-          </div>
+  <div id="mainContent">
+    <header>
+      <div id="navbar__placeholder"></div>
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" onclick="toggleMenu(); return false;"></div>
+
+      <!-- Mobile Menu Sidebar -->
+      <div class="mobile-menu">
+        <div class="mobile-menu-header">
+          <p class="mobile-menu-header__logo">Aurews</p>
+          <button class="close-menu" onclick="toggleMenu()" aria-label="Close menu">
+            ×
+          </button>
         </div>
-      </header>
-      <main>
-        <div class="maintopic__container">
-          <div class="left">
-            <div class="boxupperleft">
-              <div class="boxupperleft__img">
-                <img src="" alt="" />
-              </div>
-              <div class="boxupperleft__description">
-                <h1></h1>
-                <p></p>
-              </div>
+        <ul class="mobile-nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Latest</a></li>
+          <li><a href="#">Business News</a></li>
+          <li><a href="#">Money & Markets</a></li>
+          <li><a href="#">Tech & Innovation</a></li>
+          <li><a href="#">A.I.</a></li>
+          <li><a href="#">Lifestyle</a></li>
+          <li><a href="#">Politics</a></li>
+          <li><a href="#">Email</a></li>
+          <li><a href="#">Podcast</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <div id="login-button" class="mobile-menu-footer-item" onclick="openPopup('login')">
+            Login
+          </div>
+          <div class="mobile-menu-footer-item">Languages</div>
+          <div class="mobile-menu-footer-item js-search">Search</div>
+          <div class="mobile-menu-footer-item">Newsletter</div>
+          <div class="mobile-menu-footer-item js-about">About</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="ticker-container">
+        <div class="ticker-wrapper" id="tickerWrapper"></div>
+      </div>
+      <div class="maintopic__container">
+        <div class="left">
+          <div class="boxupperleft">
+            <div class="boxupperleft__img">
+              <img src="" alt="" />
             </div>
-            <div class="boxlowerleft">
-              <div class="left1">
-                <h2 class="boxuppertitle">LATEST</h2>
-                <div class="latestnews"></div>
-              </div>
-              <div class="right1">
-                <div class="threenews"></div>
-                <div class="block">
-                  <p>Show all...</p>
-                </div>
-              </div>
+            <div class="boxupperleft__description">
+              <h1></h1>
+              <p></p>
             </div>
           </div>
-          <div class="right">
-            <h2>LIFE STYLE</h2>
-            <div class="boxupperright">
-              <div class="bignews">
-                <div class="bignews__img">
-                  <img src="" alt="" />
-                </div>
-                <div class="bignews__description">
-                  <p></p>
-                </div>
-              </div>
-              <div class="smallnews">
-                <div class="smallnewsfirst">
-                  <div class="smallnews__img">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="smallnews__description">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="smallnewssecond">
-                  <div class="smallnews__img">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="smallnews__description">
-                    <p></p>
-                  </div>
-                </div>
-              </div>
+          <div class="boxlowerleft">
+            <div class="left1">
+              <h2 class="boxuppertitle">LATEST</h2>
+              <div class="latestnews"></div>
+            </div>
+            <div class="right1">
+              <div class="threenews"></div>
               <div class="block">
                 <p>Show all...</p>
               </div>
             </div>
-            <div class="boxlowerright">
-              <h2>WEATHER</h2>
-              <div class="boxlowerright__img">
+          </div>
+        </div>
+        <div class="right">
+          <h2>LIFE STYLE</h2>
+          <div class="boxupperright">
+            <div class="bignews">
+              <div class="bignews__img">
                 <img src="" alt="" />
               </div>
-              <h2>SPORTS</h2>
-              <div class="boxlowerright__img">
-                <img src="" alt="" />
+              <div class="bignews__description">
+                <p></p>
               </div>
+            </div>
+            <div class="smallnews">
+              <div class="smallnewsfirst">
+                <div class="smallnews__img">
+                  <img src="" alt="" />
+                </div>
+                <div class="smallnews__description">
+                  <p></p>
+                </div>
+              </div>
+              <div class="smallnewssecond">
+                <div class="smallnews__img">
+                  <img src="" alt="" />
+                </div>
+                <div class="smallnews__description">
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+          <div class="boxlowerright">
+            <h2>WEATHER</h2>
+            <div class="boxlowerright__img">
+              <img src="" alt="" />
+            </div>
+            <h2>SPORTS</h2>
+            <div class="boxlowerright__img">
+              <img src="" alt="" />
             </div>
           </div>
         </div>
-        <div class="topic__container">
-          <div class="topic topic1">
-            <h2></h2>
-            <div class="block">
-              <p>Show all...</p>
-            </div>
+      </div>
+      <div class="topic__container">
+        <div class="topic topic1">
+          <h2></h2>
+          <div class="block">
+            <p>Show all...</p>
           </div>
-          <div class="topic">
-            <h2></h2>
-            <div class="block">
-              <p>Show all...</p>
-            </div>
+        </div>
+        <div class="topic">
+          <h2></h2>
+          <div class="block">
+            <p>Show all...</p>
           </div>
-          <div class="topic">
-            <h2></h2>
-            <div class="block">
-              <p>Show all...</p>
-            </div>
+        </div>
+        <div class="topic">
+          <h2></h2>
+          <div class="block">
+            <p>Show all...</p>
           </div>
-          <div class="topic">
-            <h2></h2>
-            <div class="block">
-              <p>Show all...</p>
+        </div>
+        <div class="topic">
+          <h2></h2>
+          <div class="block">
+            <p>Show all...</p>
+          </div>
+        </div>
+      </div>
+      <div class="AI__container">
+        <div class="AI__left">
+          <div class="AI__title">
+            <h2>Generation A.I</h2>
+          </div>
+          <div class="AI_maintopic">
+            <div class="AI__img">
+              <img src="" alt="" />
+            </div>
+            <div class="AI__description">
+              <h3></h3>
+              <p></p>
             </div>
           </div>
         </div>
-        <div class="AI__container">
-          <div class="AI__left">
+        <div class="AI__right">
+          <div class="AI__news--1">
+            <div class="img__container">
+              <img src="" alt="" />
+            </div>
             <div class="AI__title">
-              <h2>Generation A.I</h2>
-            </div>
-            <div class="AI_maintopic">
-              <div class="AI__img">
-                <img src="" alt="" />
-              </div>
-              <div class="AI__description">
-                <h3></h3>
-                <p></p>
-              </div>
+              <p></p>
             </div>
           </div>
-          <div class="AI__right">
-            <div class="AI__news--1">
-              <div class="img__container">
-                <img src="" alt="" />
-              </div>
-              <div class="AI__title">
-                <p></p>
-              </div>
+          <div class="AI__news">
+            <div class="img__container">
+              <img src="" alt="" />
             </div>
-            <div class="AI__news">
-              <div class="img__container">
-                <img src="" alt="" />
-              </div>
-              <div class="AI__title">
-                <p></p>
-              </div>
+            <div class="AI__title">
+              <p></p>
             </div>
-            <div class="AI__news">
-              <div class="img__container">
-                <img src="" alt="" />
-              </div>
-              <div class="AI__title">
-                <p></p>
-              </div>
+          </div>
+          <div class="AI__news">
+            <div class="img__container">
+              <img src="" alt="" />
             </div>
-            <div class="AI__news--4">
-              <div class="img__container">
-                <img src="" alt="" />
-              </div>
-              <div class="AI__title">
-                <p></p>
-              </div>
+            <div class="AI__title">
+              <p></p>
             </div>
-            <div class="block">
-              <p>Show all...</p>
+          </div>
+          <div class="AI__news--4">
+            <div class="img__container">
+              <img src="" alt="" />
+            </div>
+            <div class="AI__title">
+              <p></p>
+            </div>
+          </div>
+          <div class="block">
+            <p>Show all...</p>
+          </div>
+        </div>
+      </div>
+      <div class="popular__container">
+        <div class="grid__box1">
+          <h2 class="grid1__title">Most Popular Stories</h2>
+          <div class="grid1__content1">
+            <div class="grid1__content1-img">
+              <img src="" alt="" />
+            </div>
+            <div class="grid1__content1-description">
+              <h2></h2>
+              <p></p>
+            </div>
+          </div>
+          <div class="grid1__content2">
+            <div class="grid1__content2-img">
+              <img src="" alt="" />
+            </div>
+            <div class="grid1__content2-description">
+              <h2></h2>
+              <p></p>
             </div>
           </div>
         </div>
-        <div class="popular__container">
-          <div class="grid__box1">
-            <h2 class="grid1__title">Most Popular Stories</h2>
-            <div class="grid1__content1">
-              <div class="grid1__content1-img">
-                <img src="" alt="" />
-              </div>
-              <div class="grid1__content1-description">
-                <h2></h2>
-                <p></p>
-              </div>
+        <div class="grid__box2">
+          <div class="bussiness__news">
+            <div class="business__news-img">
+              <img src="" alt="" />
             </div>
-            <div class="grid1__content2">
-              <div class="grid1__content2-img">
-                <img src="" alt="" />
-              </div>
-              <div class="grid1__content2-description">
-                <h2></h2>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="grid__box2">
-            <div class="bussiness__news">
-              <div class="business__news-img">
-                <img src="" alt="" />
-              </div>
-              <div class="business__news-description">
-                <h2 class="business__title"></h2>
-                <h2 class="p2"></h2>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="grid__box3">
-            <div class="lifestyle">
-              <div class="lifestyle__img">
-                <img src="" alt="" />
-              </div>
-              <div class="lifestyle__description">
-                <h2></h2>
-                <p></p>
-              </div>
-            </div>
-            <div class="politics">
-              <div class="politics__img">
-                <img src="" alt="" />
-              </div>
-              <div class="politics__description">
-                <h2></h2>
-                <p></p>
-              </div>
+            <div class="business__news-description">
+              <h2 class="business__title"></h2>
+              <h2 class="p2"></h2>
+              <p></p>
             </div>
           </div>
         </div>
-      </main>
-      <div id="footer__placeholder"></div>
-    </div>
+        <div class="grid__box3">
+          <div class="lifestyle">
+            <div class="lifestyle__img">
+              <img src="" alt="" />
+            </div>
+            <div class="lifestyle__description">
+              <h2></h2>
+              <p></p>
+            </div>
+          </div>
+          <div class="politics">
+            <div class="politics__img">
+              <img src="" alt="" />
+            </div>
+            <div class="politics__description">
+              <h2></h2>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="footer__placeholder"></div>
+  </div>
 
-    <!-- Render dung thu tu -->
+  <!-- Render dung thu tu -->
 
-    <script type="module" src="../components/Navbar.js"></script>
-    <script src="../assets/js/login.js"></script>
-    <script src="../components/PopUpOverlay.js"></script>
-    <script type="module" src="../components/footer.js"></script>
-    <script src="../assets/js/overlay.js"></script>
-    <script src="../assets/js/header.js"></script>
-    <script src="../assets/js/index.js" type="module"></script>
-  </body>
+  <script type="module" src="../components/Navbar.js"></script>
+  <script src="../assets/js/login.js"></script>
+  <script src="../components/PopUpOverlay.js"></script>
+  <script type="module" src="../components/footer.js"></script>
+  <script src="../assets/js/overlay.js"></script>
+  <script src="../assets/js/header.js"></script>
+  <script src="../assets/js/index.js" type="module"></script>
+  <script src="../assets/js/banner.js"></script>
+</body>
+
 </html>

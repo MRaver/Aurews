@@ -1,0 +1,131 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+     padding: 20px;
+     overflow-x: hidden;
+     /* Thêm để tránh thanh cuộn ngang không mong muốn */
+ }
+
+ .ticker-container {
+     border-radius: 8px;
+     padding: 16px 0;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .ticker-wrapper {
+     display: flex;
+     gap: 40px;
+     animation: scroll 40s linear infinite;
+     width: max-content;
+     /* Để wrapper tự động tính toán độ rộng */
+ }
+
+ @keyframes scroll {
+     from {
+         transform: translateX(0);
+     }
+
+     to {
+         transform: translateX(-50%);
+     }
+ }
+
+ .ticker-wrapper:hover {
+     animation-play-state: paused;
+ }
+
+ .stock-item {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     white-space: nowrap;
+     padding: 0 20px;
+     /* Thêm padding vào item thay vì container */
+ }
+
+ .stock-symbol {
+     font-weight: 600;
+     font-size: 14px;
+     color: #333;
+ }
+
+ .stock-change {
+     font-size: 13px;
+     font-weight: 500;
+ }
+
+ .stock-change.positive {
+     color: #16a34a;
+ }
+
+ .stock-change.negative {
+     color: #dc2626;
+ }
+
+ .stock-change.neutral {
+     color: #666;
+ }
+
+ .stock-price {
+     font-size: 14px;
+     color: #333;
+ }
+
+ .price-change {
+     font-size: 13px;
+     margin-left: 4px;
+ }
+
+ .price-change.positive {
+     color: #16a34a;
+ }
+
+ .price-change.negative {
+     color: #dc2626;
+ }
+
+ .price-change.neutral {
+     color: #666;
+ }
+
+ .mini-chart {
+     width: 60px;
+     height: 24px;
+ }
+
+ .mini-chart path {
+     fill: none;
+     stroke-width: 1.5;
+ }
+
+ .mini-chart.positive path {
+     stroke: #16a34a;
+ }
+
+ .mini-chart.negative path {
+     stroke: #dc2626;
+ }
+
+ .mini-chart.neutral path {
+     stroke: #666;
+ }
+
+ @media (max-width: 768px) {
+     .ticker-container {
+         padding: 12px 0;
+     }
+
+     .ticker-wrapper {
+         gap: 30px;
+     }
+
+     .stock-item {
+         padding: 0 15px;
+     }
+ }
