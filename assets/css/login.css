@@ -22,7 +22,8 @@
   filter: blur(8px);
 }
 
-/* || POP-UP OVERLAY */
+
+/* Pop-up Overlay */
 .popup-overlay {
   display: none;
   position: fixed;

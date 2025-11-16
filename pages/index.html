@@ -1,110 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../assets/css/general.css" />
-  <link rel="stylesheet" href="../assets/css/index.css" />
-  <link rel="stylesheet" href="../assets/css/banner.css">
-  <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-  <title>Aurews</title>
-</head>
-
-<body>
-  <div id="page-overlay">
-    <!-- THAY ĐỔI: Sử dụng text thay vì spinner -->
-    <div class="loading-text">AUREWS</div>
-  </div>
-  <!-- ----------------------- -->
-  <!-- sign-up, sign in -->
-  <!-- ----------------------- -->
-  <!-- Pop-up Overlay -->
-  <div id="pop-up-overlay__placeholder"></div>
-
-  <div id="mainContent">
-    <header>
-      <div id="navbar__placeholder"></div>
-      <div id="mobile-menu__placeholder"></div>
-    </header>
-    <main>
-      <div class="ticker-container">
-        <div class="ticker-wrapper" id="tickerWrapper"></div>
-      </div>
-      <!-- Modal -->
-      <div class="modal" id="stockModal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div>
-              <div class="modal-title" id="modalSymbol"></div>
-            </div>
-            <button class="modal-close-btn" onclick="closeModal()">×</button>
-          </div>
-
-          <div class="detail-section">
-            <div class="big-price" id="modalBigPrice"></div>
-            <div class="big-change" id="modalBigChange"></div>
-          </div>
-
-          <div class="chart-container">
-            <svg class="large-chart" id="largeChart" viewBox="0 0 500 180">
-              <path id="largeChartPath" />
-            </svg>
-          </div>
-
-          <div class="detail-section">
-            <div class="detail-row">
-              <span class="detail-label">Opening Price</span>
-              <span class="detail-value" id="modalOpen"></span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Highest Price</span>
-              <span class="detail-value" id="modalHigh"></span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Lowest Price</span>
-              <span class="detail-value" id="modalLow"></span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Volume</span>
-              <span class="detail-value" id="modalVolume"></span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Market Cap</span>
-              <span class="detail-value" id="modalMarketCap"></span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">P/E Ratio</span>
-              <span class="detail-value" id="modalPE"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="maintopic__container">
-        <div class="left">
-          <div class="boxupperleft">
-            <div class="boxupperleft__img">
-              <img src="" alt="" />
-            </div>
-            <div class="boxupperleft__description">
-              <h1></h1>
-              <p></p>
-            </div>
-          </div>
-          <div class="boxlowerleft">
-            <div class="left1">
-              <h2 class="boxuppertitle">LATEST</h2>
-              <div class="latestnews"></div>
-            </div>
-            <div class="right1">
-              <div class="threenews"></div>
-              <div class="block">
-                <p>Show all...</p>
+  <body>
+    <div id="page-overlay">
+      <!-- THAY ĐỔI: Sử dụng text thay vì spinner -->
+      <div class="loading-text">AUREWS</div>
+    </div>
+    <!-- ----------------------- -->
+    <!-- sign-up, sign in -->
+    <!-- ----------------------- -->
+    <!-- Pop-up Overlay -->
+    <div id="pop-up-overlay__placeholder"></div>
+    <div id="mobile-menu__placeholder"></div>
+    <div id="mainContent">
+      <header>
+        <div id="navbar__placeholder"></div>
+      </header>
+      <main>
+        <div class="maintopic__container">
+          <div class="left">
+            <div class="boxupperleft">
+              <div class="boxupperleft__img">
+                <img src="" alt="" />
+              </div>
+              <div class="boxupperleft__description">
+                <h1></h1>
+                <p></p>
               </div>
             </div>
           </div>
