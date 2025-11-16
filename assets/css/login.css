@@ -1,3 +1,19 @@
+/* || VARIABLES */
+:root {
+  /* COLORS */
+  --color-primary: #d8c3a3;
+  --color-dark: black;
+  --color-light: #f7f6f6;
+  --color-border: #e0e0e0;
+  --color-text: #555;
+  --color-text-muted: #777;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-overlay-dark: rgba(0, 0, 0, 0.3);
+  --color-overlay-shadow: rgba(0, 0, 0, 0.4);
+  --color-accent: red;
+}
+
+/* || MAIN CONTENT */
 #mainContent {
   transition: filter 0.3s ease;
 }
@@ -6,14 +22,7 @@
   filter: blur(8px);
 }
 
-/* #mobile-menu__placeholder {
-  z-index: 1000;
-  transition: filter 0.3s ease;
-}
 
-#mobile-menu__placeholder.blur {
-  filter: blur(6px);
-} */
 /* Pop-up Overlay */
 .popup-overlay {
   display: none;
@@ -37,15 +46,14 @@
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
 }
 
-/* Pop-up Content */
+/* || POP-UP CONTENT */
 .popup-content {
-  background: #f2d9b4;
+  background: #d8c3a3;
   border-radius: 20px;
   padding: 40px;
   width: 90%;
@@ -53,26 +61,27 @@
   position: relative;
   animation: slideUp 0.3s ease;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
   max-height: 95vh;
   overflow-y: auto;
-  scrollbar-width: none; /*FF*/
+  scrollbar-width: none;
 }
+
 .popup-content::-webkit-scrollbar {
-  display: none; /* ẩn scrollbar trên Chrome/Safari */
+  display: none;
 }
+
 @keyframes slideUp {
   from {
     transform: translateY(50px);
     opacity: 0;
   }
-
   to {
     transform: translateY(0);
     opacity: 1;
   }
 }
 
+/* || CLOSE BUTTON */
 .close-btn {
   position: absolute;
   top: 15px;
@@ -90,6 +99,7 @@
   color: white;
 }
 
+/* || POPUP HEADING */
 .popup-content h2 {
   color: black;
   margin-bottom: 30px;
@@ -97,18 +107,19 @@
   text-align: center;
 }
 
-.form-group {
+/* || FORM GROUPS */
+.login__form-group, .sign-up__form-group {
   margin-bottom: 20px;
 }
 
-.form-group label {
+:is(.login__form-group, .sign-up__form-group) label {
   display: block;
   color: #555;
   margin-bottom: 8px;
   font-weight: 500;
 }
 
-.form-group input {
+:is(.login__form-group, .sign-up__form-group) input {
   width: 100%;
   padding: 12px 15px;
   border: 2px solid #e0e0e0;
@@ -117,15 +128,17 @@
   transition: border-color 0.3s;
 }
 
-.form-group input:focus {
+:is(.login__form-group, .sign-up__form-group) input:focus {
   outline: none;
   border-color: black;
 }
 
-.submit-btn {
+/* || SUBMIT BUTTONS */
+.login__submit-btn,
+.sign-up__submit-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, #f2d9b4 0%, white 100%);
+  background: #f7f6f6;
   color: black;
   border: none;
   border-radius: 8px;
@@ -136,11 +149,13 @@
   margin-top: 10px;
 }
 
-.submit-btn:hover {
+.login__submit-btn:hover,
+.sign-up__submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* || FORM FOOTER */
 .form-footer {
   text-align: center;
   margin-top: 20px;
@@ -157,6 +172,7 @@
   text-decoration: underline;
 }
 
+/* || TABS */
 .tabs {
   display: flex;
   margin-bottom: 30px;
