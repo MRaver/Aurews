@@ -139,11 +139,7 @@ function initMobileMenuLinks() {
 }
 
 // Khởi tạo mobile menu
-<<<<<<< HEAD
-export function initMobileMenu() {
-=======
 function initMobileMenu() {
->>>>>>> parent of 6dda96a (modify banner)
   // Khởi tạo URLs cho mobile menu
   initMobileMenuLinks();
 
