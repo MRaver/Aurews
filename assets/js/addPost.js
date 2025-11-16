@@ -112,6 +112,29 @@ document.addEventListener('DOMContentLoaded', initializeAddPostPage);
 // Phần này không cần nằm trong DOMContentLoaded vì nó không tương tác với DOM của trang hiện tại.
 function loadNews() {
     const localPosts = JSON.parse(localStorage.getItem('saveAddPost')) || [];
+    // Helper: escape text to avoid XSS when inserting into HTML
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    // Convert plaintext into HTML paragraphs and <br> for single line breaks.
+    // - Split paragraphs by one or more blank lines (\r?\n followed by optional spaces and another \r?\n)
+    // - Within a paragraph, replace single newlines with <br>
+    function textToHtml(text) {
+        if (!text) return '';
+        // Normalize line endings
+        const normalized = text.replace(/\r/g, '');
+        // Split by blank lines
+        const paragraphs = normalized.split(/\n\s*\n+/);
+        return paragraphs
+            .map(p => `<p>${escapeHtml(p).replace(/\n/g, '<br>')}</p>`)
+            .join('');
+    }
 
     const convertedPosts = localPosts.map((post, index) => ({
         // Tạo ID duy nhất, không bị trùng lặp, và dễ nhận biết
@@ -128,7 +151,8 @@ function loadNews() {
         // SỬA LỖI LOGIC: Sử dụng ảnh base64 đã lưu từ localStorage
         img: post.image,
 
-        content: `<p>${post.content}</p>`
+        // Convert stored plain text content into safe HTML with paragraphs and <br>
+        content: textToHtml(post.content)
     }));
 
     // Kết hợp bài viết mới và bài viết gốc, đưa bài mới nhất lên đầu

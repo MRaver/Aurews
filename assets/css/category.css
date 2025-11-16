@@ -1,4 +1,3 @@
-
 .background__title {
     padding-top: 30px;
     margin-top: 20px;
@@ -26,6 +25,7 @@
     justify-content: center;
     gap: 50px;
     margin-top: 50px;
+    margin: 60px;
 }
 
 .new__box {
@@ -41,22 +41,20 @@
     width: 400px;
     height: 300px;
     background-color: gray;
+    border-radius: 12px;
 }
 
 .img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 
-@media (max-width: 1400px) {
+@media (max-width: 1400px) {}
 
-}
-
-@media (max-width: 768px) {
-  
-}
+@media (max-width: 768px) {}
 
 
 @media (max-width: 1200px) {
