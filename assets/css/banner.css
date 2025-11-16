@@ -150,10 +150,19 @@
     max-width: 600px;
     width: 90%;
     max-height: 90vh;
-    overflow-y: none;
+    overflow-y: scroll;
     animation: slideUp 0.3s;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* Ẩn scrollbar cho tất cả browsers */
+    -ms-overflow-style: none;
+    /* IE và Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
 
+.modal-content::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 @keyframes slideUp {

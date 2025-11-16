@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/index.css" />
+    <link rel="stylesheet" href="../assets/css/banner.css" />
+    <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <title>Aurews</title>
+  </head>
 
   <body>
     <div id="page-overlay">
@@ -11,12 +30,65 @@
     <!-- ----------------------- -->
     <!-- Pop-up Overlay -->
     <div id="pop-up-overlay__placeholder"></div>
-    <div id="mobile-menu__placeholder"></div>
+
     <div id="mainContent">
       <header>
         <div id="navbar__placeholder"></div>
+        <div id="mobile-menu__placeholder"></div>
       </header>
       <main>
+        <div class="ticker-container">
+          <div class="ticker-wrapper" id="tickerWrapper"></div>
+        </div>
+        <!-- Modal -->
+        <div class="modal" id="stockModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>
+                <div class="modal-title" id="modalSymbol"></div>
+              </div>
+              <button class="modal-close-btn" onclick="closeModal()">×</button>
+            </div>
+
+            <div class="detail-section">
+              <div class="big-price" id="modalBigPrice"></div>
+              <div class="big-change" id="modalBigChange"></div>
+            </div>
+
+            <div class="chart-container">
+              <svg class="large-chart" id="largeChart" viewBox="0 0 500 180">
+                <path id="largeChartPath" />
+              </svg>
+            </div>
+
+            <div class="detail-section">
+              <div class="detail-row">
+                <span class="detail-label">Opening Price</span>
+                <span class="detail-value" id="modalOpen"></span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Highest Price</span>
+                <span class="detail-value" id="modalHigh"></span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Lowest Price</span>
+                <span class="detail-value" id="modalLow"></span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Volume</span>
+                <span class="detail-value" id="modalVolume"></span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Market Cap</span>
+                <span class="detail-value" id="modalMarketCap"></span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">P/E Ratio</span>
+                <span class="detail-value" id="modalPE"></span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="maintopic__container">
           <div class="left">
             <div class="boxupperleft">
@@ -28,202 +100,220 @@
                 <p></p>
               </div>
             </div>
+            <div class="boxlowerleft">
+              <div class="left1">
+                <h2 class="boxuppertitle">LATEST</h2>
+                <div class="latestnews"></div>
+              </div>
+              <div class="right1">
+                <div class="threenews"></div>
+                <div class="block">
+                  <p>Show all...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <h2>LIFE STYLE</h2>
+            <div class="boxupperright">
+              <div class="bignews">
+                <div class="bignews__img">
+                  <img src="" alt="" />
+                </div>
+                <div class="bignews__description">
+                  <p></p>
+                </div>
+              </div>
+              <div class="smallnews">
+                <div class="smallnewsfirst">
+                  <div class="smallnews__img">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="smallnews__description">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="smallnewssecond">
+                  <div class="smallnews__img">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="smallnews__description">
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+              <div class="block">
+                <p>Show all...</p>
+              </div>
+            </div>
+            <div class="boxlowerright">
+              <h2>WEATHER</h2>
+              <div class="boxlowerright__img">
+                <img
+                  src="/Aurews/assets/img/img34.png"
+                  alt=""
+                  style="border-radius: 12px"
+                />
+              </div>
+              <h2>SPORTS</h2>
+              <div class="boxlowerright__img">
+                <img
+                  src="/Aurews/assets/img/img35.png"
+                  alt=""
+                  style="border-radius: 12px"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="right">
-          <h2>LIFE STYLE</h2>
-          <div class="boxupperright">
-            <div class="bignews">
-              <div class="bignews__img">
+        <div class="topic__container">
+          <div class="topic topic1">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+          <div class="topic">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+          <div class="topic">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+          <div class="topic">
+            <h2></h2>
+            <div class="block">
+              <p>Show all...</p>
+            </div>
+          </div>
+        </div>
+        <div class="AI__container">
+          <div class="AI__left">
+            <div class="AI__title">
+              <h2>Generation A.I</h2>
+            </div>
+            <div class="AI_maintopic">
+              <div class="AI__img">
                 <img src="" alt="" />
               </div>
-              <div class="bignews__description">
+              <div class="AI__description">
+                <h3></h3>
                 <p></p>
               </div>
             </div>
-            <div class="smallnews">
-              <div class="smallnewsfirst">
-                <div class="smallnews__img">
-                  <img src="" alt="" />
-                </div>
-                <div class="smallnews__description">
-                  <p></p>
-                </div>
+          </div>
+          <div class="AI__right">
+            <div class="AI__news--1">
+              <div class="img__container">
+                <img src="" alt="" />
               </div>
-              <div class="smallnewssecond">
-                <div class="smallnews__img">
-                  <img src="" alt="" />
-                </div>
-                <div class="smallnews__description">
-                  <p></p>
-                </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="AI__news">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="AI__news">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
+              </div>
+            </div>
+            <div class="AI__news--4">
+              <div class="img__container">
+                <img src="" alt="" />
+              </div>
+              <div class="AI__title">
+                <p></p>
               </div>
             </div>
             <div class="block">
               <p>Show all...</p>
             </div>
           </div>
-          <div class="boxlowerright">
-            <h2>WEATHER</h2>
-            <div class="boxlowerright__img">
-              <img src="/Aurews/assets/img/img34.png" alt="" style="border-radius:12px;" />
+        </div>
+        <div class="popular__container">
+          <div class="grid__box1">
+            <h2 class="grid1__title">Most Popular Stories</h2>
+            <div class="grid1__content1">
+              <div class="grid1__content1-img">
+                <img src="" alt="" />
+              </div>
+              <div class="grid1__content1-description">
+                <h2></h2>
+                <p></p>
+              </div>
             </div>
-            <h2>SPORTS</h2>
-            <div class="boxlowerright__img">
-              <img src="/Aurews/assets/img/img35.png" alt="" style="border-radius:12px;" />
+            <div class="grid1__content2">
+              <div class="grid1__content2-img">
+                <img src="" alt="" />
+              </div>
+              <div class="grid1__content2-description">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="grid__box2">
+            <div class="bussiness__news">
+              <div class="business__news-img">
+                <img src="" alt="" />
+              </div>
+              <div class="business__news-description">
+                <h2 class="business__title"></h2>
+                <h2 class="p2"></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="grid__box3">
+            <div class="lifestyle">
+              <div class="lifestyle__img">
+                <img src="" alt="" />
+              </div>
+              <div class="lifestyle__description">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+            <div class="politics">
+              <div class="politics__img">
+                <img src="" alt="" />
+              </div>
+              <div class="politics__description">
+                <h2></h2>
+                <p></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="topic__container">
-        <div class="topic topic1">
-          <h2></h2>
-          <div class="block">
-            <p>Show all...</p>
-          </div>
-        </div>
-        <div class="topic">
-          <h2></h2>
-          <div class="block">
-            <p>Show all...</p>
-          </div>
-        </div>
-        <div class="topic">
-          <h2></h2>
-          <div class="block">
-            <p>Show all...</p>
-          </div>
-        </div>
-        <div class="topic">
-          <h2></h2>
-          <div class="block">
-            <p>Show all...</p>
-          </div>
-        </div>
-      </div>
-      <div class="AI__container">
-        <div class="AI__left">
-          <div class="AI__title">
-            <h2>Generation A.I</h2>
-          </div>
-          <div class="AI_maintopic">
-            <div class="AI__img">
-              <img src="" alt="" />
-            </div>
-            <div class="AI__description">
-              <h3></h3>
-              <p></p>
-            </div>
-          </div>
-        </div>
-        <div class="AI__right">
-          <div class="AI__news--1">
-            <div class="img__container">
-              <img src="" alt="" />
-            </div>
-            <div class="AI__title">
-              <p></p>
-            </div>
-          </div>
-          <div class="AI__news">
-            <div class="img__container">
-              <img src="" alt="" />
-            </div>
-            <div class="AI__title">
-              <p></p>
-            </div>
-          </div>
-          <div class="AI__news">
-            <div class="img__container">
-              <img src="" alt="" />
-            </div>
-            <div class="AI__title">
-              <p></p>
-            </div>
-          </div>
-          <div class="AI__news--4">
-            <div class="img__container">
-              <img src="" alt="" />
-            </div>
-            <div class="AI__title">
-              <p></p>
-            </div>
-          </div>
-          <div class="block">
-            <p>Show all...</p>
-          </div>
-        </div>
-      </div>
-      <div class="popular__container">
-        <div class="grid__box1">
-          <h2 class="grid1__title">Most Popular Stories</h2>
-          <div class="grid1__content1">
-            <div class="grid1__content1-img">
-              <img src="" alt="" />
-            </div>
-            <div class="grid1__content1-description">
-              <h2></h2>
-              <p></p>
-            </div>
-          </div>
-          <div class="grid1__content2">
-            <div class="grid1__content2-img">
-              <img src="" alt="" />
-            </div>
-            <div class="grid1__content2-description">
-              <h2></h2>
-              <p></p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__box2">
-          <div class="bussiness__news">
-            <div class="business__news-img">
-              <img src="" alt="" />
-            </div>
-            <div class="business__news-description">
-              <h2 class="business__title"></h2>
-              <h2 class="p2"></h2>
-              <p></p>
-            </div>
-          </div>
-        </div>
-        <div class="grid__box3">
-          <div class="lifestyle">
-            <div class="lifestyle__img">
-              <img src="" alt="" />
-            </div>
-            <div class="lifestyle__description">
-              <h2></h2>
-              <p></p>
-            </div>
-          </div>
-          <div class="politics">
-            <div class="politics__img">
-              <img src="" alt="" />
-            </div>
-            <div class="politics__description">
-              <h2></h2>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <div id="footer__placeholder"></div>
-  </div>
+      </main>
+      <div id="footer__placeholder"></div>
+    </div>
 
-  <!-- Render dung thu tu -->
+    <!-- Render dung thu tu -->
 
-  <script type="module" src="../components/Navbar.js"></script>
-  <script src="../assets/js/login.js"></script>
-  <script src="../components/PopUpOverlay.js"></script>
-  <script type="module" src="../components/MobileMenu.js"></script>
-  <script type="module" src="../components/Footer.js"></script>
-  <script src="../assets/js/overlay.js"></script>
-  <script src="../assets/js/header.js"></script>
-  <script src="../assets/js/index.js" type="module"></script>
-  <script src="../assets/js/banner.js"></script>
-</body>
-
+    <script type="module" src="../components/Navbar.js"></script>
+    <script src="../assets/js/login.js"></script>
+    <script src="../components/PopUpOverlay.js"></script>
+    <script type="module" src="../components/MobileMenu.js"></script>
+    <script type="module" src="../components/Footer.js"></script>
+    <script src="../assets/js/overlay.js"></script>
+    <script src="../assets/js/index.js" type="module"></script>
+    <script src="../assets/js/banner.js"></script>
+    <script src="../assets/js/header.js"></script>
+  </body>
 </html>
