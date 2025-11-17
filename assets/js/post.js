@@ -132,7 +132,7 @@ function renderContentWrapper() {
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       // Chuyển tới trang bài viết tương ứng
-      window.location.href = `./Post.html?id=${art.id}`;
+      window.location.href = `https://mraver.github.io/Aurews/pages/Post.html?id=${art.id}`;
     });
   });
 
