@@ -1,4 +1,3 @@
-import { newsPort } from "../data/newsPost.js";
 import { fullNews } from "./addPost.js";
 import { createArticleCard } from "../../components/Category/articleCard.js";
 // import { createTrendingCard } from "../../components/Category/trendingCard.js";
@@ -19,6 +18,33 @@ export function getType() {
   return param;
 }
 
+export function toggleNav() {
+  const param = getType();
+  const navContainer = document.querySelectorAll(".nav__categories a");
+  const currentPath = window.location.pathname.toLocaleLowerCase();
+  navContainer.forEach((link) => {
+    link.classList.remove("active"); // Xóa active từ tất cả
+    const href = link.getAttribute("href");
+
+    // Kiểm tra xem href có chứa type param không
+    if (href.includes(`type=${param}`)) {
+      link.classList.add("active");
+    }
+
+    if (
+      !param &&
+      (href.includes("Index.html") ||
+        href.endsWith("/") ||
+        href.includes("index.html"))
+    ) {
+      link.classList.add("active");
+    }
+    //xet cho trang contact.html
+    if (currentPath.includes("contact.html") || currentPath.includes("post.html") || currentPath.includes("search.html") || currentPath.includes("about.html")) {
+      link.classList.remove("active"); // Xóa active từ tất cả
+    }
+  });
+}
 
 class CategoryPage {
   constructor() {
