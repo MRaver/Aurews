@@ -1,4 +1,3 @@
-import { initMobileMenuLinks } from "../assets/js/header.js";
 import { toggleMobileNav } from "../assets/js/header.js";
 
 const styles = `
@@ -203,12 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = createMobileMenu();
     userLoginHTML();
     clickAddPostButton();
-    initMobileMenuLinks();
-
-    // window.toggleMobileNav = toggleMobileNav;
-    window.toggleMenu = toggleMenu;
     toggleMobileNav();
-
     const jsSearchEl = document.querySelector(".js-search");
     if (jsSearchEl) {
       jsSearchEl.addEventListener("click", () => {

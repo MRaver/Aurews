@@ -50,7 +50,7 @@ export function toggleMobileNav() {
   const params = new URLSearchParams(window.location.search);
   const param = params.get("type");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
-  const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname.toLocaleLowerCase();
 
   if (mobileNavLinks.length === 0) return;
 
@@ -59,17 +59,16 @@ export function toggleMobileNav() {
 
   // Set active cho Home nếu đang ở Index.html
   if (
-    currentPath.includes("Index.html") ||
     currentPath.endsWith("/") ||
     currentPath.includes("index.html") ||
-    (!currentPath.includes("Category.html") &&
-      !currentPath.includes("Post.html") &&
-      !currentPath.includes("Contact.html"))
+    (!currentPath.includes("category.html") &&
+      !currentPath.includes("post.html") &&
+      !currentPath.includes("contact.html"))
   ) {
     const homeLink = Array.from(mobileNavLinks).find(
       (link) =>
         link.textContent.trim() === "Home" ||
-        link.getAttribute("href")?.includes("Index.html")
+        link.getAttribute("href")?.includes("index.html")
     );
     if (homeLink) {
       homeLink.classList.add("active");
@@ -90,9 +89,9 @@ export function toggleMobileNav() {
   }
 
   // Set active cho Contact nếu đang ở Contact.html
-  if (currentPath.includes("Contact.html")) {
+  if (currentPath.includes("contact.html")) {
     const contactLink = Array.from(mobileNavLinks).find(
-      (link) => link.textContent.trim() === "Contact"
+      (link) => link.textContent.trim() === "contact"
     );
     if (contactLink) {
       contactLink.classList.add("active");
@@ -134,7 +133,7 @@ export function initMobileMenuLinks() {
 }
 
 // Khởi tạo mobile menu
-function initMobileMenu() {
+export function initMobileMenu() {
   // Khởi tạo URLs cho mobile menu - gọi multiple times để ensure component đã render
   initMobileMenuLinks();
   setTimeout(() => initMobileMenuLinks(), 50);

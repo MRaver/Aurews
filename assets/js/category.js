@@ -43,6 +43,15 @@ export function toggleNav() {
     if (href.includes(`type=${param}`)) {
       link.classList.add("active");
     }
+
+    if (
+      !param &&
+      (href.includes("Index.html") ||
+        href.endsWith("/") ||
+        href.includes("index.html"))
+    ) {
+      link.classList.add("active");
+    }
   });
 }
 
