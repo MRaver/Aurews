@@ -64,6 +64,48 @@ const styles = `
     padding-left: 10px; 
 }
 
+/* Responsive: stack image above content on narrow screens (e.g. iPhone SE 375x667) */
+@media (max-width: 500px) {
+  .article-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .article-card__image {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .article-card__image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .article-card__content {
+    padding: 12px;
+  }
+
+  .article-card__title {
+    font-size: 18px;
+    margin: 0 0 8px 0;
+  }
+
+  .article-card__excerpt {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .article-card__meta {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .article-card {
+    border-radius: 10px;
+  }
+}
 `;
 
 function injectStyles() {
@@ -103,7 +145,7 @@ export function createArticleCard(article) {
     </div>
 
     <div class="article-card__meta">
-      <span>${article.time}</span>
+      <span>9:53 11-17-2025 </span>
       <span>by ${article.author}</span>
     </div>
   </div>

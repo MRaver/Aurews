@@ -80,9 +80,9 @@
 
 .boxlowerleft {
     display: flex;
-    flex-direction: space-between;
+    justify-content: space-between;
     gap: 20px;
-    flex-basis: 1;
+    flex-basis: 58%;
 }
 
 .left1 {
@@ -291,7 +291,7 @@
 
 .news {
     display: flex;
-    flex-direction: flex-start;
+    justify-content: flex-start;
     gap: 10px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -409,7 +409,7 @@
     display: flex;
     flex-direction: column;
     width: auto;
-    max-width: auto;
+    max-width: 1440px;
     margin-right: 20px;
     padding-left: 10px;
     cursor: pointer;
@@ -795,16 +795,6 @@
     .lifestyle__img,
     .politics__img {
         width: 50%;
-    }
-
-    .grid__box1 {
-        padding-right: none;
-        margin-right: none;
-    }
-
-    .popular__container {
-        margin-right: none;
-        padding-right: none;
     }
 
     .business__news-img {
