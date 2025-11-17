@@ -84,10 +84,17 @@ export function createRelatedCard(article) {
   const imageHtml = article.img
     ? `<img src="${article.img}" alt="${article.description}" />`
     : "";
+  const category = article.type
+    ? article.type
+    : article.type1
+    ? article.type1
+    : article.type2
+    ? article.type2
+    : "Undefined";
   return `
     <a href="Post.html?id=${article.id}" class="related-card" data-id="${article.id}">
         <div class="related-card__image">${imageHtml}</div>
-        <div class="related-card__category">${article.type}</div>
+        <div class="related-card__category">${category}</div>
         <h3 class="related-card__title">${article.description}</h3>
         <div class="related-card__meta">
         <span><i class="far fa-clock"></i> ${article.time}</span>

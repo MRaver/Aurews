@@ -1,5 +1,4 @@
 // Types mapping - map text từ HTML đến type parameter
-import { getType } from "./category.js";
 const typeMapping = {
   Home: null, // Home không có type
   Latest: "Latest",
@@ -28,11 +27,6 @@ function toggleMenu() {
   overlay.classList.toggle("active");
 
   // Prevent body scroll when menu is open
-  if (mobileMenu.classList.contains("active")) {
-    body.style.overflow = "hidden";
-  } else {
-    body.style.overflow = "";
-  }
 }
 
 // Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
@@ -214,30 +208,3 @@ if (jsAboutEl) {
   });
 }
 
-export function toggleNav() {
-  const param = getType();
-  const navContainer = document.querySelectorAll(".nav__categories a");
-  const currentPath = window.location.pathname.toLocaleLowerCase();
-  navContainer.forEach((link) => {
-    link.classList.remove("active"); // Xóa active từ tất cả
-    const href = link.getAttribute("href");
-
-    // Kiểm tra xem href có chứa type param không
-    if (href.includes(`type=${param}`)) {
-      link.classList.add("active");
-    }
-
-    if (
-      !param &&
-      (href.includes("Index.html") ||
-        href.endsWith("/") ||
-        href.includes("index.html"))
-    ) {
-      link.classList.add("active");
-    }
-    //xet cho trang contact.html
-    if (currentPath.includes("contact.html") || currentPath.includes("post.html") || currentPath.includes("search.html") || currentPath.includes("about.html")) {
-      link.classList.remove("active"); // Xóa active từ tất cả
-    }
-  });
-}
