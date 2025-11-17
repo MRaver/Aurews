@@ -19,41 +19,6 @@ export function getType() {
   return param;
 }
 
-export const types = [
-  "Latest",
-  "Business News",
-  "Money and Markets",
-  "Tech and Innovation",
-  "A.I.",
-  "Lifestyle",
-  "Politics",
-  "Email",
-  "Podcast",
-];
-
-export function toggleNav() {
-  const param = getType();
-  const navContainer = document.querySelectorAll(".nav__categories a");
-
-  navContainer.forEach((link) => {
-    link.classList.remove("active"); // Xóa active từ tất cả
-    const href = link.getAttribute("href");
-
-    // Kiểm tra xem href có chứa type param không
-    if (href.includes(`type=${param}`)) {
-      link.classList.add("active");
-    }
-
-    if (
-      !param &&
-      (href.includes("Index.html") ||
-        href.endsWith("/") ||
-        href.includes("index.html"))
-    ) {
-      link.classList.add("active");
-    }
-  });
-}
 
 class CategoryPage {
   constructor() {
@@ -111,15 +76,15 @@ class CategoryPage {
       this.allArticles =
         this.category.toLocaleLowerCase() === "latest"
           ? fullNews.filter(
-              (a) =>
-                a.type2 &&
-                a.type2.toLowerCase() === this.category.toLocaleLowerCase()
-            )
+            (a) =>
+              a.type2 &&
+              a.type2.toLowerCase() === this.category.toLocaleLowerCase()
+          )
           : fullNews.filter(
-              (a) =>
-                a.type &&
-                a.type.toLowerCase() === this.category.toLocaleLowerCase()
-            );
+            (a) =>
+              a.type &&
+              a.type.toLowerCase() === this.category.toLocaleLowerCase()
+          );
       console.log("Length:", this.allArticles.length);
       this.updateHeader();
       this.renderArticles();
@@ -245,9 +210,9 @@ class CategoryPage {
       this.category.toLocaleLowerCase() === "latest"
         ? fullNews
         : fullNews.filter(
-            (a) =>
-              a.type && a.type.toLowerCase() !== this.category.toLowerCase()
-          );
+          (a) =>
+            a.type && a.type.toLowerCase() !== this.category.toLowerCase()
+        );
     return relatedArticles.slice(0, 3);
   }
   async loadRelatedArticles() {
