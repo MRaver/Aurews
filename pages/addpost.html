@@ -1,147 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="../assets/css/login.css" /> -->
-    <link rel="stylesheet" href="../assets/css/general.css" />
-    <link rel="stylesheet" href="../assets/css/addPost.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-    <title>Aurews</title>
-  </head>
 
-  <body>
-    <div id="page-overlay"></div>
-    <!-- ----------------------- -->
-    <!-- sign-up, sign in -->
-    <!-- ----------------------- -->
-    <!-- Pop-up Overlay -->
-    <div id="pop-up-overlay__placeholder"></div>
-    <div id="mainContent">
-      <header>
-        <div id="navbar__placeholder"></div>
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu__placeholder"></div>
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
+  <link rel="stylesheet" href="../assets/css/general.css">
+  <link rel="stylesheet" href="../assets/css/addPost.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <title>Aurews</title>
+</head>
 
-      <main>
-        <div class="addpost__container">
-          <div class="addpost__header">
-            <h1>Create New Post</h1>
-            <p>Share your story with the world</p>
+<body>
+  <div id="page-overlay"></div>
+  <!-- ======================= -->
+  <!-- sign-up, sign in -->
+  <!-- ======================= -->
+  <!-- Pop-up Overlay -->
+  <div id="pop-up-overlay__placeholder"></div>
+
+  <div id="mainContent">
+    <header>
+      <div id="navbar__placeholder"></div>
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu__placeholder"></div>
+    </header>
+
+    <main>
+      <div class="addpost__container">
+        <div class="addpost__header">
+          <h1>Create New Post</h1>
+          <p>Share your story with the world</p>
+        </div>
+
+        <form id="addPostForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="postTitle">Post Title *</label>
+              <input type="text" id="postTitle" name="postTitle" placeholder="Enter an engaging title" required>
+            </div>
+
+            <div class="form-group">
+              <label for="postCategory">Category *</label>
+              <select id="postCategory" name="postCategory" required>
+                <option value="">Select a category</option>
+                <option value="Business News">Business News</option>
+                <option value="Money and Markets">Money & Markets</option>
+                <option value="Tech and Innovation">Tech & Innovation</option>
+                <option value="A.I.">A.I.</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Politics">Politics</option>
+                <option value="Latest">Latest</option>
+              </select>
+            </div>
           </div>
 
-          <form id="addPostForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="postTitle">Post Title *</label>
-                <input
-                  type="text"
-                  id="postTitle"
-                  name="postTitle"
-                  placeholder="Enter an engaging title"
-                  required
-                />
-              </div>
+          <div class="form-group">
+            <label for="postAuthor">Author Name *</label>
+            <input type="text" id="postAuthor" name="postAuthor" placeholder="Your name" required>
+          </div>
 
-              <div class="form-group">
-                <label for="postCategory">Category *</label>
-                <select id="postCategory" name="postCategory" required>
-                  <option value="">Select a category</option>
-                  <option value="Business News">Business News</option>
-                  <option value="Money and Markets">Money & Markets</option>
-                  <option value="Tech and Innovation">Tech & Innovation</option>
-                  <option value="A.I.">A.I.</option>
-                  <option value="Lifestyle">Lifestyle</option>
-                  <option value="Politics">Politics</option>
-                  <option value="Latest">Latest</option>
-                </select>
-              </div>
+          <div class="form-group">
+            <label for="postImage">Featured Image</label>
+            <input type="file" id="postImage" name="postImage" accept="image/*">
+            <small>Upload a cover image for your post (JPG, PNG, max 5MB)</small>
+            <div class="image-preview" id="imagePreview">
+              <p>Image preview will appear here</p>
+              <img id="previewImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                alt="Preview">
             </div>
+          </div>
+          <!-- modified begin -->
+          <div class="form-group">
+            <label for="img-caption">Image Caption</label>
+            <input type="text" id="img-caption" name="img-caption" placeholder="Enter image caption">
+          </div>
+          <!-- modified end -->
+          <div class="form-group">
+            <label for="postContent">Post Content *</label>
+            <textarea id="postContent" name="postContent"
+              placeholder="Write your post content here... Share your thoughts, insights, and stories."
+              required></textarea>
+            <small>Minimum 100 characters</small>
+          </div>
 
-            <div class="form-group">
-              <label for="postAuthor">Author Name *</label>
-              <input
-                type="text"
-                id="postAuthor"
-                name="postAuthor"
-                placeholder="Your name"
-                required
-              />
-            </div>
+          <div class="submit-section">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='Index.html'">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Publish Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
 
-            <div class="form-group">
-              <label for="postImage">Featured Image</label>
-              <input
-                type="file"
-                id="postImage"
-                name="postImage"
-                accept="image/*"
-              />
-              <small
-                >Upload a cover image for your post (JPG, PNG, max 5MB)</small
-              >
-              <div class="image-preview" id="imagePreview">
-                <p>Image preview will appear here</p>
-                <img id="previewImg" alt="Preview" />
-              </div>
-            </div>
-            <!-- modified begin -->
-            <div class="form-group">
-              <label for="img-caption">Image Caption</label>
-              <input
-                type="text"
-                id="img-caption"
-                name="img-caption"
-                placeholder="Enter image caption"
-              />
-            </div>
-            <!-- modified end -->
-            <div class="form-group">
-              <label for="postContent">Post Content *</label>
-              <textarea
-                id="postContent"
-                name="postContent"
-                placeholder="Write your post content here... Share your thoughts, insights, and stories."
-                required
-              ></textarea>
-              <small>Minimum 100 characters</small>
-            </div>
+    <div id="footer__placeholder"></div>
+  </div>
+  <script type="module" src="../components/Navbar.js"></script>
+  <script src="../components/PopUpOverlay.js"></script>
+  <script type="module" src="../components/footer.js"></script>
+  <script type="module" src="../components/MobileMenu.js"></script>
+  <script src="../assets/js/header.js"></script>
+  <script src="../assets/js/addPost.js" type="module"></script>
+  <script src="../assets/js/login.js"></script>
+  <script src="../assets/js/overlay.js"></script>
+</body>
 
-            <div class="submit-section">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                onclick="window.location.href='Index.html'"
-              >
-                Cancel
-              </button>
-              <button type="submit" class="btn btn-primary">
-                Publish Post
-              </button>
-            </div>
-          </form>
-        </div>
-      </main>
-
-      <div id="footer__placeholder"></div>
-    </div>
-    <script type="module" src="../components/Navbar.js"></script>
-    <script src="../components/PopUpOverlay.js"></script>
-    <script type="module" src="../components/footer.js"></script>
-    <script type="module" src="../components/MobileMenu.js"></script>
-    <script src="../assets/js/header.js"></script>
-    <script src="../assets/js/addPost.js" type="module"></script>
-    <script src="../assets/js/login.js"></script>
-    <script src="../assets/js/overlay.js"></script>
-  </body>
 </html>

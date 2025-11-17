@@ -46,11 +46,11 @@ function toggleMenu() {
 }
 
 // Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
-function toggleMobileNav() {
+export function toggleMobileNav() {
   const params = new URLSearchParams(window.location.search);
   const param = params.get("type");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
-  const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname.toLocaleLowerCase();
 
   if (mobileNavLinks.length === 0) return;
 
@@ -59,17 +59,16 @@ function toggleMobileNav() {
 
   // Set active cho Home nếu đang ở Index.html
   if (
-    currentPath.includes("Index.html") ||
     currentPath.endsWith("/") ||
     currentPath.includes("index.html") ||
-    (!currentPath.includes("Category.html") &&
-      !currentPath.includes("Post.html") &&
-      !currentPath.includes("Contact.html"))
+    (!currentPath.includes("category.html") &&
+      !currentPath.includes("post.html") &&
+      !currentPath.includes("contact.html"))
   ) {
     const homeLink = Array.from(mobileNavLinks).find(
       (link) =>
         link.textContent.trim() === "Home" ||
-        link.getAttribute("href")?.includes("Index.html")
+        link.getAttribute("href")?.includes("index.html")
     );
     if (homeLink) {
       homeLink.classList.add("active");
@@ -90,9 +89,9 @@ function toggleMobileNav() {
   }
 
   // Set active cho Contact nếu đang ở Contact.html
-  if (currentPath.includes("Contact.html")) {
+  if (currentPath.includes("contact.html")) {
     const contactLink = Array.from(mobileNavLinks).find(
-      (link) => link.textContent.trim() === "Contact"
+      (link) => link.textContent.trim() === "contact"
     );
     if (contactLink) {
       contactLink.classList.add("active");
@@ -101,37 +100,32 @@ function toggleMobileNav() {
 }
 
 // Khởi tạo URLs cho mobile menu links nếu chưa có
-function initMobileMenuLinks() {
+export function initMobileMenuLinks() {
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
   if (mobileNavLinks.length === 0) return;
-
-  // Tất cả các file HTML đều ở trong thư mục pages, nên dùng relative path
-  // Kiểm tra xem có đang ở trong thư mục pages không để xác định base path
-  const currentPath = window.location.pathname;
-  let basePath = ".";
-
-  // Nếu không ở trong pages (ví dụ ở root), cần vào pages
-  if (!currentPath.includes("/pages/") && !currentPath.includes("/pages")) {
-    // Có thể đang ở root, thử dùng absolute path hoặc relative
-    // Nhưng vì tất cả HTML files đều ở trong pages, nên giả định đang ở pages
-    basePath = ".";
-  }
 
   mobileNavLinks.forEach((link) => {
     const linkText = link.textContent.trim();
     const currentHref = link.getAttribute("href");
 
-    // Chỉ set URL nếu href là "#" hoặc rỗng hoặc không hợp lệ
+    // Set URL nếu href là "#" hoặc rỗng
     if (!currentHref || currentHref === "#" || currentHref.trim() === "") {
       if (linkText === "Home") {
-        link.href = "./Index.html";
+        link.setAttribute("href", "./Index.html");
       } else if (linkText === "Contact") {
-        link.href = "./Contact.html";
+        link.setAttribute("href", "./Contact.html");
       } else {
-        // Lấy type từ mapping
-        const type = typeMapping[linkText];
-        if (type) {
-          link.href = `./Category.html?type=${encodeURIComponent(type)}`;
+        // Lấy type từ mapping - normalize "Money & Markets" to "Money and Markets"
+        let mappedType = typeMapping[linkText];
+        // Handle fallback for different text formats
+        if (!mappedType && linkText === "Money & Markets") {
+          mappedType = typeMapping["Money and Markets"];
+        }
+        if (mappedType) {
+          link.setAttribute(
+            "href",
+            `./Category.html?type=${encodeURIComponent(mappedType)}`
+          );
         }
       }
     }
@@ -139,37 +133,59 @@ function initMobileMenuLinks() {
 }
 
 // Khởi tạo mobile menu
-function initMobileMenu() {
-  // Khởi tạo URLs cho mobile menu
+export function initMobileMenu() {
+  // Khởi tạo URLs cho mobile menu - gọi multiple times để ensure component đã render
   initMobileMenuLinks();
+  setTimeout(() => initMobileMenuLinks(), 50);
+  setTimeout(() => initMobileMenuLinks(), 200);
 
   // Set active class ban đầu
   toggleMobileNav();
 
-  // Handle click on mobile menu links
-  document.querySelectorAll(".mobile-nav-links a").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
+  // Handle click on mobile menu links - ensure proper navigation
+  const setupLinkHandlers = () => {
+    // Ensure URLs are set first
+    initMobileMenuLinks();
 
-      // Chỉ prevent default nếu href là "#" hoặc rỗng
-      if (!href || href === "#" || href.startsWith("#")) {
+    document.querySelectorAll(".mobile-nav-links a").forEach((link) => {
+      // Remove existing listeners by cloning node
+      const newLink = link.cloneNode(true);
+      link.parentNode.replaceChild(newLink, link);
+
+      newLink.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+
+        // If href is empty or just "#", don't navigate
+        if (!href || href === "#" || href.trim() === "") {
+          e.preventDefault();
+          return;
+        }
+
+        // Prevent default link behavior
         e.preventDefault();
-        return;
-      }
 
-      // Prevent default để tự điều hướng
-      e.preventDefault();
+        // Close menu with animation
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.querySelector(".mobile-menu-overlay");
 
-      // Đóng menu trước khi điều hướng (UX tốt hơn)
-      const mobileMenu = document.querySelector(".mobile-menu");
-      if (mobileMenu && mobileMenu.classList.contains("active")) {
-        toggleMenu();
-      }
+        if (mobileMenu && mobileMenu.classList.contains("active")) {
+          mobileMenu.classList.remove("active");
+          if (overlay) overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        }
 
-      // Điều hướng đến trang mới
-      window.location.href = href;
+        // Navigate after menu closes
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      });
     });
-  });
+  };
+
+  // Setup handlers immediately and again after delays to ensure they're attached
+  setupLinkHandlers();
+  setTimeout(setupLinkHandlers, 50);
+  setTimeout(setupLinkHandlers, 200);
 }
 
 // Khởi tạo khi DOM ready
@@ -192,11 +208,13 @@ document.addEventListener("keydown", function (e) {
 
 // Make toggleMenu available globally
 window.toggleMenu = toggleMenu;
+// window.initMobileMenu = initMobileMenu;
+// window.toggleMobileNav = toggleMobileNav;
 // Guard trước khi thêm event listener để tránh lỗi khi element không tồn tại
 const jsSearchEl = document.querySelector(".js-search");
 if (jsSearchEl) {
   jsSearchEl.addEventListener("click", () => {
-    window.location.href = "./Search.html";
+    window.location.href = "./search.html";
   });
 }
 

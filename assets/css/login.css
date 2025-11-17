@@ -16,13 +16,14 @@
 /* || MAIN CONTENT */
 #mainContent {
   transition: filter 0.3s ease;
+  padding-top: 1px;
 }
 
 #mainContent.blur {
   filter: blur(8px);
 }
 
-/* || POP-UP OVERLAY */
+/* Pop-up Overlay */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -107,7 +108,8 @@
 }
 
 /* || FORM GROUPS */
-.login__form-group, .sign-up__form-group {
+.login__form-group,
+.sign-up__form-group {
   margin-bottom: 20px;
 }
 

@@ -1,3 +1,5 @@
+import { toggleMobileNav } from "../assets/js/header.js";
+
 const styles = `
 /* MOBILE MENU OVERLAY & SIDEBAR */
 .mobile-menu-overlay {
@@ -200,5 +202,19 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = createMobileMenu();
     userLoginHTML();
     clickAddPostButton();
+    toggleMobileNav();
+    const jsSearchEl = document.querySelector(".js-search");
+    if (jsSearchEl) {
+      jsSearchEl.addEventListener("click", () => {
+        window.location.href = "./Search.html";
+      });
+    }
+
+    const jsAboutEl = document.querySelector(".js-about");
+    if (jsAboutEl) {
+      jsAboutEl.addEventListener("click", () => {
+        window.location.href = "./about.html";
+      });
+    }
   }
 });
