@@ -2,6 +2,7 @@
   padding-left: clamp(15px, 6.944vw, 100px);
   padding-right: clamp(15px, 6.944vw, 100px);
 }
+
 .background__title {
   padding-top: 30px;
   margin-top: 20px;
@@ -21,6 +22,7 @@
   flex-direction: column;
   padding-bottom: 30px;
 }
+
 #category-title {
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 700;
@@ -28,12 +30,14 @@
   color: #1a1a1a;
   text-transform: uppercase;
 }
+
 #category-subtitle {
   font-size: clamp(14px, 2vw, 18px);
   font-weight: 400;
   color: #666;
   text-align: center;
 }
+
 .news__container {
   margin: 0 auto;
   max-width: 1440px;
@@ -140,6 +144,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -160,6 +165,7 @@
   grid-column: 1 / -1;
   min-height: 250px;
 }
+
 /* Section Error State */
 .section-error {
   display: flex;
@@ -231,9 +237,11 @@
   padding: 60px 0;
   border-top: 1px solid #000000;
 }
+
 #you-may-like.hidden {
   display: none;
 }
+
 .you-may-like__header {
   text-align: center;
   font-size: 32px;
@@ -247,6 +255,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+
 /* =================================== */
 /* TỪ 1200PX TRỞ XUỐNG */
 /* =================================== */
@@ -254,88 +263,6 @@
   .footer__newsletter {
     flex: 1;
     min-width: 300px;
-  }
-
-  .option {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: -50px;
-  }
-
-  .popular__container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-right: none;
-    padding-right: none;
-  }
-
-  .grid1__content1,
-  .grid1__content2,
-  .politics {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    text-align: left;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  /* .lifestyle đã được gộp lại từ 2 khai báo */
-  .lifestyle {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    text-align: left;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 15px;
-  }
-
-  .grid1__content1-img,
-  .grid1__content2-img,
-  .lifestyle__img,
-  .politics__img {
-    width: 50%;
-  }
-
-  .grid__box1 {
-    padding-right: none;
-    margin-right: none;
-    border: none;
-  }
-
-  .business__news-img {
-    padding-top: 10px;
-  }
-
-  .business__news-description {
-    padding-bottom: 20px;
-    margin: 0 auto;
-  }
-
-  .bussiness__news {
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .grid__box2 {
-    border: none;
-  }
-
-  .topic__container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .news__img {
-    width: 20%;
-  }
-
-  .threenews__img {
-    width: 40%;
-    aspect-ratio: 100/50;
   }
 }
 
@@ -376,6 +303,7 @@
 /* TỪ 768PX TRỞ XUỐNG */
 /* =================================== */
 @media (max-width: 768px) {
+
   /* Các quy tắc đã được gộp từ 3 khối 768px */
   .background__title {
     padding-left: clamp(10px, 4vw, 20px);
@@ -394,34 +322,6 @@
   #category-subtitle {
     font-size: clamp(13px, 3vw, 16px);
     padding: 0 15px;
-  }
-
-  .news__container {
-    margin: 30px auto 0;
-    gap: 30px;
-  }
-
-  .boxlowerleft {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer__container {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .AI__container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .AI__left {
-    border: none;
-  }
-
-  .AI__news--1 {
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
   }
 
   /* ĐÃ THAY THẾ .category__header */

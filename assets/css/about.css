@@ -614,8 +614,6 @@ a:hover i {
   /* Con trỏ hình bàn tay. */
   margin: 0 0 0 -130px;
   /* Lề: 0 trên/phải/dưới, -130px bên trái (kéo sang trái). */
-  padding-right: auto;
-  /* (Thuộc tính không hợp lệ, auto không dùng cho padding). */
   flex-direction: row;
   /* Xếp theo hàng ngang. */
 }
@@ -692,16 +690,6 @@ a:hover i {
     /* Cho ảnh chiếm 50% chiều rộng của box. */
   }
 
-  /* (none không phải là giá trị hợp lệ cho padding/margin-right, có thể ý là 0) */
-  .grid__box1 {
-    padding-right: none;
-    margin-right: none;
-  }
-
-  .popular__container {
-    margin-right: none;
-    padding-right: none;
-  }
 
   .business__news-img {
     padding-top: 10px;
@@ -755,7 +743,7 @@ a:hover i {
   }
 
   .description-section {
-    padding: 30px 20px;
+    padding: 15px 10px;
   }
 }
 
@@ -904,7 +892,4 @@ a:hover i {
     grid-template-columns: 1fr;
   }
 
-  .description-section {
-    padding-left: 15px 10px;
-  }
 }
