@@ -1,4 +1,6 @@
-import {initMobileMenu} from "../assets/js/header.js"
+import { initMobileMenuLinks } from "../assets/js/header.js";
+import { toggleMobileNav } from "../assets/js/header.js";
+
 const styles = `
 /* MOBILE MENU OVERLAY & SIDEBAR */
 .mobile-menu-overlay {
@@ -201,7 +203,12 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = createMobileMenu();
     userLoginHTML();
     clickAddPostButton();
-    initMobileMenu();
+    initMobileMenuLinks();
+
+    // window.toggleMobileNav = toggleMobileNav;
+    window.toggleMenu = toggleMenu;
+    toggleMobileNav();
+
     const jsSearchEl = document.querySelector(".js-search");
     if (jsSearchEl) {
       jsSearchEl.addEventListener("click", () => {
@@ -215,6 +222,5 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "./about.html";
       });
     }
-
   }
 });

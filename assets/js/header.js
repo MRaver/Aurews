@@ -46,7 +46,7 @@ function toggleMenu() {
 }
 
 // Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
-function toggleMobileNav() {
+export function toggleMobileNav() {
   const params = new URLSearchParams(window.location.search);
   const param = params.get("type");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
@@ -101,7 +101,7 @@ function toggleMobileNav() {
 }
 
 // Khởi tạo URLs cho mobile menu links nếu chưa có
-function initMobileMenuLinks() {
+export function initMobileMenuLinks() {
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
   if (mobileNavLinks.length === 0) return;
 
@@ -209,6 +209,8 @@ document.addEventListener("keydown", function (e) {
 
 // Make toggleMenu available globally
 window.toggleMenu = toggleMenu;
+// window.initMobileMenu = initMobileMenu;
+// window.toggleMobileNav = toggleMobileNav;
 // Guard trước khi thêm event listener để tránh lỗi khi element không tồn tại
 const jsSearchEl = document.querySelector(".js-search");
 if (jsSearchEl) {

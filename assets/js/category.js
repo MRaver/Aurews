@@ -64,7 +64,7 @@ class CategoryPage {
     ------------------------ */
   async init() {
     // Show loading states
-    this.showTrendingLoading();
+    // this.showTrendingLoading();
     this.showRelatedLoading();
 
     // Fetch all data
