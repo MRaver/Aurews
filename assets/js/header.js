@@ -1,5 +1,4 @@
 // Types mapping - map text từ HTML đến type parameter
-import { getType } from "./category.js";
 const typeMapping = {
   Home: null, // Home không có type
   Latest: "Latest",
@@ -28,11 +27,6 @@ function toggleMenu() {
   overlay.classList.toggle("active");
 
   // Prevent body scroll when menu is open
-  if (mobileMenu.classList.contains("active")) {
-    body.style.overflow = "hidden";
-  } else {
-    body.style.overflow = "";
-  }
 }
 
 // Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
