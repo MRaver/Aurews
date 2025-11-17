@@ -389,18 +389,6 @@ document.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = createNavbar();
         toggleNav();
 
-        // Set active class based on current page
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
-        const navLinks = document.querySelectorAll(".nav__categories a");
-        navLinks.forEach(link => {
-            const href = link.getAttribute("href");
-            if (href === "index.html" && (currentPage === "index.html" || currentPage === "")) {
-                link.classList.add("active");
-            } else if (href === currentPage) {
-                link.classList.add("active");
-            }
-        });
-
         document.querySelector(".nav__search").addEventListener("click", () => {
             window.location.href = "./Search.html";
         });

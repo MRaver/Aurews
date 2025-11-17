@@ -43,6 +43,15 @@ export function toggleNav() {
     if (href.includes(`type=${param}`)) {
       link.classList.add("active");
     }
+
+    if (
+      !param &&
+      (href.includes("Index.html") ||
+        href.endsWith("/") ||
+        href.includes("index.html"))
+    ) {
+      link.classList.add("active");
+    }
   });
 }
 
@@ -64,7 +73,7 @@ class CategoryPage {
     ------------------------ */
   async init() {
     // Show loading states
-    this.showTrendingLoading();
+    // this.showTrendingLoading();
     this.showRelatedLoading();
 
     // Fetch all data
