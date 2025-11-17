@@ -14,7 +14,7 @@ img {
   /* FONTS */
   --FF: "Montserrat", sans-serif;
   --FF-HEADING: "Playfair Display", serif;
-  --FS-LOGO: clamp(16px, 2.7vw, 3rem);
+  --FS-LOGO: clamp(16px, 2.7vw, 38.88px);
   --FS-HEADING: clamp(1.5rem, 1.5vw, 2rem);
   --FS: 1rem;
   /* COLORS */
@@ -116,6 +116,7 @@ p {
 
 /* ------------------ Media Query: ≤1200px (Large tablets / small desktops) ------------------ */
 @media only screen and (max-width: 1200px) {
+
   /* || VARIABLES */
   :root {
     --FS-LOGO: clamp(14px, 3vw, 2.5rem);
@@ -172,6 +173,7 @@ p {
    - FOOTER: stack and center content for narrow widths
 ----------------------------------------------------------------------------------------- */
 @media only screen and (max-width: 600px) {
+
   /* || VARIABLES */
   :root {
     --FS-LOGO: clamp(10px, 10vw, 1.8rem);
@@ -264,4 +266,9 @@ p {
     gap: 20px;
     flex-wrap: wrap;
   }
+<<<<<<< HEAD
 }
+
+=======
+}
+>>>>>>> 63abb1cf00f9fbb1f40bee0aeb46f45bbefb8a93
