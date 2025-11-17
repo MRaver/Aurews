@@ -16,16 +16,15 @@ const typeMapping = {
 };
 
 
-function toggleMenu() {
+export function toggleMenu() {
   const mobileMenu = document.querySelector(".mobile-menu");
   const overlay = document.querySelector(".mobile-menu-overlay");
-  const body = document.body;
 
   if (!mobileMenu || !overlay) return;
 
   mobileMenu.classList.toggle("active");
   overlay.classList.toggle("active");
-
+  document.body.style.overflow = "hidden";
   // Prevent body scroll when menu is open
 }
 
