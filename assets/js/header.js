@@ -1,4 +1,5 @@
 // Types mapping - map text từ HTML đến type parameter
+import { getType } from "./category.js";
 const typeMapping = {
   Home: null, // Home không có type
   Latest: "Latest",
@@ -15,17 +16,6 @@ const typeMapping = {
   Contact: null, // Contact là trang riêng
 };
 
-const types = [
-  "Latest",
-  "Business News",
-  "Money and Markets",
-  "Tech and Innovation",
-  "A.I.",
-  "Lifestyle",
-  "Politics",
-  "Email",
-  "Podcast",
-];
 
 function toggleMenu() {
   const mobileMenu = document.querySelector(".mobile-menu");
@@ -51,12 +41,10 @@ export function toggleMobileNav() {
   const param = params.get("type");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
   const currentPath = window.location.pathname.toLocaleLowerCase();
-
   if (mobileNavLinks.length === 0) return;
 
   // Reset all active classes
   mobileNavLinks.forEach((link) => link.classList.remove("active"));
-
   // Set active cho Home nếu đang ở Index.html
   if (
     currentPath.endsWith("/") ||
@@ -91,12 +79,13 @@ export function toggleMobileNav() {
   // Set active cho Contact nếu đang ở Contact.html
   if (currentPath.includes("contact.html")) {
     const contactLink = Array.from(mobileNavLinks).find(
-      (link) => link.textContent.trim() === "contact"
+      (link) => link.textContent.trim() === "Contact"
     );
     if (contactLink) {
       contactLink.classList.add("active");
     }
   }
+
 }
 
 // Khởi tạo URLs cho mobile menu links nếu chưa có
@@ -222,5 +211,33 @@ const jsAboutEl = document.querySelector(".js-about");
 if (jsAboutEl) {
   jsAboutEl.addEventListener("click", () => {
     window.location.href = "./about.html";
+  });
+}
+
+export function toggleNav() {
+  const param = getType();
+  const navContainer = document.querySelectorAll(".nav__categories a");
+  const currentPath = window.location.pathname.toLocaleLowerCase();
+  navContainer.forEach((link) => {
+    link.classList.remove("active"); // Xóa active từ tất cả
+    const href = link.getAttribute("href");
+
+    // Kiểm tra xem href có chứa type param không
+    if (href.includes(`type=${param}`)) {
+      link.classList.add("active");
+    }
+
+    if (
+      !param &&
+      (href.includes("Index.html") ||
+        href.endsWith("/") ||
+        href.includes("index.html"))
+    ) {
+      link.classList.add("active");
+    }
+    //xet cho trang contact.html
+    if (currentPath.includes("contact.html") || currentPath.includes("post.html") || currentPath.includes("search.html") || currentPath.includes("about.html")) {
+      link.classList.remove("active"); // Xóa active từ tất cả
+    }
   });
 }
