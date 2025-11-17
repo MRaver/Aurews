@@ -47,12 +47,14 @@
     width: 100%;
     max-width: 752px;
     aspect-ratio: 670/420;
+    border-radius: 12px;
 }
 
 .news__content-img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .author-info {
