@@ -73,7 +73,7 @@ class CategoryPage {
     ------------------------ */
   async init() {
     // Show loading states
-    // this.showTrendingLoading();
+    this.showTrendingLoading();
     this.showRelatedLoading();
 
     // Fetch all data
@@ -108,19 +108,12 @@ class CategoryPage {
       await new Promise((res) => setTimeout(res, 700));
 
       // Filter theo category
-      this.allArticles =
-        this.category.toLocaleLowerCase() === "latest"
-          ? fullNews.filter(
-              (a) =>
-                a.type2 &&
-                a.type2.toLowerCase() === this.category.toLocaleLowerCase()
-            )
-          : fullNews.filter(
-              (a) =>
-                a.type &&
-                a.type.toLowerCase() === this.category.toLocaleLowerCase()
-            );
-      console.log("Length:", this.allArticles.length);
+      this.allArticles = fullNews.filter(
+        (a) =>
+          a.type === this.category ||
+          a.type1 === this.category ||
+          a.type2 === this.category
+      );
       this.updateHeader();
       this.renderArticles();
     } catch (err) {
@@ -240,15 +233,12 @@ class CategoryPage {
     </div>
   `;
   }
-  getOrtherCategoriesNews() {
-    const relatedArticles =
-      this.category.toLocaleLowerCase() === "latest"
-        ? fullNews
-        : fullNews.filter(
-            (a) =>
-              a.type && a.type.toLowerCase() !== this.category.toLowerCase()
-          );
-    return relatedArticles.slice(0, 3);
+  getOrtherNews() {
+    const filtered = fullNews.filter((a) => !this.allArticles.includes(a));
+    const relatedArticles = filtered
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+    return relatedArticles;
   }
   async loadRelatedArticles() {
     try {
@@ -262,8 +252,8 @@ class CategoryPage {
 
       const relatedGrid = document.getElementById("you-may-like-grid");
 
-      const relatedArticles = this.getOrtherCategoriesNews();
-      console.log("Related Articles:", relatedArticles);
+      const relatedArticles = this.getOrtherNews();
+      //   console.log("Related Articles:", relatedArticles);
       relatedGrid.innerHTML = relatedArticles
         .map((a) => createRelatedCard(a))
         .join("");
