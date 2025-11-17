@@ -1,18 +1,10 @@
 /* || MAIN */
-/* body,
+body,
 html {
   width: 100vw;
   max-width: 100vw;
   overflow-x: hidden;
 }
-
-.FAQ-section,
-.contact-box,
-.social-box {
-  box-sizing: border-box;
-  max-width: 100vw !important;
-  overflow-x: hidden;
-} */
 
 /* FAQ */
 .FAQ-section {
@@ -772,6 +764,7 @@ a:hover i {
   .FAQ-section {
     flex-wrap: wrap;
   }
+
   .header {
     display: flex;
     flex-direction: row;
@@ -872,6 +865,7 @@ a:hover i {
   .header {
     flex-direction: column;
   }
+
   .newsletter__formbox {
     display: flex;
     flex-direction: column;
