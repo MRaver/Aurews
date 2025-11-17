@@ -135,7 +135,7 @@ label span {
 /* ============================================
     INPUT & TEXTAREA
     ============================================ */
-input,
+.form-group input,
 select,
 textarea {
   width: 100%;
