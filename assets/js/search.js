@@ -1,13 +1,6 @@
 ﻿// Import newsData
 import { newsData } from "../data/newsData.js";
-
-// Hàm mở/đóng menu trên di động
-function toggleMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    mobileMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-}
+import { toggleMenu } from "../js/header.js";
 
 // Hàm chuyển đổi dữ liệu từ newsData sang định dạng chuẩn
 function convertNewsDataToArticles() {
