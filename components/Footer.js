@@ -213,13 +213,6 @@ a:hover i {
         margin-left: -50px;
     }
 
-
-
-
-
-
-
-
 }
 
 @media (max-width: 768px) {
@@ -240,6 +233,10 @@ a:hover i {
         /* tắt flex grow/shrink */
     }
 
+    .siteinfo__right {
+        align-items: center;
+        text-align: center;
+    }
 
 }
 
