@@ -1,20 +1,5 @@
-body,
-html {
-  width: 100vw;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-.FAQ-section,
-.contact-box,
-.social-box {
-  box-sizing: border-box;
-  max-width: 100vw !important;
-  overflow-x: hidden;
-}
-
 /* || MAIN */
-body,
+/* body,
 html {
   width: 100vw;
   max-width: 100vw;
@@ -27,7 +12,7 @@ html {
   box-sizing: border-box;
   max-width: 100vw !important;
   overflow-x: hidden;
-}
+} */
 
 /* FAQ */
 .FAQ-section {
@@ -42,7 +27,7 @@ html {
   gap: 0;
   /* Đặt khoảng cách giữa các phần tử con là 0. */
   /* Thêm 20px đệm (khoảng trống) ở bên trái. */
-  flex-wrap: wrap;
+  /*  */
   /* Cho phép các phần tử con (flex-item) rớt xuống hàng mới nếu không đủ chỗ. */
   align-items: stretch;
   /* Kéo dãn chiều cao của các phần tử con trên cùng một hàng để chúng bằng nhau. */
@@ -51,8 +36,7 @@ html {
 .social-box {
   display: flex;
   /* Sử dụng Flexbox cho nội dung bên trong .social-box (title, icons). */
-  max-width: min(70vw,
-      291px);
+  max-width: min(70vw, 291px);
   /* Chiều rộng tối đa sẽ là giá trị nhỏ hơn giữa 70% chiều rộng viewport (vw) và 291px. */
   width: 100%;
   /* Chiếm 100% chiều rộng của không gian được cấp (bị giới hạn bởi max-width). */
@@ -152,9 +136,7 @@ html {
 }
 
 .contact-box h3 {
-  font-size: clamp(1.2rem,
-      2.8vw,
-      2rem);
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
   /* Cỡ chữ linh hoạt (tương tự ở trên). */
   text-align: left;
   /* Căn lề chữ bên trái. */
@@ -271,7 +253,7 @@ html {
   /* Căn lên lề trên của .header. */
   left: 0;
   /* Căn sang lề trái của .header. */
-  font-size: 6vw;
+  font-size: clamp(20px, 6vw, 90px);
   /* Cỡ chữ bằng 4% chiều rộng viewport. */
   aspect-ratio: 504/70;
   /* Giữ tỷ lệ khung hình cho box title. */
@@ -288,7 +270,7 @@ html {
   /* Căn xuống lề dưới. */
   right: 0;
   /* Căn sang lề phải. */
-  font-size: 2vw;
+  font-size: clamp(16px, 2vw, 40px);
   /* Cỡ chữ bằng 2% chiều rộng viewport. */
   font-weight: bolder;
   /* Chữ cực kỳ đậm. */
@@ -300,8 +282,7 @@ html {
   /* (flex-grow: 1) Co dãn để lấp đầy không gian còn lại (theo chiều dọc). */
   display: grid;
   /* Sử dụng CSS Grid để chia layout. */
-  grid-template-columns: repeat(4,
-      1fr);
+  grid-template-columns: repeat(4, 1fr);
   /* Tạo 4 cột, mỗi cột rộng 1 phần bằng nhau (1fr). */
   gap: 1px;
   /* Khoảng cách 10px giữa các ô (cột và hàng) trong grid. */
@@ -326,13 +307,13 @@ html {
 
 /* Tạo pseudo-element chứa background */
 .column:first-child::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/Aurews/assets/img/img1.png');
+  background-image: url("/Aurews/assets/img/img1.png");
   background-size: cover;
   background-position: center;
   filter: grayscale(100%);
@@ -343,13 +324,13 @@ html {
 
 /* Tạo pseudo-element chứa background */
 .column:nth-child(2)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/Aurews/assets/img/img2.png');
+  background-image: url("/Aurews/assets/img/img2.png");
   background-size: cover;
   background-position: center;
   filter: grayscale(100%);
@@ -360,13 +341,13 @@ html {
 
 /* Tạo pseudo-element chứa background */
 .column:nth-child(3)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/Aurews/assets/img/img3.png');
+  background-image: url("/Aurews/assets/img/img3.png");
   background-size: cover;
   background-position: center;
   filter: grayscale(100%);
@@ -377,13 +358,13 @@ html {
 
 /* Tạo pseudo-element chứa background */
 .column:last-child::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/Aurews/assets/img/img4.png');
+  background-image: url("/Aurews/assets/img/img4.png");
   background-size: cover;
   background-position: center;
   filter: grayscale(100%);
@@ -422,7 +403,7 @@ html {
   /* Rộng tối đa 899px. */
   padding-top: 100px;
   /* Đệm trên 100px. */
-  font-size: 2.5vw;
+  font-size: clamp(13px, 2.5vw, 36px);
   /* Cỡ chữ 30px. */
   padding-bottom: 100px;
   /* Đệm dưới 100px. */
@@ -455,9 +436,7 @@ footer {
   /* Dùng Flexbox. */
   justify-content: space-between;
   /* Căn 2 phần tử con (newsletter, siteinfo) ra 2 đầu, khoảng cách ở giữa. */
-  gap: clamp(50px,
-      25vw,
-      300px);
+  gap: clamp(50px, 25vw, 300px);
   /* Khoảng cách linh hoạt: nhỏ nhất 50px, lớn nhất 300px, co dãn theo 25% viewport. */
   padding: 0 40px;
   /* Đệm 0 trên/dưới, 40px trái/phải. */
@@ -790,6 +769,49 @@ a:hover i {
 
 /* Áp dụng khi màn hình từ 768px trở xuống (tablet) */
 @media (max-width: 768px) {
+  .FAQ-section {
+    flex-wrap: wrap;
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    /* Xếp title và subtitle cạnh nhau theo hàng ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    height: auto;
+    /* Chiều cao tự động */
+    aspect-ratio: unset;
+    /* Bỏ tỷ lệ khung hình */
+    gap: 2vw;
+    /* Khoảng cách giữa title và subtitle */
+    margin-left: 0;
+    padding: 5%;
+  }
+
+  .title {
+    position: static;
+    /* Bỏ position absolute */
+    font-size: clamp(16px, 5vw, 40px);
+    /* Giảm font-size cho màn hình nhỏ */
+    aspect-ratio: unset;
+    /* Bỏ aspect-ratio */
+    flex-shrink: 0;
+    /* Không co nhỏ */
+  }
+
+  .subtitle {
+    position: static;
+    /* Bỏ position absolute */
+    max-width: 100%;
+    /* Bỏ giới hạn 60% */
+    right: auto;
+    /* Bỏ căn phải */
+    bottom: auto;
+    /* Bỏ căn dưới */
+    font-size: clamp(11px, 2vw, 28px);
+    /* Giảm font-size */
+  }
+
   .boxlowerleft {
     display: flex;
     flex-direction: column;
@@ -847,6 +869,9 @@ a:hover i {
 
 /* Áp dụng khi màn hình từ 500px trở xuống (mobile) */
 @media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
   .newsletter__formbox {
     display: flex;
     flex-direction: column;
@@ -886,6 +911,6 @@ a:hover i {
   }
 
   .description-section {
-    padding: 15px 10px;
+    padding-left: 15px 10px;
   }
 }
