@@ -166,7 +166,7 @@ function renderContentWrapper() {
     if (!art) return;
     li.style.cursor = "pointer";
     li.addEventListener("click", () => {
-      window.location.href = `./Post.html?id=${art.id}`;
+      window.location.href = `https://mraver.github.io/Aurews/pages/Post.html?id=${art.id}`;
     });
   });
   console.log(selected, selected2);
