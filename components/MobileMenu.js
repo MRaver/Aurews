@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = createMobileMenu();
     userLoginHTML();
     clickAddPostButton();
+    toggleMobileNav();
     // initMobileMenu();
     const jsSearchEl = document.querySelector(".js-search");
     if (jsSearchEl) {
@@ -215,6 +216,5 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "./about.html";
       });
     }
-
   }
 });
