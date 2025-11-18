@@ -7,7 +7,7 @@ function openPopup(tab) {
 
   if (popupOverlay) popupOverlay.classList.add("active");
   if (mainContent) mainContent.classList.add("blur");
-
+  document.body.style.overflow = "hidden";
   switchTab(tab);
 }
 
@@ -18,6 +18,7 @@ function closePopup() {
 
   if (popupOverlay) popupOverlay.classList.remove("active");
   if (mainContent) mainContent.classList.remove("blur");
+  document.body.style.overflow = "visible";
 }
 
 // Đóng popup khi click vào overlay
