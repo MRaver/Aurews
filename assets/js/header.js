@@ -16,21 +16,19 @@ const typeMapping = {
 };
 
 
-function toggleMenu() {
+export function toggleMenu() {
   const mobileMenu = document.querySelector(".mobile-menu");
   const overlay = document.querySelector(".mobile-menu-overlay");
-  const body = document.body;
 
   if (!mobileMenu || !overlay) return;
 
   mobileMenu.classList.toggle("active");
   overlay.classList.toggle("active");
-
   // Prevent body scroll when menu is open
 }
 
 // Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
-export function toggleMobileNav() {
+function toggleMobileNav() {
   const params = new URLSearchParams(window.location.search);
   const param = params.get("type");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
@@ -39,6 +37,9 @@ export function toggleMobileNav() {
 
   // Reset all active classes
   mobileNavLinks.forEach((link) => link.classList.remove("active"));
+  if (currentPath.includes("search.html") || currentPath.includes("about.html")) {
+    return;
+  }
   // Set active cho Home nếu đang ở Index.html
   if (
     currentPath.endsWith("/") ||
@@ -83,7 +84,7 @@ export function toggleMobileNav() {
 }
 
 // Khởi tạo URLs cho mobile menu links nếu chưa có
-export function initMobileMenuLinks() {
+function initMobileMenuLinks() {
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
   if (mobileNavLinks.length === 0) return;
 
@@ -116,7 +117,7 @@ export function initMobileMenuLinks() {
 }
 
 // Khởi tạo mobile menu
-export function initMobileMenu() {
+function initMobileMenu() {
   // Khởi tạo URLs cho mobile menu - gọi multiple times để ensure component đã render
   initMobileMenuLinks();
   setTimeout(() => initMobileMenuLinks(), 50);
@@ -189,8 +190,9 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-// Make toggleMenu available globally
+// Make functions available globally
 window.toggleMenu = toggleMenu;
+window.toggleMobileNav = toggleMobileNav;
 // window.initMobileMenu = initMobileMenu;
 // window.toggleMobileNav = toggleMobileNav;
 // Guard trước khi thêm event listener để tránh lỗi khi element không tồn tại

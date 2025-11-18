@@ -2,6 +2,7 @@ import { fullNews } from "./addPost.js";
 import { createArticleCard } from "../../components/Category/articleCard.js";
 // import { createTrendingCard } from "../../components/Category/trendingCard.js";
 import { createRelatedCard } from "../../components/Category/relatedCard.js";
+import { toggleMenu } from "./header.js";
 const subtitle = {
   latest: "Breaking stories, updated live.",
   "business news": "Corporate headlines and economic updates.",
@@ -82,18 +83,28 @@ class CategoryPage {
         UPDATE CATEGORY HEADER
     ------------------------ */
   updateHeader() {
+    if (!this.category) return; // Exit if category is null
+
     const titleContainer = document.querySelector("#category-title");
     if (titleContainer) titleContainer.innerHTML = this.category.toUpperCase();
 
     const subtitleContainer = document.querySelector("#category-subtitle");
-    if (subtitleContainer)
-      subtitleContainer.innerHTML = subtitle[this.category.toLocaleLowerCase()];
+    if (subtitleContainer) {
+      const categoryKey = this.category.toLocaleLowerCase();
+      subtitleContainer.innerHTML = subtitle[categoryKey] || "";
+    }
   }
   /* -----------------------
   LOAD ARTICLES
 ------------------------ */
   async fetchArticles() {
     try {
+      // Check if category is null
+      if (!this.category) {
+        this.showEmptyState();
+        return;
+      }
+
       console.log("called: ", this.category.toLocaleLowerCase());
       // Simulate API delay
       await new Promise((res) => setTimeout(res, 700));
@@ -121,11 +132,11 @@ class CategoryPage {
     const empty = document.getElementById("empty-state");
     const loadMoreContainer = document.getElementById("load-more-container");
 
-    loading.style.display = "none";
+    if (loading) loading.style.display = "none";
 
     // Không có bài nào
     if (this.allArticles.length === 0) {
-      empty.style.display = "flex";
+      if (empty) empty.style.display = "flex";
       return;
     }
 
@@ -134,19 +145,23 @@ class CategoryPage {
     this.displayedArticles = this.allArticles.slice(0, end);
 
     // Render HTML
-    grid.innerHTML = this.displayedArticles
-      .map((a) => createArticleCard(a))
-      .join("");
+    if (grid) {
+      grid.innerHTML = this.displayedArticles
+        .map((a) => createArticleCard(a))
+        .join("");
 
-    grid.style.display = "flex";
-    grid.style.flexDirection = "column"; // ép xếp dọc
-    grid.style.gap = "20px";
+      grid.style.display = "flex";
+      grid.style.flexDirection = "column"; // ép xếp dọc
+      grid.style.gap = "20px";
+    }
 
     // Ẩn hiện nút load more
-    loadMoreContainer.style.display =
-      this.displayedArticles.length < this.allArticles.length
-        ? "block"
-        : "none";
+    if (loadMoreContainer) {
+      loadMoreContainer.style.display =
+        this.displayedArticles.length < this.allArticles.length
+          ? "block"
+          : "none";
+    }
   }
   renderCategory() {
     const newsTitle = document.querySelector(".js-title-container");
@@ -182,6 +197,7 @@ class CategoryPage {
   ------------------------ */
   showTrendingLoading() {
     const list = document.getElementById("trending-list");
+    if (!list) return; // Exit if element doesn't exist
     list.innerHTML = `
     <div class="section-loading">
       <div class="loading__spinner"></div>
@@ -196,6 +212,8 @@ class CategoryPage {
       await new Promise((res) => setTimeout(res, 800));
 
       const list = document.getElementById("trending-list");
+      if (!list) return; // Exit if element doesn't exist
+
       const data = this.getMockTrendingArticles();
 
       list.innerHTML = data
@@ -204,6 +222,7 @@ class CategoryPage {
     } catch (err) {
       console.error("Error loading trending:", err);
       const list = document.getElementById("trending-list");
+      if (!list) return; // Exit if element doesn't exist
       list.innerHTML = `
         <div class="section-error">
           <p>Failed to load trending articles</p>
@@ -217,6 +236,7 @@ class CategoryPage {
   ------------------------ */
   showRelatedLoading() {
     const relatedGrid = document.getElementById("you-may-like-grid");
+    if (!relatedGrid) return; // Exit if element doesn't exist
     relatedGrid.innerHTML = `
     <div class="section-loading section-loading--wide">
       <div class="loading__spinner"></div>
@@ -233,15 +253,18 @@ class CategoryPage {
   }
   async loadRelatedArticles() {
     try {
+      if (!this.category) return; // Exit if category is null
+
       if (this.category.toLocaleLowerCase() === "latest") {
         const relatedSection = document.getElementById("you-may-like");
-        relatedSection.classList.add("hidden");
+        if (relatedSection) relatedSection.classList.add("hidden");
         return;
       }
       // Simulate API delay
       await new Promise((res) => setTimeout(res, 1000));
 
       const relatedGrid = document.getElementById("you-may-like-grid");
+      if (!relatedGrid) return; // Exit if element doesn't exist
 
       const relatedArticles = this.getOrtherNews();
       //   console.log("Related Articles:", relatedArticles);
@@ -251,6 +274,7 @@ class CategoryPage {
     } catch (err) {
       console.error("Error loading related articles:", err);
       const relatedGrid = document.getElementById("you-may-like-grid");
+      if (!relatedGrid) return; // Exit if element doesn't exist
       relatedGrid.innerHTML = `
       <div class="section-error section-loading--wide">
         <p>Failed to load recommendations</p>
@@ -305,8 +329,11 @@ class CategoryPage {
         EMPTY STATE
     ------------------------ */
   showEmptyState() {
-    document.getElementById("loading-state").style.display = "none";
-    document.getElementById("empty-state").style.display = "flex";
+    const loadingState = document.getElementById("loading-state");
+    if (loadingState) loadingState.style.display = "none";
+
+    const emptyState = document.getElementById("empty-state");
+    if (emptyState) emptyState.style.display = "flex";
   }
 
   onClickHandler() {
@@ -342,3 +369,4 @@ document.addEventListener("DOMContentLoaded", () => {
   new CategoryPage();
   toggleNav();
 });
+window.toggleMenu = toggleMenu;
