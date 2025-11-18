@@ -837,7 +837,14 @@
         aspect-ratio: 100/50;
     }
 
+    .topic {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-left: none;
+    }
 
+    .AI__container{
+        border: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -874,7 +881,10 @@
         border-top: 2px solid rgba(0, 0, 0, 0.1);
         ;
     }
-
+    .left1 {
+        border-right: none;
+        padding-right: 0;
+    }
 
 }
 

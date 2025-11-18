@@ -234,7 +234,7 @@ export const newsPort = [
         type: 'LIFESTYLE',
         type1: 'Lifestyle',
         author: 'Thomas Anderson',
-        img: "../assets/img/img33.png",
+        img: "../assets/img/img33.jpg",
         imgCaption: "Top hiking destinations for fall foliage",
         content: `<p>
                 As autumn arrives and leaves begin their annual transformation, outdoor enthusiasts are planning trips to witness nature's most colorful spectacle. Travel experts have compiled a list of the eight best hiking destinations for fall foliage.
