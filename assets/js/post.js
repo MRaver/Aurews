@@ -132,7 +132,7 @@ function renderContentWrapper() {
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       // Chuyển tới trang bài viết tương ứng
-      window.location.href = `https://mraver.github.io/Aurews/pages/Post.html?id=${art.id}`;
+      window.location.href = `./Post.html?id=${art.id}`;
     });
   });
 
@@ -166,7 +166,7 @@ function renderContentWrapper() {
     if (!art) return;
     li.style.cursor = "pointer";
     li.addEventListener("click", () => {
-      window.location.href = `https://mraver.github.io/Aurews/pages/Post.html?id=${art.id}`;
+      window.location.href = `./Post.html?id=${art.id}`;
     });
   });
   console.log(selected, selected2);
