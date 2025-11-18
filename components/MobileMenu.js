@@ -28,7 +28,7 @@ const styles = `
     max-width: 85vw;
     height: 100vh;
     background: #efe0be;
-    z-index: 999;
+    z-index: 2000;
     transition: right 0.3s ease;
     overflow-y: auto;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
@@ -183,7 +183,7 @@ function createMobileMenu() {
         <div
           id="login-button"
           class="mobile-menu-footer-item"
-          onclick="openPopup('login')"
+          onclick="openPopup('login');"
         >
           Login
         </div>

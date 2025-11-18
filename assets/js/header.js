@@ -24,7 +24,6 @@ export function toggleMenu() {
 
   mobileMenu.classList.toggle("active");
   overlay.classList.toggle("active");
-  // Prevent body scroll when menu is open
 }
 
 // Set active class cho mobile menu dựa trên URL hiện tại (giống toggleNav)
@@ -157,7 +156,6 @@ function initMobileMenu() {
           if (overlay) overlay.classList.remove("active");
           document.body.style.overflow = "";
         }
-
         // Navigate after menu closes
         setTimeout(() => {
           window.location.href = href;

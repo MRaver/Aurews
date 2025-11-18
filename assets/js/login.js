@@ -7,8 +7,10 @@ function openPopup(tab) {
 
   if (popupOverlay) popupOverlay.classList.add("active");
   if (mainContent) mainContent.classList.add("blur");
-  document.body.style.overflow = "hidden";
-  switchTab(tab);
+  const mobileMenu = document.querySelector('.mobile-menu.active');
+  mobileMenu.style.top = `-100%`;
+
+  // Lưu vị trí scroll hiện tại
 }
 
 // Đóng popup và xóa blur
@@ -18,7 +20,8 @@ function closePopup() {
 
   if (popupOverlay) popupOverlay.classList.remove("active");
   if (mainContent) mainContent.classList.remove("blur");
-  document.body.style.overflow = "visible";
+  const mobileMenu = document.querySelector('.mobile-menu.active');
+  mobileMenu.style.top = `0`;
 }
 
 // Đóng popup khi click vào overlay
