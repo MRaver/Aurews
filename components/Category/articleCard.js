@@ -127,9 +127,8 @@ export function createArticleCard(article) {
     : `<div style="width:100%;height:180px;background:#ddd"></div>`;
 
   return `
-  <article class="article-card" data-id="${
-    article.id
-  }" onclick="window.location.href='Post.html?id=${article.id}'">
+  <article class="article-card" data-id="${article.id
+    }" onclick="window.location.href='post.html?id=${article.id}'">
   <div class="article-card__image">
     ${imageHTML}
   </div>
@@ -139,9 +138,9 @@ export function createArticleCard(article) {
       <div class="article-card__category">${article.type}</div>
       <h2 class="article-card__title">${article.description}</h2>
       <h3 class="article-card__excerpt">${truncateSimple(
-        article.content,
-        100
-      )}</h3>
+      article.content,
+      100
+    )}</h3>
     </div>
 
     <div class="article-card__meta">

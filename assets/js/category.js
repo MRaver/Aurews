@@ -352,9 +352,9 @@ class CategoryPage {
           if (String(newsId).startsWith("local-")) {
             // Nếu là bài viết local, ta cần xử lý khác hoặc lưu ID vào session/local storage để trang Post.html đọc
             localStorage.setItem("selectedPostId", newsId);
-            window.location.href = `./Post.html?type=local`;
+            window.location.href = `./post.html?type=local`;
           } else {
-            window.location.href = `./Post.html?id=${newsId}`;
+            window.location.href = `./post.html?id=${newsId}`;
           }
         }
       }
