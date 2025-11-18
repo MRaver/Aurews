@@ -107,7 +107,7 @@ function initMobileMenuLinks() {
         if (mappedType) {
           link.setAttribute(
             "href",
-            `./Category.html?type=${encodeURIComponent(mappedType)}`
+            `./category.html?type=${encodeURIComponent(mappedType)}`
           );
         }
       }

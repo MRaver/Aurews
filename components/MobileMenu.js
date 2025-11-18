@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const jsSearchEl = document.querySelector(".js-search");
     if (jsSearchEl) {
       jsSearchEl.addEventListener("click", () => {
-        window.location.href = "./Search.html";
+        window.location.href = "./search.html";
       });
     }
 
