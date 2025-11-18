@@ -7,6 +7,7 @@
         if (overlay) {
             overlay.classList.add('hidden');
         }
+
     }
 
     // Hàm hiện overlay
