@@ -94,9 +94,9 @@ function initMobileMenuLinks() {
     // Set URL nếu href là "#" hoặc rỗng
     if (!currentHref || currentHref === "#" || currentHref.trim() === "") {
       if (linkText === "Home") {
-        link.setAttribute("href", "./Index.html");
+        link.setAttribute("href", "./index.html");
       } else if (linkText === "Contact") {
-        link.setAttribute("href", "./Contact.html");
+        link.setAttribute("href", "./contact.html");
       } else {
         // Lấy type từ mapping - normalize "Money & Markets" to "Money and Markets"
         let mappedType = typeMapping[linkText];

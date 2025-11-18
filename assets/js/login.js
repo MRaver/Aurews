@@ -215,7 +215,7 @@ function handleDashboardClick() {
 
 // Navigate to add post page
 function handleAddPostClick() {
-  window.location.href = "./addPost.html";
+  window.location.href = "./addpost.html";
 }
 
 // Xử lý logout
@@ -227,7 +227,7 @@ function setupLogoutButton() {
       alert("You have been logged out!");
 
       const pathname = window.location.pathname || window.location.href;
-      if (pathname.includes("addPost.html")) {
+      if (pathname.includes("addpost.html")) {
         window.location.href = "Index.html";
       } else {
         window.location.reload();
@@ -358,7 +358,7 @@ function clickAddPostButton() {
 //             <div id="addpost-button" class="mobile-menu-footer-item">Add Post</div>
 //         `;
 //         document.getElementById('addpost-button').addEventListener('click', () => {
-//             window.location.href = './addPost.html';
+//             window.location.href = './addpost.html';
 //         });
 //     }
 
