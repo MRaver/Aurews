@@ -62,7 +62,7 @@ export const newsData = {
         big: {
             id: 8,
             title: "8 places to hike this fall to see foliage",
-            image: "img/img33.png"
+            image: "img/img33.jpg"
         },
         small: [
             {
