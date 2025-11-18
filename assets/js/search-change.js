@@ -1,9 +1,3 @@
-function toggleMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    mobileMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-}
 
 // các data mẫu cho tin tức
 const sampleNews = [

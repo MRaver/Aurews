@@ -1,4 +1,5 @@
 ﻿// Import newsData
+
 import { newsData } from "../data/newsData.js";
 import { toggleMenu } from "../js/header.js";
 

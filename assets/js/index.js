@@ -121,19 +121,6 @@ function renderPopular() {
     grid3Containers[i].querySelector('p').textContent = item.title;
   });
 }
-
-// ===== KHỞI ĐỘNG =====
-function initNews() {
-  renderFeatured();
-  renderLatest();
-  renderThreeNews();
-  renderLifestyle();
-  renderTopics();
-  renderAI();
-  renderPopular();
-  setupClickHandlers();
-}
-
 // Setup click handlers cho các bài báo
 function setupClickHandlers() {
   // Featured news
@@ -250,7 +237,17 @@ function setupClickHandlers() {
     }
   });
 }
-
+// ===== KHỞI ĐỘNG =====
+function initNews() {
+  renderFeatured();
+  renderLatest();
+  renderThreeNews();
+  renderLifestyle();
+  renderTopics();
+  renderAI();
+  renderPopular();
+  setupClickHandlers();
+}
 // Chạy khi DOM đã load
 document.addEventListener('DOMContentLoaded', initNews);
 
