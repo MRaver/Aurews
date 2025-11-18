@@ -24,7 +24,6 @@ export function toggleMenu() {
 
   mobileMenu.classList.toggle("active");
   overlay.classList.toggle("active");
-  document.body.style.overflow = "hidden";
   // Prevent body scroll when menu is open
 }
 
