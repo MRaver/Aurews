@@ -1,8 +1,7 @@
 ﻿// Import newsData
-
 import { newsData } from "../data/newsData.js";
-import { toggleMenu } from "../js/header.js";
-
+// toggleMenu is available globally from header.js
+import { toggleMenu } from "./header.js";
 // Hàm chuyển đổi dữ liệu từ newsData sang định dạng chuẩn
 function convertNewsDataToArticles() {
     const articles = [];

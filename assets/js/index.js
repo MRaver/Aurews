@@ -1,4 +1,5 @@
 import { newsData } from "../data/newsData.js";
+import { toggleMenu } from "./header.js";
 
 // 1. Render Featured News
 function renderFeatured() {
@@ -250,4 +251,5 @@ function initNews() {
 }
 // Chạy khi DOM đã load
 document.addEventListener('DOMContentLoaded', initNews);
+window.toggleMenu = toggleMenu;
 

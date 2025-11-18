@@ -1,4 +1,4 @@
-import { toggleMobileNav } from "../assets/js/header.js";
+// toggleMobileNav is available globally from header.js
 
 const styles = `
 /* MOBILE MENU OVERLAY & SIDEBAR */
