@@ -228,7 +228,7 @@ function setupLogoutButton() {
 
       const pathname = window.location.pathname || window.location.href;
       if (pathname.includes("addpost.html")) {
-        window.location.href = "Index.html";
+        window.location.href = "index.html";
       } else {
         window.location.reload();
       }
