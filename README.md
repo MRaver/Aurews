@@ -75,9 +75,9 @@ Trình soạn thảo code, ví dụ: Visual Studio Code.
 Bước 1: Tải mã nguồn về máy (Clone repository)
 
 Mở Terminal (hoặc Git Bash trên Windows) và chạy lệnh sau:
-
+```bash
 git clone https://github.com/MRaver/Aurews.git
-
+```
 Bước 2: Di chuyển vào thư mục dự án
 ```bash
 cd Aurews
