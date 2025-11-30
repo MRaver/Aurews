@@ -10,7 +10,7 @@ Dự án này nhấn mạnh vào việc tự xây dựng các thành phần (com
 
 [LINK DEPLOY NETLIFY](https://aurews.netlify.app/pages/)
 
-[PREVIEW](/assets/img/screenshot.png)
+![PREVIEW](/assets/img/screenshot.png)
 
 ## DESCRIPTION
 ### Các tính năng nổi bật
