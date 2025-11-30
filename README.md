@@ -112,8 +112,11 @@ Dự án này là một trang web tĩnh, bạn có thể chạy nó theo một t
 ## Contributors
 
 **Đỗ Nhất Phong**
+
 **Trần Quang Phát**
+
 **Nguyễn Xuân Đình Lực**
+
 **Huỳnh Đào Quốc Trọng**
 
 
