@@ -50,6 +50,7 @@ Aurews/
 ┃ ┣ img/               # Chứa hình ảnh
 ┃ ┗ js/                # Chứa các file JS xử lý logic cho từng trang
 ┣ components/          # Chứa các thành phần UI có thể tái sử dụng
+┃ ┣ Banner/          
 ┃ ┣ Category/
 ┃ ┣ Footer/
 ┃ ┣ MobileMenu/
