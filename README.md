@@ -6,9 +6,9 @@
 Dự án này nhấn mạnh vào việc tự xây dựng các thành phần (components) và quản lý trạng thái mà không cần sự hỗ trợ của bất kỳ framework nào.
 
 
-![DEMO](https://youtu.be/g8wDAmSOrPc?si=zG3e8Uv7FiPYaYA3)
+[DEMO](https://youtu.be/g8wDAmSOrPc?si=zG3e8Uv7FiPYaYA3)
 
-![LINK DEPLOY NETLIFY](https://mraver.github.io/Aurews/pages/)
+[LINK DEPLOY NETLIFY](https://mraver.github.io/Aurews/pages/)
 
 ![PREVIEW](/assets/img/screenshot.png)
 
