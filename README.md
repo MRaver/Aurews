@@ -20,11 +20,9 @@ Dự án này nhấn mạnh vào việc tự xây dựng các thành phần (com
 + Xác thực người dùng: Mô phỏng luồng đăng nhập / đăng xuất. Dữ liệu người dùng được lưu trữ tạm thời bằng localStorage của trình duyệt.
 
 + Tìm kiếm và Lọc:
-```
-+ Người dùng có thể tìm kiếm bài viết theo từ khóa.
+ - Người dùng có thể tìm kiếm bài viết theo từ khóa.
+ - Lọc và xem các bài viết theo từng chuyên mục (Category) khác nhau.
 
-+ Lọc và xem các bài viết theo từng chuyên mục (Category) khác nhau.
-```
 + Giao diện Responsive: Trang web được thiết kế để tương thích và hiển thị tốt trên nhiều kích thước màn hình, từ máy tính để bàn đến điện thoại di động.
 
 + Dữ liệu tĩnh: Toàn bộ dữ liệu bài viết được quản lý trong các file JavaScript (/assets/data/), mô phỏng việc gọi dữ liệu từ API.
