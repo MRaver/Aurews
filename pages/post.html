@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/post.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/post.css" />
     <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
-    <link rel="stylesheet" href="../assets/css/general.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/css/general.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <title>Aurews</title>
-</head>
+  </head>
 
-<body>
-    <div id="page-overlay">
-
-    </div>
+  <body>
+    <div id="page-overlay__placeholder"></div>
     <!-- ======================= -->
     <!-- sign-up, sign in -->
     <!-- ======================= -->
@@ -27,50 +28,49 @@
     <div id="pop-up-overlay__placeholder"></div>
 
     <div id="mainContent">
-        <header>
-            <div id="navbar__placeholder"></div>
-            <div id="mobile-menu__placeholder"></div>
-        </header>
-        <main>
-            <div class="news__title-container js-title-container">
-                <p>BUSINESS NEWS • 2 min read</p>
-                <h1>Channing Tatum says he turned down a role in 'Beauty and the Beast' and now views it as his 'biggest
-                    mistake'</h1>
-                <p>12 hr ago</p>
-                <p>&nbsp;&nbsp;|&nbsp; PUBLISHED Sep 10, 2025, 12:00 PM ET</p>
-                <p class="author-info">By <span class="logo"></span><span class="author-name"><u>author's
-                            name</u></span>
-                </p>
+      <header>
+        <div id="navbar__placeholder"></div>
+        <div id="mobile-menu__placeholder"></div>
+      </header>
+      <main>
+        <div id="banner__placeholder"></div>
+        <div class="news__title-container js-title-container">
+          <p>BUSINESS NEWS • 2 min read</p>
+          <h1>
+            Channing Tatum says he turned down a role in 'Beauty and the Beast'
+            and now views it as his 'biggest mistake'
+          </h1>
+          <p>12 hr ago</p>
+          <p>&nbsp;&nbsp;|&nbsp; PUBLISHED Sep 10, 2025, 12:00 PM ET</p>
+          <p class="author-info">
+            By <span class="logo"></span
+            ><span class="author-name"><u>author's name</u></span>
+          </p>
+        </div>
+        <!-- modified begin -->
+        <!-- This div contains the main image's caption -->
+        <div class="news__img-container js-img-container"></div>
+        <!-- modified end -->
+        <div class="news__content-container js-new-content-container"></div>
+        <div class="container">
+          <div class="header"></div>
+
+          <div class="content-wrapper">
+            <div class="left-section">
+              <h2 class="section-title">UP NEXT</h2>
+
+              <div class="articles-grid"></div>
             </div>
-            <!-- modified begin -->
-            <!-- This div contains the main image's caption -->
-            <div class="news__img-container js-img-container">
+
+            <div class="right-section">
+              <h2 class="section-title">Most Read</h2>
+
+              <ul class="most-read-list"></ul>
             </div>
-            <!-- modified end -->
-            <div class="news__content-container js-new-content-container">
-            </div>
-            <div class="container">
-                <div class="header"></div>
-
-                <div class="content-wrapper">
-                    <div class="left-section">
-                        <h2 class="section-title">UP NEXT</h2>
-
-                        <div class="articles-grid">
-
-                        </div>
-                    </div>
-
-                    <div class="right-section">
-                        <h2 class="section-title">Most Read</h2>
-
-                        <ul class="most-read-list">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <div id="footer__placeholder"></div>
+          </div>
+        </div>
+      </main>
+      <div id="footer__placeholder"></div>
     </div>
     <script type="module" src="../components/Navbar/Navbar.js"></script>
     <script src="../components/PopUpOverlay/PopUpOverlay.js"></script>
@@ -79,7 +79,7 @@
     <script src="../assets/js/header.js" type="module"></script>
     <script src="../assets/js/post.js" type="module"></script>
     <script src="../assets/js/login.js"></script>
-    <script src="../assets/js/overlay.js"></script>
-</body>
-
+    <script type="module" src="../components/PageOverlay/PageOverlay.js"></script>
+    <script type="module" src="../components/Banner/Banner.js"></script>
+  </body>
 </html>
