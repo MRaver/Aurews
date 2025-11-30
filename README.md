@@ -13,31 +13,31 @@ Dự án này nhấn mạnh vào việc tự xây dựng các thành phần (com
 [PREVIEW](/assets/img/screenshot.png)
 
 ## DESCRIPTION
-* Các tính năng nổi bật
+* Các tính năng nổi bật: 
 
-Thiết kế theo Component: Giao diện được chia thành các thành phần có thể tái sử dụng (Navbar, Footer, Card,...) giúp mã nguồn có tổ chức và dễ bảo trì.
++ Thiết kế theo Component: Giao diện được chia thành các thành phần có thể tái sử dụng (Navbar, Footer, Card,...) giúp mã nguồn có tổ chức và dễ bảo trì.
 
-Xác thực người dùng: Mô phỏng luồng đăng nhập / đăng xuất. Dữ liệu người dùng được lưu trữ tạm thời bằng localStorage của trình duyệt.
++ Xác thực người dùng: Mô phỏng luồng đăng nhập / đăng xuất. Dữ liệu người dùng được lưu trữ tạm thời bằng localStorage của trình duyệt.
 
-Tìm kiếm và Lọc:
++ Tìm kiếm và Lọc:
 
-Người dùng có thể tìm kiếm bài viết theo từ khóa.
+- Người dùng có thể tìm kiếm bài viết theo từ khóa.
 
-Lọc và xem các bài viết theo từng chuyên mục (Category) khác nhau.
+- Lọc và xem các bài viết theo từng chuyên mục (Category) khác nhau.
 
-Giao diện Responsive: Trang web được thiết kế để tương thích và hiển thị tốt trên nhiều kích thước màn hình, từ máy tính để bàn đến điện thoại di động.
++ Giao diện Responsive: Trang web được thiết kế để tương thích và hiển thị tốt trên nhiều kích thước màn hình, từ máy tính để bàn đến điện thoại di động.
 
-Dữ liệu tĩnh: Toàn bộ dữ liệu bài viết được quản lý trong các file JavaScript (/assets/data/), mô phỏng việc gọi dữ liệu từ API.
++ Dữ liệu tĩnh: Toàn bộ dữ liệu bài viết được quản lý trong các file JavaScript (/assets/data/), mô phỏng việc gọi dữ liệu từ API.
 
-* Công nghệ sử dụng
+* Công nghệ sử dụng: 
 
-Ngôn ngữ chính: HTML5, CSS3, JavaScript (ES6+)
++ Ngôn ngữ chính: HTML5, CSS3, JavaScript (ES6+)
 
-Kiến trúc: Vanilla JS Component-Based.
++ Kiến trúc: Vanilla JS Component-Based.
 
-Lưu trữ phía Client: localStorage để quản lý trạng thái đăng nhập.
++ Lưu trữ phía Client: localStorage để quản lý trạng thái đăng nhập.
 
-Môi trường phát triển: Visual Studio Code, Live Server.
++ Môi trường phát triển: Visual Studio Code, Live Server.
 
 ### Cấu trúc thư mục
 
