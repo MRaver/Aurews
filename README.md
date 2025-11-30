@@ -111,18 +111,18 @@ Dự án này là một trang web tĩnh, bạn có thể chạy nó theo một t
 
 ## Contributors
 
-**Đỗ Nhất Phong**
+* **Đỗ Nhất Phong**
 
-**Trần Quang Phát**
+* **Trần Quang Phát**
 
-**Nguyễn Xuân Đình Lực**
+* **Nguyễn Xuân Đình Lực**
 
-**Huỳnh Đào Quốc Trọng**
+* **Huỳnh Đào Quốc Trọng**
 
 
-GitHub: MRaver
+*GitHub: MRaver*
 
-Dự án được thực hiện trong khuôn khổ môn học IE104.
+*Dự án được thực hiện trong khuôn khổ môn học IE104.*
 
 ## License
 
