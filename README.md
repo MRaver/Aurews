@@ -8,7 +8,7 @@ Dự án này nhấn mạnh vào việc tự xây dựng các thành phần (com
 
 ![DEMO](https://youtu.be/g8wDAmSOrPc?si=zG3e8Uv7FiPYaYA3)
 
-![LINK DEPLOY NETLIFY](https://aurews.netlify.app/pages/)
+![LINK DEPLOY NETLIFY](https://mraver.github.io/Aurews/pages/)
 
 ![PREVIEW](/assets/img/screenshot.png)
 
