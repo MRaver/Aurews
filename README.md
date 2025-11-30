@@ -110,12 +110,12 @@ Nhấn đúp chuột vào file index.html.
 File sẽ được mở trực tiếp trên trình duyệt của bạn.
 
 ## Contributors
-
-**Đỗ Nhất Phong
-Trần Quang Phát
-Nguyễn Xuân Đình Lực
-Huỳnh Đào Quốc Trọng
-**
+```
+**Đỗ Nhất Phong**
+**Trần Quang Phát**
+**Nguyễn Xuân Đình Lực**
+**Huỳnh Đào Quốc Trọng**
+```
 
 GitHub: MRaver
 
