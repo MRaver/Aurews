@@ -42,24 +42,24 @@ Môi trường phát triển: Visual Studio Code, Live Server.
 ### Cấu trúc thư mục
 
 Dự án được tổ chức một cách rõ ràng, tách biệt giữa các thành phần giao diện, các trang, logic và tài nguyên tĩnh.
-
-Aurews
-┣ assets             <!--Chứa tài nguyên tĩnh (CSS, JS, data, hình ảnh) -->
-┃ ┣ css              <!--Chứa các file CSS cho từng trang-->
-┃ ┣ data             <!--Chứa dữ liệu "giả" cho các bài báo-->
-┃ ┣ img              <!--Chứa hình ảnh-->
-┃ ┗ js               <!--Chứa các file JS xử lý logic cho từng trang-->
-┣ components         <!--Chứa các thành phần UI có thể tái sử dụng-->
-┃ ┣ Category
-┃ ┣ Footer
-┃ ┣ MobileMenu
-┃ ┣ Navbar
-┃ ┗ PopUpOverlay
-┣ pages               <!--Chứa các file HTML của các trang-->
-┣ LICENSE              <!--Giấy phép mã nguồn-->
-┣ package.json         <!--Thông tin dự án và dependencies -->
-┗ README.md            <!--Tài liệu hướng dẫn-->
-
+```
+Aurews/
+┣ assets/              # Chứa tài nguyên tĩnh (CSS, JS, data, hình ảnh)
+┃ ┣ css/               # Chứa các file CSS cho từng trang
+┃ ┣ data/              # Chứa dữ liệu "giả" cho các bài báo
+┃ ┣ img/               # Chứa hình ảnh
+┃ ┗ js/                # Chứa các file JS xử lý logic cho từng trang
+┣ components/          # Chứa các thành phần UI có thể tái sử dụng
+┃ ┣ Category/
+┃ ┣ Footer/
+┃ ┣ MobileMenu/
+┃ ┣ Navbar/
+┃ ┗ PopUpOverlay/
+┣ pages/               # Chứa các file HTML của các trang
+┣ LICENSE              # Giấy phép mã nguồn
+┣ package.json         # Thông tin dự án và dependencies (nếu có)
+┗ README.md            # Tài liệu hướng dẫn
+```
 ## USAGE
 ### Hướng dẫn Cài đặt và Chạy dự án
 
