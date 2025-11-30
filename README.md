@@ -66,47 +66,47 @@ Aurews/
 
 Để chạy dự án này trên máy tính của bạn, hãy làm theo các bước sau:
 
-Yêu cầu:
+#### Yêu cầu:
 
-Git được cài đặt trên máy.
+* Git được cài đặt trên máy.
 
-Trình soạn thảo code, ví dụ: Visual Studio Code.
+* Trình soạn thảo code, ví dụ: Visual Studio Code.
 
-Bước 1: Tải mã nguồn về máy (Clone repository)
+**Bước 1: Tải mã nguồn về máy (Clone repository)**
 
-Mở Terminal (hoặc Git Bash trên Windows) và chạy lệnh sau:
+    Mở Terminal (hoặc Git Bash trên Windows) và chạy lệnh sau:
 ```bash
 git clone https://github.com/MRaver/Aurews.git
 ```
-Bước 2: Di chuyển vào thư mục dự án
+**Bước 2: Di chuyển vào thư mục dự án**
 ```bash
 cd Aurews
 ```
-Bước 3: Chạy dự án
+**Bước 3: Chạy dự án**
 
-Dự án này là một trang web tĩnh, bạn có thể chạy nó theo một trong hai cách sau:
+    Dự án này là một trang web tĩnh, bạn có thể chạy nó theo một trong hai cách sau:
 
 #### Cách 1: Dùng Extension "Live Server" (Khuyến khích)
 
-Đây là cách tốt nhất để trải nghiệm dự án vì nó tạo ra một môi trường máy chủ cục bộ, tránh được các lỗi liên quan đến CORS và tự động cập nhật khi bạn thay đổi mã nguồn.
+    Đây là cách tốt nhất để trải nghiệm dự án vì nó tạo ra một môi trường máy chủ cục bộ, tránh được các lỗi liên quan đến CORS và tự động cập nhật khi bạn thay đổi mã nguồn.
 
-Mở thư mục dự án Aurews bằng Visual Studio Code.
+* Mở thư mục dự án Aurews bằng Visual Studio Code.
 
-Nếu bạn chưa có, hãy cài đặt extension Live Server từ Marketplace.
+* Nếu bạn chưa có, hãy cài đặt extension Live Server từ Marketplace.
 
-Trong cây thư mục của VS Code, tìm đến file pages/index.html.
+* Trong cây thư mục của VS Code, tìm đến file pages/index.html.
 
-Nhấn chuột phải vào file index.html và chọn "Open with Live Server".
+* Nhấn chuột phải vào file index.html và chọn "Open with Live Server".
 
-Trình duyệt sẽ tự động mở trang web và bạn có thể bắt đầu sử dụng.
+* Trình duyệt sẽ tự động mở trang web và bạn có thể bắt đầu sử dụng.
 
 #### Cách 2: Mở file HTML trực tiếp
 
-Trong thư mục dự án trên máy tính của bạn, đi vào thư mục pages.
+* Trong thư mục dự án trên máy tính của bạn, đi vào thư mục pages.
 
-Nhấn đúp chuột vào file index.html.
+* Nhấn đúp chuột vào file index.html.
 
-File sẽ được mở trực tiếp trên trình duyệt của bạn.
+* File sẽ được mở trực tiếp trên trình duyệt của bạn.
 
 ## Contributors
 ```
