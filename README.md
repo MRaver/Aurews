@@ -74,8 +74,8 @@ Aurews/
 
 **Bước 1: Tải mã nguồn về máy (Clone repository)**
 
-    Mở Terminal (hoặc Git Bash trên Windows) và chạy lệnh sau:
-    
+Mở Terminal (hoặc Git Bash trên Windows) và chạy lệnh sau:
+
 ```bash
 git clone https://github.com/MRaver/Aurews.git
 ```
@@ -85,11 +85,11 @@ cd Aurews
 ```
 **Bước 3: Chạy dự án**
 
-    Dự án này là một trang web tĩnh, bạn có thể chạy nó theo một trong hai cách sau:
+Dự án này là một trang web tĩnh, bạn có thể chạy nó theo một trong hai cách sau:
 
 #### Cách 1: Dùng Extension "Live Server" (Khuyến khích)
 
-    Đây là cách tốt nhất để trải nghiệm dự án vì nó tạo ra một môi trường máy chủ cục bộ, tránh được các lỗi liên quan đến CORS và tự động cập nhật khi bạn thay đổi mã nguồn.
+Đây là cách tốt nhất để trải nghiệm dự án vì nó tạo ra một môi trường máy chủ cục bộ, tránh được các lỗi liên quan đến CORS và tự động cập nhật khi bạn thay đổi mã nguồn.
 
 * Mở thư mục dự án Aurews bằng Visual Studio Code.
 
@@ -110,12 +110,12 @@ cd Aurews
 * File sẽ được mở trực tiếp trên trình duyệt của bạn.
 
 ## Contributors
-```
+
 **Đỗ Nhất Phong**
 **Trần Quang Phát**
 **Nguyễn Xuân Đình Lực**
 **Huỳnh Đào Quốc Trọng**
-```
+
 
 GitHub: MRaver
 
