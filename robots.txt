@@ -1,0 +1,16 @@
+# robots.txt for Aurews
+# https://aurews.com
+
+User-agent: *
+Allow: /
+
+# Không index trang search (tránh duplicate content)
+Disallow: /pages/search.html
+
+# Không index các file assets
+Disallow: /assets/data/
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Sitemap
+Sitemap: https://aurews.com/sitemap.xml

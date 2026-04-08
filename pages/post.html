@@ -2,85 +2,140 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/post.css">
-    <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
-    <link rel="stylesheet" href="../assets/css/general.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <title>Aurews</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========== SEO: Title & Description (JS sẽ override theo bài viết thực tế) ========== -->
+  <title>Article – Aurews International News</title>
+  <meta name="description" content="Read the latest news and in-depth articles on Aurews covering business, economics, AI, lifestyle, sports, and politics." id="meta-description">
+  <meta name="author" content="Aurews" id="meta-author">
+  <meta name="robots" content="index, follow">
+
+  <!-- ========== SEO: Canonical ========== -->
+  <link rel="canonical" href="https://aurews.com/pages/post.html" id="canonical-tag">
+
+  <!-- ========== SEO: Open Graph ========== -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Article – Aurews" id="og-title">
+  <meta property="og:description" content="Read the latest in-depth articles on Aurews." id="og-description">
+  <meta property="og:site_name" content="Aurews">
+  <meta property="og:url" content="https://aurews.com/pages/post.html" id="og-url">
+  <meta property="og:image" content="https://aurews.com/assets/img/screenshot.png" id="og-image">
+  <meta property="article:publisher" content="https://aurews.com">
+
+  <!-- ========== SEO: Schema NewsArticle (JS nên cập nhật theo bài viết) ========== -->
+  <script type="application/ld+json" id="schema-article">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Article – Aurews",
+    "url": "https://aurews.com/pages/post.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aurews",
+      "url": "https://aurews.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aurews.com/assets/img/favicon.png"
+      }
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Aurews Editorial"
+    }
+  }
+  </script>
+
+  <!--
+    GHI CHÚ CHO ĐỘI DEV (post.js):
+    Sau khi load dữ liệu bài viết, override các meta tag sau:
+
+    const article = ...; // dữ liệu bài viết
+    document.title = `${article.title} | Aurews`;
+    document.getElementById('meta-description').content = article.summary || article.content.slice(0, 155);
+    document.getElementById('meta-author').content = article.author;
+    document.getElementById('canonical-tag').href = `https://aurews.com/pages/post.html?id=${article.id}`;
+    document.getElementById('og-title').content = article.title;
+    document.getElementById('og-description').content = article.summary;
+    document.getElementById('og-image').content = article.img;
+    document.getElementById('og-url').content = `https://aurews.com/pages/post.html?id=${article.id}`;
+
+    // Cập nhật Schema
+    const schema = JSON.parse(document.getElementById('schema-article').textContent);
+    schema.headline = article.title;
+    schema.url = `https://aurews.com/pages/post.html?id=${article.id}`;
+    schema.author.name = article.author;
+    schema.datePublished = article.date;
+    schema.image = article.img;
+    document.getElementById('schema-article').textContent = JSON.stringify(schema);
+  -->
+
+  <link rel="stylesheet" href="../assets/css/post.css">
+  <link rel="stylesheet" href="../assets/css/general.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
 </head>
 
 <body>
-    <div id="page-overlay">
+  <div id="page-overlay"></div>
+  <div id="pop-up-overlay__placeholder"></div>
 
-    </div>
-    <!-- ======================= -->
-    <!-- sign-up, sign in -->
-    <!-- ======================= -->
-    <!-- Pop-up Overlay -->
-    <div id="pop-up-overlay__placeholder"></div>
+  <div id="mainContent">
+    <header>
+      <div id="navbar__placeholder"></div>
+      <div id="mobile-menu__placeholder"></div>
+    </header>
+    <main>
+      <!-- Breadcrumb: Internal Link + SEO -->
+      <nav aria-label="Breadcrumb" style="padding: 1rem 2rem; font-size:0.85rem;" id="breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true"> › </span>
+        <a href="category.html" id="breadcrumb-category">Category</a>
+        <span aria-hidden="true"> › </span>
+        <span id="breadcrumb-title">Article</span>
+      </nav>
 
-    <div id="mainContent">
-        <header>
-            <div id="navbar__placeholder"></div>
-            <div id="mobile-menu__placeholder"></div>
-        </header>
-        <main>
-            <div class="news__title-container js-title-container">
-                <p>BUSINESS NEWS • 2 min read</p>
-                <h1>Channing Tatum says he turned down a role in 'Beauty and the Beast' and now views it as his 'biggest
-                    mistake'</h1>
-                <p>12 hr ago</p>
-                <p>&nbsp;&nbsp;|&nbsp; PUBLISHED Sep 10, 2025, 12:00 PM ET</p>
-                <p class="author-info">By <span class="logo"></span><span class="author-name"><u>author's
-                            name</u></span>
-                </p>
-            </div>
-            <!-- modified begin -->
-            <!-- This div contains the main image's caption -->
-            <div class="news__img-container js-img-container">
-            </div>
-            <!-- modified end -->
-            <div class="news__content-container js-new-content-container">
-            </div>
-            <div class="container">
-                <div class="header"></div>
+      <div class="news__title-container js-title-container">
+        <p>BUSINESS NEWS • 2 min read</p>
+        <h1>Channing Tatum says he turned down a role in 'Beauty and the Beast' and now views it as his 'biggest mistake'</h1>
+        <p>12 hr ago</p>
+        <p>&nbsp;&nbsp;|&nbsp; PUBLISHED Sep 10, 2025, 12:00 PM ET</p>
+        <p class="author-info">By <span class="logo"></span><span class="author-name"><u>author's name</u></span></p>
+      </div>
 
-                <div class="content-wrapper">
-                    <div class="left-section">
-                        <h2 class="section-title">UP NEXT</h2>
+      <div class="news__img-container js-img-container"></div>
+      <div class="news__content-container js-new-content-container"></div>
 
-                        <div class="articles-grid">
+      <div class="container">
+        <div class="header"></div>
+        <div class="content-wrapper">
+          <div class="left-section">
+            <h2 class="section-title">UP NEXT</h2>
+            <div class="articles-grid"></div>
+          </div>
+          <div class="right-section">
+            <h2 class="section-title">Most Read</h2>
+            <ul class="most-read-list"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="footer__placeholder"></div>
+  </div>
 
-                        </div>
-                    </div>
-
-                    <div class="right-section">
-                        <h2 class="section-title">Most Read</h2>
-
-                        <ul class="most-read-list">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <div id="footer__placeholder"></div>
-    </div>
-    <script type="module" src="../components/Navbar/Navbar.js"></script>
-    <script src="../components/PopUpOverlay/PopUpOverlay.js"></script>
-    <script type="module" src="../components/Footer/Footer.js"></script>
-    <script type="module" src="../components/MobileMenu/MobileMenu.js"></script>
-    <script src="../assets/js/header.js" type="module"></script>
-    <script src="../assets/js/post.js" type="module"></script>
-    <script src="../assets/js/login.js"></script>
-    <script src="../assets/js/overlay.js"></script>
+  <script type="module" src="../components/Navbar/Navbar.js"></script>
+  <script src="../components/PopUpOverlay/PopUpOverlay.js"></script>
+  <script type="module" src="../components/Footer/Footer.js"></script>
+  <script type="module" src="../components/MobileMenu/MobileMenu.js"></script>
+  <script src="../assets/js/header.js" type="module"></script>
+  <script src="../assets/js/post.js" type="module"></script>
+  <script src="../assets/js/login.js"></script>
+  <script src="../assets/js/overlay.js"></script>
 </body>
 
 </html>

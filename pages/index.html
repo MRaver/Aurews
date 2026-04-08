@@ -4,27 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========== SEO: Title & Meta Description ========== -->
+  <title>Aurews – International Eco & Business News | Latest Updates</title>
+  <meta name="description" content="Aurews delivers the latest international news on economics, business, AI, lifestyle, sports, and politics. Stay informed with accurate, nonpartisan journalism.">
+  <meta name="keywords" content="international news, business news, economics, AI news, lifestyle, sports, politics, Aurews">
+  <meta name="author" content="Aurews">
+  <meta name="robots" content="index, follow">
+
+  <!-- ========== SEO: Canonical Tag ========== -->
+  <link rel="canonical" href="https://aurews.com/pages/index.html">
+
+  <!-- ========== SEO: Open Graph (Social Sharing) ========== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aurews – International Eco & Business News">
+  <meta property="og:description" content="Stay informed with the latest international news on economics, business, AI, lifestyle, sports, and politics.">
+  <meta property="og:url" content="https://aurews.com/pages/index.html">
+  <meta property="og:site_name" content="Aurews">
+  <meta property="og:image" content="https://aurews.com/assets/img/screenshot.png">
+
+  <!-- ========== SEO: Twitter Card ========== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aurews – International Eco & Business News">
+  <meta name="twitter:description" content="Stay informed with the latest international news on economics, business, AI, lifestyle, sports, and politics.">
+  <meta name="twitter:image" content="https://aurews.com/assets/img/screenshot.png">
+
+  <!-- ========== SEO: Schema Markup (WebSite) ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aurews",
+    "url": "https://aurews.com",
+    "description": "International Eco & Business News platform delivering accurate, nonpartisan journalism.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aurews.com/pages/search.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/index.css">
-  <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <title>Aurews</title>
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
 </head>
 
 <body>
   <div id="page-overlay">
-    <!-- THAY ĐỔI: Sử dụng text thay vì spinner -->
     <div class="loading-text">AUREWS</div>
   </div>
-  <!-- ======================= -->
-  <!-- sign-up, sign in -->
-  <!-- ======================= -->
-  <!-- Pop-up Overlay -->
   <div id="pop-up-overlay__placeholder"></div>
   <div id="mobile-menu__placeholder"></div>
   <div id="mainContent">
@@ -54,12 +88,13 @@
             </div>
             <div class="right1">
               <div class="threenews"></div>
-
             </div>
           </div>
         </div>
         <div class="right">
           <h2>LIFE STYLE</h2>
+          <!-- ========== Internal Link: Lifestyle Category ========== -->
+          <a href="category.html?cat=Lifestyle" aria-label="View all Lifestyle articles" style="font-size:0.8rem; color:#888; float:right; margin-top:-1.8rem;">See all →</a>
           <div class="boxupperright">
             <div class="bignews">
               <div class="bignews__img">
@@ -97,6 +132,8 @@
               <img src="../assets/img/img34.png" alt="Weather information" style="border-radius: 12px">
             </div>
             <h2>SPORTS</h2>
+            <!-- ========== Internal Link: Sports Category ========== -->
+            <a href="category.html?cat=Sports" aria-label="View all Sports articles" style="font-size:0.8rem; color:#888; float:right; margin-top:-1.8rem;">See all →</a>
             <div class="boxlowerright__img">
               <img src="../assets/img/img35.png" alt="Sports information" style="border-radius: 12px">
             </div>
@@ -106,27 +143,31 @@
       <!-- TOPICS -->
       <div class="topic__container">
         <div class="topic topic1">
-          <h2>Topic 1</h2>
+          <!-- ========== Internal Link: Business Category ========== -->
+          <h2><a href="category.html?cat=Business News" style="color:inherit; text-decoration:none;">Business News</a></h2>
           <div class="block">
-            <p>Show all...</p>
+            <p><a href="category.html?cat=Business News">Show all...</a></p>
           </div>
         </div>
         <div class="topic">
-          <h2>Topic 2</h2>
+          <!-- ========== Internal Link: Money & Markets ========== -->
+          <h2><a href="category.html?cat=Money and Markets" style="color:inherit; text-decoration:none;">Money & Markets</a></h2>
           <div class="block">
-            <p>Show all...</p>
+            <p><a href="category.html?cat=Money and Markets">Show all...</a></p>
           </div>
         </div>
         <div class="topic">
-          <h2>Topic 3</h2>
+          <!-- ========== Internal Link: Tech & Innovation ========== -->
+          <h2><a href="category.html?cat=Tech and Innovation" style="color:inherit; text-decoration:none;">Tech & Innovation</a></h2>
           <div class="block">
-            <p>Show all...</p>
+            <p><a href="category.html?cat=Tech and Innovation">Show all...</a></p>
           </div>
         </div>
         <div class="topic">
-          <h2>Topic 4</h2>
+          <!-- ========== Internal Link: Politics ========== -->
+          <h2><a href="category.html?cat=Politics" style="color:inherit; text-decoration:none;">Politics</a></h2>
           <div class="block">
-            <p>Show all...</p>
+            <p><a href="category.html?cat=Politics">Show all...</a></p>
           </div>
         </div>
       </div>
@@ -134,7 +175,9 @@
       <div class="AI__container">
         <div class="AI__left">
           <div class="AI__title">
-            <h2>Generation A.I</h2>
+            <!-- ========== Internal Link: AI Category ========== -->
+            <h2><a href="category.html?cat=A.I." style="color:inherit; text-decoration:none;">Generation A.I.</a></h2>
+            <a href="category.html?cat=A.I." style="font-size:0.8rem; color:#888;">See all AI articles →</a>
           </div>
           <div class="AI_maintopic">
             <div class="AI__img">
@@ -214,7 +257,10 @@
                 alt="Business news">
             </div>
             <div class="business__news-description">
-              <h2 class="business__title">Business News</h2>
+              <h2 class="business__title">
+                <!-- ========== Internal Link: Business ========== -->
+                <a href="category.html?cat=Business News" style="color:inherit; text-decoration:none;">Business News</a>
+              </h2>
               <h2 class="p2">Loading...</h2>
               <p>Please wait while we load the content.</p>
             </div>
@@ -227,7 +273,8 @@
                 alt="Lifestyle article">
             </div>
             <div class="lifestyle__description">
-              <h2>Lifestyle</h2>
+              <!-- ========== Internal Link: Lifestyle ========== -->
+              <h2><a href="category.html?cat=Lifestyle" style="color:inherit; text-decoration:none;">Lifestyle</a></h2>
               <p>Loading content...</p>
             </div>
           </div>
@@ -237,7 +284,8 @@
                 alt="Politics article">
             </div>
             <div class="politics__description">
-              <h2>Politics</h2>
+              <!-- ========== Internal Link: Politics ========== -->
+              <h2><a href="category.html?cat=Politics" style="color:inherit; text-decoration:none;">Politics</a></h2>
               <p>Loading content...</p>
             </div>
           </div>
@@ -248,8 +296,6 @@
     <div id="footer__placeholder"></div>
   </div>
 
-  <!-- Render dung thu tu -->
-
   <script type="module" src="../components/Navbar/Navbar.js"></script>
   <script src="../assets/js/login.js"></script>
   <script src="../components/PopUpOverlay/PopUpOverlay.js"></script>
@@ -257,7 +303,7 @@
   <script type="module" src="../components/Footer/Footer.js"></script>
   <script src="../assets/js/overlay.js"></script>
   <script src="../assets/js/index.js" type="module"></script>
-   <script type="module" src="../components/Banner/Banner.js"></script>
+  <script type="module" src="../components/Banner/Banner.js"></script>
   <script src="../assets/js/header.js" type="module"></script>
 </body>
 

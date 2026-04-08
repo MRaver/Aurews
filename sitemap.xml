@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Trang chủ -->
+  <url>
+    <loc>https://aurews.com/pages/index.html</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Trang About -->
+  <url>
+    <loc>https://aurews.com/pages/about.html</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://aurews.com/pages/contact.html</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Trang Category: Business News -->
+  <url>
+    <loc>https://aurews.com/pages/category.html?cat=Business News</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trang Category: Money & Markets -->
+  <url>
+    <loc>https://aurews.com/pages/category.html?cat=Money and Markets</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trang Category: Tech & Innovation -->
+  <url>
+    <loc>https://aurews.com/pages/category.html?cat=Tech and Innovation</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trang Category: A.I. -->
+  <url>
+    <loc>https://aurews.com/pages/category.html?cat=A.I.</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trang Category: Lifestyle -->
+  <url>
+    <loc>https://aurews.com/pages/category.html?cat=Lifestyle</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trang Category: Politics -->
+  <url>
+    <loc>https://aurews.com/pages/category.html?cat=Politics</loc>
+    <lastmod>2025-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!--
+    KHÔNG thêm vào sitemap:
+    - post.html?id=xxx  → trang động, Google sẽ tự crawl qua internal links
+    - search.html       → noindex
+    - addpost.html      → noindex, nofollow (trang admin)
+  -->
+
+</urlset>

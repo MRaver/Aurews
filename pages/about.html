@@ -4,7 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
+
+  <!-- ========== SEO: Title & Meta Description ========== -->
+  <title>About Aurews – Our Mission & International News Coverage</title>
+  <meta name="description" content="Learn about Aurews, a modern international news platform built by UIT students. We deliver accurate, nonpartisan journalism on economics, business, AI, and more.">
+  <meta name="keywords" content="about Aurews, Aurews news platform, international news team, UIT student project">
+  <meta name="author" content="Aurews">
+  <meta name="robots" content="index, follow">
+
+  <!-- ========== SEO: Canonical Tag ========== -->
+  <link rel="canonical" href="https://aurews.com/pages/about.html">
+
+  <!-- ========== SEO: Open Graph ========== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Aurews – Our Mission & International News Coverage">
+  <meta property="og:description" content="Aurews is a modern news platform committed to delivering golden, valuable content. Accurate, independent, nonpartisan journalism.">
+  <meta property="og:url" content="https://aurews.com/pages/about.html">
+  <meta property="og:site_name" content="Aurews">
+  <meta property="og:image" content="https://aurews.com/assets/img/screenshot.png">
+
+  <!-- ========== SEO: Schema Markup (AboutPage) ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Aurews",
+    "url": "https://aurews.com/pages/about.html",
+    "description": "Aurews is a modern international news platform delivering accurate, nonpartisan journalism on economics, business, AI, lifestyle, sports, and politics.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aurews",
+      "url": "https://aurews.com"
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/about.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +51,10 @@
 </head>
 
 <body>
-  <!-- Overlay cho đăng nhập đăng xuất va pop up -->
   <div id="page-overlay"></div>
   <div id="pop-up-overlay__placeholder"></div>
 
-  <!-- Nội dung chính -->
   <div id="mainContent">
-    <!-- || HEADER -->
     <header>
       <div id="navbar__placeholder"></div>
       <div id="mobile-menu__placeholder"></div>
@@ -49,16 +80,16 @@
         <div class="social-box">
           <h3 class="social-title">FOLLOW US</h3>
           <div class="social-icons">
-            <a href="#" class="social-icon">
+            <a href="#" class="social-icon" aria-label="Follow Aurews on Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a href="#" class="social-icon" aria-label="Follow Aurews on Instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a href="#" class="social-icon" aria-label="Follow Aurews on Twitter/X">
               <i class="fab fa-x-twitter"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a href="#" class="social-icon" aria-label="Follow Aurews on YouTube">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
@@ -90,6 +121,17 @@
           Our platform combines cutting-edge web technology with a passion for
           storytelling, creating an intuitive and engaging reading experience
           that keeps you informed about the world around you.
+        </p>
+        <br><br>
+        <!-- ========== Internal Links: Navigate to key sections ========== -->
+        <p class="description-text">
+          Explore our coverage:
+          <a href="index.html">Home</a> |
+          <a href="category.html?cat=Business News">Business News</a> |
+          <a href="category.html?cat=A.I.">AI & Technology</a> |
+          <a href="category.html?cat=Lifestyle">Lifestyle</a> |
+          <a href="category.html?cat=Politics">Politics</a> |
+          <a href="search.html">Search Articles</a>
         </p>
       </div>
     </main>

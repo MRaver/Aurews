@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========== SEO: noindex – trang admin, không cần Google index ========== -->
+  <title>Create New Post – Aurews</title>
+  <meta name="robots" content="noindex, nofollow">
+
   <link rel="stylesheet" href="../assets/css/general.css">
   <link rel="stylesheet" href="../assets/css/addPost.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,22 +17,16 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <title>Aurews</title>
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
 </head>
 
 <body>
   <div id="page-overlay"></div>
-  <!-- ======================= -->
-  <!-- sign-up, sign in -->
-  <!-- ======================= -->
-  <!-- Pop-up Overlay -->
   <div id="pop-up-overlay__placeholder"></div>
 
   <div id="mainContent">
     <header>
       <div id="navbar__placeholder"></div>
-      <!-- Mobile Menu Overlay -->
       <div id="mobile-menu__placeholder"></div>
     </header>
 
@@ -44,7 +43,6 @@
               <label for="postTitle">Post Title *</label>
               <input type="text" id="postTitle" name="postTitle" placeholder="Enter an engaging title" required>
             </div>
-
             <div class="form-group">
               <label for="postCategory">Category *</label>
               <select id="postCategory" name="postCategory" required>
@@ -59,12 +57,10 @@
               </select>
             </div>
           </div>
-
           <div class="form-group">
             <label for="postAuthor">Author Name *</label>
             <input type="text" id="postAuthor" name="postAuthor" placeholder="Your name" required>
           </div>
-
           <div class="form-group">
             <label for="postImage">Featured Image</label>
             <input type="file" id="postImage" name="postImage" accept="image/*">
@@ -75,12 +71,10 @@
                 alt="Preview">
             </div>
           </div>
-          <!-- modified begin -->
           <div class="form-group">
             <label for="img-caption">Image Caption</label>
             <input type="text" id="img-caption" name="img-caption" placeholder="Enter image caption">
           </div>
-          <!-- modified end -->
           <div class="form-group">
             <label for="postContent">Post Content *</label>
             <textarea id="postContent" name="postContent"
@@ -88,14 +82,11 @@
               required></textarea>
             <small>Minimum 100 characters</small>
           </div>
-
           <div class="submit-section">
             <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
               Cancel
             </button>
-            <button type="submit" class="btn btn-primary">
-              Publish Post
-            </button>
+            <button type="submit" class="btn btn-primary">Publish Post</button>
           </div>
         </form>
       </div>
@@ -103,6 +94,7 @@
 
     <div id="footer__placeholder"></div>
   </div>
+
   <script type="module" src="../components/Navbar/Navbar.js"></script>
   <script src="../components/PopUpOverlay/PopUpOverlay.js"></script>
   <script type="module" src="../components/Footer/footer.js"></script>

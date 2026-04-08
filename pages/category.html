@@ -5,6 +5,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ========== SEO: Title & Description (động theo category, JS sẽ override) ========== -->
+  <title>News by Category – Aurews International News</title>
+  <meta name="description" content="Browse the latest international news articles by category on Aurews. Covering Business, AI, Lifestyle, Politics, Money & Markets, and Tech & Innovation.">
+  <meta name="author" content="Aurews">
+  <meta name="robots" content="index, follow">
+
+  <!-- ========== SEO: Canonical (JS nên override cái này nếu có thể) ========== -->
+  <link rel="canonical" href="https://aurews.com/pages/category.html" id="canonical-tag">
+
+  <!-- ========== SEO: Open Graph ========== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="News by Category – Aurews" id="og-title">
+  <meta property="og:description" content="Browse the latest international news by category on Aurews." id="og-description">
+  <meta property="og:site_name" content="Aurews">
+  <meta property="og:url" content="https://aurews.com/pages/category.html" id="og-url">
+  <meta property="og:image" content="https://aurews.com/assets/img/screenshot.png">
+
+  <!-- ========== SEO: Schema (ItemList – JS nên cập nhật nếu cần) ========== -->
+  <script type="application/ld+json" id="schema-category">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "News by Category – Aurews",
+    "url": "https://aurews.com/pages/category.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aurews",
+      "url": "https://aurews.com"
+    }
+  }
+  </script>
+
+  <!--
+    GHI CHÚ CHO ĐỘI DEV:
+    Vì category.html render động theo query param ?cat=...,
+    JS trong category.js nên override title/description/canonical theo category hiện tại.
+    Ví dụ khi cat=Business News:
+      document.title = 'Business News – Latest Updates | Aurews';
+      document.querySelector('meta[name="description"]').content = 'Browse the latest Business News articles on Aurews...';
+      document.getElementById('canonical-tag').href = 'https://aurews.com/pages/category.html?cat=Business News';
+  -->
+
   <link rel="stylesheet" href="../assets/css/general.css" />
   <link rel="stylesheet" href="../assets/css/category.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,16 +54,11 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-  <title>Aurews</title>
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
 </head>
 
 <body>
   <div id="page-overlay"></div>
-  <!-- ======================= -->
-  <!-- sign-up, sign in -->
-  <!-- ======================= -->
-  <!-- Pop-up Overlay -->
   <div id="pop-up-overlay__placeholder"></div>
 
   <div id="mainContent">
@@ -35,41 +72,44 @@
           <h1 id="category-title">LOADING...</h1>
           <h2 id="category-subtitle">Please wait...</h2>
         </div>
-        <!-- Main Content Grid -->
         <div class="news__container">
-          <!-- Articles List -->
           <div id="newsList__container">
-            <!-- Loading State -->
             <div class="loading__state" id="loading-state">
               <div class="loading__spinner"></div>
               <p>Loading articles...</p>
             </div>
             <!-- Articles Grid (populated by JS) -->
             <div class="articles__grid" id="articles-grid" style="display: none"></div>
-
-            <!-- Empty State -->
             <div class="empty__state" id="empty-state" style="display: none">
               <i class="fas fa-inbox"></i>
               <h3>No Articles Found</h3>
               <p>There are no articles in this category yet.</p>
             </div>
-
-            <!-- Load More Button -->
             <div class="load-more__container" id="load-more-container" style="display: none">
-              <button class="load-more__btn" id="load-more-btn">
-                LOAD MORE
-              </button>
+              <button class="load-more__btn" id="load-more-btn">LOAD MORE</button>
             </div>
           </div>
-          <!-- Sidebar - Trending Now -->
+
+          <!-- Sidebar -->
           <aside class="sidebar__container">
             <h3 class="sidebar__header">TRENDING NOW</h3>
+            <div class="trending__list" id="trending-list"></div>
 
-            <div class="trending__list" id="trending-list">
-              <!-- Trending items will be populated by JS -->
-            </div>
+            <!-- ========== Internal Links: Other Categories ========== -->
+            <nav aria-label="Browse other categories" style="margin-top: 2rem;">
+              <h3 style="font-size:0.85rem; letter-spacing:0.1em; margin-bottom:0.75rem;">OTHER TOPICS</h3>
+              <ul style="list-style:none; padding:0; margin:0; font-size:0.9rem; line-height:2;">
+                <li><a href="category.html?cat=Business News">Business News</a></li>
+                <li><a href="category.html?cat=Money and Markets">Money &amp; Markets</a></li>
+                <li><a href="category.html?cat=Tech and Innovation">Tech &amp; Innovation</a></li>
+                <li><a href="category.html?cat=A.I.">A.I.</a></li>
+                <li><a href="category.html?cat=Lifestyle">Lifestyle</a></li>
+                <li><a href="category.html?cat=Politics">Politics</a></li>
+              </ul>
+            </nav>
           </aside>
         </div>
+
         <section id="you-may-like">
           <h2 class="you-may-like__header">YOU MAY LIKE</h2>
           <div class="you-may-like__grid" id="you-may-like-grid"></div>
@@ -78,6 +118,7 @@
     </main>
     <div id="footer__placeholder"></div>
   </div>
+
   <script src="../assets/js/category.js" type="module"></script>
   <script type="module" src="../components/Navbar/Navbar.js"></script>
   <script src="../components/PopUpOverlay/PopUpOverlay.js"></script>

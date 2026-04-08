@@ -3,15 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aurews</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
+
+    <!-- ========== SEO: Title & Meta Description ========== -->
+    <title>Search Articles – Aurews International News</title>
+    <meta name="description" content="Search thousands of articles on Aurews covering business, economics, AI, lifestyle, sports, and politics. Find the news that matters to you.">
+    <meta name="keywords" content="search news, Aurews search, business news search, AI articles, international news search">
+    <meta name="author" content="Aurews">
+    <meta name="robots" content="noindex, follow">
+    <!-- noindex vì trang search không nên index (tránh duplicate content) -->
+
+    <!-- ========== SEO: Canonical Tag ========== -->
+    <link rel="canonical" href="https://aurews.com/pages/search.html">
+
+    <!-- ========== SEO: Open Graph ========== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Search Articles – Aurews International News">
+    <meta property="og:description" content="Search thousands of articles on Aurews covering business, economics, AI, lifestyle, sports, and politics.">
+    <meta property="og:url" content="https://aurews.com/pages/search.html">
+    <meta property="og:site_name" content="Aurews">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <link rel="stylesheet" href="../assets/css/general.css" />
     <link rel="stylesheet" href="../assets/css/search.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- <link rel="stylesheet" href="../assets/css/login.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
@@ -22,15 +36,10 @@
 
   <body>
     <div id="page-overlay"></div>
-    <!-- ======================= -->
-    <!-- sign-up, sign in -->
-    <!-- ======================= -->
-    <!-- Pop-up Overlay -->
     <div id="pop-up-overlay__placeholder"></div>
 
     <div id="mainContent">
       <header>
-        <!-- Navigation -->
         <div id="navbar__placeholder"></div>
         <div id="mobile-menu__placeholder"></div>
       </header>
@@ -52,44 +61,28 @@
                   placeholder="Search for articles, news, and more..."
                   autocomplete="off"
                 />
-                <button
-                  class="clear-input-btn"
-                  id="clearInputButton"
-                  type="button"
-                >
-                  &times;
-                </button>
+                <button class="clear-input-btn" id="clearInputButton" type="button">&times;</button>
               </div>
-              <!-- Search Button -->
               <button class="search-btn" id="searchButton" type="button">
                 <i class="fas fa-search"></i> Search
               </button>
-              <!-- Search Suggestions -->
               <div class="search-suggestions" id="searchSuggestions">
                 <div class="suggestions-layout">
                   <div class="suggestion-section">
-                    <!-- Recent Searches -->
                     <div class="suggestion-section-header">
                       <div class="suggestion-section-header-text">
                         <i class="fas fa-history"></i>Recent Searches
                       </div>
                     </div>
-                    <div
-                      class="suggestion-list"
-                      id="recentSuggestionsList"
-                    ></div>
+                    <div class="suggestion-list" id="recentSuggestionsList"></div>
                   </div>
                   <div class="suggestion-section">
-                    <!-- Popular Searches -->
                     <div class="suggestion-section-header">
                       <div class="suggestion-section-header-text">
                         <i class="fas fa-fire"></i>Popular Searches
                       </div>
                     </div>
-                    <div
-                      class="suggestion-list"
-                      id="popularSuggestionsList"
-                    ></div>
+                    <div class="suggestion-list" id="popularSuggestionsList"></div>
                   </div>
                 </div>
               </div>
@@ -101,10 +94,8 @@
               <i class="fas fa-filter"></i>Advanced Search
               <span class="filters-count" id="activeFiltersCount"></span>
             </button>
-            <!-- Filters Dropdown -->
             <div class="filters-dropdown" id="filtersDropdown">
               <div class="filter-group">
-                <!-- Content Type Filter -->
                 <label class="filter-label">Content Type:</label>
                 <select class="filter-select" id="contentTypeFilter">
                   <option value="">All</option>
@@ -114,9 +105,7 @@
                   <option value="image">Image</option>
                 </select>
               </div>
-
               <div class="filter-group">
-                <!-- Category Filter -->
                 <label class="filter-label">Category:</label>
                 <select class="filter-select" id="categoryFilter">
                   <option value="">All Categories</option>
@@ -129,9 +118,7 @@
                   <option value="Politics">Politics</option>
                 </select>
               </div>
-
               <div class="filter-group">
-                <!-- Date Filter -->
                 <label class="filter-label">Date Range:</label>
                 <select class="filter-select" id="dateFilter">
                   <option value="">All Time</option>
@@ -141,9 +128,7 @@
                   <option value="year">This Year</option>
                 </select>
               </div>
-
               <div class="filter-group">
-                <!-- Search In Filter -->
                 <label class="filter-label">Filter By:</label>
                 <select class="filter-select" id="searchInFilter">
                   <option value="all">All</option>
@@ -152,8 +137,6 @@
                   <option value="author">Author Only</option>
                 </select>
               </div>
-
-              <!-- Clear All Filters Button -->
               <button class="clear-all-filters-btn" id="clearAllFiltersBtn">
                 <i class="fas fa-redo"></i> Clear All Filters
               </button>
@@ -164,13 +147,10 @@
         <!-- Results Section -->
         <div class="results-section">
           <div class="results-header">
-            <!-- Results Info -->
             <div class="results-info">
               <span id="resultsCount"><strong>0</strong> results</span>
             </div>
-            <!-- Sort Dropdown -->
             <div class="sort-wrapper">
-              <!-- Sort by -->
               <label for="sortDropdown" class="sort-label">Sort by:</label>
               <select class="sort-dropdown" id="sortDropdown">
                 <option value="relevance">Relevance</option>
@@ -180,28 +160,26 @@
               </select>
             </div>
           </div>
-
-          <!-- Articles Grid -->
-          <div class="articles-grid" id="articlesGrid">
-            <!-- Articles will be dynamically inserted here -->
-          </div>
-
-          <!-- Loading State -->
+          <div class="articles-grid" id="articlesGrid"></div>
           <div class="loading" id="loadingState" style="display: none">
             <i class="fas fa-spinner"></i>
             <p style="margin-top: 20px; color: #666">Loading results...</p>
           </div>
-
-          <!-- No Results -->
-          <div class="no-results" id="noResults" style="display: none">
-            <!-- <i class="fas fa-search"></i>
-                <h2>No Results Found</h2>
-                <p>Try adjusting your search or filters to find what you're looking for.</p> -->
-          </div>
+          <div class="no-results" id="noResults" style="display: none"></div>
         </div>
+
+        <!-- ========== Internal Links: Browse by Category ========== -->
+        <nav aria-label="Browse by category" style="padding: 2rem; text-align:center;">
+          <p style="font-weight:600; margin-bottom:0.5rem;">Browse by Category:</p>
+          <a href="category.html?cat=Business News" style="margin: 0 0.5rem;">Business News</a> |
+          <a href="category.html?cat=A.I." style="margin: 0 0.5rem;">A.I.</a> |
+          <a href="category.html?cat=Lifestyle" style="margin: 0 0.5rem;">Lifestyle</a> |
+          <a href="category.html?cat=Politics" style="margin: 0 0.5rem;">Politics</a> |
+          <a href="category.html?cat=Money and Markets" style="margin: 0 0.5rem;">Money & Markets</a> |
+          <a href="category.html?cat=Tech and Innovation" style="margin: 0 0.5rem;">Tech & Innovation</a>
+        </nav>
       </main>
 
-      <!-- Footer -->
       <div id="footer__placeholder"></div>
     </div>
     <script type="module" src="../components/Navbar/Navbar.js"></script>
